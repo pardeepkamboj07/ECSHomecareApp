@@ -53,7 +53,7 @@ const routes: Routes = [
      children : [{path:'getinvoicebyId/:InvId',component:InvoicedetailsComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'dashboard',component : LayoutComponent ,
      children : [{path:'clientevent/:clientId',component:ClienteventComponent}]
   },
   
