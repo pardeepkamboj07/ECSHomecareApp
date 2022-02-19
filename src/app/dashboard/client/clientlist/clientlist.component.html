@@ -1,0 +1,331 @@
+
+<!--BEGIN PAGE WRAPPER-->
+<div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
+  <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+      <div class="page-header pull-left">
+          <div class="page-title">CLIENT List</div>
+      </div>     
+   
+      <div class="clearfix"></div>
+  </div>
+  <!--END TITLE & BREADCRUMB PAGE-->
+  <!--BEGIN CONTENT-->
+  <div class="page-content">      
+   
+
+
+
+<div class="client-list-page">
+  <div class="heading">
+    <div class="container-fluid">
+      <div class="row">
+        <h2 class="mt-10 col-lg-4 col-sm-12">SEARCH CLIENTS</h2>
+        <div class="alphabets col-lg-8 col-sm-12">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span>
+          <span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span>
+          <span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span><span
+            class="all">All</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <form action="">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="form-container">
+          <div class="form_element">
+            <label for="firstname">Type</label>
+            <select id="cars" name="cars"
+              style="border-radius: 10px; border-color: white;">
+              <option value="HHA">All</option>
+              <option value="HHA">HHA</option>
+            </select>
+
+          </div>
+          <div class="form_element">
+            <label for="firstname">Status</label>
+            <select id="cars" name="cars" class="round"
+              style="border-radius: 10px; border-color: white;">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                    <option value="2">Start of Care</option>
+                                    <option value="3">Admitted Date</option>
+                                    <option value="4">Inquiry</option>
+                                    <option value="5">Discharge</option>
+            </select>
+          </div>
+          <div class="form_element">
+            <label for="firstname">Nurse</label>
+            <select id="cars" name="cars" class="round" style="border-radius: 10px; border-color: white;">
+              <option value="1">All</option>
+              <option value="0">Other</option>
+            </select>
+          </div>
+          <div class="form_element emp-data">
+            <label for="firstname">All Client Data<span>(Names, address, phone, Bill To, Any ID)</span></label>
+            <input type="text" id="txtType" name="txtfirstname">
+          </div>
+          <div class="form_element">
+            <label for="firstname">State </label>
+            <select id="cars" name="cars" class="round"
+              style="border-radius: 10px; border-color: white;">
+              <option value="Washington">Washington</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="New Jersey">New Jersey</option>
+              <option value="California">California</option>
+            </select>
+          </div>
+          <button>
+            GO
+          </button>
+          <div class="add-more">
+            <div class="add-emp" (click)="onClickCreateClient()">
+              <img src="../../assets/images/plus.png" alt="">Add Client
+            </div>
+            <!-- <div class="add-emp">
+              <img src="../../assets/images/plus.png" alt="">Add Applicant
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="table-wrapper" *ngIf="Isapiresponsereceived">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col-1">Client</th>
+          <th scope="col-1"></th>
+          <th scope="col-1"><a class="btn-warning" (click)="OnClickPrevWeek()"> <img
+                src="../../../../assets/images/less-than-solid.svg" alt=""></a></th>
+          <th scope="col-1">Sun {{ weekList[0].getDate() }}</th>
+          <th scope="col-1">Mon {{ weekList[1].getDate() }}</th>
+          <th scope="col-1">Tue {{ weekList[2].getDate() }}</th>
+          <th scope="col-1">Wed {{ weekList[3].getDate() }}</th>
+          <th scope="col-1">Thu {{ weekList[4].getDate() }}</th>
+          <th scope="col-1">Fri {{ weekList[5].getDate() }}</th>
+          <th scope="col-1">Sat {{ weekList[6].getDate() }}</th>
+          <th scope="col-1"><a class="btn-warning" (click)="OnClickNextWeek()"> <img
+                src="../../../../assets/images/greater-than-solid.svg" alt=""></a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let client of clientmeetingList | paginate: { itemsPerPage: 5, currentPage: p, totalItems: totalItemsCount };let i = index"
+          >
+          <td style="width: 150px; height: 100px;background-color: #fff;" class="name-col"> 
+           <a (click)="rowclicked(client)" > {{ client.firstName }} 
+            <span class="empid">
+              {{ client.extClientId }}
+            </span>
+           </a>
+          </td>
+          <td style="width: 50px; height: 100px;background-color: #fff;" class="name-col"><i
+              class="fa fa-calendar fa-2x" style=" color: black;" (click) = "onClickCreateClientMeeting(client.clientId.toString())"></i></td>
+          <td style="width: 20px; height: 100px;background-color: #fff;" class="name-col"></td>
+          <td *ngFor="let week of currentweekarray" class="content-calender" style="width: 150px; height: 100px;">
+            <span *ngFor="let meetings of client.meetingInfo">
+              <div class="meeting" *ngIf="meetings.meetingStartDate.toString() == week"
+                (click)="openPopup(client, meetings)">
+                <span>{{ meetings.startTime.toString() + ' - ' + meetings.endTime.toString() }}</span> <br>
+                <span>{{ client.firstName }}</span>
+              </div>
+            </span>
+            
+          </td>
+          <td style="width: 20px; height: 100px;"></td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+
+  </div>
+
+</div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <table>
+          <tr>
+            <td>
+              <h4 class="modal-title header-date"> {{ meetingHeaderDate }} </h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4 class="modal-title header-time"> {{ meetingHeaderTime }} </h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4 class="modal-title time">Hourly </h4>
+            </td>
+          </tr>
+        </table>
+
+
+      </div>
+      <div class="modal-body">
+        <div class="client-emp-data d-flex">
+          <div class="client-data">
+            <div class="header d-flex">
+              <p>CLIENT</p>
+              <span class="right-tags">
+                <i class="fa fa-calendar"></i>
+                <i class="fa fa-user"></i>
+                <i class="fa fa-clock-o"></i>
+              </span>
+            </div>
+            <div class="name info ">
+              {{ clientFirstName }}, {{ clientLastName }}
+            </div>
+            <div class="address d-flex info">
+              <div class="add-text ">
+                {{clientcity}} <br>
+                {{clientState}} {{clientCountry}} {{clientZipCode}}
+              </div>
+              <div class="add-location">
+                <img src="../../../../assets/images/mapa.png" class="google-maps" alt="">
+              </div>
+            </div>
+            <div class="phone info">
+              Phone: {{clientPhone}}
+            </div>
+            <div class="other-info">
+              Payer:<span class="val">VACCN</span>
+            </div>
+            <div class="other-info">
+              Code:<span class="val">GA10B</span>
+            </div>
+          </div>
+          <div class="emp-data">
+            <div class="header d-flex">
+              <p>EMPLOYEE</p>
+              <span class="right-tags">
+                <i class="fa fa-calendar"></i>
+                <i class="fa fa-user"></i>
+                <i class="fa fa-clock-o"></i>
+              </span>
+            </div>
+            <div class="name info">
+              Eugene, Halpert <span class="val">HHA</span>
+            </div>
+            <div class="address info">
+              160 Prospect St.<br>
+              Ohio, USA
+            </div>
+            <div class="phone info">
+              Cell :(804) 677 8877
+            </div>
+            <div class="email info">
+              Email: abc@gmail.com
+            </div>
+          </div>
+        </div>
+        <!--<table>
+            <tr>
+                <td>Name</td> <td>{{ clientFirstName }}, {{ clientLastName }}</td>
+            </tr>
+            <tr>
+                <td>City</td> <td>{{ clientcity }}</td>
+            </tr>
+            <tr>
+                <td>State</td> <td>{{ clientState }}</td>
+            </tr>
+            <tr>
+                <td>Country</td> <td>{{ clientCountry }}</td>
+            </tr>
+            <tr>
+                <td>ZipCode</td> <td>{{ clientZipCode }}</td>
+            </tr>
+            <tr>
+                <td>Email</td> <td>{{ clientEmail }}</td>
+            </tr>
+            <tr>
+                <td>Phone</td> <td>{{ clientPhone }}</td>
+            </tr>
+        </table>-->
+        <div class="attendance">
+          <span class="heading">
+            ATTENDANCE VERIFICATION
+          </span>
+          <table>
+            <tr>
+              <th>Call</th>
+              <th>Time</th>
+              <th>Caller ID</th>
+            </tr>
+            <tr>
+              <td>
+                <div class="data-format">IN</div>
+              </td>
+              <td>8:00 AM</td>
+              <td>(609) 498 0438</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="data-format">OUT</div>
+              </td>
+              <td>11:12 AM</td>
+              <td>(609) 498 0438</td>
+            </tr>
+          </table>
+        </div>
+        <div class="message-to-emp">
+          <img src="../../../../assets/images/sms.png" alt="">
+          <div class="message-text">
+            <p>SEND MESSAGE TO EMPLOYEE</p>
+            <p>Message will be sent to (809) 665 4321. Reply will be sent to co-ordinator's cellphone.</p>
+          </div>
+        </div>
+        <div class="notes">
+          <div class="heading">
+            NOTES
+          </div>
+          <i class="fa fa-plus"></i> Add Notes
+
+        </div>
+        <div class="status">
+          <div class="heading">STATUS</div>
+          <div class="d-flex">
+            <div class="status-text">
+              <div class="text">AUTHORIZED FOR SERVICE</div>
+              <input type="checkbox" checked>
+            </div>
+            <div class="status-text">
+              <div class="text">CONFIRMED FOR BILLING</div>
+              <input type="checkbox" checked>
+            </div>
+            <div class="status-text">
+              <div class="text">VERIFIED FOR PAYROLL</div>
+              <input type="checkbox" checked>
+            </div>
+            <div class="status-text">
+              <div class="text">BILLED</div>
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="footer-buttons d-flex" >
+          <button>MAKE CHANGES</button>
+          <button>CANCELLED BY CLIENT</button>
+          <button>DELETE</button>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger close-button" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>

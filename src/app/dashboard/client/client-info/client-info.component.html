@@ -1,0 +1,181 @@
+<div class="container-fluid employee-info">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarcollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarcollapse">
+            <ul class="navbar-nav justify-content-between w-100">
+                <li><a href="#" class="nav-link">DASHBOARD</a></li>
+                <li><a href="#" class="nav-link">CLIENTS</a></li>
+                <li><a href="#" class="nav-link">EMPLOYEES</a></li>
+                <li><a href="#" class="nav-link">AVAILABILITY</a></li>
+                <li><a href="#" class="nav-link">BILLING/PAYROLL</a></li>
+                <li><a href="#" class="nav-link">REPORTS</a></li>
+                <li><a href="#" class="nav-link">HELP</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="employee-details">
+        <div class="row">
+            <div class="col-lg-2 first-col">
+                <h2>CLIENT</h2>
+                <div class="side-menu">
+                    <div class="menu-item">Dashboard</div>
+                    <div class="menu-item">Schedule</div>
+                    <div class="menu-item">Search Availability</div>
+                    <div class="menu-item">Status</div>
+                    <div class="menu-item">Service Task</div>
+                    <div class="menu-item">Address & Phones</div>
+                    <div class="menu-item">Medication</div>
+                    <div class="menu-item">Billing</div>
+                    <div class="menu-item">Emergency Info</div>
+                    <div class="menu-item">Complicance</div>
+                    <div class="menu-item">Employee History</div>
+                    <div class="menu-item">GENERAL</div>
+                    <div class="menu-item">Declined Employees</div>
+                    <div class="menu-item">Provisions</div>
+
+                    <div class="menu-item">Group Information</div>
+                    <div class="menu-item">Diagnosis</div>
+                    <div class="menu-item">Contact Log</div>
+                    <div class="menu-item">Notes</div>
+                    <div class="menu-item">Other</div>
+                    <div class="menu-item">EMR Documents / Files</div>
+                </div>
+            </div>
+            <div class="col-lg-5 second-col">
+                <div id="emp-name">
+                    {{ clientName }} | ID : {{ clientinfo.extClientId }}
+
+                </div>
+                <div id="page-title">DASHBOARD</div>
+                <div class="personal-data">
+                    <div class="d-flex">
+                        <div class="text-section">
+                            <p>PERSONAL DATA</p>
+                            <p class="val"> {{ clientName }} </p>
+                            <p class="head">Client ID</p>
+                            <p class="val">{{ clientinfo.extClientId }}</p>
+                            <p class="head">Date of Birth</p>
+                            <p class="val">2022-01-01</p>
+                            <p class="head">Cell Phone</p>
+                            <p class="val"> {{ clientinfo.cellPhone }}</p>
+                            <p class="head">Coordinator</p>
+                            <p class="val">Kevin Chiriboga</p>
+
+
+
+                        </div>
+                        <div class="image-section">
+                            <img src="../../../../assets/images/profilepic.jpeg" alt="">
+                            <div class="d-flex justify-content-center mt-1">
+
+                                <img src="../../../../assets/images/profileIcon.png" alt=""
+                                    style="width:20px; height:20px; margin-right:10px"><span>Profile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex msg-me">
+                        <img src="../../../../assets/images/msgIcon.png" alt=""
+                            style="width:20px; height:20px; margin-right:10px">
+                        <p>send email text message to {{clientName}}</p>
+                    </div>
+                </div>
+                <div id="emp-name">
+                </div>
+                <div id="page-title"></div>
+                <div class="personal-data schedule">
+                    <div class="text-section" style="width: 100%;">
+                        <p class="head">Schedule</p>
+                            <div *ngFor="let meetings of clientinfo.meetingInfo">
+                                <div class="schedule-details">
+                                    <div class="d-flex justify-content-between">
+                                        <p>{{ meetings.meetingStartDate | date }}</p>
+                                        <p>{{ clientName }}</p>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p>{{ meetings.startTime }} - {{ meetings.endTime }}</p>
+                                        <p>HOURLY</p>
+
+                                    </div>
+                                </div>
+                                </div>
+                                <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px"><span class="val">View Full Schedule</span>
+                    </div>
+                </div>
+                <button class="buttons">Search Availability</button>
+            </div>
+            <div class="col-lg-4 third-col">
+                <div id="emp-name">
+                    <!-- < {{ clientName }} | {{ clientinfo.extClientId }}> -->
+                    <div class="emp-name d-flex">
+                        <img src="../../../../assets/images/less-than-solid.svg" alt="" style="width:20px; height:20px"> {{clientName}}| {{clientinfo.extClientId }} <img src="../../../../assets/images/greater-than-solid.svg" alt="" style="width:20px; height:20px"> 
+                    </div>
+                </div>
+                <div id="page-title">&nbsp;</div>
+                <div class="personal-data d-flex">
+                    <div class="text-section w-100">
+                        <p>LOCATION</p>
+                        <img class="maps" src="../../../../assets/images/sample-map.png" alt="">
+                        <div class="d-flex adress-section">
+                            <img src="../../../../assets/images/mapa.png" alt="" style="width:30px; height:30px;">
+                            <p class="val">{{clientinfo.city +", "+clientinfo.cState+", "+clientinfo.country+", "+clientinfo.zipCode}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="emp-name">
+                </div>
+                <div id="page-title"></div>
+                <div class="billing">
+                    <div class="text-section w-100">
+                        <p class="page-title">BILLING SUMMARY / ACTIVE AUTHORIZATIONS</p>
+                        <div class="d-flex">
+                            <p class="head">
+                                VACCN
+                            </p>
+                            <p class="val">Hourly</p>
+                            <p class="head">
+                                Express
+                            </p>
+                            <p class="val">10/19/2022</p>
+                            <p class="status">Auredillo Status ></p>
+                        </div>
+                    </div>
+                    <div class="text-section w-100">
+                        <p class="page-title">STATUS</p>
+                        <p class="val">
+                            Admission
+                        </p>
+                        <div class="d-flex">
+                            <p class="head">
+                                Casa/ DSS/ HRA as of <b>1/28/2022</b>
+                            </p>
+                            
+                            <p class="status">Auredillo Status ></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="emp-name">
+                </div>
+                <div id="page-title"></div>
+                <div class="section-5 d-flex">
+                    <div class="text-section">
+                        <p>Most recent Compliance Completed</p>
+                        <p class="status">Auredillo Status ></p>
+                    </div>
+                </div>
+                <div class="section-6 d-flex">
+                    <div class="text-section rem-section" style="width: 100%;">
+                        <p style="color: rgb(82, 82, 82);text-transform: uppercase; font-size: 14px; font-weight: bold;">{{clientName}} singnature on file</p>
+                        <img src="../../../../assets/images/signature.png" alt="" style="width:90px; height:50px">
+                        <div class="d-flex signature justify-content-between">
+                            <p>{{clientName}}</p> <button>Save signature</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="buttons">Schedule</button>
+            </div>
+        </div>
+    </div>
+</div>

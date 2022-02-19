@@ -1,0 +1,57 @@
+<!--BEGIN PAGE WRAPPER-->
+<div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
+  <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+      <div class="page-header pull-left">
+          <div class="page-title">Generate Invoice</div>
+      </div>     
+   
+      <div class="clearfix"></div>
+  </div>
+  <!--END TITLE & BREADCRUMB PAGE-->
+  <!--BEGIN CONTENT-->
+  <div class="page-content">
+   
+    <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+     
+   
+        <div class="panel">
+      <div class="panel-body">					
+          
+          <div class="row mtm">
+                                  <div class="col-sm-6 col-xs-12">
+                                      <div class="form-group" ><label class="control-label">Invoice Details</label>
+                                       
+                                         <textarea id="w3review" class="form-control" name="txtdesc" rows="2"  ngModel>
+                   
+                                        </textarea> 
+                                         
+                                        
+                                      </div>
+                                  </div>
+                 
+                     
+                                  <div class="col-sm-6 col-xs-12">
+                                      <div class="form-group" ><label class="control-label">Amount</label>
+                                        <input type="text" class="form-control" id="txtamt" name="txtAmt" placeholder="Amount in USD" ngModel>
+                                      </div>
+                                  </div>
+                                 
+             
+
+                           </div>  
+          <div class="row mtm">
+                                  <div class="col-sm-12 col-xs-12 text-center">
+                                          <button type="submit" class="btn btn-lg btn-primary">Generate</button>
+                                      </div>
+      </div>
+          </div>
+      </div>
+
+  </form>
+
+  </div>
+  <!--END CONTENT--></div>
+      
+  
+<!--END PAGE WRAPPER-->
+

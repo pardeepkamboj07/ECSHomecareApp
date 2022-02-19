@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { InvoiceService } from 'src/app/Service/invoice.service'; 
+import { Invoice } from 'src/app/Model/Invoice';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-getinvoices',
+  templateUrl: './getinvoices.component.html',
+  styleUrls: [
+    '../../../assets/css/orange-blue.css',
+    
+    './getinvoices.component.scss']
+})
+export class GetinvoicesComponent implements OnInit {
+
+  invoiceList : Invoice[] = []; 
+  p: number = 1;
+  totalItemsCount : number = 0;
+  
+
+  constructor(private router:Router, private invoiceapi : InvoiceService)  { }
+
+  ngOnInit(): void {
+    this.GetinvoiceList();
+  }
+
+  GetinvoiceList()
+  {
+    this.invoiceapi.getInvoiceList().subscribe(response => {
+          this.invoiceList = response.data;
+          console.log(this.invoiceList);
+        }); 
+  }
+
+  OnClickPay(invoice : Invoice)
+  {
+    this.router.navigate(['/Layout/getinvoicebyId/' + invoice.id])
+  }
+
+  pageChanged(event : any){
+    this.p = event;
+  }
+
+  GenerateInvoice()
+  {
+    this.router.navigate(['/Layout/generateinvoice'])
+  }
+}
