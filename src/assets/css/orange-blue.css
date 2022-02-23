@@ -9028,7 +9028,7 @@ ul.chats li.out .message {
 }
 .arrow-menu {
 	
-   content: url("../images/print.png");
+   content: url(../images/print.png);
    left: 85%;
   }
 .profile-img{
@@ -9300,11 +9300,11 @@ img { max-width: 100%; }
 	width: 100%;
 	float: left;
 	list-style: none;
-	overflow-y: auto;
+	/*overflow-y: auto;*/
 	max-height: 493px;
 	padding: 0px;
-	overflow-x: hidden;
-	padding-right: 5px;
+	/*overflow-x: hidden;*/
+	padding-right: 11px;
 }
 .client-list ul li{
 	padding: 8px 0px;
@@ -9399,4 +9399,172 @@ img { max-width: 100%; }
 	font-size: 11px;
 	position: absolute;
     top: -2px;
+}
+.email-box{
+	padding: 10px;
+	border:solid 1px #ccc;
+	width:100%
+}
+.modal-header {
+    min-height: 16.43px;
+    padding: 5px !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+.close {
+    float: right;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: inherit !important;
+}
+.arrow-right-client{
+	position: absolute;
+  right: 19px;
+  top: 7px
+}
+.arrow-left-client{
+position: absolute;
+    left: 11px;
+    top: 7px;
+}
+
+
+.paginator{
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+.paginator /deep/ .ngx-pagination {
+  margin-left: 0 !important;
+  margin-bottom: 1rem !important;
+  line-height: 20px !important;
+  padding: 7px 15px 7px !important;
+  font-size: 12px !important;
+}
+.paginator /deep/ .ngx-pagination::before,
+.paginator /deep/ .ngx-pagination::after {
+  content: " " !important;
+  display: table !important;
+}
+
+.paginator /deep/ .ngx-pagination::after {
+  clear: both !important;
+}
+
+.paginator /deep/ .ngx-pagination li {
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  margin-right: 0.2rem !important;
+  border-radius: 0 !important;
+}
+
+.paginator /deep/ .ngx-pagination li {
+  display: inline-block !important;
+}
+
+.paginator /deep/ .ngx-pagination a,
+.paginator /deep/ .ngx-pagination button {
+  color: #0a0a0a !important;
+  display: block !important;
+  background-color: #ffffff !important;
+  color: #e74c3c !important;
+  border: 1px solid #d7d4d4 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 9% !important;
+}
+
+.paginator /deep/ .ngx-pagination a:hover,
+.paginator /deep/ .ngx-pagination button:hover,
+.paginator /deep/ .ngx-pagination button:visited,
+.paginator /deep/ .ngx-pagination button:active
+ {
+  background: #eee !important;
+  border: 1px solid #d7d4d4 !important;
+}
+
+.paginator /deep/ .ngx-pagination .current {
+  background: #e74c3c !important;
+  color: #fefefe !important;
+  cursor: default !important;
+  border: 1px solid #c5c3c3 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 9% !important;
+}
+
+.paginator /deep/ .ngx-pagination .disabled {
+  padding: 0.1875rem 0.625rem !important;
+  color: #cacaca00 !important;
+  cursor: default !important;
+}
+
+.paginator /deep/ .ngx-pagination .disabled:hover {
+  background: transparent !important;
+}
+
+.paginator /deep/ .ngx-pagination a,
+.paginator /deep/ .ngx-pagination button,
+.paginator /deep/ .ngx-pagination button:hover,
+.paginator /deep/ .ngx-pagination button:visited
+ {
+  cursor: pointer !important;
+  text-decoration: none;
+  border:solid 1px #eee !important;
+}
+
+.paginator /deep/ .ngx-pagination .pagination-previous a::before,
+.paginator /deep/ .ngx-pagination .pagination-previous.disabled::before {
+  font-family: FontAwesome;
+  content: "\f053" !important;
+  display: inline-block !important;
+  margin-right: 0rem !important;
+}
+
+.paginator /deep/ .ngx-pagination .pagination-next a::after,
+.paginator /deep/ .ngx-pagination .pagination-next.disabled::after {
+  font-family: FontAwesome !important;
+  content: "\f054" !important;
+  display: inline-block !important;
+  margin-left: 0rem !important;
+}
+
+.paginator /deep/ .ngx-pagination .show-for-sr {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+.paginator /deep/ .ngx-pagination .small-screen {
+  display: none !important;
+}
+
+@media screen and (max-width: 601px) {
+  .paginator /deep/ .ngx-pagination.responsive .small-screen {
+    display: inline-block !important;
+    color: black !important;
+    background-color: rgb(248, 248, 248) !important;
+    border: 1px solid #8b8b8b !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 9% !important;
+  }
+  .paginator /deep/ .ngx-pagination.responsive
+    li:not(.small-screen):not(.pagination-previous):not(.pagination-next) {
+    display: none !important;
+  }
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top !important;
+  border-top: 1px solid #ddd;
 }

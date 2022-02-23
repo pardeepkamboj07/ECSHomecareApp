@@ -37,14 +37,14 @@
                         </div>
 
                         <div class="col-sm-3 col-xs-6">
-                            <div class="form-group" [class.state-error]="!validBillTo"  [class.state-success]="validBillTo"><label class="control-label">Bill To</label>
+                            <div class="form-group" [class.state-error]="!validBillTo"  data-notuse="validBillTo"><label class="control-label">Bill To</label>
                                <input type="text" placeholder="Bill To" class="form-control" id="bill" name="txtBill" ngModel>
                                <em *ngIf="!validBillTo" for="bill" class="invalid" >This field is required</em>
                             </div>
                         </div>
 
                         <div class="col-sm-3 col-xs-6">
-                            <div class="form-group" [class.state-error]="!validCPhone"  [class.state-success]="validCPhone"><label class="control-label">Cell Phone</label>
+                            <div class="form-group" [class.state-error]="!validCPhone"  data-notuse="validCPhone"><label class="control-label">Cell Phone</label>
                                <input type="text" placeholder="Cell Phone" class="form-control" title="Only 10 digit allowed" pattern="[1-9]{1}[0-9]{9}" id="cphone" name="txtCPhone"  ngModel>
                                <em *ngIf="!validCPhone" for="cphone" class="invalid" >Cell Phone of 10 Digit required.</em>
                             </div>
@@ -59,7 +59,7 @@
             <div class="row mtm">
                                   
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validFName"  [class.state-success]="validFName"><label class="control-label">First Name</label>
+                                        <div class="form-group" [class.state-error]="!validFName"  data-notuse="validFName"><label class="control-label">First Name</label>
                                             <input  type="text" placeholder="First Name" class="form-control" id="firstname" name="txtfirstname" ngModel>
                                             <em *ngIf="!validFName" for="firstname" class="invalid" >This field is required</em>
                                         
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validLName"  [class.state-success]="validLName"><label class="control-label">Last Name</label>
+                                        <div class="form-group" [class.state-error]="!validLName"  data-notuse="validLName"><label class="control-label">Last Name</label>
                                            <input type="text" placeholder="Last Name" class="form-control" id="lname" name="txtlastname" ngModel>
                                            <em *ngIf="!validLName" for="lname" class="invalid" >This field is required</em>
                                            
@@ -93,7 +93,7 @@
             
             <div class="row mtm">
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validInsID"  [class.state-success]="validInsID"><label class="control-label">Insurance ID </label>
+                                        <div class="form-group" [class.state-error]="!validInsID"  data-notuse="validInsID"><label class="control-label">Insurance ID </label>
                                            <input type="text" class="form-control" placeholder="Insurance ID"  id="ID" name="txtInsID" ngModel>
                                            <em *ngIf="!validInsID" for="ID" class="invalid" >Insurance is required.</em>
                                         </div>
@@ -104,30 +104,22 @@
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group"[class.state-error]="!validSSN"  [class.state-success]="validSSN" ><label class="control-label">SSN</label>
+                                        <div class="form-group"[class.state-error]="!validSSN"  data-notuse="validSSN" ><label class="control-label">SSN</label>
                                             <input type="text" class="form-control" placeholder="SSN"   id="ssn" name="txtSSN" ngModel>
                                             <em *ngIf="!validSSN" for="ssn" class="invalid" >SSN is required.</em>
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validClientID"  [class.state-success]="validClientID"><label class="control-label">Client ID</label>
+                                        <div class="form-group" [class.state-error]="!validClientID"  data-notuse="validClientID"><label class="control-label">Client ID</label>
                                            <input type="text" placeholder="Client ID" class="form-control" id="CID" name="txtClientID" ngModel>
                                            <em *ngIf="!validClientID" for="CID" class="invalid" >Client  ID is required.</em>
                                         </div>
                                     </div>
                              </div>  
             <div class="row mtm">
+                                   
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group"><label class="control-label">Gender</label>
-                                           <select class="form-control" (change)="FilterGender($any($event.target).value)" id="ddlGender" name="Gender" >
-                                            <option value="M">Male</option>
-                                            <option value="F">Female</option>
-                                            <option value="O">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validGender"  [class.state-success]="validGender"><label class="control-label">Gender</label>
+                                        <div class="form-group" [class.state-error]="!validGender"  data-notuse="validGender"><label class="control-label">Gender</label>
                                             <select class="form-control" (change)="FilterGender($any($event.target).value)"  id="gender" name="gender" ngModel >
                                                 <option value="M">Male</option>
                                                 <option value="F">Female</option>
@@ -148,7 +140,7 @@
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validClassCord"  [class.state-success]="validClassCord"><label class="control-label">Class coordinator</label>
+                                        <div class="form-group" [class.state-error]="!validClassCord"  data-notuse="validClassCord"><label class="control-label">Class coordinator</label>
                                           <select class="form-control" (change)="getcordinator($any($event.target).value)"  id="ccordinator" name="ccordinator" >
                                             <option value="volvo">Volvo</option>
                                             <option value="saab">Saab</option>
@@ -178,19 +170,19 @@
             
             <div class="row mtm">
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validCity"  [class.state-success]="validCity"><label class="control-label">City</label>
+                                        <div class="form-group" [class.state-error]="!validCity"  data-notuse="validCity"><label class="control-label">City</label>
                                            <input type="text" placeholder="City" class="form-control" id="city" name="txtCity" ngModel>
                                            <em *ngIf="!validCity" for="city" class="invalid" >This field is required</em>
                                         </div>
                                     </div>
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validCountry"  [class.state-success]="validCountry"><label class="control-label">Country</label>
+                                        <div class="form-group" [class.state-error]="!validCountry"  data-notuse="validCountry"><label class="control-label">Country</label>
                                             <input  type="text" placeholder="Country" class="form-control" id="country" name="txtCountry" ngModel>
                                             <em *ngIf="!validCountry" for="country" class="invalid" >This field is required</em>
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validState"  [class.state-success]="validState"><label class="control-label">State</label>
+                                        <div class="form-group" [class.state-error]="!validState"  data-notuse="validState"><label class="control-label">State</label>
                                           <select class="form-control" (change)="getstate($any($event.target).value)" id="state" name="ddlState">
                                             <option value="Washington">Washington</option>
                                             <option value="Ohio">Ohio</option>
@@ -202,7 +194,7 @@
                                         </div>
                                     </div>
                  <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validZipCode"  [class.state-success]="validZipCode"><label class="control-label">Zip Code</label>
+                                        <div class="form-group" [class.state-error]="!validZipCode"  data-notuse="validZipCode"><label class="control-label">Zip Code</label>
                                            <input type="text" placeholder="Zip Code" class="form-control" id="zcode" name="txtZCode" ngModel>
                                            <em *ngIf="!validZipCode" for="zcode" class="invalid" >This field is required</em>
                                         </div>
@@ -210,14 +202,14 @@
                              </div>  
             <div class="row mtm">
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validRefID"  [class.state-success]="validRefID"><label class="control-label">Referred By</label>
+                                        <div class="form-group" [class.state-error]="!validRefID"  data-notuse="validRefID"><label class="control-label">Referred By</label>
                                            <input type="text" placeholder="Referred By" class="form-control" id="refid" name="txtRefId" ngModel>
                                            <em *ngIf="!validRefID" for="refid" class="invalid" >This field is required</em>
                                       
                                         </div>
                                     </div>
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validEmgContact"  [class.state-success]="validEmgContact"><label class="control-label">Emergency Contact</label>
+                                        <div class="form-group" [class.state-error]="!validEmgContact"  data-notuse="validEmgContact"><label class="control-label">Emergency Contact</label>
                                             <input  type="text" placeholder="Emergency Contact" class="form-control" id="emgcontact" name="txtEmgContact" ngModel>
                                             <em *ngIf="!validEmgContact" for="emgcontact" class="invalid" >Emergency Contact of 10 Digit required.</em>
                                         </div>
@@ -225,14 +217,14 @@
               
 
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validCWPhone"  [class.state-success]="validCWPhone"><label class="control-label">Case Worker Phone</label>
+                                        <div class="form-group" [class.state-error]="!validCWPhone"  data-notuse="validCWPhone"><label class="control-label">Case Worker Phone</label>
                                             <input  type="text" placeholder="Case Worker Phone" class="form-control" id="wphone" name="txtCaseWPhone" ngModel>
                                             <em *ngIf="!validCWPhone" for="wphone" class="invalid" >This field is required.</em>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-3 col-xs-6">
-                                        <div class="form-group" [class.state-error]="!validCWEmail"  [class.state-success]="validCWEmail"><label class="control-label">Case Worker Email</label>
+                                        <div class="form-group" [class.state-error]="!validCWEmail"  data-notuse="validCWEmail"><label class="control-label">Case Worker Email</label>
                                             <input  type="text" placeholder="Case Worker Email" class="form-control" id="wemail" name="txtWEmail" ngModel>
                                             <em *ngIf="!validCWEmail" for="wemail" class="invalid" >This field is required.</em>
                                         </div>

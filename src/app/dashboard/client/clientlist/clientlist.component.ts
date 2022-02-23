@@ -15,6 +15,9 @@ import { DatePipe } from '@angular/common';
 })
 export class ClientlistComponent implements OnInit {
 
+
+  monthList  : any[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   Isapiresponsereceived : boolean = true;
   clientList : Client[] = [];
   p: number = 1;
@@ -49,6 +52,10 @@ export class ClientlistComponent implements OnInit {
     height: '100%',
     flex: '1 1 auto'
     };
+
+
+  
+
 
 
   constructor(public datepipe: DatePipe,private router:Router, private clientapi : ClientApiService)
