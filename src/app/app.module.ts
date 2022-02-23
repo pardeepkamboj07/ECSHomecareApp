@@ -32,6 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
+import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
+
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -58,7 +61,10 @@ FullCalendarModule.registerPlugins([
     InvoicedetailsComponent,
     ClientInfoComponent,
     EmployeeInfoComponent,
-    LayoutComponent
+    LayoutComponent,
+    ClientCalenderComponent,
+    ChunkPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

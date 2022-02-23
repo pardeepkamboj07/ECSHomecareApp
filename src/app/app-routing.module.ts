@@ -14,16 +14,22 @@ import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.compon
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
+import { ClientCalenderComponent } from './client-calender/client-calender.component';
 
 const routes: Routes = [
+  
   {
-    path : '',component : LoginPageComponent 
+    path : 'login',component : LoginPageComponent 
+  },
+  {
+    path : 'CalList',component : ClientCalenderComponent 
   },
 
   {
     path : 'Layout',component : LayoutComponent 
    
   },
+
   {
     path : 'dashboard',component :  LayoutComponent,
      children : [{path:'',component:DashboardComponent}]
