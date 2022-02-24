@@ -1,192 +1,286 @@
-<div class="container-fluid employee-info">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarcollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarcollapse">
-            <ul class="navbar-nav justify-content-between w-100">
-                <li><a href="#" class="nav-link">DASHBOARD</a></li>
-                <li><a href="#" class="nav-link">CLIENTS</a></li>
-                <li><a href="#" class="nav-link">EMPLOYEES</a></li>
-                <li><a href="#" class="nav-link">AVAILABILITY</a></li>
-                <li><a href="#" class="nav-link">BILLING/PAYROLL</a></li>
-                <li><a href="#" class="nav-link">REPORTS</a></li>
-                <li><a href="#" class="nav-link">HELP</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="employee-details">
-        <div class="row">
-            <div class="col-lg-2 first-col">
-                <h2>EMPLOYEE</h2>
-                <div class="side-menu">
-                    <div class="menu-item">Dashboard</div>
-                    <div class="menu-item">Schedule</div>
-                    <div class="menu-item">Personal Info</div>
-                    <div class="menu-item">Status</div>
-                    <div class="menu-item">Address</div>
-                    <div class="menu-item">Availability</div>
-                    <div class="menu-item">Absence</div>
-                    <div class="menu-item">Rates</div>
-                    <div class="menu-item">Declined Cases</div>
-                    <div class="menu-item">Incidents</div>
-                    <div class="menu-item">Complicance</div>
-                    <div class="menu-item">Hiring</div>
-                    <div class="menu-item">Contact Log & Notes</div>
-                    <div class="menu-item">Documents/Files</div>
-                    <div class="menu-item">Mobile App</div>
-                </div>
-            </div>
-            <div class="col-lg-5 second-col">
-                <div id="emp-name">
-                    {{ this.EmpName }} | {{ Etype }}
+<div id="page-wrapper">
 
-                </div>
-                <div id="page-title">DASHBOARD</div>
-                <div class="personal-data d-flex">
-                    <div class="text-section">
-                        <p>PERSONAL DATA</p>
-                        <p class="val"> {{ this.EmpName }}</p>
-                        <p class="head">Qualification</p>
-                        <p class="val">{{Etype}}</p>
-                        <p class="head">Residence</p>
-                        <div class="d-flex">
-                            <img src="../../../../assets/images/mapa.png" alt="">
-                            <div class="address">
-                                <p class="val">{{empInfo.city}}</p>
-                                <p class="val">{{empInfo.cState+", "+empInfo.country+", "+empInfo.zipCode}}</p>
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Dashboard</div>
+        </div>
+        <div class="page-header pull-right">
+            <div class="page-title">Client ID: {{empInfo.empID}}</div>
+        </div>
+
+
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div class="row mbm">
+            <div class="col-sm-6 col-xs-4">
+
+                <!-- <div class="input-group-btn">
+                    <button type="button" tabindex="-1" class="btn btn-dark btn-lg"
+                        style="box-shadow: 0px 3px #9b2929;">Employee</button>
+                    <button type="button" data-toggle="dropdown" tabindex="-1" class="btn btn-dark-1 dropdown-toggle"
+                        style="padding:5px 6px;box-shadow: 0px 3px #9b2929;">
+                        <i class="fa fa-angle-down" style="font-size: 25px"></i>
+                    </button>
+                    <ul role="menu" class="dropdown-menu ">
+                        <li><a href="#" class="text-14">Dashboard</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Search Availability</a></li>
+                        <li><a href="#">Service Task</a></li>
+                        <li><a href="#">Address & Phone</a></li>
+                        <li><a href="#">Medication</a></li>
+                        <li><a href="#">Billing</a></li>
+                        <li><a href="#">Emergency Info</a></li>
+                        <li><a href="#">Compliance</a></li>
+                        <li><a href="#">Employees History</a></li>
+                        <li><a href="#">General</a></li>
+                        <li><a href="#">Declined Employees</a></li>
+                        <li><a href="#">Provision</a></li>
+                        <li><a href="#">Group Information</a></li>
+                        <li><a href="#">Diagnosis</a></li>
+                        <li><a href="#">Contact Log</a></li>
+                        <li><a href="#">Notes</a></li>
+                        <li><a href="#">Other</a></li>
+                    </ul>
+                </div> -->
+
+            </div>
+            <div class="col-sm-6 col-xs-8 text-right">
+                <p><i class="fa fa-chevron-left text-orange"></i> {{ this.EmpName }} | {{ Etype }}
+                    <i class="fa fa-chevron-right text-orange"></i>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+                            <div class="panel-body pan">
+                                <div class="profile">
+                                    <div class="user-info">
+                                        <div style="margin-bottom: 15px" class="row">
+                                            <div class="col-xs-7 col-sm-7">
+                                                <h3 class="mtn text-orange">Personal Data</h3>
+                                                <h4>{{ this.EmpName }}</h4>
+
+                                                <p>
+                                                    <strong><span class="text-orange">Qualification:</span></strong><br>
+                                                    <strong>{{Etype}}</strong>
+                                                </p>
+
+                                                <p>
+                                                    <strong><span class="text-orange"><i class="fa fa-map-marker"></i>
+                                                            Residence:</span> </strong><br>
+                                                    <strong>
+                                                        <p class="">{{empInfo.city}}</p>
+                                                        <p class="">{{empInfo.cState+", "+empInfo.country+",
+                                                            "+empInfo.zipCode}}</p>
+                                                    </strong>
+                                                </p>
+
+                                                <p>
+                                                    <strong class="mrs"><span class="text-orange"><i
+                                                                class="fa fa-phone"></i> Cell Phone:</span>
+                                                    </strong><br>
+                                                    <strong>
+                                                        <p class="">{{formatPhoneNumber(empInfo.cellPhone)}}</p>
+                                                    </strong>
+                                                </p>
+                                                <p>
+                                                    <strong class="mrs"><span class="text-orange"><i
+                                                                class="fa fa-envelope"></i> Email:</span> </strong><br>
+                                                    <strong>
+                                                        <p class="">{{empInfo.email}}</p>
+                                                    </strong>
+                                                </p>
+
+
+                                            </div>
+
+
+                                            <div class="col-xs-5 col-sm-5 text-center">
+                                                <img src="../../assets/images/profile-img-big.jpg"
+                                                    class="img-responsive-mobile img-round" alt="" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        <p class="head">Cell Phone</p>
-                        <p class="val">{{formatPhoneNumber(empInfo.cellPhone)}}</p>
-                        <p class="head">Email</p>
-                        <p class="val">{{empInfo.email}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-header prolet-primary">
+                                <div class="caption text-uppercase  text-orange">
+                                    <i style="font-size: 17px; margin-top: 2px;" class="fa fa-envelope"></i>
+                                    Send Email message to {{EmpName}}
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>Send Via&nbsp;&nbsp;<input type="checkbox" checked> Email&nbsp;&nbsp;<input
+                                                type="checkbox" checked> SMS text</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="email-box">
+                                            <p class=""><strong>Hello {{EmpName}}</strong></p>
+                                            <p class="">Michele Deo</p>
+                                        </div>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="image-section">
-                        <img src="../../../../assets/images/profilepic.jpeg" alt=""><br>
-                        <div class="d-flex justify-content-center">
 
-                        <img src="../../../../assets/images/profileIcon.png" alt="" style="width:20px; height:20px"><span>Profile</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-header prolet-primary">
+                                <div class="caption text-uppercase  text-orange">
+                                    Current Assignments
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-plus-square-o"></i> View Full Schedule</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                <div id="emp-name">
-                </div>
-                <div id="page-title"></div>
-                <div class="personal-data d-flex">
-                   <div class="send-email" style="width: 100%;">
-                       <div class="d-flex">
-                           <img src="../../../../assets/images/msgIcon.png" alt="" style="width:20px; height:20px; margin-right:10px">
-                        <p>send email text message to {{EmpName}}</p>
-                       </div>
-                       <div class="d-flex">
-                           <p>Send via</p>
-                           <input type="checkbox" value="" checked>
-                           Email
-                           <input type="checkbox" value="" checked>
-                           SMS Text
-                           
-                       </div>
-                       <div class="text-area">
-                        <p>Hello {{EmpName}}</p>
-                        <p> Michelle Henriques</p>
-                        <img src="../../../../assets/images/send.png" alt="" style="width:30px; height:30px">
-                       </div>
-                   </div>
-               </div>
-               <div id="emp-name">
-             </div>
-             <div id="page-title"></div>
-             <div class="personal-data d-flex">
-                 <div class="text-section rem-section">
-                     <p style="color: rgb(82, 82, 82);">CURRENT ASSIGNMENTS</p>
-                     <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px"><span class="val">View Full Schedule</span>
-                 </div>
-             </div>
-             <div id="emp-name">
-              </div>
-              <div id="page-title"></div>
-              <div class="personal-data d-flex">
-                <div class="text-section rem-section" style="width: 100%;">
-                    <p style="color: rgb(82, 82, 82);text-transform: uppercase;">{{EmpName}} singnature on file</p>
-                    <img src="../../../../assets/images/signature.png" alt="" style="width:90px; height:50px">
-                    <div class="d-flex signature">
-                        <p>{{EmpName}}</p>
-                        <p>12/20/2021</p>
-                        <p>11:01:00 PM</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-header prolet-primary">
+                                <div class="caption text-uppercase  text-orange">
+                                    {{EmpName}} Signature on file
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>Signature</p>
+                                        <p>{{EmpName}} &nbsp;&nbsp;{{currentDate | date:'dd-MM-yyyy'}}&nbsp;&nbsp;{{currentDate | date:'hh:mm'}}</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
-            <div id="emp-name">
-            </div>
-            <div id="page-title"></div>
-            </div>
-            <div class="col-lg-4 third-col">
-                <div class="emp-name d-flex">
-                    <img src="../../../../assets/images/less-than-solid.svg" alt="" style="width:20px; height:20px"> {{EmpName}}| {{Etype}} <img src="../../../../assets/images/greater-than-solid.svg" alt="" style="width:20px; height:20px"> 
-                </div>
-                <div class="personal-data d-flex">
-                    <div class="text-section">
-                        <div class="d-flex">
-                            <img src="../../../../assets/images/circle.png" alt="" style="width:10px; height:10px; margin: 10px;">
-                            <p>Also completed 6 hrs of InService claass</p>
-                        </div>
-                        <div class="d-flex m-2">
-                            <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px;">
-                            <p class="val">Add Completed</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="emp-name">
-                 </div>
-                 <div id="page-title"></div>
-                 <div class="personal-data">
-                    <div class="d-flex m-2">
-                        <img src="../../../../assets/images/circle.png" alt="" style="width:10px; height:10px; margin: 5px;">
-                        <p class="val">Also in permanent resident</p>
-                    </div>
-                    <div class="d-flex m-2">
-                        <img src="../../../../assets/images/circle.png" alt="" style="width:10px; height:10px; margin: 5px;">
-                        <p class="val">Current status allows Mojisola Alao to work</p>
-                    </div>
-                     
-                 </div>
-                 <div id="emp-name">
-                </div>
-                <div id="page-title"></div>
-                <div class="personal-data section-5">
-                    <div class="text-section">
-                        <p>COMPLIANCE</p>
-                        <p>InService Classes</p>
-                        <p class="val">InService Classes</p>
-                        <p class="val">Taken : 6 hrs</p>
-                        <div class="d-flex m-2">
-                            <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px;">
-                            <p class="val val1">Add Completed</p>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>
+                                            <i class="fa fa-dot-circle-o text-orange"></i> 
+                                            Alao completed six hours of Inservice classes
+                                        </p>
+                                        <p><a href=""><i class="fa fa-plus-square"></i> Add Completed</a></p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                 <div id="emp-name">
-                 </div>
-                 <div id="page-title"></div>
-                 <div class="personal-data section-6">
-                    <div class="text-section">
-                        <p>HR</p>
-                        <p>HHA</p>
-                        <p class="val">Start Date : 11/8/2021</p>
-                        <p class="val">Certificate : HHA</p>
-                        <p class="val">Validation Date : 20/10/2021</p>
-                        <div class="d-flex m-2">
-                            <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px;">
-                            <p class="val val1">More HR</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-dot-circle-o text-orange"></i> 
+                                            Alao completed six hours of Inservice classes</p>
+                                        <p><i class="fa fa-dot-circle-o text-orange"></i> 
+                                            Alao completed six hours of Inservice classes</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-header prolet-primary">
+                                <div class="caption text-uppercase  text-orange">
+                                    Compliance
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h5 class="mtn"><strong>InService Classes</strong></h5>
+                                        <p>Inservice classes</p>
+                                        <p>Taken 6 hours</p>
+                                        <p><i class="fa fa-plus-square-o"></i> Add Compliance</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box">
+                            <div class="portlet-header prolet-primary">
+                                <div class="caption text-uppercase  text-orange">
+                                    HR
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><strong>{{Etype}}</strong></p>
+                                        <p>Start Date: {{currentDate | date:'dd-MM-yyyy'}}</p>
+                                        <p>Certficate: HHA</p>
+                                        <p>Validation Date: {{currentDate | date:'dd-MM-yyyy'}}</p>
+                                        <p><i class="fa fa-plus-square-o"></i> More All</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
+
     </div>
+
 
 </div>

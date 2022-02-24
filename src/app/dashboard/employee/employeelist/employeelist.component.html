@@ -19,7 +19,7 @@
           <li [ngClass]="{'active': currentAlpha === 'C'}"><a (click)="AlphaFilter('C')">C</a></li>
           <li [ngClass]="{'active': currentAlpha === 'D'}"><a (click)="AlphaFilter('D')">D</a></li>
           <li [ngClass]="{'active': currentAlpha === 'E'}"><a (click)="AlphaFilter('E')">E</a></li>
-          <li [ngClass]="{'active': currentAlpha === 'F'}"><a (click)="AlphaFilter('f')">F</a></li>
+          <li [ngClass]="{'active': currentAlpha === 'F'}"><a (click)="AlphaFilter('F')">F</a></li>
           <li [ngClass]="{'active': currentAlpha === 'G'}"><a (click)="AlphaFilter('G')">G</a></li>
           <li [ngClass]="{'active': currentAlpha === 'H'}"><a (click)="AlphaFilter('H')">H</a></li>
           <li [ngClass]="{'active': currentAlpha === 'I'}"><a (click)="AlphaFilter('I')">I</a></li>
@@ -148,7 +148,11 @@
                 <tbody *ngIf="(cacheData | filter: searchValue).length > 0; else noResults">
                   <!-- <tr *ngFor="let trObj of cacheData"> -->
                   <tr *ngFor="let trObj of cacheData | filter: searchValue; let i = index">
-                    <td>{{trObj.empName}}</td>
+                    <td>
+                      <a  [routerLink]="'/Layout/employeeinfo/' + trObj.empID" title="INFO">
+                        {{trObj.empName}}
+                      </a> 
+                    </td>
                     <td>{{trObj.types}}</td>
                     <td><i class="fa fa-calendar medium-txt"></i></td>
                     <td>{{trObj.cellPhone}}</td>
