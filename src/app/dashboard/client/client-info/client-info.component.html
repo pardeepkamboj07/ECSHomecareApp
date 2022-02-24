@@ -1,181 +1,223 @@
-<div class="container-fluid employee-info">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarcollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarcollapse">
-            <ul class="navbar-nav justify-content-between w-100">
-                <li><a href="#" class="nav-link">DASHBOARD</a></li>
-                <li><a href="#" class="nav-link">CLIENTS</a></li>
-                <li><a href="#" class="nav-link">EMPLOYEES</a></li>
-                <li><a href="#" class="nav-link">AVAILABILITY</a></li>
-                <li><a href="#" class="nav-link">BILLING/PAYROLL</a></li>
-                <li><a href="#" class="nav-link">REPORTS</a></li>
-                <li><a href="#" class="nav-link">HELP</a></li>
-            </ul>
+<div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Dashboard</div>
         </div>
-    </nav>
-    <div class="employee-details">
-        <div class="row">
-            <div class="col-lg-2 first-col">
-                <h2>CLIENT</h2>
-                <div class="side-menu">
-                    <div class="menu-item">Dashboard</div>
-                    <div class="menu-item">Schedule</div>
-                    <div class="menu-item">Search Availability</div>
-                    <div class="menu-item">Status</div>
-                    <div class="menu-item">Service Task</div>
-                    <div class="menu-item">Address & Phones</div>
-                    <div class="menu-item">Medication</div>
-                    <div class="menu-item">Billing</div>
-                    <div class="menu-item">Emergency Info</div>
-                    <div class="menu-item">Complicance</div>
-                    <div class="menu-item">Employee History</div>
-                    <div class="menu-item">GENERAL</div>
-                    <div class="menu-item">Declined Employees</div>
-                    <div class="menu-item">Provisions</div>
-
-                    <div class="menu-item">Group Information</div>
-                    <div class="menu-item">Diagnosis</div>
-                    <div class="menu-item">Contact Log</div>
-                    <div class="menu-item">Notes</div>
-                    <div class="menu-item">Other</div>
-                    <div class="menu-item">EMR Documents / Files</div>
-                </div>
+         <div class="page-header pull-right">
+            <div class="page-title">Client ID: {{ clientinfo.extClientId }}</div>
+        </div>
+      
+     
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div class="row mbm">
+        <div class="col-sm-6 col-xs-4">
+        
+                                         <div class="input-group-btn">
+                                        <button type="button" tabindex="-1" class="btn btn-dark btn-lg" style="box-shadow: 0px 3px #9b2929;">Employee</button>
+                                        <button type="button" data-toggle="dropdown" tabindex="-1"
+                                                class="btn btn-dark-1 dropdown-toggle" style="padding:5px 6px;box-shadow: 0px 3px #9b2929;"><i
+                                                class="fa fa-angle-down" style="font-size: 25px"></i></button>
+                                        <ul role="menu" class="dropdown-menu ">
+                                            <li><a href="#" class="text-14">Dashboard</a></li>
+                                            <li><a href="#">Schedule</a></li>
+                                            <li><a href="#">Search Availability</a></li>                                                    
+                                            <li><a href="#">Service Task</a></li>
+                                              <li><a href="#">Address & Phone</a></li>
+                                              <li><a href="#">Medication</a></li>
+                                              <li><a href="#">Billing</a></li>
+                                              <li><a href="#">Emergency Info</a></li>
+                                              <li><a href="#">Compliance</a></li>
+                                              <li><a href="#">Employees History</a></li>
+                                              <li><a href="#">General</a></li>
+                                              <li><a href="#">Declined Employees</a></li>
+                                            <li><a href="#">Provision</a></li>
+                                              <li><a href="#">Group Information</a></li>
+                                              <li><a href="#">Diagnosis</a></li>
+                                              <li><a href="#">Contact Log</a></li>
+                                             <li><a href="#">Notes</a></li>
+                                              <li><a href="#">Other</a></li>
+                                        </ul>
+                                    </div>
+                                  
             </div>
-            <div class="col-lg-5 second-col">
-                <div id="emp-name">
-                    {{ clientName }} | ID : {{ clientinfo.extClientId }}
+                <div class="col-sm-6 col-xs-8 text-right">
+                    <p><i class="fa fa-chevron-left text-orange"></i> John Doe, HHA 15005<i class="fa fa-chevron-right text-orange"></i></p>
+            </div>
+        </div>
+      <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                             <div class="panel">
+                        <div class="panel-body pan">
+                            <div class="profile">
+                                <div class="user-info">
+                                    <div style="margin-bottom: 15px" class="row">
+                                        <div class="col-xs-7 col-sm-7">
+                                            <h3 class="mtn text-orange">Personal Data</h3>
+                                            <h4>{{ clientName }}</h4>
 
-                </div>
-                <div id="page-title">DASHBOARD</div>
-                <div class="personal-data">
-                    <div class="d-flex">
-                        <div class="text-section">
-                            <p>PERSONAL DATA</p>
-                            <p class="val"> {{ clientName }} </p>
-                            <p class="head">Client ID</p>
-                            <p class="val">{{ clientinfo.extClientId }}</p>
-                            <p class="head">Date of Birth</p>
-                            <p class="val">2022-01-01</p>
-                            <p class="head">Cell Phone</p>
-                            <p class="val"> {{ clientinfo.cellPhone }}</p>
-                            <p class="head">Coordinator</p>
-                            <p class="val">Kevin Chiriboga</p>
+                                            <p><strong><span class="text-orange">Qualification:</span></strong><br> 
+                                            <strong>HHA</strong></p>
 
+                                            <p><strong><span class="text-orange"><i class="fa fa-map-marker"></i> Residence:</span> </strong><br> 
+                                            <strong>117 Slack Avenue Apt 204 Lawrence Township NJ 08648</strong></p>
 
-
-                        </div>
-                        <div class="image-section">
-                            <img src="../../../../assets/images/profilepic.jpeg" alt="">
-                            <div class="d-flex justify-content-center mt-1">
-
-                                <img src="../../../../assets/images/profileIcon.png" alt=""
-                                    style="width:20px; height:20px; margin-right:10px"><span>Profile</span>
+                                            <p><strong class="mrs"><span class="text-orange"><i class="fa fa-phone"></i> Cell Phone:</span> </strong><br> 
+                                            <strong>+91 {{ clientinfo.cellPhone }}</strong></p>
+                                         <p><strong class="mrs"><span class="text-orange"><i class="fa fa-envelope"></i> Email:</span> </strong><br> 
+                                            <strong>abc@gmail.com</strong></p>
+                                            
+                                        
+                                        </div>
+                              
+                                        
+                                        <div class="col-xs-5 col-sm-5 text-center">
+                                        <img src="../../assets/images/profile-img-big.jpg" class="img-responsive-mobile img-round" alt=""/> </div>
+                                    </div>
+                                
+                                        
+                                </div>
+                             
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex msg-me">
-                        <img src="../../../../assets/images/msgIcon.png" alt=""
-                            style="width:20px; height:20px; margin-right:10px">
-                        <p>send email text message to {{clientName}}</p>
+                        </div>
                     </div>
-                </div>
-                <div id="emp-name">
-                </div>
-                <div id="page-title"></div>
-                <div class="personal-data schedule">
-                    <div class="text-section" style="width: 100%;">
-                        <p class="head">Schedule</p>
-                            <div *ngFor="let meetings of clientinfo.meetingInfo">
-                                <div class="schedule-details">
-                                    <div class="d-flex justify-content-between">
-                                        <p>{{ meetings.meetingStartDate | date }}</p>
-                                        <p>{{ clientName }}</p>
 
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p>{{ meetings.startTime }} - {{ meetings.endTime }}</p>
-                                        <p>HOURLY</p>
+    
+                    <div class="row">
+                        <div class="col-md-12">
+                         <div class="portlet box">
+                             <div class="portlet-header prolet-primary">
+                                 <div class="caption text-uppercase  text-orange"><i style="font-size: 17px; margin-top: 2px;"
+                                                                        class="fa fa-list-alt"></i>Schedule
+                                 </div>
+                             </div>
+                             <div class="portlet-body">
+                                 <ul class="todo-list sortable">
+                                     <li class="clearfix" *ngFor="let meetings of clientinfo.meetingInfo">
+                                         <span class="drag-drop"><i></i></span>
+                                         
+                                         <div class="todo-title pull-left"><strong>{{ meetings.meetingStartDate | date }}</strong><br>
+                                             {{ meetings.startTime }} to {{ meetings.endTime }}
+                                       </div>
+                                       <div class="todo-title pull-right clearfix">
+                                         <strong>john deo</strong><br>
+                                         Hourly
+                                       </div>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                       </div>				  
+                       
+                       </div>
 
-                                    </div>
-                                </div>
-                                </div>
-                                <img src="../../../../assets/images/plus-dup.png" alt="" style="width:20px; height:20px"><span class="val">View Full Schedule</span>
-                    </div>
+
+
+
+
+
+                
                 </div>
-                <button class="buttons">Search Availability</button>
-            </div>
-            <div class="col-lg-4 third-col">
-                <div id="emp-name">
-                    <!-- < {{ clientName }} | {{ clientinfo.extClientId }}> -->
-                    <div class="emp-name d-flex">
-                        <img src="../../../../assets/images/less-than-solid.svg" alt="" style="width:20px; height:20px"> {{clientName}}| {{clientinfo.extClientId }} <img src="../../../../assets/images/greater-than-solid.svg" alt="" style="width:20px; height:20px"> 
-                    </div>
-                </div>
-                <div id="page-title">&nbsp;</div>
-                <div class="personal-data d-flex">
-                    <div class="text-section w-100">
-                        <p>LOCATION</p>
-                        <img class="maps" src="../../../../assets/images/sample-map.png" alt="">
-                        <div class="d-flex adress-section">
-                            <img src="../../../../assets/images/mapa.png" alt="" style="width:30px; height:30px;">
-                            <p class="val">{{clientinfo.city +", "+clientinfo.cState+", "+clientinfo.country+", "+clientinfo.zipCode}}</p>
+            <div class="col-md-6">
+                    
+              
+                <div class="row">
+                   <div class="col-md-12">
+                      
+                    <div class="portlet box">
+                        <div class="portlet-header prolet-primary">
+                            <div class="caption text-uppercase text-orange"><i style="font-size: 17px; margin-top: 2px;"
+                                                                   class="fa fa-location-arrow"></i>Location
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div id="emp-name">
-                </div>
-                <div id="page-title"></div>
-                <div class="billing">
-                    <div class="text-section w-100">
-                        <p class="page-title">BILLING SUMMARY / ACTIVE AUTHORIZATIONS</p>
-                        <div class="d-flex">
-                            <p class="head">
-                                VACCN
-                            </p>
-                            <p class="val">Hourly</p>
-                            <p class="head">
-                                Express
-                            </p>
-                            <p class="val">10/19/2022</p>
-                            <p class="status">Auredillo Status ></p>
+                        <div class="portlet-body">
+                            <div class="row">
+                            <div class="col-sm-12"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55565170.29301636!2d-132.08532758867793!3d31.786060306224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sin!4v1644488535402!5m2!1sen!2sin" width="100%" height="250px" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+                                <div class="col-sm-12 text-14 text-orange"><strong>60 chiga abc, USA </strong></div>
+                            </div>
+                        
                         </div>
+                        <div class="portlet-footer"></div>
                     </div>
-                    <div class="text-section w-100">
-                        <p class="page-title">STATUS</p>
-                        <p class="val">
-                            Admission
-                        </p>
-                        <div class="d-flex">
-                            <p class="head">
-                                Casa/ DSS/ HRA as of <b>1/28/2022</b>
-                            </p>
-                            
-                            <p class="status">Auredillo Status ></p>
-                        </div>
-                    </div>
+
+
+                  </div>				  
+                  
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                       <div class="portlet box">
+                         <div class="portlet-header prolet-primary">
+                             <div class="caption text-uppercase  text-orange"><i style="font-size: 17px; margin-top: 2px;"
+                                                                    class="fa fa-envelope"></i>Send Email message to {{clientName}}
+                             </div>
+                         </div>
+                         <div class="portlet-body">
+                             <div class="row">
+                          <div class="col-sm-12"><p>Send Via&nbsp;&nbsp;<input type="checkbox"> Email&nbsp;&nbsp;<input type="checkbox"> SMS text</p></div>								
+                                 </div>
+                             <div class="row">
+                                  <div class="col-sm-12">
+                                      <div class="email-box">
+                                      <p class=""><strong>Hello {{clientName}}</strong></p>
+                                      <p class="">Michele Deo</p>
+                                 </div>
+                                 
+                                 </div>
+                                 </div>							
+                         </div>
+                     </div>
+                   </div>				  
+                   
+                   </div>
+                   
+                         <div class="row">
+                    <div class="col-md-12">
+                       <div class="portlet box">
+                         <div class="portlet-header prolet-primary">
+                             <div class="caption text-uppercase  text-orange">{{clientName}} Signature on file
+                             </div>
+                         </div>
+                         <div class="portlet-body">
+                             <div class="row">
+                          <div class="col-sm-12"><p>Signature</p>
+                                 <p>john deo &nbsp;&nbsp;12-02-2022&nbsp;&nbsp;3:20</p>
+                                 
+                                 </div>								
+                                 </div>
+                                         
+                         </div>
+                     </div>
+                   </div>				  
+                   
+                   </div>
+
+
+
                 </div>
-                <div id="emp-name">
-                </div>
-                <div id="page-title"></div>
-                <div class="section-5 d-flex">
-                    <div class="text-section">
-                        <p>Most recent Compliance Completed</p>
-                        <p class="status">Auredillo Status ></p>
-                    </div>
-                </div>
-                <div class="section-6 d-flex">
-                    <div class="text-section rem-section" style="width: 100%;">
-                        <p style="color: rgb(82, 82, 82);text-transform: uppercase; font-size: 14px; font-weight: bold;">{{clientName}} singnature on file</p>
-                        <img src="../../../../assets/images/signature.png" alt="" style="width:90px; height:50px">
-                        <div class="d-flex signature justify-content-between">
-                            <p>{{clientName}}</p> <button>Save signature</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="buttons">Schedule</button>
-            </div>
         </div>
+        
+        
     </div>
-</div>
+    <!--END CONTENT--></div>
+
+
+
+
+
+
+
+
+
+
+
+

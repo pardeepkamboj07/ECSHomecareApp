@@ -34,6 +34,7 @@ import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employ
 import { LayoutComponent } from './layout/layout.component';
 import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
 import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
+import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module"
 
 
 FullCalendarModule.registerPlugins([ 
@@ -76,7 +77,9 @@ FullCalendarModule.registerPlugins([
     MatTableModule,
     AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AppBootstrapModule
+    
   ],
   providers: [AuthGuardService, DatePipe],
   bootstrap: [AppComponent]

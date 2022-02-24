@@ -76,11 +76,11 @@ export class ClientlistComponent implements OnInit {
   }
 
   onClickCreateClient(){
-    this.router.navigate(['/dashboard/saveclient/'])
+    this.router.navigate(['/Layout/saveclient/'])
   }
 
   onClickCreateClientMeeting(cId : string){
-    this.router.navigate(['/dashboard/clientevent/' + cId])
+    this.router.navigate(['/Layout/clientevent/' + cId])
   }
 
   GetClientMeetings(startdate : string, clientId : string)
@@ -139,7 +139,7 @@ export class ClientlistComponent implements OnInit {
 
   rowclicked(client : ClientMeetings)
   {
-    this.router.navigate(['/dashboard/clientinfo/' + client.clientId])
+    this.router.navigate(['/Layout/clientinfo/' + client.clientId])
   }
 
   openPopup(client : ClientMeetings, meetingInfo : MeetingInfo) {

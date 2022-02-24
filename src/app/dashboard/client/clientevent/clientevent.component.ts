@@ -9,7 +9,9 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-clientevent',
   templateUrl: './clientevent.component.html',
-  styleUrls: ['./clientevent.component.scss']
+  styleUrls: [
+    '../../../../assets/css/orange-blue.css',
+    './clientevent.component.scss']
 })
 export class ClienteventComponent implements OnInit {
 

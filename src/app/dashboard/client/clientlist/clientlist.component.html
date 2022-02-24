@@ -136,12 +136,6 @@
                                               <div class="col-sm-8 col-xs-8"><p class="mbn">Sat </p> <span class="text-black small-txt">{{monthList[weekList[6].getMonth()] }} {{ weekList[6].getDate() }}</span></div>
                                               <div class="col-sm-4 col-xs-4"><a (click)="OnClickNextWeek()"><i class="fa fa-chevron-right medium-txt text-black  arrow-right-client"></i></a></div>
                                             </div> 
-                                            
-                                           
-                                            
-                                            
-                                            
-                                            
                                             </th>
                                       </tr>
                                       </thead>
@@ -150,15 +144,6 @@
                                         *ngFor="let client of clientmeetingList | paginate: { itemsPerPage: 5, currentPage: p, totalItems: totalItemsCount };let i = index"
                                         >
                                         <td valign="top" class="bg-white" style="min-width: 254px;">
-                                         <!-- <a (click)="rowclicked(client)" > {{ client.firstName }} 
-                                          <span class="empid">
-                                            {{ client.extClientId }}
-                                          </span>
-                                         </a>
-                                         <a (click) = "onClickCreateClientMeeting(client.clientId.toString())">
-                                          <i class="fa fa-calendar medium-txt text-orange"></i>
-                                        </a> -->
-
                                         <div class="client-list">
                                           <ul>
                                           <li>
@@ -177,21 +162,13 @@
                                           </div>
                                         </td>
                                         <td *ngFor="let week of currentweekarray" valign="top" class="client-td">
-                                
-
-
-
-
                                           <div class="row mbs"  *ngFor="let meetings of client.meetingInfo">
                                             <div class="col-sm-12" *ngIf="meetings.meetingStartDate.toString() == week"
                                             (click)="openPopup(client, meetings)">	
                                               <div class="client-box-green-dot"></div>
-                                     
                                               <div class="client-box">
                                                 <p class="mbx"><strong>{{ meetings.startTime.toString() + '-' + meetings.endTime.toString() }}</strong></p>
                                                 <p class="mbn">{{ client.firstName }}</p>
-                                     
-
                                             </div>
                                             </div>
 
