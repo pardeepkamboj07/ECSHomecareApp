@@ -164,7 +164,7 @@ calculateTimeDiff(){
     this.clientapi.savescheduledmeeting(meetingInfo).subscribe(
       (response)=>
       {
-        this.router.navigate(['/dashboard/clientlist'])
+        this.router.navigate(['/Layout/clientlist'])
       },
       (error)=> {
         console.log(error);

@@ -34,7 +34,8 @@ import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employ
 import { LayoutComponent } from './layout/layout.component';
 import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
 import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
-import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module"
+import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
+import { TestingComponent } from './testing/testing.component'
 
 
 FullCalendarModule.registerPlugins([ 
@@ -65,7 +66,8 @@ FullCalendarModule.registerPlugins([
     LayoutComponent,
     ClientCalenderComponent,
     ChunkPipe,
-    FilterPipe
+    FilterPipe,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
