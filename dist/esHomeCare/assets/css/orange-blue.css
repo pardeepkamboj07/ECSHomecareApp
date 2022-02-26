@@ -161,7 +161,7 @@ hr {
 }
 #topbar .navbar-header #logo {
   font-size: 20px;
-  line-height: 35px;
+  line-height: 20px;
   color: #ffffff;
   height: 100%;
   width: 100%;
@@ -5965,12 +5965,14 @@ h6 {
 }
 .pagination li a {
   border-color: #e5e5e5;
+  min-width: 37px;
 }
 .pagination li span {
   border-right: #e5e5e5;
 }
 .pagination li.active a {
   border-color: #e74c3c;
+  
 }
 .pagination li.active span {
   border-color: #e74c3c;
@@ -9567,4 +9569,10 @@ position: absolute;
   line-height: 1.42857143;
   vertical-align: top !important;
   border-top: 1px solid #ddd;
+}
+@media (min-width:767px){
+  .navbar-right{
+    margin-right: 0px !important;
+    padding-top: 5px;
+    }
 }

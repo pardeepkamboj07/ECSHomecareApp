@@ -1,14 +1,9 @@
-
-
-   <div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
+<div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
         <div class="page-header pull-left">
             <div class="page-title">Schedule</div>
-        </div>
-        
-      
-     
-        <div class="clearfix"></div>
+        </div>     
+    <div class="clearfix"></div>
     </div>
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
@@ -16,23 +11,23 @@
         <div class="row mbl">
                 <div class="col-sm-12">
                 
-                    <button type="button" class="btn btn-lg btn-primary">Attendance</button>&nbsp;&nbsp;
-                    <button type="button" class="btn btn-lg btn-primary">Availability Search</button>&nbsp;&nbsp;
-                    <button type="button" class="btn btn-lg btn-primary">Akki Monthly Schedule</button>
+                    <button type="button" class="btn btn-lg btn-primary mtx">Attendance</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-lg btn-primary mtx">Availability Search</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-lg btn-primary mtx">Akki Monthly Schedule</button>
                 </div>
             </div>
         <div class="panel">
         <div class="panel-body">
             
             <div class="row mtm">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-12">
                     <div class="form-group"><label class="control-label">Date of Service</label>
                        <input type="date" class="form-control" (change)="onMeetingDateChnage($any($event.target).value)" id="firstname" name="txtDHire"  ngModel>
                     </div>
                 </div>
             
                 
-                    <div class="col-sm-3 col-xs-6">
+                    <div class="col-sm-3 col-xs-4">
                         <div class="form-group"><label class="control-label">Time In</label>
                             <select class="form-control" (change)="GetMeetingTimeIN($any($event.target).value)" name="cars">
                                 <option value="1:12:00:AM"></option>
@@ -137,8 +132,7 @@
                         </div>
                     </div>
             
-                    
-                        <div class="col-sm-3 col-xs-6">
+                        <div class="col-sm-3 col-xs-4">
                             <div class="form-group"><label class="control-label">Time Out</label>
                                 <select class="form-control" id="state" (change)="GetMeetingTimeOUT($any($event.target).value)" name="cars">
                                     <option value="1:12:00:AM"></option>
@@ -240,17 +234,20 @@
                                     <option value="96:11:45:PM">11:45 PM</option>
                                         </select>
                             </div>
-                        </div>
-            
+                        </div>            
                         
-                            <div class="col-sm-3 col-xs-6">
-                                <div class="col-sm-3 col-xs-6">
-                                    {{timeDiff}}
+                            <div class="col-sm-3 col-xs-4">
+                                <div class="form-group">
+                                    <h3 class="text-orange">{{timeDiff}}</h3>
                                 </div>
-                <div class="col-sm-3 col-xs-6 text-center">
+                            </div>
+
+                        </div>
+                                <div class="row mtm">
+                <div class="col-sm-12 col-xs-12">
                     <button class="btn btn-lg btn-primary"  (click) = "ScheduleMeeting()">SCHEDULE</button>
                 </div>
-                            </div>
+                            
             
             
             </div>

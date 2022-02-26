@@ -248,6 +248,9 @@ export class SaveclientComponent implements OnInit {
     this.clientInfo.referredBy = form.value["txtRefId"];
     this.clientInfo.sSN = form.value["txtSSN"];
     this.clientInfo.zipCode = form.value["txtZCode"];
+
+    this.clientInfo.emgPhone = form.value["txtemgPhone"];
+    this.clientInfo.emgEmail = form.value["txtemgEmail"];
     console.log(this.clientInfo);
       this.clientapi.saveclientinfo(this.clientInfo).subscribe(
         (response)=>

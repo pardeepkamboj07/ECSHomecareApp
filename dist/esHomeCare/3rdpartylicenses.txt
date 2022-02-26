@@ -231,6 +231,30 @@ font-awesome
 
 ng6-toastr-notifications
 
+ngx-bootstrap/collapse
+MIT
+
+ngx-bootstrap/component-loader
+MIT
+
+ngx-bootstrap/dropdown
+MIT
+
+ngx-bootstrap/focus-trap
+MIT
+
+ngx-bootstrap/modal
+MIT
+
+ngx-bootstrap/positioning
+MIT
+
+ngx-bootstrap/tooltip
+MIT
+
+ngx-bootstrap/utils
+MIT
+
 ngx-pagination
 MIT
 The MIT License (MIT)
