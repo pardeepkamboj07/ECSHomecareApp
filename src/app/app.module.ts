@@ -35,8 +35,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
 import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
-import { TestingComponent } from './testing/testing.component'
+import { TestingComponent } from './testing/testing.component';
 
+import { TabsModule} from 'ngx-bootstrap/tabs';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -80,8 +82,9 @@ FullCalendarModule.registerPlugins([
     AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
     FormsModule,
-    AppBootstrapModule
-    
+    AppBootstrapModule,
+    TabsModule.forRoot(),
+    ModalModule.forRoot()    
   ],
   providers: [AuthGuardService, DatePipe],
   bootstrap: [AppComponent]
