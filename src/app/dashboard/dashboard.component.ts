@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
-
+import { setTheme } from 'ngx-bootstrap/utils';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,15 +16,30 @@ export class DashboardComponent implements OnInit {
   display_client_form:boolean = false;
   display_emp_form:boolean=false;
   modalRef?: BsModalRef;
-  constructor(private router:Router,private modalService: BsModalService) { }
+
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: "my-modal"
+  };
+  constructor(private router:Router,private modalService: BsModalService) {
+    setTheme('bs3');
+
+
+   }
 
   ngOnInit(): void {
   }
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {
-      ariaDescribedby: 'my-modal-description',
-      ariaLabelledBy: 'my-modal-title'
-    });
+
+    this.modalRef = this.modalService.show(template, this.config);
+
+    // this.modalRef = this.modalService.show(template, {
+    //   ariaDescribedby: 'my-modal-description',
+    //   ariaLabelledBy: 'my-modal-title'
+    // });
   }
 
   openModalWithClass(template: TemplateRef<any>) {  

@@ -161,7 +161,7 @@ hr {
 }
 #topbar .navbar-header #logo {
   font-size: 20px;
-  line-height: 35px;
+  line-height: 21px;
   color: #ffffff;
   height: 100%;
   width: 100%;
@@ -9572,6 +9572,7 @@ position: absolute;
 .navbar-right {
     float: right!important;
     margin-right: 0px;
+    padding-top: 5px;
 }
 }
 

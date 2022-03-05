@@ -57,9 +57,15 @@
     border-radius: 0;
   }
   #topbar .navbar-top-links {
+
     margin-left: 15px;
     margin-right: 15px;
-  }
+    position: absolute;
+    top: 58px;
+}
+
+
+  
   #topbar .navbar-top-links li > a {
     padding: 15px;
   }
