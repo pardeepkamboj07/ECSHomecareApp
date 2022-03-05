@@ -8,7 +8,9 @@ import { MeetingDetails } from 'src/app/Model/MeetinDetails';
 @Component({
   selector: 'app-client-info',
   templateUrl: './client-info.component.html',
-  styleUrls: ['./client-info.component.scss']
+  styleUrls: [
+    '../../../../assets/css/orange-blue.css',   
+    './client-info.component.scss']
 })
 export class ClientInfoComponent implements OnInit {
 

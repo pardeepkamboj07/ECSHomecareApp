@@ -27,6 +27,9 @@ export class Client
     caseWorkerEmail : string;
     isActive : Number;
 
+    emgPhone : string;
+    emgEmail : string;
+
     constructor(_cname : string, _extcId : string)
     {
         this.billTo = "";
@@ -55,5 +58,8 @@ export class Client
         this.isActive = 1;
         this.clientName = _cname;
         this.clientId = 0;
+
+        this.emgPhone = '';
+        this.emgEmail = '';
     }
 }

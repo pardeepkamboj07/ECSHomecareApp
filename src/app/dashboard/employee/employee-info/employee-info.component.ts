@@ -7,7 +7,9 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-employee-info',
   templateUrl: './employee-info.component.html',
-  styleUrls: ['./employee-info.component.scss']
+  styleUrls: [
+    '../../../../assets/css/orange-blue.css',
+    './employee-info.component.scss']
 })
 export class EmployeeInfoComponent implements OnInit {
 
@@ -20,11 +22,15 @@ export class EmployeeInfoComponent implements OnInit {
   EEmail : string = "";
   empStatus: string;
 
+  currentDate  = new Date();
   constructor(private router:Router, 
     private route:ActivatedRoute,
     public datepipe: DatePipe,
     private empapi : EmployeeapiService) 
-    { }
+    { 
+
+      
+    }
 
   ngOnInit(): void {
     this.route.params
@@ -46,7 +52,7 @@ export class EmployeeInfoComponent implements OnInit {
           this.Etype = this.empInfo.types;
           this.EmpName = this.getName(this.empInfo);
           this.empStatus = this.empInfo.status;
-          console.log("Name:"+this.EmpName);
+          //console.log("Name:"+this.EmpName);
         }); 
         
         

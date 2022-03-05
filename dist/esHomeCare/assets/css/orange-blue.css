@@ -161,7 +161,7 @@ hr {
 }
 #topbar .navbar-header #logo {
   font-size: 20px;
-  line-height: 35px;
+  line-height: 21px;
   color: #ffffff;
   height: 100%;
   width: 100%;
@@ -1444,7 +1444,7 @@ hr {
 }
 .profile .user-info {
   padding: 15px;
-  color: #000;
+  color: #fff !important;
 }
 .profile .user-info .img-circle {
   border: 2px solid #fff;
@@ -9567,4 +9567,88 @@ position: absolute;
   line-height: 1.42857143;
   vertical-align: top !important;
   border-top: 1px solid #ddd;
+}
+@media (min-width: 768px){
+.navbar-right {
+    float: right!important;
+    margin-right: 0px;
+    padding-top: 5px;
+}
+}
+
+/* .rakeshClasss{
+  background-color: #fff;
+  padding:10px;
+}
+
+::ng-deep .rakeshClasss > a
+{
+  background-color: #0a0a0a !important;
+    border-bottom: none !important;
+    outline: 0 !important;
+    color: #fff !important;
+    padding: 11px 5px !important;
+    font-size: 12px;
+}
+
+
+::ng-deep .rakeshClasss>li>a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  padding: 11px 5px !important;
+  font-size: 12px;
+  background-color: #eee;
+} */
+
+.rakeshClasss /deep/ li.active>a
+{
+  color: #fff !important;
+  cursor: default;
+  background-color: #000 !important;
+  border: 1px solid #000;
+  border-bottom-color: transparent;
+  padding:10px 5px;
+}
+.rakeshClasss /deep/ .tab-content{
+  background-color: #fff;
+  padding:10px;
+}
+.rakeshClasss /deep/ .nav-tabs>li>a{
+
+
+  background-color: #fff;
+    color: #000;
+    padding: 10px 5px;
+    font-size: 12px;
+    border: solid 1px #ccc;
+}
+
+.table-responsive {
+  min-height: .01%;
+  overflow-x: inherit !important;
+}
+@media(max-width:767px) {
+  .rakeshClasss /deep/ .nav-tabs{
+    display:none
+  }
+}
+.bg-none{
+	background: none;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000 !important;
+    outline: 0;
+}
+.text-light-orange{
+	color:#f5b6b6 !important
+}
+
+.myclass /deep/ .fade{
+
+opacity: inherit !important;
+  transition: opacity .15s linear;
 }

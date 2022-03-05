@@ -43,7 +43,7 @@ const routes: Routes = [
      children : [{path:'',component:EmployeelistComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'employeeinfo/:eId',component:EmployeeInfoComponent}]
   },
   {
@@ -59,7 +59,7 @@ const routes: Routes = [
      children : [{path:'getinvoicebyId/:InvId',component:InvoicedetailsComponent}]
   },
   {
-    path : 'dashboard',component : LayoutComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'clientevent/:clientId',component:ClienteventComponent}]
   },
   
@@ -68,7 +68,7 @@ const routes: Routes = [
      children : [{path:'clientlist',component:ClientlistComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'clientinfo/:cId',component:ClientInfoComponent}]
   },
   
