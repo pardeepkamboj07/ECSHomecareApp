@@ -35,17 +35,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",          
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": [
-<<<<<<< HEAD
-              
+            "scripts": [              
               "node_modules/jquery/dist/jquery.min.js", 
               "node_modules/popper.js/dist/umd/popper.min.js", 
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-=======
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js"
-
->>>>>>> fa55f335617a561697966b07e9ceab36d017fc64
             ]
           },
           "configurations": {
