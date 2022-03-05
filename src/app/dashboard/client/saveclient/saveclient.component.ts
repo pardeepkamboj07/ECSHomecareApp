@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ClientApiService } from 'src/app/Service/client-api.service'; 
 import { Client } from 'src/app/Model/Client';
 import { Router } from '@angular/router';
-
+import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
+import { ItemsList } from 'src/app/Model/common';
 @Component({
   selector: 'app-saveclient',
   templateUrl: './saveclient.component.html',
@@ -35,10 +36,26 @@ export class SaveclientComponent implements OnInit {
   state : string = "";
   validCWPhone : boolean = true;
   validCWEmail : boolean = true;
+  public empData: any[] = [];
 
-  constructor(private router:Router,private clientapi : ClientApiService) { }
+  empList = Array<ItemsList>();
+  constructor(private router:Router,private clientapi : ClientApiService,private empApi : EmployeeapiService) { }
 
   ngOnInit(): void {
+
+    this.empApi.getEmployeeList().subscribe((response: any) => {
+      console.log(response);
+      response.data.forEach((company: any) => {
+        console.log(company);
+        this.empList.push(
+          new ItemsList(company.empID, company.empName)
+        );
+      });
+    });
+
+    console.log(this.empList);
+
+
   }
   
   IsActiveCB(event : any)
