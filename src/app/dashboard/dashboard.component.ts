@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,TemplateRef  } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +15,41 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   display_client_form:boolean = false;
   display_emp_form:boolean=false;
-  constructor(private router:Router) { }
+  modalRef?: BsModalRef;
+  constructor(private router:Router,private modalService: BsModalService) { }
 
   ngOnInit(): void {
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {
+      ariaDescribedby: 'my-modal-description',
+      ariaLabelledBy: 'my-modal-title'
+    });
+  }
+
+  openModalWithClass(template: TemplateRef<any>) {  
+    this.modalRef = this.modalService.show(  
+      template,  
+      Object.assign({}, { class: 'gray modal-lg' })  
+    );  
+  } 
+
+
+
+
+
+  messages: string[] = [];
+
+  message(s: string) {
+    this.messages.push(s);
+  }
+
+  @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
+
+  selectTab(tabId: number) {
+    if (this.staticTabs?.tabs[tabId]) {
+      this.staticTabs.tabs[tabId].active = true;
+    }
   }
 
   onClickButton(input: string){
