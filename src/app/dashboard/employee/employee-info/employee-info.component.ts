@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,TemplateRef  } from '@angular/core';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service'; 
 import { Employee } from 'src/app/Model/Employee';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { DatePipe } from '@angular/common';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-employee-info',
@@ -13,6 +17,14 @@ import { DatePipe } from '@angular/common';
 })
 export class EmployeeInfoComponent implements OnInit {
 
+  modalRef?: BsModalRef;
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: "my-modal"
+  };
   empId : string = "-1";
   empInfo : Employee;
   Etype : string = "";
@@ -21,16 +33,31 @@ export class EmployeeInfoComponent implements OnInit {
   ECellPhone : string = "";
   EEmail : string = "";
   empStatus: string;
-
   currentDate  = new Date();
   constructor(private router:Router, 
     private route:ActivatedRoute,
     public datepipe: DatePipe,
-    private empapi : EmployeeapiService) 
-    { 
-
-      
+    private empapi : EmployeeapiService,    
+    private modalService: BsModalService   
+    ) 
+    {
+      setTheme('bs3');
     }
+
+    @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
+
+    selectTab(tabId: number) {
+      if (this.staticTabs?.tabs[tabId]) {
+        this.staticTabs.tabs[tabId].active = true;
+      }
+    }
+  
+
+
+
+
+
+
 
   ngOnInit(): void {
     this.route.params
@@ -39,10 +66,13 @@ export class EmployeeInfoComponent implements OnInit {
         this.empId = params["eId"];
       }
     );
-
     this.empInfo = new Employee();
     this.GetEmployeeInfo(this.empId);
   }
+
+
+
+
 
   GetEmployeeInfo(empId : string)
   {
