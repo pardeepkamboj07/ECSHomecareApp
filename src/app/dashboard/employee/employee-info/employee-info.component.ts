@@ -51,13 +51,6 @@ export class EmployeeInfoComponent implements OnInit {
         this.staticTabs.tabs[tabId].active = true;
       }
     }
-  
-
-
-
-
-
-
 
   ngOnInit(): void {
     this.route.params

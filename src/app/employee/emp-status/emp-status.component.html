@@ -1,0 +1,144 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Incidents</strong> </h4>
+        <!-- <input type="text"
+        placeholder="Datepicker"
+        class="form-control"
+        bsDatepicker #dp="bsDatepicker" > -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(template)" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Incidents</a>
+            </div>
+            <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left text-orange">Add Incidents</h4>
+  
+             
+  
+                <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                  <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row mtm">
+                    <div class="col-sm-3 col-xs-4"><label class="control-label">Type/Status:</label>
+                        <select class="form-control" id="state" name="TypeStatus" ngModel>
+                           
+                            <option value="1">Start - Stand By</option>
+                            <option value="2">Start - Start</option>
+                            <option value="3">Restart - Reactivate</option>
+                            <option value="4">Restart - Rehire</option>
+                            <option value="5">Leave - Disability</option>
+                            <option value="6">Leave - FML</option>
+                            <option value="7">Leave - Personal</option>
+                            <option value="8">Leave - Vacation</option>
+                                </select>
+                    </div>
+                    <div class="col-sm-3 col-xs-4">
+                        <label for="exampleFormControlInput1">Reason</label>
+                        <input type="email" class="form-control" name="Reason" ngModel>
+                      </div>
+                      <div id="notifyVia" style="padding-top: 5px; margin-top:5px;">
+                        <input type="checkbox" name="Resume" ngModel id="viaText">Ok of Resume&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Rehire" id="viaScreen" ngModel>Will Rehire
+                     </div>
+                     
+                  
+                </div>
+
+                   <div class="row mtm">
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="form-group"><label class="control-label">Effective Date</label>
+                           <input type="date" class="form-control" name="EffectiveDate"   ngModel>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-4">
+                        <div class="form-group"><label class="control-label">Date of Return</label>
+                           <input type="date" class="form-control" name="ReturnDate"  ngModel>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-4">
+                        <label for="exampleFormControlInput1">Note</label>
+                        <textarea class="form-control" name="Note"  ngModel></textarea>
+                      </div>
+               </div>
+               <div class="row mtm">
+                <div class="col-sm-3 col-xs-4"><label class="control-label">for Scheduling/Billing/Payroll</label>
+                    <select class="form-control" id="state" ngModel name="Scheduling">
+                        <option value="1">Ignore</option>
+                        <option value="2">Warm</option>
+                        <option value="3">DisAllow</option>                        
+                            </select>
+                </div>
+
+                <div class="col-sm-3 col-xs-12"><label class="control-label">Notify about Yolanda Acosta De Osorio's status change:</label>
+                    <select class="form-control" id="state" ngModel name="OfficeUser">
+                        <option value="">Office User</option>
+                        <option value="4294">Elkoun, Elena</option>
+                        <option value="4295">Elkoun, Souhaib</option>
+                        <option value="4582">G, Christian </option>
+                        <option value="4299">Galeas, Marco</option>
+                        <option value="4293">Henriques, Michelle</option>
+                        <option value="4559">Kumar, Ashok</option>
+                        <option value="4302">Lopez, Marion</option>
+                        <option value="4604">Nurse, Field</option>
+                        <option value="4303">Ruano, Diana</option>
+                        <option value="4363">Stern, Marianne</option>
+                            </select>
+                </div>
+                <div class="col-sm-3 col-xs-12"><label class="control-label">Notify about Yolanda Acosta De Osorio's status change:</label>
+                    <select class="form-control" id="state" ngModel name="EmployeeLst">
+                        <option value="">Employee</option>
+                        <option value="165609">Acosta De Osorio, Yolanda , Applicant HHA - 165609</option>
+                        <option value="164098">Afful, John , Applicant HHA - 164098</option>
+                        <option value="161106">Aime, Nirva Bien, HHA - 161106</option>
+                        <option value="160737">Alfred-Saintima, Judette Chery, HHA - 160737</option>
+                        <option value="165243">Amenig, Celine , Applicant HHA - 165243</option>
+                        <option value="161151">Andre, Manite , HHA - 161151</option>
+                        <option value="159345">Awie, Mentee , HHA - 159345</option>
+                        <option value="164558">Baez, Margarita , Applicant HHA - 164558</option>
+                        <option value="164941">Batista, Julissa , Applicant HHA - 164941</option>
+                        <option value="161208">Beaubrun, Marie Mirlande, HHA - 161208</option>
+                        <option value="159348">Beaubrun, Rolland , HHA - 159348</option>
+                        <option value="165190">Bossman, Lili , Applicant HHA - 165190</option>
+                        <option value="162693">Bowland, Taneisha , HHA - 162693</option>
+                        <option value="160227">Brooks, Edius , HHA - 160227</option>
+                        <option value="163974">Bush, Jametta , HHA - 163974</option>
+                            </select>
+                </div>
+            </div> 
+            <div id="notifyVia" style="padding-top: 5px; margin-top:5px;">
+                Notify via:&nbsp;<input type="checkbox" name="Text" ngModel value="1">Text&nbsp;&nbsp;&nbsp;<input type="checkbox" name="viaScreen" id="Screen" ngModel>Screen&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Email" ngModel>Email
+             </div>
+            
+              </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date/Time	</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let item of incidentObjList;">
+                                <td> {{ item.incidentDate }}</td>
+                                <td> {{ item.incidentDetail }}</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
