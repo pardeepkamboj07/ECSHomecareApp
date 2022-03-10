@@ -102,7 +102,7 @@
                 <div class="form-group"><label class="control-label">All Employee Data<br><span
                       class="small-txt text-black">(Names, address, phone, SSN, any ID)</span></label>
 
-                  <input type="text" class="form-control" id="txtType" name="txtfirstname" [(ngModel)]="searchValue" />
+                  <input type="text" class="form-control" id="txtSearch" name="Search" [(ngModel)]="searchValue" />
 
                 </div>
               </div>
@@ -162,12 +162,18 @@
                     <td><i class="fa fa-check medium-txt"></i></td>
                     <td><i class="fa fa-check medium-txt"></i></td>
                     <td>{{trObj.coordinator}}</td>
-                    <td><i class="fa fa-file-pdf-o medium-txt"></i></td>
-                    <td><i class="fa fa-trash-o medium-txt"></i></td>
+                    <td>
+                      
+                      <a  [routerLink]="'/Layout/employeeinfo/' + trObj.empID" title="Profile">
+                        <i class="fa fa-id-card medium-txt"></i>
+                      </a> 
+                      
+                      </td>
+                    <td> <a title="Delete" href="javascript:;" (click)="deleteEmployee(trObj)">
+                    <i class="fa fa-trash-o medium-txt"></i></a>                    
+                    </td>
                   </tr>
-
                 </tbody>
-
               </table>
 
               <ng-template #noResults>
