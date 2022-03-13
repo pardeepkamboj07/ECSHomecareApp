@@ -47,6 +47,7 @@ import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
 
 import { ScheduleComponent } from './meeting/schedule/schedule.component';
+import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -83,6 +84,7 @@ FullCalendarModule.registerPlugins([
     EmpStatusComponent,
     
     ScheduleComponent,
+         EmpAvailabilityComponent,
   
   ],
   imports: [

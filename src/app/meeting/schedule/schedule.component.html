@@ -42,10 +42,10 @@
                         <div class="col-sm-3 col-xs-4">
                             <div class="form-group"><label class="control-label">Time Out</label>
                                 <timepicker 
-                                #StartTime="ngModel"
+                                #EndTime="ngModel"
                           id="txtEndTime"
                           name="EndTime"
-                                
+                          [min]="model.startTime"                                
                                 
                                 [(ngModel)]="model.endTime"  (ngModelChange)="changed()" 
                                 
@@ -58,7 +58,7 @@
                             <div class="col-sm-3 col-xs-4">
                                 <div class="form-group">
                                     
-                                    <h3 class="text-orange">{{model.meetingNote}}</h3>
+                                    <h3 class="text-orange">{{timespan}}</h3>
                                 </div>
                             </div>
 

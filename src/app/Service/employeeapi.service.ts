@@ -125,6 +125,9 @@ export class EmployeeapiService {
     return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getScheduleLst");
   } 
 
-
+  getAvailabilityList()
+  {
+    return this._http.get<APIResponse<any[]>>(environment.domain + "/api/Employee/getAvailabilityList");
+  } 
   
 }
