@@ -7,6 +7,7 @@ import { APIResponse } from '../Model/APIResponse';
 import { Incident } from 'src/app/Model/Employee/incident';
 import { Attendance } from 'src/app/Model/Employee/attendance';
 import { Empstatus } from '../Model/Employee/empstatus';
+import { StatusSelectList } from 'src/app/Model/status-select-list';
 @Injectable({
   providedIn: 'root'
 })
@@ -89,15 +90,40 @@ export class EmployeeapiService {
 
 
   SaveEmployeeStatus(_obj : Empstatus){ 
-    alert("Call Api Service")
     var headers_object = new HttpHeaders();
         headers_object.append('Content-Type', 'application/json');
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
         const httpOptions = {
           headers: headers_object
         }; 
-    return this._http.post(environment.domain + "​/api​/Employee​/addStatus", _obj,httpOptions);            
+    return this._http.post(environment.domain + "/api/Employee/addStatus", _obj,httpOptions);   
+              
   }
+
+  getEmpStatusList()
+  {
+    return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList");
+  } 
+
+  GetOfficeUserLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getOfficeUserList");
+  } 
+
+  GetTypeStatusLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getTypeStatusList");
+  } 
+
+  GetEmployeeLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmployeeStatusList");
+  } 
+
+  GetSchedulingLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getScheduleLst");
+  } 
 
 
   

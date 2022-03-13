@@ -41,8 +41,12 @@ import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
 import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
+
+import { ScheduleComponent } from './meeting/schedule/schedule.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -77,6 +81,8 @@ FullCalendarModule.registerPlugins([
     EmpIncidentsComponent,
     EmpAttendanceComponent,
     EmpStatusComponent,
+    
+    ScheduleComponent,
   
   ],
   imports: [
@@ -94,6 +100,7 @@ FullCalendarModule.registerPlugins([
     TabsModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(), 
+    TimepickerModule.forRoot()
   ],
   providers: [AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
