@@ -39,6 +39,14 @@ import { TestingComponent } from './testing/testing.component';
 
 import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
+import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
+import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
+
+import { ScheduleComponent } from './meeting/schedule/schedule.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -69,7 +77,13 @@ FullCalendarModule.registerPlugins([
     ClientCalenderComponent,
     ChunkPipe,
     FilterPipe,
-    TestingComponent
+    TestingComponent,
+    EmpIncidentsComponent,
+    EmpAttendanceComponent,
+    EmpStatusComponent,
+    
+    ScheduleComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -84,9 +98,11 @@ FullCalendarModule.registerPlugins([
     FormsModule,
     AppBootstrapModule,
     TabsModule.forRoot(),
-    ModalModule.forRoot()    
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(), 
+    TimepickerModule.forRoot()
   ],
-  providers: [AuthGuardService, DatePipe],
+  providers: [AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

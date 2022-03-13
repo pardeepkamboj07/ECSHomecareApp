@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-lg-12">
+      <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Incidents</strong> </h4>
+      <!-- <input type="text"
+      placeholder="Datepicker"
+      class="form-control"
+      bsDatepicker #dp="bsDatepicker" > -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+      <div class="row mbm">
+          <div class="col-sm-12 text-14">
+              <a href="javascript:void(0)" (click)="openModal(template)" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Incidents</a>
+          </div>
+          <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left text-orange">Add Incidents</h4>
+
+           
+
+              <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                <span aria-hidden="true" class="visually-hidden">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form name="frmIncident" #f="ngForm">
+                
+              <div class="row mtm">
+                  <div class="col-sm-6 col-xs-12">
+                      <div class="form-group" ><label class="control-label">Date</label>
+                          <!-- <input  type="text" placeholder="First Name" class="form-control" id="txtfirstname" name="txtfirstname" ngModel>
+                          <em for="txtUserName" class="invalid" >This field is required</em> -->
+                          <input type="text"
+                          #IncidentDate="ngModel"
+                          id="txtIncidentDate"
+                          name="IncidentDate"
+                          placeholder="Incident Date"
+                          [(ngModel)]="model.incidentDate"
+                          class="form-control"
+                          bsDatepicker  >
+                        <em
+                          *ngIf="
+                          IncidentDate.invalid &&
+                            (IncidentDate.dirty || IncidentDate.touched)
+                          "
+                          for="txtIncidentDate"
+                          class="invalid"
+                          >This field is required</em
+                        >
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">  
+                                    <div class="form-group"><label class="control-label">Client</label>                                     
+                                                <select
+                                                class="form-control"
+                                                #ClientId="ngModel"
+                                                id="ddlClientId"
+                                                name="ClientId"  
+                                                [(ngModel)]="model.clientId"                                       
+                                              >
+                                                <option value="" disabled>Select</option>
+                                                <option
+                                                  *ngFor="let obj of ClientList"
+                                                  [value]="obj.ItemId"
+                                                >
+                                                  {{ obj.ItemName }}
+                                                </option>
+                                              </select>
+
+                                              <em
+                                              *ngIf="
+                                              ClientId.invalid &&
+                                                (ClientId.dirty || ClientId.touched)
+                                              "
+                                              for="ddlClientId"
+                                              class="invalid"
+                                              >This field is required</em
+                                            >
+
+
+                                              
+                                  </div>
+                          </div>
+                          <div class="col-sm-12 col-xs-12">  
+                              <div class="form-group"><label class="control-label">Description </label>                               
+                                  <textarea placeholder="Description" 
+                                  class="form-control" 
+                                  id="txtIncidentDetail"
+                                  name="IncidentDetail"                             
+                                  [(ngModel)]="model.incidentDetail"                                  
+                                  ></textarea>
+                            </div>
+                    </div>
+                   </div>
+                   <div class="row mtm">
+                      <div class="col-sm-12 col-xs-12 text-center">
+                              <button type="button" (click)="saveIncident()"
+                       
+
+                [disabled]="f.invalid"
+                              
+                              class="btn btn-lg btn-dark">Save</button>
+                          </div>
+</div>
+              </form>
+            </div>
+          </ng-template>
+      </div>
+      <div class="row mbm">
+          <div class="col-sm-12">
+              <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>Date/Time	</th>
+                              <th>Description</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of incidentObjList;">
+                              <td> {{ item.incidentDate }}</td>
+                              <td> {{ item.incidentDetail }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

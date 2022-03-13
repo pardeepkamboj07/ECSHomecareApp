@@ -4,7 +4,10 @@ import { environment } from 'src/environments/environment.prod';
 import { Employee } from 'src/app/Model/Employee';
 import { Observable } from 'rxjs';
 import { APIResponse } from '../Model/APIResponse';
-
+import { Incident } from 'src/app/Model/Employee/incident';
+import { Attendance } from 'src/app/Model/Employee/attendance';
+import { Empstatus } from '../Model/Employee/empstatus';
+import { StatusSelectList } from 'src/app/Model/status-select-list';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,5 +39,92 @@ export class EmployeeapiService {
   {
     return this._http.get<APIResponse<string>>(environment.domain + environment.deleteemployeeurl + empId);
   } 
+
+
+  saveIncident(_req : Incident){ 
+
+    debugger;
+
+    console.log(_req);
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addIncident", _req,httpOptions);            
+  }
+
+
+  getIncidentList(empId : number)
+  {
+
+    return this._http.get<APIResponse<Incident>>(environment.domain + "/api/Employee/getIncidentList" + '/' + empId);
+  } 
+
+
+
+
+  saveAttendance(_req : Attendance){ 
+
+    debugger;
+
+    console.log(_req);
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addAttendance", _req,httpOptions);            
+  }
+
+
+  getAttendanceList(empId : number)
+  {
+
+    return this._http.get<APIResponse<Incident>>(environment.domain + "/api/Employee/getAttendanceList" + '/' + empId);
+  } 
+
+
+
+
+  SaveEmployeeStatus(_obj : Empstatus){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addStatus", _obj,httpOptions);   
+              
+  }
+
+  getEmpStatusList()
+  {
+    return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList");
+  } 
+
+  GetOfficeUserLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getOfficeUserList");
+  } 
+
+  GetTypeStatusLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getTypeStatusList");
+  } 
+
+  GetEmployeeLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmployeeStatusList");
+  } 
+
+  GetSchedulingLst()
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getScheduleLst");
+  } 
+
+
   
 }
