@@ -25,15 +25,24 @@
 
                                 <select (change)="IsActiveCB($any($event.target).value)" id="cars" name="cars"
                                     class="form-control">
-                                    <option value="1">Active</option>
+                                    <!-- <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                     <option value="2">Start of Care</option>
                                     <option value="3">Admitted Date</option>
                                     <option value="4">Inquiry</option>
-                                    <option value="5">Discharge</option>
+                                    <option value="5">Discharge</option> -->
+
+                                    <option
+                                    *ngFor="let obj of statusData"
+                                    [value]="obj.itemId"
+                                  >
+                                    {{ obj.itemName }}
+                                  </option>
+
+
                                 </select>
                             </div>
-
+                            
 
 
                         </div>
@@ -59,9 +68,15 @@
                         </div>
                         <div class="col-sm-3 col-xs-6">
                             <div class="form-group"><label class="control-label">Ethnicity</label>
-                                <input type="text" placeholder="Ethnicity" class="form-control" id="eth"
-                                    name="txtEthnicity" ngModel>
-
+                                    <select id="ddlEthnicity" name="Ethnicity"
+                                    class="form-control" ngModel>
+                                    <option
+                                    *ngFor="let obj of ethnicityData"
+                                    [value]="obj.itemId"
+                                  >
+                                    {{ obj.itemName }}
+                                  </option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -145,9 +160,12 @@
                                     class="control-label">Gender</label>
                                 <select class="form-control" (change)="FilterGender($any($event.target).value)"
                                     id="gender" name="gender" ngModel>
-                                    <option value="M">Male</option>
-                                    <option value="F">Female</option>
-                                    <option value="O">Other</option>
+                                    <option
+                                    *ngFor="let obj of genderData"
+                                    [value]="obj.itemId"
+                                  >
+                                    {{ obj.itemName }}
+                                  </option>
                                 </select>
                                 <em *ngIf="!validGender" for="ddlHR" class="invalid">Gender is required.</em>
                             </div>
@@ -182,9 +200,12 @@
                             <div class="form-group"><label class="control-label">Marital Status</label>
                                 <select class="form-control" (change)="getmarital($any($event.target).value)"
                                     id="martial" name="MaritalStatus">
-                                    <option value="S">Single</option>
-                                    <option value="M">Married</option>
-                                    <option value="W">Widow</option>
+                                    <option
+                                    *ngFor="let obj of marriedStatusData"
+                                    [value]="obj.itemId"
+                                  >
+                                    {{ obj.itemName }}
+                                  </option>
                                 </select>
                             </div>
                         </div>

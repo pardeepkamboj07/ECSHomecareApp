@@ -1,10 +1,10 @@
 export class ItemsList {
-    public ItemId: string;
-    public ItemName: string;
-    constructor(_itemId : string, _itemName : string)
+    public itemId: number;
+    public itemName: string;
+    constructor(_itemId : number, _itemName : string)
     {
-        this.ItemId = _itemId;
-        this.ItemName = _itemName;
+        this.itemId = _itemId;
+        this.itemName = _itemName;
     }
 }
 

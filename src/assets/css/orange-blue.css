@@ -9652,3 +9652,126 @@ position: absolute;
 opacity: inherit !important;
   transition: opacity .15s linear;
 }
+
+
+
+
+.fillter-button{
+	width: 100%
+}
+.fillter-button ul{
+	  columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+	list-style: none;
+	padding: 0px;
+	margin: 0px
+ 
+}
+@media(max-width:767px){
+	.fillter-button ul{
+	  columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+
+	}
+}
+.fillter-button ul li{
+	width:100%;
+	margin-bottom: 5px;	
+	
+}
+.fillter-button ul li .btn{
+	width:100%;
+	min-width: 145px;
+	    text-align: left;
+	font-size: 14px;
+	
+}
+@media(max-width:767px){
+	.medium-txt-mobile{
+	font-size: 20px !important;	
+	}
+}
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff !important;
+    cursor: default;
+    background-color: #333 !important;
+    border: 1px solid #333;
+    border-bottom-color: transparent;
+}
+@media(min-width:767px){
+	.find-office-popup{
+	width: 100%
+}
+	
+	.find-office-popup .modal.fade .modal-dialog {
+    -webkit-transition: -webkit-none;
+    -o-transition: -o-none;
+    transition: none;
+    -webkit-transform: none;
+    -o-transform:none;
+    transform: none;
+}
+	.find-office-popup .modal-dialog {
+    width: 100%;
+    margin: 0px;
+		    position: relative;
+}
+	.find-office-popup .modal {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+	.find-office-popup .modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: 0;
+}
+	.find-office-popup .modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: none;
+   
+    border-radius: 0px;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+	.find-office-popup .modal-backdrop.fade {
+    filter: alpha(opacity=50);
+    opacity: .0;
+}
+	.find-office-popup .fade {
+    opacity: 1;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+	.display-block{
+		display: block !important
+	}
+}
+@media(max-width:767px){
+	.filter-tab-btn{
+	width:50%;
+		text-align: center
+}
+}
+.control-label{
+	font-size: 12px;
+	font-weight: normal;
+	color:#000
+}
+
+

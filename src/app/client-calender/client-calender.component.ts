@@ -1,6 +1,9 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { CalendarDay } from '../Model/calendar-day';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute, Params } from '@angular/router';
+import { MeetingService } from 'src/app/services/meeting.service';
+import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
+import { DatePipe } from '@angular/common';
 @Pipe({
   name: 'chunk'
 })
@@ -34,20 +37,34 @@ export class ClientCalenderComponent implements OnInit {
   public monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-  constructor(private router:Router) { }
+  constructor(private router:Router, 
+    private route:ActivatedRoute,private momApi:MeetingService,public datepipe: DatePipe) { }
 
   public displayMonth: string;
   private monthIndex: number = 0;
-
-
+  private empId:number=1;
+   meetingList: Empmeeting[];
   ngOnInit(): void {
-    this.generateCalendarDays(this.monthIndex);
+
+    this.route.params
+    .subscribe(
+      (params : Params) =>{
+        this.empId = params["eId"];
+      }
+    );
+
+
+    this.momApi.getEmployeeMeeting(1).subscribe((response) => {
+      this.meetingList = response.data;
+      this.generateCalendarDays(this.monthIndex,this.empId);
+    });
+
+    
   }
 
-  private generateCalendarDays(monthIndex: number): void {
+  private generateCalendarDays(monthIndex: number,empId:number): void {
     // we reset our calendar
     this.calendar = [];
-
     // we set the date 
     let day: Date = new Date(new Date().setMonth(new Date().getMonth() + monthIndex));
 
@@ -59,10 +76,38 @@ export class ClientCalenderComponent implements OnInit {
     let dateToAdd = startingDateOfCalendar;
 
     for (var i = 0; i < 42; i++) {
-      this.calendar.push(new CalendarDay(new Date(dateToAdd)));
+
+debugger;
+
+let _cdate=new Date(dateToAdd);
+let _meeting = this.meetingList.filter((x: Empmeeting) =>(new Date(x.meetingDate).getTime() != _cdate.getTime()));
+      this.calendar.push(new CalendarDay(_cdate,this.meetingList));
       dateToAdd = new Date(dateToAdd.setDate(dateToAdd.getDate() + 1));
     }
   }
+
+  BindMaster()
+  { 
+    this.momApi.getEmployeeMeeting(1).subscribe((response) => {
+      this.meetingList = response.data;
+    });
+
+  }
+//   isValidDate:boolean;
+
+//   equalDates(sDate: string, eDate: string){
+//     this.isValidDate = false;
+// if(new Date(sDate).getTime()===new Date(eDate).getTime())
+// {
+//   this.isValidDate = true;
+// }
+//     //YYYY-MM-DD
+    
+//   }
+
+//tru
+
+
 
   private getStartDateForCalendar(selectedDate: Date){
     // for the day we selected let's get the previous month last day
@@ -84,17 +129,17 @@ export class ClientCalenderComponent implements OnInit {
 
    public increaseMonth() {
     this.monthIndex++;
-    this.generateCalendarDays(this.monthIndex);
+    this.generateCalendarDays(this.monthIndex,this.empId);
   }
 
   public decreaseMonth() {
     this.monthIndex--
-    this.generateCalendarDays(this.monthIndex);
+    this.generateCalendarDays(this.monthIndex,this.empId);
   }
 
   public setCurrentMonth() {
     this.monthIndex = 0;
-    this.generateCalendarDays(this.monthIndex);
+    this.generateCalendarDays(this.monthIndex,this.empId);
   }
 
 

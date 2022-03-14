@@ -44,10 +44,11 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
+import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
+
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
 
 import { ScheduleComponent } from './meeting/schedule/schedule.component';
-import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -82,9 +83,8 @@ FullCalendarModule.registerPlugins([
     EmpIncidentsComponent,
     EmpAttendanceComponent,
     EmpStatusComponent,
-    
+    EmpAvailabilityComponent,
     ScheduleComponent,
-         EmpAvailabilityComponent,
   
   ],
   imports: [

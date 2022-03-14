@@ -23,7 +23,7 @@ export class EmpIncidentsComponent implements OnInit {
     ignoreBackdropClick: false,
     class: "my-modal"
   };
-  model = new Incident(0, 0, -1,  '', '');
+  model = new Incident(0, 0, 0,  '', '');
 
   ClientList = Array<ItemsList>();
   incidentObjList: any;
