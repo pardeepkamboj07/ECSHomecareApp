@@ -8,6 +8,9 @@ import { Incident } from 'src/app/Model/Employee/incident';
 import { Attendance } from 'src/app/Model/Employee/attendance';
 import { Empstatus } from '../Model/Employee/empstatus';
 import { StatusSelectList } from 'src/app/Model/status-select-list';
+import { AddressObj } from 'src/app/Model/Employee/address';
+import { ComplianceObj } from 'src/app/Model/Employee/compliance-obj';
+import{EmpRate} from 'src/app/Model/Employee/emp-rate'
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +35,7 @@ export class EmployeeapiService {
 
   getEmployeeInfo(empID : string)
   {
-    return this._http.get<APIResponse<Employee>>(environment.domain + environment.getempbyidurl + '/' + empID);
+    return this._http.get<APIResponse<Employee>>(environment.domain + "/api/Employee/getemployeebyId/" + empID);
   } 
 
   deleteEmployee(empId : Number)
@@ -129,5 +132,66 @@ export class EmployeeapiService {
   {
     return this._http.get<APIResponse<any[]>>(environment.domain + "/api/Employee/getAvailabilityList");
   } 
+  
+  saveAddress(_req : AddressObj){ 
+
+    debugger;
+    console.log(_req);
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addAddress", _req,httpOptions);            
+  }
+
+
+  geAddress(empId : number)
+  {
+
+    return this._http.get<APIResponse<AddressObj>>(environment.domain + "/api/Employee/getAddress" + '/' + empId);
+  } 
+
+  saveCompliance(_req : ComplianceObj){ 
+
+    debugger;
+    console.log(_req);
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addCompliance", _req,httpOptions);            
+  }
+
+
+  geComplianceList(empId : number)
+  {
+
+    return this._http.get<APIResponse<ComplianceObj[]>>(environment.domain + "/api/Employee/getComplianceList" + '/' + empId);
+  } 
+
+
+
+  SaveEmployeeRate(_obj : EmpRate){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addRate", _obj,httpOptions);   
+              
+  }
+
+  GetEmployeeRateLst(empId:number)
+  {
+    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmpRate"+ '/' + empId);
+  } 
+
+
+
   
 }

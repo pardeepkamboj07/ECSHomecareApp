@@ -1,0 +1,274 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Rate</strong> </h4>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(template)" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Incidents</a>
+            </div>
+            <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left text-orange">Add Rate</h4>
+  
+             
+  
+                <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                  <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form name="frmRate" #f="ngForm">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                        <label class="control-label">Effective Date</label>
+                            <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                
+                                <input type="text" #EffectiveDate="ngModel" id="txtEffectiveDate"name="EffectiveDate"
+                                placeholder="Effective Date" [(ngModel)]="model.EffectiveDate" class="form-control"  bsDatepicker  >
+                                                            
+                            
+                            
+                            </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                        <label class="control-label">End Date</label>
+                            <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                
+                                
+                                
+                                
+                                <input type="text" #EndDate="ngModel" id="txtReturnDate"name="ReturnDate"
+                                placeholder="Effective Date"  [(ngModel)]="model.EndDate" class="form-control"  bsDatepicker  >
+
+                                                            </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <input type="textarea" #Description="ngModel"  [(ngModel)]="model.Description" 
+                        class="form-control">
+                                </div>
+                        </div>
+                        
+                        </div>
+                        
+                    <div class="row mbm">
+                        <div class="col-lg-6">
+                            <div class="row mbm">
+                            <div class="col-lg-12 control-label"><strong>Regular Time Rates</strong></div>
+                            </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Hourly</label>
+                                <input type="number" class="form-control" #Hourly="ngModel" name="Hourly" [(ngModel)]="model.Hourly" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Live-In</label>
+                                <input type="number" #Livein="ngModel" class="form-control" name="Livein" [(ngModel)]="model.Livein" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Visit</label>
+                                <input type="number" #Visit="ngModel" class="form-control" name="Visit" [(ngModel)]="model.Visit" />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row mbm">
+                            <div class="col-lg-12 control-label"><strong>Overtime Rates (40-hour week)</strong></div>
+                            </div>
+                            <div class="row">
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Hourly</label>
+                                <input type="number" #OverHourly="ngModel" class="form-control" name="OverHourly" [(ngModel)]="model.OverHourly" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Live-In</label>
+                                <input type="number" #OverLivein="ngModel" class="form-control" name="OverLivein" [(ngModel)]="model.OverLivein" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Visit</label>
+                                <input type="number" #OverVisit="ngModel" class="form-control" name="OverVisit" [(ngModel)]="model.OverVisit" />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                        <input type="checkbox" /> 
+                        
+                      <label class="control-label mlm">Apply the rate to all schedules starting effective date</label>
+                                </div>
+                        </div>				
+                    
+                        </div>
+                        <div class="row mbm">
+                        <div class="col-lg-12">
+                            <div class="row mbm">
+                            <div class="col-lg-12 control-label"><strong>Optional Pay Rules</strong></div>
+                            </div>
+                            <div class="row">
+                            <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Hour Included</label>
+                                <input type="number" #OptionalHour="ngModel" class="form-control" name="OptionalHour" [(ngModel)]="model.OptionalHour" />
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Additional Hour</label>
+                                <input type="number" #OptionalAddHour="ngModel" class="form-control" name="OptionalAddHour" [(ngModel)]="model.OptionalAddHour" />
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Mileage</label>
+                                <input type="number" #Mileage="ngModel" class="form-control" name="Mileage" [(ngModel)]="model.Mileage" />
+                                </div>
+                            </div>
+                                <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Travel Time</label>
+                                <input type="number" #TravelTime="ngModel" class="form-control" name="TravelTime" [(ngModel)]="model.TravelTime" />
+                                </div>
+                            </div>
+                                <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Gas</label>
+                                <input type="number" #Gas="ngModel" name="Gas" class="form-control" [(ngModel)]="model.Gas" />
+                                </div>
+                            </div>
+                                <div class="col-lg-2 col-xs-4">
+                                <div class="form-group">
+                                <label class="control-label">Extra</label>
+                                <input type="number" #Extra="ngModel" class="form-control" name="Extra" [(ngModel)]="model.Extra" />
+                                </div>
+                            </div>
+                            </div>
+                        </div>				
+                    
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <p class="control-label mbs"><strong>Apply Rates to Schedule With</strong></p>
+                            <p class="control-label">Optionally, apply this rate to appointments with payer, rate or client selected below.</p>
+                        </div>				
+                    
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-4 col-xs-6">
+                            <div class="form-group">
+                        <label class="control-label">Payer</label>
+                        <select
+                        class="form-control"
+                        #PayerId="ngModel"                                   
+                        id="ddlTypeStatusId"
+                        name="PayerId"                                   
+                        [(ngModel)]="model.PayerId"                                       
+                      > 
+                      <option value="" disabled>Select</option>
+                                    <option
+                                      *ngFor="let obj of PayerList"
+                                      [value]="obj.id"
+                                    >
+                                      {{ obj.text }}
+                                    </option>
+                                                      
+                            </select>
+                                </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-6">
+                            <div class="form-group">
+                        <label class="control-label">Client</label>
+                        <select
+                        class="form-control"
+                        #ClientId="ngModel"                                   
+                        id="ddlTypeStatusId"
+                        name="ClientId"                                   
+                        [(ngModel)]="model.ClientId"                                       
+                      > 
+                      <option value="" disabled>Select</option>
+                                    <option
+                                      *ngFor="let obj of ClientList"
+                                      [value]="obj.clientId"
+                                    >
+                                      {{ obj.clientName }}
+                                    </option>
+                                                      
+                            </select>
+                                </div>
+                        </div>
+                    
+                        
+                        </div>
+                         <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                        <label class="control-label">Notes</label>
+                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.Note" id="txtNote"name="Note"
+                        class="form-control">
+                                </div>
+                        </div>				
+                    
+                        </div>
+                        
+                        <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <button type="button" (click)="onClickSubmit()" class="btn btn-md btn-dark">Add Rates</button>
+                        </div>
+                            </div>
+        
+                </form>
+              </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Activity	</th>
+                                <th>Effective Dates	</th>
+                                <th>Regular Rate</th>
+                                <th>Overtime Rate</th>
+                                <th>Applies/Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of EmpRateObj">
+                                <td><input type="checkbox" /></td>
+                                <td>{{ item.effectiveDates }}</td>
+                                <td>{{ item.ragularrate }}</td>
+                                <td>{{ item.overTimeRate }}</td>
+                                <td>{{ item.discription }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

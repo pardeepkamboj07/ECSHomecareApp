@@ -80,7 +80,7 @@ debugger;
       debugger;
       response.data.forEach((_obj: any) => {
         this.ClientList.push(
-          new ItemsList(_obj.clientId.toString(), _obj.clientName)
+          new ItemsList(_obj.clientId, _obj.clientName)
         );
       });
     });

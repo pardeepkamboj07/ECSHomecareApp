@@ -5,6 +5,9 @@ import { Client } from 'src/app/Model/Client';
 import { Router } from '@angular/router';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ItemsList } from 'src/app/Model/common';
+import { CommonService } from 'src/app/services/common.service';
+
+
 @Component({
   selector: 'app-saveclient',
   templateUrl: './saveclient.component.html',
@@ -36,10 +39,21 @@ export class SaveclientComponent implements OnInit {
   state : string = "";
   validCWPhone : boolean = true;
   validCWEmail : boolean = true;
-  public empData: any[] = [];
-
+  empData: any[] = [];
+  statusData: ItemsList[] = [];
+  marriedStatusData: ItemsList[] = [];
+  genderData: ItemsList[] = [];
+  ethnicityData: ItemsList[] = [];
   empList = Array<ItemsList>();
-  constructor(private router:Router,private clientapi : ClientApiService,private empApi : EmployeeapiService) { }
+  constructor(private router:Router,private clientapi : ClientApiService,
+    private empApi : EmployeeapiService,
+    private comApi: CommonService) { 
+
+     this.BindMaster();
+
+
+
+    }
 
   ngOnInit(): void {
 
@@ -53,9 +67,26 @@ export class SaveclientComponent implements OnInit {
       });
     });
 
-    console.log(this.empList);
 
 
+ 
+  }
+  
+  BindMaster()
+  { 
+    this.comApi.getMaster(1).subscribe((response) => {
+      this.statusData = response.data;
+    });
+    this.comApi.getMaster(2).subscribe((response) => {
+      this.marriedStatusData = response.data;
+    });
+    this.comApi.getMaster(3).subscribe((response) => {
+      this.genderData = response.data;
+    });
+    this.comApi.getMaster(4).subscribe((response) => {
+      this.ethnicityData = response.data;
+    });
+ 
   }
   
   IsActiveCB(event : any)
