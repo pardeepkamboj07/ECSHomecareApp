@@ -62,7 +62,7 @@ export class ScheduleComponent implements OnInit {
 
    
   changed(): void {
-    alert("ss");
+    this.getTimeDuration();
   }
  
   isValid?: boolean;
