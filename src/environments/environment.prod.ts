@@ -12,7 +12,7 @@ export const environment = {
   saveempurl : "/api/Employee/savenewemployeeinfo",
   getempurl : "/api/Employee/getemployeelist",
   deleteemployeeurl : "/api/Employee/deleteemployee/",
-  getempbyidurl : "/api/Employee/getemployeebyId",
+
   /* */
 
    /* Client API URL */

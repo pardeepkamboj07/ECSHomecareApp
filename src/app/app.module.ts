@@ -49,6 +49,11 @@ import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availa
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
 
 import { ScheduleComponent } from './meeting/schedule/schedule.component';
+import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
+import { EmpAddressComponent } from './employee/emp-address/emp-address.component';
+import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
+import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
+import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -82,9 +87,11 @@ FullCalendarModule.registerPlugins([
     TestingComponent,
     EmpIncidentsComponent,
     EmpAttendanceComponent,
-    EmpStatusComponent,
-    EmpAvailabilityComponent,
+    EmpStatusComponent,    
     ScheduleComponent,
+         EmpAvailabilityComponent,
+         EmpAddressComponent,    
+         EmpComplianceComponent, EmpRateComponent, EmpDeclinedCasesComponent,
   
   ],
   imports: [

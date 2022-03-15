@@ -25,6 +25,8 @@ export class EmployeeInfoComponent implements OnInit {
     ignoreBackdropClick: false,
     class: "my-modal"
   };
+
+  empObj :any;
   empId : string = "-1";
   empInfo : Employee;
   Etype : string = "";
