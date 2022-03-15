@@ -52,273 +52,206 @@
             <tabset class="rakeshClasss" #staticTabs>
                 <tab heading="Dashboard">
                     <div class="row">
-                        <div class="col-md-5">
-                            <div class="panel panel-orange">
+                        <div class="col-md-6">
+							<div class="row">
+								<div class="col-sm-12">
+									 <div class="panel panel-orange">
                                 <div class="panel-body pan bg-grey text-white">
                                     <div class="profile">
                                         <div class="user-info">
                                             <div style="margin-bottom: 15px" class="row">
                                                 <div class="col-xs-7 col-sm-7">
                                                     <h3 class="mtn text-light-orange">Personal Data</h3>
-                                                    <h4>John Doe</h4>
-                
-                                                    <p>
-                                                        <strong><span class="text-light-orange">Client ID:</span></strong><br>
-                                                        <strong>12457</strong>
-                                                    </p>
-                
+                                                    <h4>  {{ this.EmpName }} | {{ Etype }}</h4>
+                    
+                    
+                    
                                                     <p>
                                                         <strong><span class="text-light-orange"><i class="fa fa-calendar"></i> Date Of Birth:</span> </strong><br>
-                                                        <strong>11 March 2000</strong>
+                                                        <strong>{{empInfo.dOB}}</strong>
                                                     </p>
-                
+                    
                                                     <p>
                                                         <strong class="mrs"><span class="text-light-orange"><i class="fa fa-phone"></i> Cell Phone:</span> </strong><br>
-                                                        <strong>+91 9999999999</strong>
+                                                        <strong>{{empInfo.cellPhone}}</strong>
                                                     </p>
-                
-                
-                
+                    
+                    
+                    
                                                 </div>
-                
-                
+                    
+                    
                                                 <div class="col-xs-5 col-sm-5 text-center">
-
+                    
                                                     <img src="../../assets/images/profile-img-big.jpg"
-                                                    class="img-responsive-mobile img-round" alt="" />
-                                              
-                                              
+                                                         class="img-responsive-mobile img-round" alt="" />
+                    
+                    
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <p>
                                                         <strong class="mrs"><span class="text-orange">Coordinator:</span></strong>
-                                                        <strong>john deo</strong>
+                                                        <strong>{{empInfo.hRSupervisor}}</strong>
                                                     </p>
                                                     <p class="mtm">
                                                         <span class="text-orange text-14"><i class="fa fa-calendar"></i></span> Send Email message to John Deo
                                                     </p>
                                                 </div>
                                             </div>
-                
+                    
                                         </div>
-                
+                    
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="panel panel-orange">
+								</div>
+							</div>
+                             <div class="row">
+						   <div class="col-md-12">
+						      <div class="panel panel-orange">
                                 <div class="panel-header panel-primary">
-                                    <h4 class="mtm mbn plm text-uppercase  text-orange">
-                                        <i style="font-size: 17px; margin-top: 2px;"
-                                           class="fa fa-location-arrow text-grey"></i><strong> Location</strong>
+                                   <h4 class="mtm mbn plm text-uppercase  text-orange"> <i style="font-size: 17px; margin-top: 2px;"
+                                                                           class="fa fa-envelope"></i> <strong>Send Email message to John Deo</strong>
                                     </h4>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-12"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55565170.29301636!2d-132.08532758867793!3d31.786060306224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sin!4v1644488535402!5m2!1sen!2sin" width="100%" height="220px" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
-                                        <div class="col-sm-12 text-14 text-orange"><strong>60 chiga abc, USA </strong></div>
-                                    </div>
-                
+									<div class="row">
+                                 <div class="col-sm-12"><p>Send Via&nbsp;&nbsp;<input type="checkbox"> Email&nbsp;&nbsp;<input type="checkbox"> SMS text</p></div>								
+										</div>
+									<div class="row">
+										 <div class="col-sm-12">
+											 <div class="email-box">
+											 <p class=""><strong>Hello John DEO</strong></p>
+											 <p class="">Michele Deo</p>
+										</div>
+										
+										</div>
+										</div>							
                                 </div>
-                                <div class="portlet-footer"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                
-                        <div class="col-md-5">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-orange">
-                                        <div class="panel-header panel-primary">
-                                            <h4 class="mtm mbn plm text-uppercase  text-orange">
-                                                <i style="font-size: 17px; margin-top: 2px;"
-                                                   class="fa fa-list-alt text-grey"></i><strong> Billing Summary/Activate Authorization</strong>
-                                            </h4>
-                                        </div>
-                
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-sm-6"><p>Vaccn: Hourly&nbsp;&nbsp;Expires:11-02-2022</p></div>
-                                                <div class="col-sm-6 text-right small-txt">Authorized signature</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12"><p class="text-orange"><strong>Status</strong></p></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <p>
-                                                        <strong>Address</strong>:<br>
-                                                        60 chiga abc, USA
-                
-                                                    </p>
-                                                </div>
-                
-                                                <div class="col-sm-6 text-right small-txt">Authorized signature</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-orange">
-                                        <div class="panel-header panel-primary">
-                                            <h4 class="mtm mbn plm text-uppercase  text-orange">
-                                                <i style="font-size: 17px; margin-top: 2px;"
-                                                   class="fa fa-list-alt text-grey"></i><strong> Most recent complication completed</strong>
-                                            </h4>
-                                        </div>
-                
-                                        <div class="panel-body">
-                                            <div class="row">
-                
-                                                <div class="col-sm-12 text-right small-txt">Authorized signature</div>
-                                            </div>
-                
-                                        </div>
-                                    </div>
-                                </div>
-                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-orange">
-                                        <div class="panel-header panel-primary">
-                                            <h4 class="mtm mbn plm text-uppercase  text-orange">
-                                                <i style="font-size: 17px; margin-top: 2px;"
-                                                   class="fa fa-list-alt text-grey"></i><strong> Barnaldo Signature on file</strong>
-                                            </h4>
-                                        </div>
-                
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-sm-12 text-right small-txt">Authorized signature</div>
-                                            </div>
-                
-                                        </div>
-                                    </div>
-                                </div>
-                
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="panel panel-orange">
-                                <div class="panel-header panel-primary">
-                                    <h4 class="mtm mbn plm text-uppercase  text-orange">
-                                        <i style="font-size: 17px; margin-top: 2px;"
-                                           class="fa fa-list-alt text-grey"></i><strong> Schedule</strong>
-                                    </h4>
-                                </div>
-                
-                
+						  </div>				  
+						  
+						  </div>
+							<div class="row">
+						   <div class="col-md-12">
+						      <div class="panel panel-orange">
+								   <div class="panel-header panel-primary">
+                                   <h4 class="mtm mbn plm text-uppercase  text-orange"> <strong>Current Assignments</strong> </h4>
+                                </div>							  
+                               
                                 <div class="panel-body">
-                                    <ul class="todo-list sortable">
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="drag-drop"><i></i></span>
-                
-                                            <div class="todo-title pull-left">
-                                                <strong>Tue Feb 1, 2022</strong><br>
-                                                11:00AM to 1:00PM
-                                            </div>
-                                            <div class="todo-title pull-right clearfix">
-                                                <strong>john deo</strong><br>
-                                                Hourly
-                                            </div>
-                                        </li>
-                                    </ul>
+									<div class="row">
+                                 <div class="col-sm-12"><p><i class="fa fa-plus-square-o"></i> View Full Schedule</p></div>								
+										</div>
+												
                                 </div>
                             </div>
+						  </div>				  
+						  
+						  </div>
+								<div class="row">
+						   <div class="col-md-12">
+							   <div class="panel panel-orange">
+								   <div class="panel-header panel-primary">
+                                   <h4 class="mtm mbn plm text-uppercase  text-orange"><strong>John Deo Signature on file</strong> </h4>
+                                </div>			
+							   
+                                <div class="panel-body">
+									<div class="row">
+                                 <div class="col-sm-12"><p>Signature</p>
+										<p>john deo &nbsp;&nbsp;12-02-2022&nbsp;&nbsp;3:20</p>
+										
+										</div>								
+										</div>
+												
+                                </div>
+                            </div>
+						  </div>				  
+						  
+						  </div>
                         </div>
-                    </div>
+				    <div class="col-md-6">
+							
+                             <div class="row">
+						   <div class="col-md-12">
+						      <div class="panel panel-orange">                               
+                                <div class="panel-body">
+									<div class="row">
+                                 <div class="col-sm-12"><p><i class="fa fa-dot-circle-o text-orange"></i> Alao completed six hours of Inservice classes</p>
+										<p><a href=""><i class="fa fa-plus-square"></i> Add Completed</a></p>
+										</div>								
+										</div>
+															
+                                </div>
+                            </div>
+						  </div>				  
+						  
+						  </div>
+						   <div class="row">
+						   <div class="col-md-12">
+						      <div class="panel panel-orange">                               
+                                <div class="panel-body">
+									<div class="row">
+                                 <div class="col-sm-12"><p><i class="fa fa-dot-circle-o text-orange"></i> Alao completed six hours of Inservice classes</p>
+										<p><i class="fa fa-dot-circle-o text-orange"></i> Alao completed six hours of Inservice classes</p>
+										</div>								
+										</div>
+										
+                                </div>
+                            </div>
+						  </div>				  
+						  
+						  </div>
+							<div class="row">
+						   <div class="col-md-12">
+							   <div class="panel panel-orange">
+								   <div class="panel-header panel-primary">
+                                   <h4 class="mtm mbn plm text-uppercase  text-orange"><strong>Compliance</strong> </h4>
+                                </div>	
+							   
+                                <div class="panel-body">
+									<div class="row">
+                                 <div class="col-sm-12">
+                                   <h5 class="mtn"><strong>InService Classes</strong></h5>
+								   <p>Inservice classes</p>
+									 <p>Taken 6 hours</p>
+									 <p><i class="fa fa-plus-square-o"></i> Add Compliance</p>
+										
+									  </div>								
+										</div>
+												
+                                </div>
+                            </div>
+						  </div>				  
+						  
+						  </div>
+						<div class="row">
+						   <div class="col-md-12">
+							   <div class="panel panel-orange">
+								   <div class="panel-header panel-primary">
+                                   <h4 class="mtm mbn plm text-uppercase  text-orange"><strong>HR</strong> </h4>
+                                </div>							   
+						     
+                                <div class="panel-body">
+									<div class="row">
+                                 <div class="col-sm-12">
+									<p><strong>HHA</strong></p>
+									 <p>Start Date: 16-03-2022</p>
+									 <p>Certficate: HHA</p>
+										 <p>Validation Date: 16-03-2022</p>
+									 	 <p><i class="fa fa-plus-square-o"></i> More All</p>
+									  </div>								
+										</div>
+												
+                                </div>
+                            </div>
+						  </div>				  
+						  
+						  </div>
+                        </div>
+				</div>
                 </tab>
                 <tab heading="Schedule">
                     <app-client-calender></app-client-calender>
@@ -351,7 +284,7 @@
                                                             SSN
                                                         </td>
                                                         <td>
-                                                            291-15-9616
+                                                           {{empInfo.sSN}}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -359,7 +292,7 @@
                                                             First, Middle
                                                         </td>
                                                         <td>
-                                                            John
+                                                            {{empInfo.firstName}},    {{empInfo.middleName }}
                                                         </td>
                                                     </tr>                
                                                     <tr>
@@ -367,7 +300,7 @@
                                                             Last Name
                                                         </td>
                                                         <td>
-                                                            Afful
+                                                            {{empInfo.lastName}}
                                                         </td>
                                                     </tr>                
                                                     <tr>
@@ -375,7 +308,7 @@
                                                             Gender
                                                         </td>
                                                         <td>
-                                                            Male
+                                                            {{empInfo.gender}}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -383,7 +316,7 @@
                                                             HR Supervisor
                                                         </td>
                                                         <td>
-                                                            Ruano, Diana
+                                                            {{empInfo.hRSupervisor}}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -391,7 +324,7 @@
                                                             DOB
                                                         </td>
                                                         <td>                
-                                                            6/6/1966                
+                                                            {{empInfo.dOB}}           
                                                         </td>
                                                     </tr>                
                                                     <tr>
@@ -399,6 +332,8 @@
                                                             Ethnicity                
                                                         </td>
                                                         <td>
+                                                            {{empInfo.enthnicity}}     
+                                                            
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -406,7 +341,7 @@
                                                             Cell Phone
                                                         </td>
                                                         <td>
-                                                            (614) 515-8990
+                                                            {{empInfo.cellPhone}}  
                                                         </td>
                                                     </tr>                
                                                     <tr>
@@ -414,6 +349,7 @@
                                                             Home Phone
                                                         </td>
                                                         <td>
+                                                            {{empInfo.homePhone}}  
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -421,6 +357,7 @@
                                                             Email
                                                         </td>
                                                         <td>
+                                                            {{empInfo.email}}  
                                                         </td>
                                                     </tr>                
                                                 </tbody>
@@ -443,6 +380,7 @@
                                                             Employee ID
                                                         </td>
                                                         <td>
+                                                            {{empInfo.empID}}  
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -450,7 +388,7 @@
                                                             Type
                                                         </td>
                                                         <td>
-                                                            Applicant HHA
+                                                            {{empInfo.types}}  
                 
                                                         </td>
                                                     </tr>
@@ -459,7 +397,7 @@
                                                             Start Date
                                                         </td>
                                                         <td>
-                                                            1/5/2022
+                                                            {{empInfo.dateOfHire}}  
                                                         </td>
                                                     </tr>
                 
@@ -476,6 +414,7 @@
                                                             Contact
                                                         </td>
                                                         <td>
+                                                            {{empInfo.emgContact}}  
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -483,6 +422,7 @@
                                                             Contact Phone
                                                         </td>
                                                         <td>
+                                                            {{empInfo.emgPhone}}  
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -492,7 +432,7 @@
                                                         </td>
                                                         <td>
                 
-                                                            Married
+                                                            {{empInfo.maritalStatus}}  
                                                         </td>
                                                     </tr>
                 
@@ -509,7 +449,7 @@
                                                             Tax State
                                                         </td>
                                                         <td>
-                                                            NJ
+                                                            {{empInfo.cState}}  
                                                         </td>
                                                     </tr>
                 
@@ -550,104 +490,7 @@
                 
                 <tab heading="Address">
                 
-                    
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Address</strong> </h4>
-                            </div>
-                        </div>
-                        <div class="row mbm">
-                            <div class="col-sm-12 text-14">
-                                <a href="" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Address</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="panel">
-                                    <div class="panel-body ptn pbn">
-                                        <div class="row">
-                                            <div class="col-sm-12"> </div>
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-striped mbn">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                Address
-                                                            </td>
-                                                            <td>
-                                                                173 Nebraska Av
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                Apt/Floor
-                                                            </td>
-                                                            <td>
-                                                                Apt 2
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                City
-                                                            </td>
-                                                            <td>
-                                                                Hamilton
-                                                            </td>
-                                                        </tr>
-                
-                                                        <tr>
-                                                            <td>
-                                                                County
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                        </tr>
-                
-                                                        <tr>
-                                                            <td>
-                                                                State
-                                                            </td>
-                                                            <td>
-                                                                NJ
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                Zip
-                                                            </td>
-                                                            <td>
-                                                                08619
-                                                            </td>
-                                                        </tr>
-                
-                
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                
-                                    </div>
-                
-                                </div>
-                
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="panel panel-orange">
-                                    <div class="panel-heading"><i class="fa fa-map-marker"></i> 173 Nebraska Av Apt 2, Hamilton , NJ 08619 Google Maps	</div>
-                                    <div class="panel-body ptn pbn">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55565170.29301636!2d-132.08532758867793!3d31.786060306224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sin!4v1644488535402!5m2!1sen!2sin" width="100%" height="220px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                            </div>
-                
-                                        </div>
-                
-                                    </div>
-                
-                                </div>
-                
-                            </div>
-                        </div>
+                    <app-emp-address></app-emp-address>
                 
                 
                 
@@ -669,113 +512,14 @@
                 </tab>
                 <tab heading="Rates">
                 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Rates</strong> </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row mbm">
-                                    <div class="col-sm-12 text-14">
-                                        <a href="" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Rates</a>
-                                    </div>
-                                </div>
-                
-                                <div class="row">
-                                    <div class="col-sm-12">
-                
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Activity	</th>
-                                                        <th>Effective Dates	</th>
-                                                        <th>Regular Rate</th>
-                                                        <th>Overtime Rate</th>
-                                                        <th>Applies/Description</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="checkbox" /></td>
-                                                        <td>1/5/2022 - 1/5/2032</td>
-                                                        <td>13.00 - 140.00 - 70.00</td>
-                                                        <td>13.00 - 140.00 - 70.00</td>
-                                                        <td></td>
-                                                    </tr>
-                
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                
-                
-                            </div>
-                
-                        </div>
+                     <app-emp-rate></app-emp-rate>
                 
                     
                 </tab>
                 <tab heading="Declined-Cases">
                 
-                   
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Declined Cases</strong> </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row mbm">
-                                    <div class="col-sm-12 text-14">
-                                        <a href="" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Declined Cases</a>
-                                    </div>
-                                </div>
-                
-                                <div class="row">
-                                    <div class="col-sm-12">
-                
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date/Time	</th>
-                                                        <th>Client</th>
-                                                        <th>Reason</th>
-                                                        <th>Case Start Date</th>
-                                                        <th>Days</th>
-                                                        <th>Hours</th>
-                                                        <th>Notes</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>13.00 - 140.00 - 70.00</td>
-                                                        <td>ssss</td>
-                                                        <td>abc</td>
-                                                        <td>13-03-2021</td>
-                                                        <td>3</td>
-                                                        <td>13.00</td>
-                                                        <td>abc</td>
-                                                        <td>1</td>
-                                                    </tr>
-                
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                
-                
-                            </div>
-                
-                        </div>
-
+                   <app-emp-declined-cases></app-emp-declined-cases>
+                    
 
 
 
@@ -790,64 +534,7 @@
                 <tab heading="Compliance">
                 
                     
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Compliance Due | Compliance Completed</strong> </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row mbm">
-                                    <div class="col-sm-12 text-14">
-                                        <a href="" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Compliance</a>
-                                    </div>
-                                </div>
-                
-                                <div class="row">
-                                    <div class="col-sm-12">
-                
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Due Date</th>
-                                                        <th>Category</th>
-                                                        <th>Code</th>
-                                                        <th>Notes</th>
-                
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1/5/2022</td>
-                                                        <td>Hiring</td>
-                                                        <td>HHA Certificate</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1/5/2022</td>
-                                                        <td>Hiring</td>
-                                                        <td>HHA Certificate</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1/5/2022</td>
-                                                        <td>Hiring</td>
-                                                        <td>HHA Certificate</td>
-                                                        <td></td>
-                                                    </tr>
-                
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                
-                
-                            </div>
-                
-                        </div>
+                    <app-emp-compliance></app-emp-compliance>
                 
                     
                 </tab>

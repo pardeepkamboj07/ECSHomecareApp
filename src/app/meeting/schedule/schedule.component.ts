@@ -3,6 +3,8 @@ import { ItemsList } from 'src/app/Model/common';
 import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
+import { MeetingService } from 'src/app/services/meeting.service';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -12,12 +14,15 @@ import { ClientApiService } from 'src/app/Service/client-api.service';
 })
 export class ScheduleComponent implements OnInit {
 
-  model = new MeetingInfo(0,-1,-1,new Date(),new Date(),new Date(),'');
+  model = new MeetingInfo(0,[],-1,-1,'','','','');
   ClientList = Array<ItemsList>();
   EmplList = Array<ItemsList>();  
   timespan:string;
+  _meetingDate:Date=new Date();
+  _startTime:Date=new Date();
+  _endTime:Date=new Date();
 
-  constructor(private empApi: EmployeeapiService, private clientapi : ClientApiService)
+  constructor(private empApi: EmployeeapiService, private clientapi : ClientApiService,private momApi:MeetingService,    public datepipe: DatePipe,)
    {
     // this.model.endTime =this.model.startTime;
    }
@@ -55,11 +60,32 @@ export class ScheduleComponent implements OnInit {
   }
 
   
-  OnScheduling()
+OnScheduling()
   {
-    alert("ss");
-  }
+    debugger;    
+    this.model.clientId=Number(this.model.clientId);
+    this.model.empList.push(Number(this.model.empId));
+    this.model.meetingDate=this._meetingDate.toISOString().substring(0, 10);
+    this.model.meetingDate = this.datepipe.transform(this._meetingDate, 'dd-MM-yyyy')||"";
 
+    
+   
+    this.model.startTime=this.datepipe.transform(this._startTime, 'h:mm a')||"";
+
+    this.model.endTime=this.datepipe.transform(this._endTime, 'h:mm a')||"";
+    //this.model.meetingDate=.toString();
+  
+    // this.model.startTime=this._startTime.toLocaleTimeString();
+
+
+
+ 
+    const reqObj: MeetingInfo = this.model;
+    console.log('Search', reqObj);    
+    this.momApi.createMeeting(reqObj).subscribe((response) => {    
+     alert("saved");
+    });
+  }
    
   changed(): void {
     this.getTimeDuration();
@@ -68,7 +94,7 @@ export class ScheduleComponent implements OnInit {
   isValid?: boolean;
   getTimeDuration()
   {
-    var diff =this.model.endTime.getTime()-this.model.startTime.getTime()
+    var diff =this._endTime.getTime()-this._startTime.getTime()
     //Math.round(new Date().getTime()/1000);
     var seconds = Math.round(diff/1000);
     var minutes =Math.round( diff/60000);
@@ -76,7 +102,7 @@ export class ScheduleComponent implements OnInit {
     var days = diff/86400000;
 
     
-    var diff = this.model.endTime.valueOf() - this.model.startTime.valueOf(); // The unit is millisecond
+    var diff = this._endTime.valueOf() - this._startTime.valueOf(); // The unit is millisecond
     var hourDiff = diff / (60 * 60 * 1000); // Turn the duration into hour format
 
 

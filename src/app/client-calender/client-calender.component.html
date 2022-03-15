@@ -23,18 +23,19 @@
                                     <td valign="top" class="client-td" [ngClass]="{'past-date': c.isPastDate, 'today': c.isToday}" *ngFor="let c of row; let j = index">
                                      
                                         <!-- <div class="calendar-day-header" [ngClass]="{'blue-date': c.isToday}"><strong></strong> <strong *ngIf="c.isToday || (i==0 && j==0) || (c.date.getDate() == 1)"> {{monthNames[c.date.getMonth()]}}</strong></div> -->
-                                   
-                                   
+                                                                      
                                       <div class="row mbs">
-                                        <div class="col-sm-12"><strong>{{c.date.getDate()}}</strong> </div>												 
+                                        <div class="col-sm-12"><strong>{{c.date.getDate()}}</strong> </div>	
+                                        
+                                        {{c.meetingList[0].ClientName}}
                                         </div>
                                         <div class="row mbs">
-                                        <div class="col-sm-12">	
+                                        <div class="col-sm-12" *ngFor="let mtm of c.meetingList[0].ClientName">	
                                             <div class="client-box-green-dot"></div>
                                              <div class="client-box-yellow-dot"></div>
                                             <div class="client-box box-active">
-                                            <p class="mbx"><strong>11AM-6:00PM</strong></p>
-                                              <p class="mbn">Toscama Libia</p>
+                                            <p class="mbx"><strong>{{mtm.startTime}}-{{mtm.endTime}}</strong></p>
+                                              <p class="mbn">{{mtm.ClientName}}</p>
                                             </div>
                                           </div>												 
                                         </div>
