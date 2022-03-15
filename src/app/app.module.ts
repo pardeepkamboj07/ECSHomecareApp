@@ -45,11 +45,8 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
 import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
-
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
-
 import { ScheduleComponent } from './meeting/schedule/schedule.component';
-import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
 import { EmpAddressComponent } from './employee/emp-address/emp-address.component';
 import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
 import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
