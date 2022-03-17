@@ -23,10 +23,10 @@ export class EmpAvailabilityComponent implements OnInit {
 
     BindAvailability() {
     // this.IsLoad = true;
-    debugger;
+
     this.empApi.getAvailabilityList().subscribe(response => {
       console.log(response.data);
-      debugger;
+    
       response.data.forEach((_obj: any) => {
         this.dataList.push(
           new ItemsList(_obj.availabilityId.toString(), _obj.availabilityName)

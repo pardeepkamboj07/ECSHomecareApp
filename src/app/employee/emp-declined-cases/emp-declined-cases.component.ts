@@ -69,7 +69,7 @@ onClickSubmit() {
  
 
    this.empApi.SaveEmpDeclinedCase(this.model).subscribe((response) => {
-      debugger
+
     this.empApi.GetEmployeeRateLst(0);  
   this.decline();
 
@@ -80,6 +80,8 @@ onClickSubmit() {
 
 
 GetCaseList(empId : number) {
+
+  
   this.empApi.GetEmpDeclinedCase(empId).subscribe((response) => {
     this.EmpCaseObj = response.data;
 

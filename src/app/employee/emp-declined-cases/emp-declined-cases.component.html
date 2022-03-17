@@ -167,21 +167,21 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Date Time	</th>
-                                <th>client	</th>
-                                <th>Case Type</th>
-                                <th>Case Start Date</th>
-                                <th>Discription</th>
+                                <th>Start Date</th>
+                                <th>Reported Date	</th>
+                                <th>Reason</th>
+                       
+                    
                            
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of EmpCaseObj">
-                                <td><input type="checkbox" /></td>
-                                <td>{{ item.effectiveDates }}</td>
-                                <td>{{ item.ragularrate }}</td>
-                                <td>{{ item.overTimeRate }}</td>
-                                <td>{{ item.discription }}</td>
+                                <td>{{ item.assignmentStart }}</td>
+                                <td>{{ item.repotedDate }}</td>
+                                <td>{{ item.declineReason }}</td>
+                   
+                           
                             </tr>
                         </tbody>
                     </table>
