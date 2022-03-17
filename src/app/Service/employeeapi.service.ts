@@ -11,6 +11,9 @@ import { StatusSelectList } from 'src/app/Model/status-select-list';
 import { AddressObj } from 'src/app/Model/Employee/address';
 import { ComplianceObj } from 'src/app/Model/Employee/compliance-obj';
 import{EmpRate} from 'src/app/Model/Employee/emp-rate'
+import{SaveEmpDeclinedCase} from 'src/app/Model/Employee/SaveEmpDeclinedCase';
+import{EmpDeclineCaseList} from 'src/app/Model/Employee/EmpDeclineCaseList';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -190,8 +193,24 @@ export class EmployeeapiService {
   {
     return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmpRate"+ '/' + empId);
   } 
+  
 
+  SaveEmpDeclinedCase(_obj : SaveEmpDeclinedCase){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addEmpDeclinedCase", _obj,httpOptions);   
+              
+  }
 
+  GetEmpDeclinedCase(empId:number)
+  {
+    debugger
+    return this._http.get<APIResponse<object>>(environment.domain + "/api/Employee/getEmpDeclinedcase"+ '/' + empId);
+  } 
 
   
 }
