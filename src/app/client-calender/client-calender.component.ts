@@ -79,9 +79,21 @@ export class ClientCalenderComponent implements OnInit {
 
 debugger;
 
+
+
+
 let _cdate=new Date(dateToAdd);
-let _meeting = this.meetingList.filter((x: Empmeeting) =>(new Date(x.meetingDate).getTime() != _cdate.getTime()));
-      this.calendar.push(new CalendarDay(_cdate,this.meetingList));
+
+let dateObj=this.datepipe.transform(dateToAdd,"yyyy-MM-dd");
+
+
+
+let _meeting = this.meetingList.filter((x: Empmeeting) =>(this.datepipe.transform(x.meetingDate,"yyyy-MM-dd")===dateObj));
+
+console.log(_meeting);
+
+
+      this.calendar.push(new CalendarDay(_cdate,_meeting));
       dateToAdd = new Date(dateToAdd.setDate(dateToAdd.getDate() + 1));
     }
   }
