@@ -60,9 +60,13 @@ export class EmpAddressComponent implements OnInit {
   
   getAddress(empId : number) {
     this.empApi.geAddress(empId).subscribe((response) => {
-      this.model = response.data;
-
-      console.log(response);
+      if(response.result)
+      {
+        this.model = response.data;
+      }
+   
+      console.log("Address   :"+ response.data);
+    
     });
   }
 
