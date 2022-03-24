@@ -15,8 +15,37 @@ import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetai
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 import { ClientCalenderComponent } from './client-calender/client-calender.component';
-
+import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
+import { NewEmployeeComponent  } from './employee/new-employee/new-employee.component';
 const routes: Routes = [
+// {
+//   path : 'Layout',component : LayoutComponent ,
+//    children : [{path:'mastertype',component:CreateComponent}]
+// },
+
+  { 
+    path: '', 
+    component: LayoutComponent,
+    children: [
+     
+      { path: 'masterinfo', component: MasterinfoComponent }
+    ]
+},
+
+
+
+
+{ 
+  path: '', 
+  component: LayoutComponent,
+  children: [
+   
+    { path: 'newEmp', component: NewEmployeeComponent }
+  ]
+},
+
+
+
   
   {
     path : 'login',component : LoginPageComponent 

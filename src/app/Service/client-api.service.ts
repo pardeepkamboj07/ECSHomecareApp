@@ -5,13 +5,32 @@ import { Client } from 'src/app/Model/Client';
 import { MeetingDetails } from 'src/app/Model/MeetinDetails';
 import { APIResponse } from '../Model/APIResponse';
 import { ClientMeetings } from '../Model/ClientMeetings';
-
+import { ClientModel } from 'src/app/Model/client/client-model';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientApiService {
 
   constructor(private _http : HttpClient) { }
+
+
+
+
+  addClient(clObj: ClientModel){ 
+    debugger;
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Client/addClient", clObj,httpOptions);            
+  }
+
+
+
+
+
 
   saveclientinfo(cInfo : Client){ 
     var headers_object = new HttpHeaders();

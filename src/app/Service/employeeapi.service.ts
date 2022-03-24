@@ -13,6 +13,7 @@ import { ComplianceObj } from 'src/app/Model/Employee/compliance-obj';
 import{EmpRate} from 'src/app/Model/Employee/emp-rate'
 import{SaveEmpDeclinedCase} from 'src/app/Model/Employee/SaveEmpDeclinedCase';
 import{EmpDeclineCaseList} from 'src/app/Model/Employee/EmpDeclineCaseList';
+import { EmployeeModel,EmployeeList } from 'src/app/Model/Employee/employee-model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,30 @@ export class EmployeeapiService {
 
   constructor(private _http : HttpClient) { }
 
+
+
+  addEmployee(empObj: EmployeeModel){ 
+    debugger;
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Employee/addEmployee", empObj,httpOptions);            
+  }
+  
+
+  getEmployeeListObj()
+  {
+    return this._http.get<APIResponse<EmployeeList[]>>(environment.domain +"/api/Employee/getEmployeeListObj");
+  } 
+
+
+
+
+
+
   savenweemployeeinfo(cInfo : Employee){ 
     var headers_object = new HttpHeaders();
         headers_object.append('Content-Type', 'application/json');
@@ -28,8 +53,11 @@ export class EmployeeapiService {
         const httpOptions = {
           headers: headers_object
         }; 
-    return this._http.post(environment.domain + environment.saveempurl, cInfo,httpOptions);            
+    return this._http.post(environment.domain + "/api/Employee/addEmployee", cInfo,httpOptions);            
   }
+
+
+  
 
   getEmployeeList()
   {

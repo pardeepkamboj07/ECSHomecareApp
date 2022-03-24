@@ -4,9 +4,8 @@ import { ClientApiService } from 'src/app/Service/client-api.service';
 import { Client } from 'src/app/Model/Client';
 import { Router } from '@angular/router';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { ItemsList } from 'src/app/Model/common';
+import { ItemsList,MasterType ,SelectList} from 'src/app/Model/common';
 import { CommonService } from 'src/app/services/common.service';
-
 
 @Component({
   selector: 'app-saveclient',
@@ -44,6 +43,10 @@ export class SaveclientComponent implements OnInit {
   marriedStatusData: ItemsList[] = [];
   genderData: ItemsList[] = [];
   ethnicityData: ItemsList[] = [];
+  IsLoad: boolean = false;
+  countryData: SelectList[] = [];
+  stateData: SelectList[] = [];
+
   empList = Array<ItemsList>();
   constructor(private router:Router,private clientapi : ClientApiService,
     private empApi : EmployeeapiService,
@@ -73,20 +76,27 @@ export class SaveclientComponent implements OnInit {
   }
   
   BindMaster()
-  { 
-    this.comApi.getMaster(1).subscribe((response) => {
+  {
+    this.comApi.getMaster(MasterType.Status).subscribe((response) => {
       this.statusData = response.data;
     });
-    this.comApi.getMaster(2).subscribe((response) => {
+    this.comApi.getMaster(MasterType.MaritalStatus).subscribe((response) => {
       this.marriedStatusData = response.data;
     });
-    this.comApi.getMaster(3).subscribe((response) => {
+    this.comApi.getMaster(MasterType.Gender).subscribe((response) => {
       this.genderData = response.data;
     });
-    this.comApi.getMaster(4).subscribe((response) => {
+    this.comApi.getMaster(MasterType.Ethnicity).subscribe((response) => {
       this.ethnicityData = response.data;
     });
- 
+    this.comApi.getCountryList().subscribe((response) => {
+      this.countryData = response.data;
+    });
+
+    // this.comApi.getEmployees(MasterType.Ethnicity).subscribe((response) => {
+    //   this.empList = response.data;
+    // });
+
   }
   
   IsActiveCB(event : any)

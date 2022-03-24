@@ -9,3 +9,20 @@ export class ItemsList {
 }
 
 
+
+  export class SelectList {
+    public itemCode: string;
+    public itemName: string;
+    constructor(_itemCode : string, _itemName : string)
+    {
+        this.itemCode = _itemCode;
+        this.itemName = _itemName;
+    }
+}
+
+export enum MasterType {
+    Status = 1,
+    MaritalStatus,
+    Gender,
+    Ethnicity,
+  }

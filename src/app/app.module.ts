@@ -36,7 +36,7 @@ import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-cale
 import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
 import { TestingComponent } from './testing/testing.component';
-
+import { LoaderComponent } from './loader/loader.component'; // <-- import the module
 import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
@@ -51,6 +51,13 @@ import { EmpAddressComponent } from './employee/emp-address/emp-address.componen
 import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
 import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
 import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
+
+import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
+import { MasterinfoComponent } from './admin/master/masterinfo/masterinfo.component';
+import { MasterTypeComponent } from './admin/master/master-type/master-type.component';
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
+import { NewClientComponent } from './client/new-client/new-client.component';
+import { EmpListComponent } from './employee/emp-list/emp-list.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -88,7 +95,11 @@ FullCalendarModule.registerPlugins([
     ScheduleComponent,
          EmpAvailabilityComponent,
          EmpAddressComponent,    
-         EmpComplianceComponent, EmpRateComponent, EmpDeclinedCasesComponent,
+         EmpComplianceComponent, EmpRateComponent, EmpDeclinedCasesComponent,  SystemMasterComponent, 
+         MasterinfoComponent, MasterTypeComponent, NewEmployeeComponent,
+         LoaderComponent,
+         NewClientComponent,
+         EmpListComponent,
   
   ],
   imports: [

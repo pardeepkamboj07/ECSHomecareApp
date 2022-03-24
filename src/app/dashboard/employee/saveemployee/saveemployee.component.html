@@ -11,7 +11,7 @@
     <!--BEGIN CONTENT-->
     <div class="page-content">
        
-            <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+            <form (ngSubmit)="OnSubmit(empf)" #empf="ngForm">
         <div class="panel">
         <div class="panel-body">
             
@@ -36,15 +36,47 @@
                         </div>
                  </div>
             <div class="row mtm">
-                                    <div class="col-sm-3 col-xs-6">
+
+
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">SSN</label>
+                       <input required type="text" placeholder="SSN" class="form-control" id="txtSSN" name="SSN" #SSN="ngModel"  [(ngModel)]="empinfo.sSN"  >
+                    
+
+
+                       <em *ngIf="SSN.invalid && (SSN.dirty || SSN.touched)" for="txtSSN" class="invalid" >This field is required</em>
+                                       
+                       <!-- touched  {{SSN.touched}}
+                   <br/>
+                   untouched  {{SSN.untouched}}
+
+                   <br/>
+                   valid {{SSN.valid}}
+                   <br/>
+                   invalid {{SSN.invalid}}
+
+
+                   <br/>
+                   dirty {{SSN.dirty}}
+                   <br/>
+                   pristine   {{SSN.pristine}} -->
+                    </div>
+                </div>
+
+
+
+                                    <!-- <div class="col-sm-3 col-xs-6">
                                         <div class="form-group" [class.state-error]="!validSSN"  data-notuse="validSSN"><label class="control-label">SSN</label>
                                            <input type="text" placeholder="SSN" class="form-control" id="txtSSN" name="txtSSN" ngModel>
+                                          
+                                          
                                            <em *ngIf="!validSSN" for="txtUserName" class="invalid" >This field is required</em>
                                        
                                        
                                        
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-3 col-xs-6">
                                         <div class="form-group" [class.state-error]="!validFName"  data-notuse="validFName"><label class="control-label">First Name</label>
                                             <input  type="text" placeholder="First Name" class="form-control" id="txtfirstname" name="txtfirstname" ngModel>
@@ -93,14 +125,40 @@
         <div class="panel-body">					
             
             <div class="row mtm">
-                                    <div class="col-sm-3 col-xs-6">
+                                    <!-- <div class="col-sm-3 col-xs-6">
                                         <div class="form-group"><label class="control-label">Date of Hire</label>
                                            <input type="date" class="form-control" (change)="onHireDateChange($any($event.target).value)" id="txtDHire" name="txtDHire" ngModel>
 
 
                                            
                                         </div>
+                                    </div> -->
+
+
+
+                                    <div class="col-sm-3 col-xs-6">
+                                        <div class="form-group">
+                                       <label class="control-label">Date of Hire</label>
+                                        <div class="input-icon right"><i class="fa fa-calendar"></i>                                
+                                            <input type="text"  id="txtHireDate"name="HireDate"
+                                            placeholder="dd/mm/yyyy"  class="form-control" ngModel  bsDatepicker> 
+                                        </div>
                                     </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     <div class="col-sm-3 col-xs-6">
                                         <div class="form-group"><label class="control-label">Date of First Case</label>
                                             <input type="date" class="form-control" (change)="onFCaseDateChange($any($event.target).value)" id="txtDHire" name="txtDHire" ngModel>
@@ -225,7 +283,7 @@
                              </div>  
             <div class="row mtm">
                                     <div class="col-sm-12 col-xs-12 text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary">Save</button>
+                                            <button type="submit"  [disabled]="empf.invalid" class="btn btn-lg btn-primary">Save</button>
                                         </div>
         </div>
             </div>

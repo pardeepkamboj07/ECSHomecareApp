@@ -1,0 +1,319 @@
+<app-loader [show]="IsLoad"></app-loader>
+
+
+<!--BEGIN PAGE WRAPPER-->
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">New Client</div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+
+        <form #empf="ngForm">
+            <div class="panel">
+                <div class="panel-body">
+
+                    <div class="row mtm">
+
+                        <div class="col-sm-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label">Status<span class="star">*</span></label>
+                                <select class="form-control" id="txtclientStatus" name="empStatus" #clientStatus="ngModel" [(ngModel)]="model.clientStatus">
+                                    <option *ngFor="let obj of statusData"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">First Name<span class="star">*</span></label>
+
+
+                                <input required type="text" placeholder="First Name" class="form-control" id="txtFirstName" name="FirstName" #FirstName="ngModel" [(ngModel)]="model.firstName">
+                                <em *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)" for="txtFirstName" class="invalid">This field is required</em>
+
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Middle Name</label>
+                                <input type="text" placeholder="Middle Name" class="form-control" id="txtMiddleName" name="MiddleName" #MiddleName="ngModel" [(ngModel)]="model.middleName">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Last Name<span class="star">*</span></label>
+                                <input required type="text" placeholder="Last Name" class="form-control" id="txtLastName" name="LastName" #LastName="ngModel" [(ngModel)]="model.lastName">
+                                <em *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)" for="txtLastName" class="invalid">This field is required</em>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mtm">
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">SSN</label>
+                                <input required type="text" placeholder="SSN" class="form-control" id="txtSSN" name="SSN" #SSN="ngModel" [(ngModel)]="model.sSN">
+                                <!-- <em *ngIf="SSN.invalid && (SSN.dirty || SSN.touched)" for="txtSSN" class="invalid">This field is required</em> -->
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Email</label>
+                                <input required type="text" placeholder="Email" class="form-control" id="txtemail" name="email" #email="ngModel" [(ngModel)]="model.email">
+                                <!-- <em *ngIf="email.invalid && (email.dirty || email.touched)" for="txtemail" class="invalid">This field is required</em> -->
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Cell Phone</label>
+                                <input required type="text" placeholder="Cell Phone" class="form-control" id="txtcontact" name="cellPhone" #contact="ngModel" [(ngModel)]="model.contact">
+                                <!-- <em *ngIf="contact.invalid && (contact.dirty || contact.touched)" for="txtcontact" class="invalid">This field is required</em> -->
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-3 col-xs-6">
+
+                            <div class="form-group">
+                                <label class="control-label">Emergency Contact</label>
+                                <input required type="text" placeholder="Emergency Contact" class="form-control" id="txtemgContact" name="emgContact" #emgContact="ngModel" [(ngModel)]="model.emgContact">
+                                <!-- <em *ngIf="emgContact.invalid && (emgContact.dirty || emgContact.touched)" for="txtemgContact" class="invalid">This field is required</em> -->
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row mtm">
+
+
+
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Date of Birth<span class="star">*</span></label>
+                                <div class="input-icon right">
+                                    <i class="fa fa-calendar"></i>
+                                    <input required type="text" placeholder="dd/mm/yyyy" class="form-control" id="txtdOB" name="dOB" #dOB="ngModel" [(ngModel)]="model.dOB" bsDatepicker>
+                                    <em *ngIf="dOB.invalid && (dOB.dirty || dOB.touched)" for="txtdOB" class="invalid">This field is required</em>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-sm-3 col-xs-6">
+
+                            <div class="form-group">
+                                <label class="control-label">of Child</label>
+                                <input type="number" placeholder="of Child" class="form-control" id="txtofChild" name="ofChild" #ofChild="ngModel" [(ngModel)]="model.ofChild">
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Gender<span class="star">*</span></label>
+                                <select class="form-control" id="ddlgender" name="gender" #gender="ngModel" [(ngModel)]="model.gender">
+                                    <option *ngFor="let obj of genderData"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="row mtm">
+
+
+
+
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Ethnicity</label>
+                                <select class="form-control" id="ddethnicity" name="ethnicity" #ethnicity="ngModel" [(ngModel)]="model.ethnicity">
+
+                                    <option value='-1' disabled>Select State</option>
+                                    <option *ngFor="let obj of ethnicityData"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Marital Status</label>
+                                <select class="form-control" id="ddlmaritalStatus" name="maritalStatus" #maritalStatus="ngModel" [(ngModel)]="model.maritalStatus">
+                                    <option *ngFor="let obj of marriedStatusData"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Coordinator<span class="star">*</span></label>
+                                <select required class="form-control" id="ddlcoordinator" name="coordinator" #coordinator="ngModel" [(ngModel)]="model.coordinator">
+                                    <option *ngFor="let obj of empList"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+                                <em *ngIf="coordinator.invalid && (coordinator.dirty || coordinator.touched)" for="ddlcoordinator" class="invalid">This field is required</em>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Nurse</label>
+                                <select class="form-control" id="ddlnurse" name="nurse" #nurse="ngModel" [(ngModel)]="model.nurse">
+                                    <option *ngFor="let obj of empList"
+                                            [value]="obj.itemId">
+                                        {{ obj.itemName }}
+                                    </option>
+                                </select>
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="row mtm">
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Referred By</label>
+                                <input type="text" placeholder="Referred By" class="form-control" id="txtreferredBy" name="referredBy" #referredBy="ngModel" [(ngModel)]="model.referredBy">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Alt. ID</label>
+                                <input type="text" placeholder="altId ID" class="form-control" id="txtaltId" name="altId" #altId="ngModel" [(ngModel)]="model.altId">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label"> ID 2</label>
+                                <input type="text" placeholder="ID 2" class="form-control" id="txtiD2" name="iD2" #iD2="ngModel" [(ngModel)]="model.iD2">
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label"> ID 3</label>
+                                <input type="text" placeholder="ID 3" class="form-control" id="txtiD3" name="iD3" #iD3="ngModel" [(ngModel)]="model.iD3">
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-body">
+
+                    <div class="row mtm">
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Insurance ID</label>
+                                <input required type="text" placeholder="Insurance ID" class="form-control" id="txtinsuranceID" name="insuranceID" #insuranceID="ngModel" [(ngModel)]="model.insuranceID">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Case Worker Name</label>
+                                <input required type="text" placeholder="Worker Name" class="form-control" id="txtworkerName" name="workerName" #workerName="ngModel" [(ngModel)]="model.workerName">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Case Worker Contact</label>
+                                <input type="text" placeholder="Worker Contact" class="form-control" id="txtworkerContact" name="workerContact" #workerContact="ngModel" [(ngModel)]="model.workerContact">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Priority Code</label>
+                                <input type="number" placeholder="Priority Code" class="form-control" id="txtpriorityCode" name="priorityCode" #priorityCode="ngModel" [(ngModel)]="model.priorityCode">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mtm">
+                        <div class="col-sm-12 col-xs-12 text-center">
+                            <button type="button" (click)="saveChanges()" [disabled]="empf.invalid" class="btn btn-lg btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <!--END CONTENT-->
+</div>
+
+
+<!--END PAGE WRAPPER-->
