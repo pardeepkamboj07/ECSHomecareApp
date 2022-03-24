@@ -51,7 +51,7 @@ import { EmpAddressComponent } from './employee/emp-address/emp-address.componen
 import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
 import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
 import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
   dayGridPlugin
@@ -108,7 +108,8 @@ FullCalendarModule.registerPlugins([
     BsDatepickerModule.forRoot(), 
     TimepickerModule.forRoot()
   ],
-  providers: [AuthGuardService, DatePipe,BsDatepickerConfig],
+ 
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
