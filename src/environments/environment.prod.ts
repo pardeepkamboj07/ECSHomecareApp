@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
   domain2 : "http://eshomecareapi-dev.us-east-1.elasticbeanstalk.com",
-  domainLocal : "https://localhost:44359",
+  //domain : "https://localhost:44359",
   domain : "https://api.eshcs.com",
-
+  //domainLocal : "https://localhost:44359",
   /* Login API URL */
   loginurl : "/api/Login/validateuserlogin/",
   /* */
@@ -12,7 +12,7 @@ export const environment = {
   saveempurl : "/api/Employee/savenewemployeeinfo",
   getempurl : "/api/Employee/getemployeelist",
   deleteemployeeurl : "/api/Employee/deleteemployee/",
-  getempbyidurl : "/api/Employee/getemployeebyId",
+
   /* */
 
    /* Client API URL */

@@ -1,5 +1,5 @@
 node_modules
-dist.zip
+.zip
 .DS_Store
 .angular
 dist/esHomeCare/3rdpartylicenses.txt

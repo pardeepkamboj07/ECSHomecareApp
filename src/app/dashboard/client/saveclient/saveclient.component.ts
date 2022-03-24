@@ -3,6 +3,10 @@ import { NgForm } from '@angular/forms';
 import { ClientApiService } from 'src/app/Service/client-api.service'; 
 import { Client } from 'src/app/Model/Client';
 import { Router } from '@angular/router';
+import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
+import { ItemsList } from 'src/app/Model/common';
+import { CommonService } from 'src/app/services/common.service';
+
 
 @Component({
   selector: 'app-saveclient',
@@ -35,10 +39,54 @@ export class SaveclientComponent implements OnInit {
   state : string = "";
   validCWPhone : boolean = true;
   validCWEmail : boolean = true;
+  empData: any[] = [];
+  statusData: ItemsList[] = [];
+  marriedStatusData: ItemsList[] = [];
+  genderData: ItemsList[] = [];
+  ethnicityData: ItemsList[] = [];
+  empList = Array<ItemsList>();
+  constructor(private router:Router,private clientapi : ClientApiService,
+    private empApi : EmployeeapiService,
+    private comApi: CommonService) { 
 
-  constructor(private router:Router,private clientapi : ClientApiService) { }
+     this.BindMaster();
+
+
+
+    }
 
   ngOnInit(): void {
+
+    this.empApi.getEmployeeList().subscribe((response: any) => {
+      console.log(response);
+      response.data.forEach((company: any) => {
+        console.log(company);
+        this.empList.push(
+          new ItemsList(company.empID, company.empName)
+        );
+      });
+    });
+
+
+
+ 
+  }
+  
+  BindMaster()
+  { 
+    this.comApi.getMaster(1).subscribe((response) => {
+      this.statusData = response.data;
+    });
+    this.comApi.getMaster(2).subscribe((response) => {
+      this.marriedStatusData = response.data;
+    });
+    this.comApi.getMaster(3).subscribe((response) => {
+      this.genderData = response.data;
+    });
+    this.comApi.getMaster(4).subscribe((response) => {
+      this.ethnicityData = response.data;
+    });
+ 
   }
   
   IsActiveCB(event : any)
@@ -248,6 +296,9 @@ export class SaveclientComponent implements OnInit {
     this.clientInfo.referredBy = form.value["txtRefId"];
     this.clientInfo.sSN = form.value["txtSSN"];
     this.clientInfo.zipCode = form.value["txtZCode"];
+
+    this.clientInfo.emgPhone = form.value["txtemgPhone"];
+    this.clientInfo.emgEmail = form.value["txtemgEmail"];
     console.log(this.clientInfo);
       this.clientapi.saveclientinfo(this.clientInfo).subscribe(
         (response)=>

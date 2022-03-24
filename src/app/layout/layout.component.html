@@ -3,32 +3,29 @@
         <nav id="topbar" role="navigation" style="margin-bottom: 0; z-index: 2;"
              class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
-                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" (click)="toggleNavbarCollapsing()" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a id="logo" href="javascript:void(0)" routerLink="/dashboard" class="navbar-brand"><span class="fa fa-rocket"></span><span
                         class="logo-text"><img src="'../../assets/images/logo.png" width="245" alt=""/></span><span style="display: none" class="logo-text-icon"></span></a>
             </div>
-            <div class="topbar-main"><!--<a id="menu-toggle" href="#" class="hidden-xs"><i class=""></i></a>-->
-                             
+            <div class="topbar-main">
                 <ul class="nav navbar navbar-top-links navbar-right mbn">      
 					 <li><i
                             class="fa fa-search medium-txt text-black"></i></li>
 					<li class="dropdown topbar-user">
-					<div class="dropdown">
-  <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown"><img
+					<div class="dropdown" dropdown>
+  <button dropdownToggle  class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown"><img
                             src="'../../assets/images/profile.jpg" alt=""
                             class="img-responsive img-circle profile-img"/>&nbsp;<span class="hidden-xs">John Doe</span>&nbsp;<span
                             class="caret"></span></button>
-  <ul class="dropdown-menu">
+  <ul *dropdownMenu  class="dropdown-menu">
     <li><a href="javascript:void(0)" routerLink="/dashboard"  class="dropdown-toggle"><i class="fa fa-user"></i> My Profile</a></li>
     <li><a  href="javascript:void(0)" routerLink="/dashboard"  class="dropdown-toggle"><i class="fa fa-envelope"></i> My Inbox<span class="badge badge-danger">3</span></a></li>
     <li><a href="/dashboard" class="dropdown-toggle"><i class="fa fa-sign-out"></i> Log Out</a></li>
   </ul>
 </div>
                 </li>
-                 
-                   
                 </ul>
             </div>
         </nav>
@@ -37,8 +34,9 @@
         <!--END MODAL CONFIG PORTLET--></div>
     <!--END TOPBAR-->
     <div id="wrapper"><!--BEGIN SIDEBAR MENU-->
-        <nav id="sidebar" role="navigation" class="navbar-default navbar-static-side">
-            <div class="sidebar-collapse menu-scroll">
+
+                <nav id="sidebar" role="navigation" class="navbar-default navbar-static-side">
+                    <div class="sidebar-collapse menu-scroll" [class.collapse]="navbarCollapsed" >
                 <ul id="side-menu" class="nav">
                     <li class="user-panel">
                         <div class="thumb"><img src="'../../assets/images/profile.jpg"
@@ -60,18 +58,18 @@
                     <li class="active"><a href="javascript:void(0)" routerLink="/dashboard"><i class="fa fa-tachometer fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Dashboard</span></a></li>
-					 <li><a href="javascript:void(0)" routerLink="/Layout/saveclient"><i class="fa fa-users fa-fw">
+					 <li><a href="javascript:void(0)" routerLink="/Layout/clientlist"><i class="fa fa-users fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Clients</span></a></li>
 					 <li><a href="javascript:void(0)" routerLink="/employeeList"><i class="fa fa-users fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Employees</span></a></li>
-					 <li><a href="javascript:void(0)" routerLink="/dashboard"><i class="fa fa-tachometer fa-fw">
+					 <li><a href="javascript:void(0)" routerLink="/Layout/getinvoicelist"><i class="fa fa-money fa-fw">
                         <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Availability</span></a></li>
+                    </i><span class="menu-title">Billing</span></a></li>
 					 <li><a href="javascript:void(0)" routerLink="/Layout/getinvoicelist"><i class="fa fa-money  fa-fw">
                         <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Billing\Payroll</span></a></li>
+                    </i><span class="menu-title">Payroll</span></a></li>
 					<li><a href="javascript:void(0)" routerLink="/dashboard"><i class="fa fa-tachometer fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Reports</span></a></li>
@@ -83,20 +81,9 @@
             </div>
         </nav>
         <!--END SIDEBAR MENU-->
-      
-
-
-
         <!--BEGIN PAGE WRAPPER-->
-
-
         <router-outlet></router-outlet>
-
-
        <!--END PAGE WRAPPER-->
-    
-    
-    
     </div>
 	 <!--BEGIN FOOTER-->
         <div id="footer">

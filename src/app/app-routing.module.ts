@@ -14,16 +14,22 @@ import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.compon
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
+import { ClientCalenderComponent } from './client-calender/client-calender.component';
 
 const routes: Routes = [
+  
   {
-    path : '',component : LoginPageComponent 
+    path : 'login',component : LoginPageComponent 
+  },
+  {
+    path : 'CalList',component : ClientCalenderComponent 
   },
 
   {
     path : 'Layout',component : LayoutComponent 
    
   },
+
   {
     path : 'dashboard',component :  LayoutComponent,
      children : [{path:'',component:DashboardComponent}]
@@ -37,7 +43,7 @@ const routes: Routes = [
      children : [{path:'',component:EmployeelistComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'employeeinfo/:eId',component:EmployeeInfoComponent}]
   },
   {
@@ -53,7 +59,7 @@ const routes: Routes = [
      children : [{path:'getinvoicebyId/:InvId',component:InvoicedetailsComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'clientevent/:clientId',component:ClienteventComponent}]
   },
   
@@ -62,7 +68,7 @@ const routes: Routes = [
      children : [{path:'clientlist',component:ClientlistComponent}]
   },
   {
-    path : 'dashboard',component : DashboardComponent ,
+    path : 'Layout',component : LayoutComponent ,
      children : [{path:'clientinfo/:cId',component:ClientInfoComponent}]
   },
   

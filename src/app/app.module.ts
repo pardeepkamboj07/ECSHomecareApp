@@ -32,6 +32,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
+import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
+import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
+import { TestingComponent } from './testing/testing.component';
+
+import { TabsModule} from 'ngx-bootstrap/tabs';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
+import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
+import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
+import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
+import { ScheduleComponent } from './meeting/schedule/schedule.component';
+import { EmpAddressComponent } from './employee/emp-address/emp-address.component';
+import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
+import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
+import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -58,7 +77,19 @@ FullCalendarModule.registerPlugins([
     InvoicedetailsComponent,
     ClientInfoComponent,
     EmployeeInfoComponent,
-    LayoutComponent
+    LayoutComponent,
+    ClientCalenderComponent,
+    ChunkPipe,
+    FilterPipe,
+    TestingComponent,
+    EmpIncidentsComponent,
+    EmpAttendanceComponent,
+    EmpStatusComponent,    
+    ScheduleComponent,
+         EmpAvailabilityComponent,
+         EmpAddressComponent,    
+         EmpComplianceComponent, EmpRateComponent, EmpDeclinedCasesComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -70,9 +101,14 @@ FullCalendarModule.registerPlugins([
     MatTableModule,
     AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AppBootstrapModule,
+    TabsModule.forRoot(),
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(), 
+    TimepickerModule.forRoot()
   ],
-  providers: [AuthGuardService, DatePipe],
+  providers: [AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

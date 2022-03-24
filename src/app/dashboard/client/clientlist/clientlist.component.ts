@@ -15,6 +15,9 @@ import { DatePipe } from '@angular/common';
 })
 export class ClientlistComponent implements OnInit {
 
+
+  monthList  : any[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   Isapiresponsereceived : boolean = true;
   clientList : Client[] = [];
   p: number = 1;
@@ -51,6 +54,10 @@ export class ClientlistComponent implements OnInit {
     };
 
 
+  
+
+
+
   constructor(public datepipe: DatePipe,private router:Router, private clientapi : ClientApiService)
   {
     this.currentDate = new Date();
@@ -69,11 +76,11 @@ export class ClientlistComponent implements OnInit {
   }
 
   onClickCreateClient(){
-    this.router.navigate(['/dashboard/saveclient/'])
+    this.router.navigate(['/Layout/saveclient/'])
   }
 
   onClickCreateClientMeeting(cId : string){
-    this.router.navigate(['/dashboard/clientevent/' + cId])
+    this.router.navigate(['/Layout/clientevent/' + cId])
   }
 
   GetClientMeetings(startdate : string, clientId : string)
@@ -132,7 +139,7 @@ export class ClientlistComponent implements OnInit {
 
   rowclicked(client : ClientMeetings)
   {
-    this.router.navigate(['/dashboard/clientinfo/' + client.clientId])
+    this.router.navigate(['/Layout/clientinfo/' + client.clientId])
   }
 
   openPopup(client : ClientMeetings, meetingInfo : MeetingInfo) {
