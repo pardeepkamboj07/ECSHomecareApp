@@ -38,20 +38,20 @@
                             <select
                             class="form-control"
                             #ClientId="ngModel"                                   
-                            id="ddlTypeStatusId"
+                            id="ddlClientId"
                             name="ClientId"                                   
                             [(ngModel)]="model.clientId"                                       
                           > 
-                          <option value="" disabled>Select</option>
-                                        <option
-                                          *ngFor="let obj of ClientList"
-                                          [value]="obj.clientId"
-                                        >
-                                          {{ obj.clientName }}
-                                        </option>
-                                                          
-                                </select>
-                                   
+                          <option value="-1" disabled>Select</option>
+                          <option
+                           *ngFor="let obj of ClientList"
+                           [value]="obj.itemId"
+                         >
+                           {{ obj.itemName }}
+                         </option> 
+                       </select>
+ 
+           
                         </div>
                         
                         

@@ -63,6 +63,8 @@ import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.
 import { SignInComponent } from './account/sign-in/sign-in.component';
 import { EmpInfoComponent } from './employee/emp-info/emp-info.component';
 import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.component';
+import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
+import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 
 
 FullCalendarModule.registerPlugins([ 
@@ -114,6 +116,8 @@ FullCalendarModule.registerPlugins([
         
                 EmpInfoComponent,
                           EmpDasboardComponent,
+                          EmpScheduleComponent,
+                          ClientScheduleComponent,
 
   
   ],

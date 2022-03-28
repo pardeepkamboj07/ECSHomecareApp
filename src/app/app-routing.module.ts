@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewEmployeeComponent  } from './employee/new-employee/new-employee.component';
 import { EmpListComponent  } from 'src/app/employee/emp-list/emp-list.component';
 import { EmpInfoComponent } from 'src/app/employee/emp-info/emp-info.component';
+import { EmpScheduleComponent } from 'src/app/meeting/emp-schedule/emp-schedule.component';
+
 
 import { MaincontentComponent } from './dashboard/maincontent/maincontent.component';
 import { EmployeelistComponent } from './dashboard/employee/employeelist/employeelist.component';
@@ -40,6 +42,8 @@ children : [{path:'',component:NewEmployeeComponent}]},
 children : [{path:'',component:EmpListComponent}]},
 {path : 'employee/info/:eId',component : LayoutComponent,
   children : [{path:'',component:EmpInfoComponent}]},
+  {path : 'employee/schedule/:empId',component : LayoutComponent,
+  children : [{path:'',component:EmpScheduleComponent}]},
 
 
 

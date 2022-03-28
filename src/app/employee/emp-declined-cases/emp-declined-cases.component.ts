@@ -5,7 +5,7 @@ import { ClientApiService } from 'src/app/Service/client-api.service';
 import { ItemsList } from 'src/app/Model/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{SaveEmpDeclinedCase} from 'src/app/Model/Employee/SaveEmpDeclinedCase';
-
+import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-declined-cases',
   templateUrl: './emp-declined-cases.component.html',
@@ -15,14 +15,30 @@ import{SaveEmpDeclinedCase} from 'src/app/Model/Employee/SaveEmpDeclinedCase';
 })
 export class EmpDeclinedCasesComponent implements OnInit {
   modalRef?: BsModalRef;
-  ClientList :any;
+  ClientList = Array<ItemsList>(); 
   EmpCaseObj:any;  
   CaseTypeobj:any;
  EmpId:number;
  ClientId:number;
  model=new SaveEmpDeclinedCase("",0,0,"","","",0,0,"","",0);
-  constructor(private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { }
+  constructor(
+    private comApi: CommonService,
+    private route:ActivatedRoute,
+    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
+
+
+
+      this.comApi.getClientList().subscribe((response) => {
+        if(response.result)
+        {
+          debugger;
+          this.ClientList = response.data;
+        }
+      });
+  
+  
+
+    }
 
   ngOnInit(): void {
     debugger
@@ -38,7 +54,7 @@ export class EmpDeclinedCasesComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.BindClientList();
+    
    
    this.modalRef = this.modalService.show(template);
  }
@@ -48,12 +64,7 @@ export class EmpDeclinedCasesComponent implements OnInit {
   this.modalRef?.hide();
 }
 
- BindClientList() {
-  
-  this.clientapi.getClientList().subscribe(response => {    
-    this.ClientList = response.data;  
-  });
-}
+ 
 
 onClickSubmit() { 
  

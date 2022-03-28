@@ -22,36 +22,15 @@ export class SignInComponent implements OnInit {
     this.model.password=password;   
     this.accountApi.signIn(this.model).subscribe((response) => {
 
-
-
-      // let lObj = this.companyService.getOption();
-      // if (lObj) {
-      //   this.BindCompanyList(lObj.userId, lObj.companyId);
-      //   this.model.companyId = lObj.companyId;
-      //   this.userId = lObj.userId;
-  
-      //   this.getLocation();
-      //   // this.getStyle('');
-      // }
-
-      // if (response.isLogin) {
-      //   localStorage.setItem('userData', JSON.stringify(response));
-      //   this.router.navigate(['./dashboard']);
-      // } else {
-      //   alert('UserName or Password Incorrect.');
-      // }
-
-
-
-
-
-
-
       if((response.data.loginInId>0))
       {
+        localStorage.setItem('userData', JSON.stringify(response.data));
         this.router.navigate(['/dashboard']);
       }
-      // console.log(response.data.loginInId>0);
+      else{
+        alert('Login credentials are not correct.');
+      }
+      
      
     });
         
