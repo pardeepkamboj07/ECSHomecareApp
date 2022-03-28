@@ -41,7 +41,7 @@ export class EmpComplianceComponent implements OnInit {
 
     this.route.params.subscribe(
       (params : Params) =>{
-         this.model.empId = Number(params["eId"]);
+         this.model.empId = Number(params["empId"]);
          this.getCompliance(this.model.empId);
       }
     );

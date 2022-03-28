@@ -11,7 +11,7 @@ import { EmpScheduleComponent } from 'src/app/meeting/emp-schedule/emp-schedule.
 
 import { MaincontentComponent } from './dashboard/maincontent/maincontent.component';
 import { EmployeelistComponent } from './dashboard/employee/employeelist/employeelist.component';
-import { ClientlistComponent } from './dashboard/client/clientlist/clientlist.component';
+//import { ClientlistComponent } from './dashboard/client/clientlist/clientlist.component';
 import { SaveemployeeComponent } from './dashboard/employee/saveemployee/saveemployee.component';
 import { SaveclientComponent } from './dashboard/client/saveclient/saveclient.component';
 import { ClienteventComponent } from './dashboard/client/clientevent/clientevent.component';
@@ -23,7 +23,9 @@ import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employ
 
 import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
 
-
+import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
+import { ClientListComponent } from 'src/app/client/client-list/client-list.component';
+import { ClientScheduleComponent } from 'src/app/meeting/client-schedule/client-schedule.component';
 
 const routes: Routes = [
 // {
@@ -42,12 +44,26 @@ children : [{path:'',component:MasterinfoComponent}]},
 children : [{path:'',component:DashboardComponent}]},
 {path : 'employee/create',component : LayoutComponent,
 children : [{path:'',component:NewEmployeeComponent}]},
-{path : 'employee/List',component : LayoutComponent,
+{path : 'employee/list',component : LayoutComponent,
 children : [{path:'',component:EmpListComponent}]},
-{path : 'employee/info/:eId',component : LayoutComponent,
+{path : 'employee/info/:empId',component : LayoutComponent,
   children : [{path:'',component:EmpInfoComponent}]},
   {path : 'employee/schedule/:empId',component : LayoutComponent,
   children : [{path:'',component:EmpScheduleComponent}]},
+
+
+  {path : 'client/create',component : LayoutComponent,
+children : [{path:'',component:NewClientComponent}]},
+
+{path : 'client/list',component : LayoutComponent,
+children : [{path:'',component:ClientListComponent}]},
+
+  {path : 'client/schedule/:clientId',component : LayoutComponent,
+  children : [{path:'',component:ClientScheduleComponent}]},
+
+  
+// {path : 'client/info/:eId',component : LayoutComponent,
+// children : [{path:'',component:EmpInfoComponent}]},
 
 
 

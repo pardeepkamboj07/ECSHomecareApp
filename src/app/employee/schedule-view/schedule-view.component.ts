@@ -31,7 +31,7 @@ export class ScheduleViewComponent implements OnInit {
     this.route.params
     .subscribe(
       (params : Params) =>{
-        this.empId = params["eId"];
+        this.empId = params["empId"];
       }
     );
 
@@ -122,6 +122,14 @@ console.log(_meeting);
   public setCurrentMonth() {
     this.monthIndex = 0;
     this.generateCalendarDays(this.monthIndex,this.empId);
+  }
+
+
+
+
+  public addMeeting()
+  {
+    this.router.navigate(['/employee/schedule/'+this.empId])
   }
 
 }

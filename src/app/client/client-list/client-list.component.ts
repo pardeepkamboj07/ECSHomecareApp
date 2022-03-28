@@ -171,6 +171,10 @@ Isapiresponsereceived : boolean = true;
   }
 
 
+  public addMeeting(clientId:number)
+  {
+    this.router.navigate(['/client/schedule/'+clientId])
+  }
 
 
 

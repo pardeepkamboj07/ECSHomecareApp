@@ -28,7 +28,7 @@ export class EmpAddressComponent implements OnInit {
 
     this.route.params.subscribe(
       (params : Params) =>{
-         this.model.empId = Number(params["eId"]);
+         this.model.empId = Number(params["empId"]);
          this.getAddress(this.model.empId);
       }
     );

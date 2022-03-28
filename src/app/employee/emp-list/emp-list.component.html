@@ -3,7 +3,7 @@
     <!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
       <div class="page-header pull-left">
-        <div class="page-title">Employee Details</div>
+        <div class="page-title">Employee List</div>
       </div>
   
       <div class="clearfix"></div>
@@ -110,7 +110,7 @@
             </div>
             <div class="col-sm-2 text-right">
               <div class="row">
-                <div class="col-sm-12 col-md-12 col-xs-6"><button type="button" routerLink="/employee"
+                <div class="col-sm-12 col-md-12 col-xs-6"><button type="button" routerLink="/employee/create"
                     class="btn btn-sm btn-default mbm mts"><i class="fa fa-plus"></i> Add Employee</button></div>
   
               </div>
@@ -161,8 +161,8 @@
                       <td><i class="fa fa-check medium-txt"></i></td>
                       <td>{{trObj.coordinator}}</td>
                       <td>
-                        
-                        <a  [routerLink]="'/Layout/employeeinfo/' + trObj.empId" title="Profile">
+                      
+                        <a [routerLink]="'/employee/info/' + trObj.empId" title="Profile">
                           <i class="fa fa-id-card medium-txt"></i>
                         </a> 
                         

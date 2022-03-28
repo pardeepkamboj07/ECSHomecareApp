@@ -31,7 +31,7 @@ export class EmpDasboardComponent implements OnInit {
     this.route.params
     .subscribe(
       (params : Params) =>{
-        this.empId = params["eId"];
+        this.empId = params["empId"];
       }
     );
     // this.empInfo = new Employee();

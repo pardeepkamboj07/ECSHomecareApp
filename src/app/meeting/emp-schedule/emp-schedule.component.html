@@ -8,7 +8,7 @@
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
     <div class="page-content">
-      <pre>{{f.value | json}} {{f.invalid}}</pre>
+      <!-- <pre>{{f.value | json}} {{f.invalid}}</pre> -->
       <form name="frmMom" #f="ngForm">
         <div class="panel">
         <div class="panel-body">
@@ -26,7 +26,7 @@
                           bsDatepicker    [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" >
                     </div>
 
-                    {{_meetingDate}}
+                    <!-- {{_meetingDate}} -->
                 </div>
                            
                     <div class="col-sm-3 col-xs-4">
@@ -39,7 +39,7 @@
                             [(ngModel)]="_startTime" ></timepicker>
   
                         </div>
-                        {{_startTime}}
+                        <!-- {{_startTime}} -->
                     </div>
             
                         <div class="col-sm-3 col-xs-4">
@@ -133,7 +133,7 @@
                          <div class="col-sm-6 col-xs-12">  
                              <div class="form-group"><label class="control-label">Employee</label>       
                               
-                              {{model.empId}}
+                              <!-- {{model.empId}} -->
                                          <select
                                          class="form-control"
                                          #EmpId="ngModel"

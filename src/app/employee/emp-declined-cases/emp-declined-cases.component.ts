@@ -44,7 +44,7 @@ export class EmpDeclinedCasesComponent implements OnInit {
     debugger
     this.route.params.subscribe(
       (params : Params) =>{
-         this.EmpId = Number(params["eId"]);
+         this.EmpId = Number(params["empId"]);
 
          this.GetCaseList(this.EmpId);
 

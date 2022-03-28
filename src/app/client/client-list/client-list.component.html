@@ -97,7 +97,7 @@
     </div>
     <div class="col-sm-2 text-right">
       <div class="row">
-      <div class="col-sm-12 col-md-12 col-xs-6"><button type="button" class="btn btn-sm btn-default mbm mts" routerLink="/Layout/saveclient" ><i class="fa fa-plus"></i> Add Client</button></div>
+      <div class="col-sm-12 col-md-12 col-xs-6"><button type="button" class="btn btn-sm btn-default mbm mts" routerLink="/client/create" ><i class="fa fa-plus"></i> Add Client</button></div>
         
       </div>
                                    
@@ -149,7 +149,7 @@
                                       <a  > {{ client.firstName }}</a></div>
                                         <div class="col-sm-5 col-xs-5">{{ client.clientId }}</div>
                                         <div class="col-sm-2 col-xs-2">
-                                        <a>
+                                        <a (click)="addMeeting(client.clientId)">
                                           <i class="fa fa-calendar medium-txt text-orange"></i>
                                         </a>
                                         </div>

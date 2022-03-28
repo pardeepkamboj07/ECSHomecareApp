@@ -53,7 +53,7 @@ export class EmpIncidentsComponent implements OnInit {
 debugger;
     this.route.params.subscribe(
       (params : Params) =>{
-         this.model.empId = Number(params["eId"]);
+         this.model.empId = Number(params["empId"]);
          this.getIncidentList(this.model.empId);
       }
     );
