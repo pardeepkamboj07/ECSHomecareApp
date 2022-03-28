@@ -6,6 +6,7 @@ import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
 import { ItemsList } from 'src/app/Model/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-incidents',
   templateUrl: './emp-incidents.component.html',
@@ -31,11 +32,20 @@ export class EmpIncidentsComponent implements OnInit {
   // ;
   // maxDate = new Date();
   constructor(
+    private comApi: CommonService,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) {
     setTheme('bs3');
     // this.maxDate.setDate(this.maxDate.getDate() + 7);
     // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
+
+    this.comApi.getClientList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.ClientList = response.data;
+      }
+    });
    }
 
   ngOnInit(): void {
@@ -49,7 +59,7 @@ debugger;
     );
 
 
-    this. BindClientList();
+    
    
   }
 
@@ -73,18 +83,7 @@ debugger;
     });
   }
 
-  BindClientList() {
-    // this.IsLoad = true;
-    debugger;
-    this.clientapi.getClientList().subscribe(response => {
-      debugger;
-      response.data.forEach((_obj: any) => {
-        this.ClientList.push(
-          new ItemsList(_obj.clientId.toString(), _obj.clientName)
-        );
-      });
-    });
-  }
+
 
   getIncidentList(empId : number) {
     this.empApi.getIncidentList(empId).subscribe((response) => {

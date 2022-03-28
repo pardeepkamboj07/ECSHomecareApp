@@ -51,7 +51,6 @@ import { EmpAddressComponent } from './employee/emp-address/emp-address.componen
 import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
 import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
 import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
-
 import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
 import { MasterinfoComponent } from './admin/master/masterinfo/masterinfo.component';
 import { MasterTypeComponent } from './admin/master/master-type/master-type.component';
@@ -61,6 +60,10 @@ import { EmpListComponent } from './employee/emp-list/emp-list.component';
 import { ClientListComponent } from './client/client-list/client-list.component';
 import { EquateDatePipePipe } from './pipe/equate-date-pipe.pipe';
 import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
+import { SignInComponent } from './account/sign-in/sign-in.component';
+import { EmpInfoComponent } from './employee/emp-info/emp-info.component';
+import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.component';
+
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -106,6 +109,12 @@ FullCalendarModule.registerPlugins([
          ClientListComponent,
          EquateDatePipePipe,
          MeetingDetailComponent,
+     
+         SignInComponent,
+        
+                EmpInfoComponent,
+                          EmpDasboardComponent,
+
   
   ],
   imports: [

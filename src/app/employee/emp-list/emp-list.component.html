@@ -143,9 +143,13 @@
                
                     <tr *ngFor="let trObj of empList; let i = index">
                       <td>
-                        <a  [routerLink]="'/Layout/employeeinfo/' + trObj.empId" title="INFO">
+                     
+                        <a  [routerLink]="'/employee/info/' + trObj.empId" title="INFO">
                           {{trObj.empName}}
                         </a> 
+                        <!-- <a  [routerLink]="'/Layout/employeeinfo/' + trObj.empId" title="INFO">
+                          {{trObj.empName}}
+                        </a>  -->
                       </td>
                       <td>{{trObj.empType}}</td>
                       <td><i class="fa fa-calendar medium-txt"></i></td>

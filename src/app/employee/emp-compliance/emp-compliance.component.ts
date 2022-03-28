@@ -5,7 +5,7 @@ import { ItemsList } from 'src/app/Model/common';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ComplianceObj } from 'src/app/Model/Employee/compliance-obj';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-
+import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-compliance',
   templateUrl: './emp-compliance.component.html',
@@ -22,15 +22,23 @@ export class EmpComplianceComponent implements OnInit {
 
   complianceObjList: any;
   constructor(
+    private comApi: CommonService,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService) {
     setTheme('bs3');
+    this.comApi.getEmpList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.EmplList = response.data;
+      }
+    });
 
    }
 
 
    ngOnInit(): void {
-    this.BindEmpList();
+
     this.route.params.subscribe(
       (params : Params) =>{
          this.model.empId = Number(params["eId"]);
@@ -40,18 +48,7 @@ export class EmpComplianceComponent implements OnInit {
 
   }
 
-  BindEmpList() {
-   
-    debugger;
-    this.empApi.getEmployeeList().subscribe(response => {
-      debugger;
-      response.data.forEach((_obj: any) => {
-        this.EmplList.push(
-          new ItemsList(_obj.empID.toString(), _obj.empName)
-        );
-      });
-    });
-  }
+
 
 
 
