@@ -3,6 +3,7 @@ import { ItemsList } from 'src/app/Model/common';
 import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
+import { CommonService } from 'src/app/services/common.service';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { DatePipe } from '@angular/common';
 @Component({
@@ -18,46 +19,44 @@ export class ScheduleComponent implements OnInit {
   ClientList = Array<ItemsList>();
   EmplList = Array<ItemsList>();  
   timespan:string;
-  _meetingDate:Date=new Date();
-  _startTime:Date=new Date();
-  _endTime:Date=new Date();
 
-  constructor(private empApi: EmployeeapiService, private clientapi : ClientApiService,private momApi:MeetingService,    public datepipe: DatePipe,)
+  _meetingDate : Date=new Date();
+  _startTime : Date=new Date();
+  _endTime : Date=new Date();
+
+  constructor(private comApi: CommonService,private empApi: EmployeeapiService, private clientapi : ClientApiService,private momApi:MeetingService,    public datepipe: DatePipe,)
    {
-    // this.model.endTime =this.model.startTime;
+     this.BindMaster();
    }
 
   ngOnInit(): void {
   
-  this.BindClientList();
-  this.BindEmpList();
+ 
   }
 
-  BindClientList() {
-    // this.IsLoad = true;
-    debugger;
-    this.clientapi.getClientList().subscribe(response => {
-      debugger;
-      response.data.forEach((_obj: any) => {
-        this.ClientList.push(
-          new ItemsList(_obj.clientId.toString(), _obj.clientName)
-        );
-      });
+  BindMaster() {
+
+    this.comApi.getEmpList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.EmplList = response.data;
+      }
     });
+    this.comApi.getClientList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.ClientList = response.data;
+      }
+    });
+
+
+    
   }
 
-  BindEmpList() {
-    // this.IsLoad = true;
-    debugger;
-    this.empApi.getEmployeeList().subscribe(response => {
-      debugger;
-      response.data.forEach((_obj: any) => {
-        this.EmplList.push(
-          new ItemsList(_obj.empID.toString(), _obj.empName)
-        );
-      });
-    });
-  }
+
+
 
   
 OnScheduling()
@@ -65,21 +64,12 @@ OnScheduling()
     debugger;    
     this.model.clientId=Number(this.model.clientId);
     this.model.empList.push(Number(this.model.empId));
-    this.model.meetingDate=this._meetingDate.toISOString().substring(0, 10);
-    this.model.meetingDate = this.datepipe.transform(this._meetingDate, 'dd-MM-yyyy')||"";
-
-    
-   
+    // this.model.meetingDate=this._meetingDate.toISOString().substring(0, 10);
+    this.model.meetingDate = this.datepipe.transform(this._meetingDate, 'dd-MM-yyyy')||"";   
     this.model.startTime=this.datepipe.transform(this._startTime, 'h:mm a')||"";
-
     this.model.endTime=this.datepipe.transform(this._endTime, 'h:mm a')||"";
-    //this.model.meetingDate=.toString();
-  
-    // this.model.startTime=this._startTime.toLocaleTimeString();
-
-
-
- 
+    //this.model.meetingDate=.toString();  
+    //this.model.startTime=this._startTime.toLocaleTimeString();
     const reqObj: MeetingInfo = this.model;
     console.log('Search', reqObj);    
     this.momApi.createMeeting(reqObj).subscribe((response) => {    

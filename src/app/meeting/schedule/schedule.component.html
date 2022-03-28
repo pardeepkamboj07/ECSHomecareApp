@@ -21,10 +21,12 @@
                           id="txtMeetingDate"
                           name="MeetingDate"
                           placeholder="Meeting Date"
-                          [(ngModel)]="model.meetingDate"
+                          [(ngModel)]="_meetingDate"
                           class="form-control"
                           bsDatepicker    [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" >
                     </div>
+
+                    {{_meetingDate}}
                 </div>
                            
                     <div class="col-sm-3 col-xs-4">
@@ -37,6 +39,7 @@
                             [(ngModel)]="_startTime" ></timepicker>
   
                         </div>
+                        {{_startTime}}
                     </div>
             
                         <div class="col-sm-3 col-xs-4">
@@ -98,7 +101,8 @@
                                             #ClientId="ngModel"
                                             id="ddlClientId"
                                             name="ClientId"  
-                                            [(ngModel)]="model.clientId"                                       
+                                            [(ngModel)]="model.clientId"    
+                                            [disabled]="false"                                    
                                           >
                                             <option value="-1" disabled>Select</option>
                                             <option

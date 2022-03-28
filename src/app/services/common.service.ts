@@ -80,5 +80,8 @@ export class CommonService {
     return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getEmpList");
   } 
 
-  
+  getClientList()
+  {
+    return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getClientList");
+  } 
 }

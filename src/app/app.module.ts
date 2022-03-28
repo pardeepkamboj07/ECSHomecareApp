@@ -58,6 +58,9 @@ import { MasterTypeComponent } from './admin/master/master-type/master-type.comp
 import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
 import { NewClientComponent } from './client/new-client/new-client.component';
 import { EmpListComponent } from './employee/emp-list/emp-list.component';
+import { ClientListComponent } from './client/client-list/client-list.component';
+import { EquateDatePipePipe } from './pipe/equate-date-pipe.pipe';
+import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -100,6 +103,9 @@ FullCalendarModule.registerPlugins([
          LoaderComponent,
          NewClientComponent,
          EmpListComponent,
+         ClientListComponent,
+         EquateDatePipePipe,
+         MeetingDetailComponent,
   
   ],
   imports: [

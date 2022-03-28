@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { APIResponse } from '../Model/APIResponse';
 import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
 import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
+import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,12 @@ export class MeetingService {
   {
     return this._http.get<APIResponse<Empmeeting[]>>(environment.domain + "/api/Meeting/getEmpMeeting" + '/' + empId);
   } 
+
+  getClientMeetingList()
+  {
+    return this._http.get<APIResponse<ClientMeeting[]>>(environment.domain + "/api/Meeting/getClientMeetingList");
+  } 
+
+
+
 }

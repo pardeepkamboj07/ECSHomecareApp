@@ -19,6 +19,8 @@ export class ClientlistComponent implements OnInit {
   monthList  : any[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   Isapiresponsereceived : boolean = true;
+
+  flag: boolean = false;
   clientList : Client[] = [];
   p: number = 1;
   totalItemsCount : number = 0;

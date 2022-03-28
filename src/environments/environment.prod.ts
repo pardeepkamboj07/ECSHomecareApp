@@ -12,7 +12,6 @@ export const environment = {
   saveempurl : "/api/Employee/savenewemployeeinfo",
   getempurl : "/api/Employee/getemployeelist",
   deleteemployeeurl : "/api/Employee/deleteemployee/",
-
   /* */
 
    /* Client API URL */
