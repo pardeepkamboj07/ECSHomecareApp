@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+
 import { AuthGuardService } from './auth-guard.service';
 import { AgGridModule } from 'ag-grid-angular';
 import {MatTableModule} from '@angular/material/table';
@@ -32,10 +32,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 import { LayoutComponent } from './layout/layout.component';
-import { ClientCalenderComponent,ChunkPipe } from './client-calender/client-calender.component';
+
 import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
-import { TestingComponent } from './testing/testing.component';
+
 import { LoaderComponent } from './loader/loader.component'; // <-- import the module
 import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -58,13 +58,14 @@ import { NewEmployeeComponent } from './employee/new-employee/new-employee.compo
 import { NewClientComponent } from './client/new-client/new-client.component';
 import { EmpListComponent } from './employee/emp-list/emp-list.component';
 import { ClientListComponent } from './client/client-list/client-list.component';
-import { EquateDatePipePipe } from './pipe/equate-date-pipe.pipe';
+import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
 import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
 import { SignInComponent } from './account/sign-in/sign-in.component';
 import { EmpInfoComponent } from './employee/emp-info/emp-info.component';
 import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.component';
 import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
 import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
+import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
 
 
 FullCalendarModule.registerPlugins([ 
@@ -74,8 +75,7 @@ FullCalendarModule.registerPlugins([
  
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginPageComponent,
+    AppComponent,  
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
@@ -93,10 +93,9 @@ FullCalendarModule.registerPlugins([
     ClientInfoComponent,
     EmployeeInfoComponent,
     LayoutComponent,
-    ClientCalenderComponent,
-    ChunkPipe,
-    FilterPipe,
-    TestingComponent,
+    
+    
+    FilterPipe,    
     EmpIncidentsComponent,
     EmpAttendanceComponent,
     EmpStatusComponent,    
@@ -109,7 +108,9 @@ FullCalendarModule.registerPlugins([
          NewClientComponent,
          EmpListComponent,
          ClientListComponent,
-         EquateDatePipePipe,
+         EquateDatePipe,
+
+         ChunkPipe,
          MeetingDetailComponent,
      
          SignInComponent,
@@ -118,6 +119,7 @@ FullCalendarModule.registerPlugins([
                           EmpDasboardComponent,
                           EmpScheduleComponent,
                           ClientScheduleComponent,
+                          ScheduleViewComponent,
 
   
   ],

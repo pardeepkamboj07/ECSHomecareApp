@@ -20,7 +20,7 @@ import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.compon
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
-import { ClientCalenderComponent } from './client-calender/client-calender.component';
+
 import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
 
 
@@ -32,6 +32,10 @@ const routes: Routes = [
 // },
 // { path: '', component: SignInComponent },
 // { path: '**', component: SignInComponent },
+
+{path : 'admin/master/create',component : LayoutComponent,
+children : [{path:'',component:MasterinfoComponent}]},
+
 
 {path : 'login',component : SignInComponent },
 {path : 'dashboard',component :  LayoutComponent,

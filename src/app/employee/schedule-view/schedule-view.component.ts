@@ -1,38 +1,20 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { CalendarDay } from '../Model/calendar-day';
+import { CalendarDay } from 'src/app/Model/calendar-day';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
 import { DatePipe } from '@angular/common';
-@Pipe({
-  name: 'chunk'
-})
-export class ChunkPipe implements PipeTransform {
 
-  transform(calendarDaysArray: any, chunkSize: number): any {
-    let calendarDays:any = [];
-    let weekDays:any = [];
-
-    calendarDaysArray.map((day:any,index:any) => {
-        weekDays.push(day);
-        if (++index % chunkSize  === 0) {
-          calendarDays.push(weekDays);
-          weekDays = [];
-        }
-    });
-    return calendarDays;
-  }
-}
 
 @Component({
-  selector: 'app-client-calender',
-  templateUrl: './client-calender.component.html',
+  selector: 'app-schedule-view',
+  templateUrl: './schedule-view.component.html',
   styleUrls: [
-    '../../assets/css/orange-blue.css',    
-    './client-calender.component.scss']
+    '../../../assets/css/orange-blue.css',  
+    './schedule-view.component.scss']
 })
+export class ScheduleViewComponent implements OnInit {
 
-export class ClientCalenderComponent implements OnInit {
   public calendar: CalendarDay[] = [];
   public monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -54,7 +36,7 @@ export class ClientCalenderComponent implements OnInit {
     );
 
 
-    this.momApi.getEmployeeMeeting(1).subscribe((response) => {
+    this.momApi.getEmployeeMeeting(this.empId).subscribe((response) => {
       this.meetingList = response.data;
       this.generateCalendarDays(this.monthIndex,this.empId);
     });
@@ -102,23 +84,11 @@ console.log(_meeting);
   { 
     this.momApi.getEmployeeMeeting(1).subscribe((response) => {
       this.meetingList = response.data;
+
+      console.log(this.meetingList);
     });
 
   }
-//   isValidDate:boolean;
-
-//   equalDates(sDate: string, eDate: string){
-//     this.isValidDate = false;
-// if(new Date(sDate).getTime()===new Date(eDate).getTime())
-// {
-//   this.isValidDate = true;
-// }
-//     //YYYY-MM-DD
-    
-//   }
-
-//tru
-
 
 
   private getStartDateForCalendar(selectedDate: Date){
@@ -153,6 +123,5 @@ console.log(_meeting);
     this.monthIndex = 0;
     this.generateCalendarDays(this.monthIndex,this.empId);
   }
-
 
 }
