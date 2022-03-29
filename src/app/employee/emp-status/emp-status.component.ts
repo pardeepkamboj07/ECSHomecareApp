@@ -54,7 +54,7 @@ export class EmpStatusComponent implements OnInit {
     this.route.params.subscribe(
       (params : Params) =>{   
         this.EmpId = Number(params["empId"]);   
-        alert(this.EmpId)   ;
+     
          this.getEmployeeStatusLst(this.EmpId);
          
       });
