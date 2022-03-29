@@ -150,35 +150,17 @@
                               </select>
                   </div>
                   <div class="col-lg-6 col-xs-6 ">
-                            
-                    <select
-                    class="form-control"
-                    #ClientId="ngModel"                                   
-                    id="ddlEmployeeId"
-                    name="EmployeeId"                                   
-                    [(ngModel)]="model.employeeId"                                       
-                  > 
-          
+                    <select class="form-control" #ClientId="ngModel"                                   
+                    id="ddlEmployeeId" name="EmployeeId"                                   
+                    [(ngModel)]="model.employeeId" > 
                   <option value="-1" disabled>Select</option>
-                  <option
-                   *ngFor="let obj of EmplList"
-                   [value]="obj.itemId"
-                 >
+                  <option *ngFor="let obj of EmplList"
+                   [value]="obj.itemId">
                    {{ obj.itemName }}
-                 </option> 
-                        </select>
-                  
-                  
-                  
+                 </option></select>
                   </div>
-                        
-                        
-                        
                         </div>
-                          
                         </div>
-                      
-                        
                     </div>
                       </div>
                   

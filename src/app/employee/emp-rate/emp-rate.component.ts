@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
 import { ItemsList } from 'src/app/Model/common';
+import { CommonService } from 'src/app/services/common.service';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{EmpRate} from 'src/app/Model/Employee/emp-rate'
 
@@ -16,31 +17,52 @@ import{EmpRate} from 'src/app/Model/Employee/emp-rate'
 })
 export class EmpRateComponent implements OnInit {
   modalRef?: BsModalRef;
-  ClientList :any;
-  PayerList:any;  
+
+  ClientList :ItemsList[] = [];
+  PayerList:ItemsList[] = [];
+
+
+
   EmpRateObj:any;
  EmpId:number;
  ClientId:number;
   model=new EmpRate("","","","",0,0,0,0,0,0,false,0,0,0,0,0,0,0,0,0);
-  constructor(private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { }
+  constructor(private comApi: CommonService,
+    private route:ActivatedRoute,
+    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
+
+      this.comApi.getClientList().subscribe((response) => {
+        if(response.result)
+        {
+          debugger;
+          this.ClientList = response.data;
+        }
+      });
+      this.comApi.getEmpList().subscribe((response) => {
+        if(response.result)
+        {
+          debugger;
+          this.PayerList = response.data;
+        }
+      });
+   
+
+
+
+    }
 
   ngOnInit(): void {
-    this.EmpId=0;
-    this.ClientId=0;
-    this.GetEmployeeRateLst();
-    // this.route.params.subscribe(
-    //   (params : Params) =>{
-    //      this.EmpId = Number(params["eId"]);
-    //      this.GetEmployeeRateLst(EmpId);
-    //   }
-    // );
+    this.route.params.subscribe(
+      (params : Params) =>{
+         this.EmpId = Number(params["empId"]);
+         this.GetEmployeeRateLst();
+      }
+    ); 
+
    
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.BindClientList();
-    this.GetEmployeeLst();
+  openModal(template: TemplateRef<any>) { 
    this.modalRef = this.modalService.show(template);
  }
 
@@ -82,18 +104,6 @@ GetEmployeeRateLst() {
   });
 }
 
-GetEmployeeLst() {
-  this.empApi.GetEmployeeLst().subscribe((response) => {
-    this.PayerList = response.data;      
-  });
-}
 
-BindClientList() {
-  // this.IsLoad = true;
- 
-  this.clientapi.getClientList().subscribe(response => {
-    this.ClientList = response.data;  
-  });
-}
 
 }

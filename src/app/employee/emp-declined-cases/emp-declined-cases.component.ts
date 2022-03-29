@@ -77,11 +77,10 @@ onClickSubmit() {
    this.model.DeclineReason=this.model.DeclineReason;  
    this.model.Note=this.model.Note; 
    this.model.empId=this.EmpId; 
- 
 
    this.empApi.SaveEmpDeclinedCase(this.model).subscribe((response) => {
 
-    this.empApi.GetEmployeeRateLst(0);  
+    this.GetCaseList(this.EmpId);  
   this.decline();
 
  }); 

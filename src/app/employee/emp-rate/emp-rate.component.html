@@ -187,13 +187,15 @@
                         name="PayerId"                                   
                         [(ngModel)]="model.PayerId"                                       
                       > 
-                      <option value="" disabled>Select</option>
-                                    <option
-                                      *ngFor="let obj of PayerList"
-                                      [value]="obj.id"
-                                    >
-                                      {{ obj.text }}
-                                    </option>
+                      <option value="-1" disabled>Select</option>
+                      <option
+                       *ngFor="let obj of PayerList"
+                       [value]="obj.itemId"
+                     >
+                       {{ obj.itemName }}
+                     </option> 
+
+
                                                       
                             </select>
                                 </div>
@@ -208,14 +210,14 @@
                         name="ClientId"                                   
                         [(ngModel)]="model.ClientId"                                       
                       > 
-                      <option value="" disabled>Select</option>
-                                    <option
-                                      *ngFor="let obj of ClientList"
-                                      [value]="obj.clientId"
-                                    >
-                                      {{ obj.clientName }}
-                                    </option>
-                                                      
+
+                      <option value="-1" disabled>Select</option>
+                      <option
+                       *ngFor="let obj of ClientList"
+                       [value]="obj.itemId"
+                     >
+                       {{ obj.itemName }}
+                     </option>                                                       
                             </select>
                                 </div>
                         </div>
