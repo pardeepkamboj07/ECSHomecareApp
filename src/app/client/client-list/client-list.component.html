@@ -159,16 +159,10 @@
                                     </div>
                                   </td>
                                   <td *ngFor="let week of currentweekarray" valign="top" class="client-td">
-                                    <div class="row mbs"  *ngFor="let mtmObj of client.meetings">
-                                   
-                                      
-
-                                      <div class="col-sm-12"  *ngIf="(mtmObj.meetingDate   |  equateDate : week)==true">	
-
-                                   
-
+                                    <div class="row mbs"  *ngFor="let mtmObj of client.meetings" (click)="showMeeting()">
+                                      <div class="col-sm-12"  *ngIf="(mtmObj.meetingDate   |  equateDate : week)==true">
                                         <div class="client-box-green-dot"></div>
-                                        <div class="client-box"       (click)="meetingDetail(mtmObj.meetingId)">
+                                        <div class="client-box">
                                           <p class="mbx"><strong>{{ mtmObj.startTime.toString() + '-' + mtmObj.endTime.toString() }}</strong></p>
                                           <p class="mbn">{{ mtmObj.empName }}</p>
                                       </div>

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
+import {  BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-meeting-detail',
   templateUrl: './meeting-detail.component.html',
-  styleUrls: ['./meeting-detail.component.scss']
+  styleUrls: [
+    '../../../assets/css/orange-blue.css',
+    './meeting-detail.component.scss']
 })
 export class MeetingDetailComponent implements OnInit {
-
-  constructor() { }
+  title?: string;
+  closeBtnName?: string;
+  constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
   }

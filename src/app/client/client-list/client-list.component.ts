@@ -7,9 +7,9 @@ import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
 import { MeetingInfo } from 'src/app/Model/MeetingInfo';
 import { DatePipe } from '@angular/common';
 import { MeetingService } from 'src/app/services/meeting.service';
-
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-
+import { MeetingDetailComponent } from 'src/app/meeting/meeting-detail/meeting-detail.component';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-client-list',
@@ -60,9 +60,15 @@ Isapiresponsereceived : boolean = true;
   
 
 
-
-  constructor(public datepipe: DatePipe,private router:Router, private clientapi : ClientApiService,private momApi:MeetingService)
+  bsModalRef?: BsModalRef;
+  constructor(
+    private modalService: BsModalService,
+    public datepipe: DatePipe,
+    private router:Router, 
+    private clientapi : ClientApiService,
+    private momApi:MeetingService)
   {
+    setTheme('bs3');
     this.currentDate = new Date();
     this.ptrcurrentDate = new Date();
     this.currentYear = new Date().getFullYear();
@@ -125,10 +131,6 @@ Isapiresponsereceived : boolean = true;
     this.weekList = this.getWeekDays(this.currentDay, this.currentMonthIndex, this.currentYear);
   }
 
-
-
-
-
   // GetClientMeetings(startdate : string, clientId : string)
   // {
   //   this.clientapi.getClientMeetingList("2022-01-01", clientId).subscribe(response => {
@@ -142,17 +144,7 @@ Isapiresponsereceived : boolean = true;
 
   }
 
-
-
-
-
   
-
-
-
-
-
-
   pageChanged(event : any){
     this.p = event;
   }
@@ -165,10 +157,7 @@ Isapiresponsereceived : boolean = true;
 
 
 
-  meetingDetail(meetingId:number)
-  {
-
-  }
+ 
 
 
   public addMeeting(clientId:number)
@@ -177,9 +166,26 @@ Isapiresponsereceived : boolean = true;
   }
 
 
+  meetingDetail(meetingId:number)
+  {
 
+  }
 
-
+  showMeeting() {
+    const initialState: ModalOptions = {
+      initialState: {
+        list: [
+          'Open a modal with component',
+          'Pass your data',
+          'Do something else',
+          '...'
+        ],
+        title: 'Modal with component'
+      }
+    };
+    this.bsModalRef = this.modalService.show(MeetingDetailComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
 
 
 

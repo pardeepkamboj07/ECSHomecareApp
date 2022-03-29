@@ -6,6 +6,7 @@ import { ClientApiService } from 'src/app/Service/client-api.service';
 import { CommonService } from 'src/app/services/common.service';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -24,7 +25,9 @@ export class ScheduleComponent implements OnInit {
   _startTime : Date=new Date();
   _endTime : Date=new Date();
 
-  constructor(private comApi: CommonService,private empApi: EmployeeapiService, private clientapi : ClientApiService,private momApi:MeetingService,    public datepipe: DatePipe,)
+  constructor(
+ 
+    private comApi: CommonService,private empApi: EmployeeapiService, private clientapi : ClientApiService,private momApi:MeetingService,    public datepipe: DatePipe,)
    {
      this.BindMaster();
    }
@@ -114,6 +117,7 @@ OnScheduling()
     
     //hours +":"+minutes +":"+seconds;
   }
+
 
 
 

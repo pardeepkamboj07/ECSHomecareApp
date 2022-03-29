@@ -4,7 +4,8 @@ import { Router,ActivatedRoute, Params } from '@angular/router';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
 import { DatePipe } from '@angular/common';
-
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { MeetingDetailComponent } from 'src/app/meeting/meeting-detail/meeting-detail.component';
 
 @Component({
   selector: 'app-schedule-view',
@@ -19,7 +20,11 @@ export class ScheduleViewComponent implements OnInit {
   public monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-  constructor(private router:Router, 
+  bsModalRef?: BsModalRef;
+  constructor(
+    
+    private modalService: BsModalService,
+    private router:Router, 
     private route:ActivatedRoute,private momApi:MeetingService,public datepipe: DatePipe) { }
 
   public displayMonth: string;
@@ -125,6 +130,21 @@ console.log(_meeting);
   }
 
 
+  showMeeting() {
+    const initialState: ModalOptions = {
+      initialState: {
+        list: [
+          'Open a modal with component',
+          'Pass your data',
+          'Do something else',
+          '...'
+        ],
+        title: 'Modal with component'
+      }
+    };
+    this.bsModalRef = this.modalService.show(MeetingDetailComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
 
 
   public addMeeting()
