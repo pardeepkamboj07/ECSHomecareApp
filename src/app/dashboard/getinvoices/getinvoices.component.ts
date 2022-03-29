@@ -34,7 +34,7 @@ export class GetinvoicesComponent implements OnInit {
 
   OnClickPay(invoice : Invoice)
   {
-    this.router.navigate(['/Layout/getinvoicebyId/' + invoice.id])
+    this.router.navigate(['/invoice/info/' + invoice.id])
   }
 
   pageChanged(event : any){
@@ -43,6 +43,6 @@ export class GetinvoicesComponent implements OnInit {
 
   GenerateInvoice()
   {
-    this.router.navigate(['/Layout/generateinvoice'])
+    this.router.navigate(['/invoice/create'])
   }
 }

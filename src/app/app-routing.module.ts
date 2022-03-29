@@ -28,19 +28,11 @@ import { ClientListComponent } from 'src/app/client/client-list/client-list.comp
 import { ClientScheduleComponent } from 'src/app/meeting/client-schedule/client-schedule.component';
 
 const routes: Routes = [
-// {
-//   path : 'Layout',component : LayoutComponent ,
-//    children : [{path:'mastertype',component:CreateComponent}]
-// },
+
 
 {path : 'login',component : SignInComponent },
-
-
 {path : 'admin/master/create',component : LayoutComponent,
 children : [{path:'',component:MasterinfoComponent}]},
-
-
-
 {path : 'dashboard',component :  LayoutComponent,
 children : [{path:'',component:DashboardComponent}]},
 {path : 'employee/create',component : LayoutComponent,
@@ -51,17 +43,21 @@ children : [{path:'',component:EmpListComponent}]},
   children : [{path:'',component:EmpInfoComponent}]},
   {path : 'employee/schedule/:empId',component : LayoutComponent,
   children : [{path:'',component:EmpScheduleComponent}]},
-
-
   {path : 'client/create',component : LayoutComponent,
 children : [{path:'',component:NewClientComponent}]},
-
 {path : 'client/list',component : LayoutComponent,
 children : [{path:'',component:ClientListComponent}]},
-
   {path : 'client/schedule/:clientId',component : LayoutComponent,
   children : [{path:'',component:ClientScheduleComponent}]},
 
+
+
+  {path : 'invoice/create',component : LayoutComponent,
+  children : [{path:'',component:GenerateinvoiceComponent}]},
+  {path : 'invoice/list',component : LayoutComponent,
+  children : [{path:'',component:GetinvoicesComponent}]},
+  {path : 'invoice/info/:InvId',component : LayoutComponent,
+  children : [{path:'',component:InvoicedetailsComponent}]},
   
   { path: '', component: SignInComponent },
   { path: '**', component: SignInComponent },

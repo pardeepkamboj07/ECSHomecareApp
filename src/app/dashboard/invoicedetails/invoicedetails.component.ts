@@ -40,7 +40,7 @@ export class InvoicedetailsComponent implements OnInit {
   {
     this.invoiceapi.payinvoice(this.InvId).subscribe(response => {
       this.toastr.successToastr('Invoice Paid Successfully.', 'Success!');
-      this.routers.navigate(['/Layout/getinvoicelist'])
+      this.routers.navigate(['/invoice/list'])
     }); 
   }
 }

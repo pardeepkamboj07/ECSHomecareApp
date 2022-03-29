@@ -44,7 +44,7 @@ export class GenerateinvoiceComponent implements OnInit {
         (response)=>
         {
           this.toastr.successToastr('Invoice created.', 'Success!');
-          this.router.navigate(['/Layout/getinvoicelist'])
+          this.router.navigate(['/invoice/list'])
         },
         (error)=> {
           console.log(error);
