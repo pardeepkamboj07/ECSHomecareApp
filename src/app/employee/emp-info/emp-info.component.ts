@@ -66,17 +66,13 @@ export class EmpInfoComponent implements OnInit {
 
   GetEmployeeInfo(empId : string)
   {
-    // this.empapi.getEmployeeInfo(empId).subscribe(response => {
-    //       this.empInfo = response.data;
-    //       console.log(this.empInfo);
-    //       this.Etype = this.empInfo.types;
-    //       this.EmpName = this.getName(this.empInfo);
-    //       this.empStatus = this.empInfo.status;
-    //       //console.log("Name:"+this.EmpName);
-    //     }); 
-        
-        
-        //console.log(this.EmpName);
+    this.empapi.getEmployeeInfo(empId).subscribe(response => {
+          this.empInfo = response.data;
+          console.log(this.empInfo);
+          this.Etype = this.empInfo.types;
+          this.EmpName = this.getName(this.empInfo);
+          this.empStatus = this.empInfo.status;
+        }); 
   }
 
   getName(empInfo : Employee) : string

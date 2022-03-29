@@ -11,8 +11,7 @@ import { Router,ActivatedRoute, Params } from '@angular/router';
   selector: 'app-emp-dasboard',
   templateUrl: './emp-dasboard.component.html',
   styleUrls: [
-    '../../../assets/css/orange-blue.css',
-    
+    '../../../assets/css/orange-blue.css',    
     './emp-dasboard.component.scss']
 })
 export class EmpDasboardComponent implements OnInit {
@@ -27,15 +26,14 @@ export class EmpDasboardComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
     this.route.params
     .subscribe(
       (params : Params) =>{
         this.empId = params["empId"];
       }
     );
-    // this.empInfo = new Employee();
-    // this.GetEmployeeInfo(this.empId);
+    //this.empInfo = new Employee();
+    //this.GetEmployeeInfo(this.empId);
   }
 
 }
