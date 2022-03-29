@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AuthGuardService } from './auth-guard.service';
 import { AgGridModule } from 'ag-grid-angular';
@@ -66,7 +67,9 @@ import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.compo
 import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
 import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
+
+
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -120,6 +123,7 @@ FullCalendarModule.registerPlugins([
                           EmpScheduleComponent,
                           ClientScheduleComponent,
                           ScheduleViewComponent,
+                          EmpDocumentComponent,  
 
   
   ],

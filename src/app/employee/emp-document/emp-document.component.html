@@ -1,0 +1,282 @@
+<!-- <div class="panel">
+    <div class="panel-body">
+      <div  class="row">
+        
+        <input type="text" #foldername placeholder="Enter Folder Name">
+        <button type="button" class="btn btn-success"  (click)="CreateFolder(foldername.value)">Create Folder</button>
+      </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+         
+          <form name="frmUpload" #f="ngForm">
+                  
+            <div class="row mtm">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="form-group" ><label class="control-label">Title</label>
+                
+                        <input type="text"
+                       #Title="ngModel"
+                        id="txtTitle"
+                        name="Title"
+                        placeholder="Title"
+                        [(ngModel)]="model.Title"  
+                        class="form-control"
+                       >
+                 
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">  
+                  <div class="form-group"><label class="control-label">Folder</label>                                     
+                    <select
+                    class="form-control"
+                    #folderid="ngModel"                                   
+                    id="ddlTypeStatusId"
+                    name="folderid"                                   
+                    [(ngModel)]="model.folderid"                                       
+                  > 
+                  <option value="0" disabled>Select</option>
+                                <option
+                                  *ngFor="let obj of FolderList"
+                                  [value]="obj.folderId"
+                                >
+                                  {{ obj.folderName }}
+                                </option>
+                                                  
+                        </select>
+                           
+                </div>
+                            
+                </div>
+        </div>
+  
+  
+                <div class="col-sm-4 col-xs-12">  
+                                  <div class="form-group"><label class="control-label">Search Tag</label>
+                                    <input type="text" [(ngModel)]="model.Search"   name="Search" #Search="ngModel">     
+                                </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12">  
+                            <div class="form-group"><label class="control-label">Description </label>                               
+                                <textarea placeholder="Description" [(ngModel)]="model.Description"  #Title="ngModel" 
+                                class="form-control" 
+                                id="txtDescription"
+                                name="Description"         
+                                ></textarea>
+                          </div>  
+                  </div>
+               
+                 
+  
+          <div class="col-sm-12 col-xs-12">  
+            <div class="form-group">
+  
+              <input type="file" #file placeholder="Choose file">
+          
+  
+  
+                      
+          </div>
+          </div>
+  
+  
+                 
+                 <div class="row mtm">
+                    <div class="col-sm-12 col-xs-12 text-center">
+                      <button type="button" class="btn btn-success"  (click)="uploadFile(file.files)" >Upload File</button>
+                      <span class="upload" *ngIf="message">
+                        {{message}} 
+                     </span>
+                     <span class="upload" *ngIf="progress > 0">
+                      {{progress}}%
+                    </span>
+                        </div>
+  </div>
+
+  <div class="row mtm">
+    <div class="col-sm-12 col-xs-12 text-center">
+      <button type="button" class="btn btn-success"  (click)="DownloadFile()" >Download File</button>
+      <span class="upload" *ngIf="message">
+        {{message}} 
+     </span>
+     <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+        </div>
+</div>
+          </form>
+        </div>
+    
+    </div>
+  </div>
+  
+  
+  </div>
+   -->
+  
+
+  
+    <div class="row">
+    <div class="col-lg-6">
+   <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Documents & Files</strong> </h4>
+      </div>
+      </div>
+    
+    
+    
+    
+                          
+                          <div class="row mbm">
+<div class="col-sm-12 text-14">
+                
+  <a href="" class="btn btn-md btn-default" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal"><i class="fa fa-plus-square text-orange"></i> Add Folder</a>
+  </div>
+  </div>
+                          
+                          <div class="row">									
+    
+    
+                          <div class="col-lg-12">
+                          <div id="accordion1" class="panel-group">
+          <div class="panel panel-default"  *ngFor="let obj of FolderList">
+           <div class="panel-heading">
+          <div class="row" >
+          <div class="col-lg-7 col-xs-7" >
+          <a data-toggle="collapse" data-parent="#accordion1" [attr.href]="'#accor' + obj.folderId" class="collapsed text-14 text-12-mobile">
+            <i class="indicator glyphicon mts text-muted glyphicon-plus-sign"></i> &nbsp;&nbsp;<strong>{{ obj.folderName}}</strong> (3 files)</a>                                
+          </div>
+          <div class="col-lg-3 col-xs-3 small-txt pts" >RENAME FOLDER</div>
+          <div class="col-lg-2 col-xs-2 small-txt pts" >DELETE FOLDER</div>
+         
+          </div>
+          </div>
+             
+              <div [attr.id]="'accor'+ obj.folderId" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body">
+                  <div class="row">
+<div class="col-sm-12"> 
+  
+  <div class="table-responsive">
+  <table class="table table-striped mbn">
+                 
+                  <tbody>
+                  <tr>
+                      <td width="40%" class="pts pbs"><a href="#" class="pts"><i class="fa fa-file-pdf-o text-red text-14 ptm"></i>&nbsp;&nbsp;{{obj.fileName}}</a></td>
+                      <td width="30%" class="pts pbs"><span class="small-txt">Posted by Marco Galeas<br>
+                      03/07/2022	
+                      </span>
+</td>
+                      <td width="15%" class="pts pbs"><i class="fa fa-download text-black medium-txt pts" (click)="DownloadFile(obj.fileName,obj.folderName)"></i></td>
+                     <td width="15%" class="pts pbs"><i class="fa fa-trash-o text-red medium-txt pts"></i></td>
+                    
+                  </tr>
+               
+                  </tbody>
+              </table>
+</div>
+  </div>
+  </div>
+                  
+                  </div>
+              </div>
+          </div>      
+          
+         
+          
+      </div>
+                          
+                          </div>
+                          </div>
+    
+    <div class="panel panel-orange">
+                          <div class="panel-heading">Add Document</div>
+    <div class="panel-body">
+     
+     <div class="row">
+                          <div class="col-lg-4">
+    <div class="form-group">
+    <label>Title</label>
+                          
+                          <input type="text"
+                       #Title="ngModel"
+                        id="txtTitle"
+                        name="Title"
+                        placeholder="Title"
+                        [(ngModel)]="model.Title"  
+                        class="form-control"
+                       >
+    </div>
+    </div>
+    <div class="col-lg-4">
+    <div class="form-group">
+    <label>Search tags	</label>
+                     
+                          <input type="text" [(ngModel)]="model.Search"  class="form-control"  name="Search" #Search="ngModel">     
+    </div>
+    </div>
+    <div class="col-lg-4">
+    <div class="form-group">
+    <label>Folder</label>
+    
+    <select
+                    class="form-control"
+                    #folderid="ngModel"                                   
+                    id="ddlTypeStatusId"
+                    name="folderid"                                   
+                    [(ngModel)]="model.folderid"                                       
+                  > 
+                  <option value="0" disabled>Select</option>
+                                <option
+                                  *ngFor="let obj of FolderList"
+                                  [value]="obj.folderId"
+                                >
+                                  {{ obj.folderName }}
+                                </option>
+                                                  
+                        </select>
+    </div>
+    </div>
+    </div>
+    
+                           <div class="row">
+                          <div class="col-lg-12">
+    <div class="form-group">
+    <label>Description</label>
+                      
+                        <textarea placeholder="Description" [(ngModel)]="model.Description"  #Title="ngModel" 
+                        class="form-control" 
+                        id="txtDescription"
+                        cols="55" rows="4" class="box" spellcheck="false"
+                        name="Description"         
+                        ></textarea>
+    </div>
+    </div>
+                          </div>
+                          
+                          
+                          <div class="row">
+                          <div class="col-lg-12">
+    <div class="form-group">
+    <label>Upload document	</label>
+                        <input id="inputIncludeFile" type="file" #file placeholder="Inlcude some file">
+    </div>
+    </div>
+                          </div>
+                          
+                          
+                          <div class="row">
+                          <div class="col-lg-12">
+    <div class="form-group">
+      <button type="button" (click)="uploadFile(file.files)" class="btn btn-sm btn-dark">Upload File</button>
+    </div>
+    </div>
+                          </div>
+                          
+                          
+                        
+                          
+                          
+    </div>
+    </div>
+    
+                  
