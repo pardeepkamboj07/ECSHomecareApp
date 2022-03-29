@@ -33,14 +33,14 @@ const routes: Routes = [
 //    children : [{path:'mastertype',component:CreateComponent}]
 // },
 
-
+{path : 'login',component : SignInComponent },
 
 
 {path : 'admin/master/create',component : LayoutComponent,
 children : [{path:'',component:MasterinfoComponent}]},
 
 
-{path : 'login',component : SignInComponent },
+
 {path : 'dashboard',component :  LayoutComponent,
 children : [{path:'',component:DashboardComponent}]},
 {path : 'employee/create',component : LayoutComponent,

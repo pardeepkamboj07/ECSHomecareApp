@@ -3,10 +3,11 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { setTheme } from 'ngx-bootstrap/utils';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
-import { ItemsList } from 'src/app/Model/common';
+
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{Empstatus} from 'src/app/Model/Employee/empstatus';
-
+import { CommonService } from 'src/app/services/common.service';
+import { ItemsList,MasterType} from 'src/app/Model/common';
 @Component({
   selector: 'app-emp-status',
   templateUrl: './emp-status.component.html',
@@ -14,19 +15,38 @@ import{Empstatus} from 'src/app/Model/Employee/empstatus';
 })
 
 export class EmpStatusComponent implements OnInit {
-  EmpList :any;
+
+  EmplList = Array<ItemsList>(); 
+  TypeStatusList: ItemsList[] = [];
   OfficeUser:any;
-  TypeStatusList :any;
+  
   ScheduleLst :any;
   modalRef?: BsModalRef;
    model = new Empstatus('',false,false,'','','',0,0,0,0,false,false,false)
    EmpStatusObjList: any;
   constructor(
+    private comApi: CommonService,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) {
     setTheme('bs3');
     // this.maxDate.setDate(this.maxDate.getDate() + 7);
     // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
+
+    this.comApi.getEmpList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.EmplList = response.data;
+      }
+    });
+
+    this.comApi.getMaster(MasterType.EmpStatusType).subscribe((response) => {
+      this.TypeStatusList = response.data;
+    });
+
+
+
+
    }
 
 
@@ -41,8 +61,8 @@ export class EmpStatusComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
      this.GetOfficeUserLst();
-    this.GetTypeStatusLst();
-     this.GetEmployeeLst();
+
+  
      this.GetSchedulingLst();
     this.modalRef = this.modalService.show(template);
   }
@@ -83,18 +103,9 @@ GetOfficeUserLst() {
   });
 }
 
-GetTypeStatusLst() {
-  
-  this.empApi.GetTypeStatusLst().subscribe((response) => {
-    this.TypeStatusList = response.data;      
-  });
-}
 
-GetEmployeeLst() {
-  this.empApi.GetEmployeeLst().subscribe((response) => {
-    this.EmpList = response.data;      
-  });
-}
+
+
 
 GetSchedulingLst() {
   this.empApi.GetSchedulingLst().subscribe((response) => {

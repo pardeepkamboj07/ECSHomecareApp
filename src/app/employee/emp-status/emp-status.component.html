@@ -42,9 +42,9 @@
                   <option value="" disabled>Select</option>
                                 <option
                                   *ngFor="let obj of TypeStatusList"
-                                  [value]="obj.id"
+                                  [value]="obj.itemId"
                                 >
-                                  {{ obj.text }}
+                                  {{ obj.itemName }}
                                 </option>
                                                   
                         </select>
@@ -139,13 +139,13 @@
                           name="OfficeUserId"                                   
                           [(ngModel)]="model.officeUserId"                                       
                         > 
-                        <option value="" disabled>Select</option>
+                        <option value="-1" disabled>Select</option>
                         <option
-                          *ngFor="let obj of OfficeUser"
-                          [value]="obj.id"
-                        >
-                          {{ obj.text }}
-                        </option>
+                         *ngFor="let obj of EmplList"
+                         [value]="obj.itemId"
+                       >
+                         {{ obj.itemName }}
+                       </option> 
                                        
                               </select>
                   </div>
@@ -158,13 +158,14 @@
                     name="EmployeeId"                                   
                     [(ngModel)]="model.employeeId"                                       
                   > 
-                  <option value="" disabled>Select</option>
+          
+                  <option value="-1" disabled>Select</option>
                   <option
-                    *ngFor="let obj of EmpList"
-                    [value]="obj.id"
-                  >
-                    {{ obj.text }}
-                  </option>
+                   *ngFor="let obj of EmplList"
+                   [value]="obj.itemId"
+                 >
+                   {{ obj.itemName }}
+                 </option> 
                         </select>
                   
                   

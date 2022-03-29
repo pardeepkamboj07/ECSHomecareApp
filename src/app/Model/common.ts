@@ -25,4 +25,5 @@ export enum MasterType {
     MaritalStatus,
     Gender,
     Ethnicity,
+    EmpStatusType,
   }
