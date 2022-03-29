@@ -35,7 +35,7 @@ export class EmpStatusComponent implements OnInit {
     this.comApi.getEmpList().subscribe((response) => {
       if(response.result)
       {
-        debugger;
+      
         this.EmplList = response.data;
       }
     });
@@ -49,11 +49,13 @@ export class EmpStatusComponent implements OnInit {
 
    }
 
-
+   EmpId:number;
   ngOnInit(): void {
     this.route.params.subscribe(
-      (params : Params) =>{        
-         this.getEmployeeStatusLst();
+      (params : Params) =>{   
+        this.EmpId = Number(params["empId"]);   
+        alert(this.EmpId)   ;
+         this.getEmployeeStatusLst(this.EmpId);
          
       });
    
@@ -85,14 +87,14 @@ export class EmpStatusComponent implements OnInit {
     this.empApi.SaveEmployeeStatus(this.model).subscribe((response) => {
       // this.modalRef?.hide();
       this.decline();   
-      this.getEmployeeStatusLst();
+      this.getEmployeeStatusLst(this.EmpId);
       
      
     }); 
  }
 
- getEmployeeStatusLst() {
-  this.empApi.getEmpStatusList().subscribe((response) => {
+ getEmployeeStatusLst(empid:number) {
+  this.empApi.getEmpStatusList(empid).subscribe((response) => {
     this.EmpStatusObjList = response.data;      
   });
 }

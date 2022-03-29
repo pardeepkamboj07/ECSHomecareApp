@@ -134,9 +134,9 @@ export class EmployeeapiService {
               
   }
 
-  getEmpStatusList()
+  getEmpStatusList(empId:number)
   {
-    return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList");
+    return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList"+"/"+empId);
   } 
 
   GetOfficeUserLst()

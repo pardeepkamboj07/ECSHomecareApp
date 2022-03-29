@@ -5,8 +5,7 @@ import{CommonService} from 'src/app/services/common.service';
 import { FolderData } from 'src/app/Model/Employee/Document';
 import{UploadFileFolder} from 'src/app/Model/Employee/UploadFileFolder';
 import { ActivatedRoute, Params } from '@angular/router';
-
-// import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver';
 
 
 @Component({
@@ -27,8 +26,7 @@ export class EmpDocumentComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params : Params) =>{
-         this.EmpId = Number(params["eId"]);
-
+         this.EmpId = Number(params["empId"]);       
          this.GetFolderList(this.EmpId);
 
       }
@@ -115,7 +113,7 @@ DownloadFile(documentName:string,foldername:string)
 {
 
   this.CommApi.DownloadFile(documentName,foldername).subscribe(data=>{
-  //  saveAs(new Blob([data],{type:'pdf'}),documentName);
+   saveAs(new Blob([data],{type:'pdf'}),documentName);
   });
 }
 
