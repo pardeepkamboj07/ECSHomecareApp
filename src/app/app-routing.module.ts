@@ -34,8 +34,7 @@ const routes: Routes = [
 // },
 
 
- { path: '', component: SignInComponent },
- { path: '**', component: SignInComponent },
+
 
 {path : 'admin/master/create',component : LayoutComponent,
 children : [{path:'',component:MasterinfoComponent}]},
@@ -64,6 +63,11 @@ children : [{path:'',component:ClientListComponent}]},
   children : [{path:'',component:ClientScheduleComponent}]},
 
   
+  { path: '', component: SignInComponent },
+  { path: '**', component: SignInComponent },
+
+
+
 // {path : 'client/info/:eId',component : LayoutComponent,
 // children : [{path:'',component:EmpInfoComponent}]},
 
