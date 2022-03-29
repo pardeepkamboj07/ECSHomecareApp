@@ -66,7 +66,7 @@ import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.compo
 import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
 import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -140,7 +140,7 @@ FullCalendarModule.registerPlugins([
     BsDatepickerModule.forRoot(), 
     TimepickerModule.forRoot()
   ],
-  providers: [AuthGuardService, DatePipe,BsDatepickerConfig],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

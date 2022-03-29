@@ -34,7 +34,10 @@
                                             <div class="client-box-green-dot"></div>
                                              <div class="client-box-yellow-dot"></div>
                                             <div class="client-box box-active">
-                                            <p class="mbx"><strong>{{mtm.startTime.toString()}}-{{mtm.endTime}}</strong></p> 
+                                            <p class="mbx"><strong>{{mtm.startTime.hours +':' + mtm.startTime.minutes}}-
+                                                {{mtm.endTime.hours +':' + mtm.endTime.minutes}}
+                                                
+</strong></p> 
                                               <p class="mbn">{{mtm.clientName}}  </p>                                              
                                             </div>
                                           </div>	

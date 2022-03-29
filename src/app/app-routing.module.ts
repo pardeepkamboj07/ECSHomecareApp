@@ -32,8 +32,10 @@ const routes: Routes = [
 //   path : 'Layout',component : LayoutComponent ,
 //    children : [{path:'mastertype',component:CreateComponent}]
 // },
-// { path: '', component: SignInComponent },
-// { path: '**', component: SignInComponent },
+
+
+ { path: '', component: SignInComponent },
+ { path: '**', component: SignInComponent },
 
 {path : 'admin/master/create',component : LayoutComponent,
 children : [{path:'',component:MasterinfoComponent}]},
