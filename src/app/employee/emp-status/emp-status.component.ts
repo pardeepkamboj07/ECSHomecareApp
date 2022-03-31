@@ -24,6 +24,7 @@ export class EmpStatusComponent implements OnInit {
   modalRef?: BsModalRef;
    model = new Empstatus('',false,false,'','','',0,0,0,0,false,false,false)
    EmpStatusObjList: any;
+   EmpId:number;
   constructor(
     private comApi: CommonService,
     private route:ActivatedRoute,
@@ -49,12 +50,12 @@ export class EmpStatusComponent implements OnInit {
 
    }
 
-   EmpId:number;
+
   ngOnInit(): void {
     this.route.params.subscribe(
       (params : Params) =>{   
         this.EmpId = Number(params["empId"]);   
-     
+     debugger;
          this.getEmployeeStatusLst(this.EmpId);
          
       });
