@@ -99,9 +99,9 @@ export class CommonService {
   return this._http.post(environment.domain + "/api/Common/SaveFolder", data,httpOptions);      
   }
   
-  GetFolderList(EmpId:number){
+  GetFolderList(empId:number){
    
-    return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getFolderlist" + '/' + EmpId);
+    return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Document/getDocumentlist" + '/' + empId);
   }
   
   DownloadFile(documentName:string,foldername:string){ 
