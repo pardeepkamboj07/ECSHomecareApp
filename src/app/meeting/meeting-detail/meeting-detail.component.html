@@ -8,8 +8,8 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
                                <div class="form-group text-center">                                                   
-                                 <h4 class="mtn mbs"><strong>Tuesday, February 22</strong></h4>
-                                 <h3 class="text-orange mtn mbs"><strong>08:00 AM - 12:30 PM</strong></h3>
+                                 <h4 class="mtn mbs"><strong> {{momObj.meetingDate}}</strong></h4>
+                                 <h3 class="text-orange mtn mbs"><strong>{{momObj.startTime}} - {{momObj.endTime}}</strong></h3>
                                    <h3 class="text-orange mtn mbs"><strong>Hourly</strong></h3>
           </div>
                            </div>
@@ -23,7 +23,7 @@
                                    <p>CLIENT</p>
                                      <p><i class="fa fa-calendar medium-txt mrm"></i><i class="fa fa-user medium-txt mrm"></i><i class="fa fa-edit medium-txt"></i> </p>
                                  <hr class="mtn mbn">
-                                 <h3><strong>Atkins, Eugene</strong></h3>												
+                                 <h3><strong>{{momObj.client.lastname}}, {{momObj.client.firstName}}</strong></h3>												
                                  <p><i class="fa fa-map-marker text-orange"></i> 117 Slack Avenue Apt 204 Lawrence Township NJ 08648</p>
                                    <p><i class="fa fa-phone text-orange "></i> Phone: (609) 498-0438</p>
                                    <p>Payer: <strong>HORIZON NJ HEALTH</strong></p>
@@ -37,11 +37,18 @@
               <div class="panel mbn">
                 <div class="panel-body" >		
                              
-                                   <p>EMPLOYEE</p>
-                                     <p><i class="fa fa-calendar medium-txt mrm"></i><i class="fa fa-user medium-txt mrm"></i><i class="fa fa-edit medium-txt"></i> </p>
-                                 <hr class="mtn mbn">
-                                 <h3><strong>OPEN CASE</strong></h3>												
-                                 <p><a href="" class="text-orange">Click here to assign an employee</a></p>
+                  <p>EMPLOYEE</p>
+                  <p><i class="fa fa-calendar medium-txt mrm"></i><i class="fa fa-user medium-txt mrm"></i><i class="fa fa-edit medium-txt"></i> </p>
+              <hr class="mtn mbn">
+              <h3><strong>{{momObj.employee.lastname}}, {{momObj.employee.firstName}}</strong></h3>										
+              <p><i class="fa fa-map-marker text-orange"></i> {{momObj.employee.address.flatNo}}, {{momObj.employee.address.locationDetail}},  {{momObj.employee.address.country}}, {{momObj.employee.address.state}},
+             
+             
+                {{momObj.employee.address.city}},{{momObj.employee.address.zipCode}},
+</p>
+                <p><i class="fa fa-phone text-orange "></i> Phone: {{momObj.employee.cellPhone}}</p>
+                <p>Payer: <strong>HORIZON NJ HEALTH</strong></p>
+                <p>Code: <strong>T1019</strong></p>			
                                                                        
                                    
         

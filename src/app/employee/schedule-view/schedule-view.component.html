@@ -30,16 +30,20 @@
                                   
                                         </div>
                                         <div class="row mbs">
-                                        <div class="col-sm-12" *ngFor="let mtm of c.meetingList" (click)="showMeeting()">	
+                                        <div class="col-sm-12" *ngFor="let mtm of c.meetingList" >
+                                        
+                                            <a href="javascript:void(0)" (click)="showMeeting(mtm.meetingId)">	
                                             <div class="client-box-green-dot"></div>
                                              <div class="client-box-yellow-dot"></div>
                                             <div class="client-box box-active">
-                                            <p class="mbx"><strong>{{mtm.startTime.hours +':' + mtm.startTime.minutes}}-
+                                            <p class="mbx"><strong>    {{mtm.meetingId}} {{mtm.startTime.hours +':' + mtm.startTime.minutes}}-
                                                 {{mtm.endTime.hours +':' + mtm.endTime.minutes}}
                                                 
 </strong></p> 
                                               <p class="mbn">{{mtm.clientName}}  </p>                                              
                                             </div>
+                                        </a>
+
                                           </div>	
                                           											 
                                         </div>

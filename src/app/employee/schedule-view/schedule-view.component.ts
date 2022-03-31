@@ -39,13 +39,14 @@ export class ScheduleViewComponent implements OnInit {
         this.empId = params["empId"];
       }
     );
-
-
+    console.log("Rakesjjjj");
     this.momApi.getEmployeeMeeting(this.empId).subscribe((response) => {
       this.meetingList = response.data;
+      console.log("Rakesjjjj11");
+      console.log(this.meetingList);
+      console.log("Rakesjfggggjjj11");
       this.generateCalendarDays(this.monthIndex,this.empId);
     });
-
     
   }
 
@@ -130,7 +131,9 @@ console.log(_meeting);
   }
 
 
-  showMeeting() {
+  showMeeting(_meetingId :number) {
+
+    debugger;
     const initialState: ModalOptions = {
       initialState: {
         list: [
@@ -139,9 +142,11 @@ console.log(_meeting);
           'Do something else',
           '...'
         ],
-        title: 'Modal with component'
+        title: 'Modal with component',
+        meetingId:_meetingId
       }
     };
+    debugger;
     this.bsModalRef = this.modalService.show(MeetingDetailComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
   }

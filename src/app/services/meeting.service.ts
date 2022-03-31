@@ -6,7 +6,7 @@ import { APIResponse } from '../Model/APIResponse';
 import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
 import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
 import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
-
+import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +33,11 @@ export class MeetingService {
     return this._http.get<APIResponse<ClientMeeting[]>>(environment.domain + "/api/Meeting/getClientMeetingList");
   } 
 
+  getMeetingDetail(meetingId : number)
+  {
+    debugger;
+    return this._http.get<APIResponse<MeetingView>>(environment.domain + "/api/Meeting/getMeetingDetail" + '/' + meetingId);
+  } 
 
 
 }
