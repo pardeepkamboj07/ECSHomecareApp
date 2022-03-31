@@ -128,8 +128,11 @@
                           
                           <div class="row mbm">
 <div class="col-sm-12 text-14">
-                
-  <a href="" class="btn btn-md btn-default" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal"><i class="fa fa-plus-square text-orange"></i> Add Folder</a>
+  <ng-template #popContent>Enter Folder Name</ng-template>
+  <ng-template #popTitle>Fancy</ng-template>       
+  <a class="btn btn-md btn-default" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal">
+    <i class="fa fa-plus-square text-orange"></i> Add Folder</a>
+   
   </div>
   </div>
                           
@@ -143,7 +146,7 @@
           <div class="row" >
           <div class="col-lg-7 col-xs-7" >
           <a data-toggle="collapse" data-parent="#accordion1" [attr.href]="'#accor' + obj.folderId" class="collapsed text-14 text-12-mobile">
-            <i class="indicator glyphicon mts text-muted glyphicon-plus-sign"></i> &nbsp;&nbsp;<strong>{{ obj.folderName}}</strong> (3 files)</a>                                
+            <i class="indicator glyphicon mts text-muted glyphicon-plus-sign"></i> &nbsp;&nbsp;<strong>{{ obj.folderName}}</strong> ({{obj.documentList.length}} files)</a>                                
           </div>
           <div class="col-lg-3 col-xs-3 small-txt pts" >RENAME FOLDER</div>
           <div class="col-lg-2 col-xs-2 small-txt pts" >DELETE FOLDER</div>
@@ -160,8 +163,12 @@
   <table class="table table-striped mbn">
                  
                   <tbody>
-                  <tr>
-                      <td width="40%" class="pts pbs"><a  class="pts"><i class="fa fa-file-pdf-o text-red text-14 ptm"></i>&nbsp;&nbsp;{{obj.fileName}}</a></td>
+                  <tr *ngFor="let fileobj of obj.documentList">
+                      <td width="40%" class="pts pbs">
+                        <a  class="pts">
+                        <i class="fa fa-file-pdf-o text-red text-14 ptm">
+
+                        </i>&nbsp;&nbsp;{{fileobj.fileName}}</a></td>
                       <td width="30%" class="pts pbs"><span class="small-txt">Posted by Marco Galeas<br>
                       03/07/2022	
                       </span>

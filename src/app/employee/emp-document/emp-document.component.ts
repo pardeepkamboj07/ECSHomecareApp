@@ -94,6 +94,7 @@ export class EmpDocumentComponent implements OnInit {
 
   GetFolderList(empid:number){
     this.CommApi.GetFolderList(empid).subscribe(Response=>{
+
      this.FolderList=Response.data;   
      
   });
