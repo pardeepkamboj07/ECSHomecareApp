@@ -9,6 +9,16 @@ import { EmpInfoComponent } from 'src/app/employee/emp-info/emp-info.component';
 import { EmpScheduleComponent } from 'src/app/meeting/emp-schedule/emp-schedule.component';
 
 
+
+import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
+import { ClientListComponent } from 'src/app/client/client-list/client-list.component';
+import { ClientScheduleComponent } from 'src/app/meeting/client-schedule/client-schedule.component';
+import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
+
+
+
+
+
 import { MaincontentComponent } from './dashboard/maincontent/maincontent.component';
 import { EmployeelistComponent } from './dashboard/employee/employeelist/employeelist.component';
 //import { ClientlistComponent } from './dashboard/client/clientlist/clientlist.component';
@@ -18,14 +28,12 @@ import { ClienteventComponent } from './dashboard/client/clientevent/clientevent
 import { GenerateinvoiceComponent } from './dashboard/generateinvoice/generateinvoice.component';
 import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.component';
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
-import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
+
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 
 import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
 
-import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
-import { ClientListComponent } from 'src/app/client/client-list/client-list.component';
-import { ClientScheduleComponent } from 'src/app/meeting/client-schedule/client-schedule.component';
+
 
 const routes: Routes = [
 
@@ -51,6 +59,8 @@ children : [{path:'',component:NewClientComponent}]},
 children : [{path:'',component:ClientListComponent}]},
   {path : 'client/schedule/:clientId',component : LayoutComponent,
   children : [{path:'',component:ClientScheduleComponent}]},
+  {path : 'client/info/:clientId',component : LayoutComponent,
+  children : [{path:'',component:ClientInfoComponent}]},
 
 
 

@@ -30,7 +30,7 @@ import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.compon
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ClientInfoComponent } from './dashboard/client/client-info/client-info.component';
+import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
 import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 import { LayoutComponent } from './layout/layout.component';
 
@@ -68,6 +68,7 @@ import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.compon
 import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
 import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
+import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
 
 
 
@@ -123,7 +124,8 @@ FullCalendarModule.registerPlugins([
                           EmpScheduleComponent,
                           ClientScheduleComponent,
                           ScheduleViewComponent,
-                          EmpDocumentComponent,  
+                          EmpDocumentComponent,
+                          ClientDashboardComponent,  
 
   
   ],

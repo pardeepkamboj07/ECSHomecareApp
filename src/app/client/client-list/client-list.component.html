@@ -146,7 +146,13 @@
                                     <li>
                                       <div class="row">
                                       <div class="col-sm-5 col-xs-5"> 
-                                      <a  > {{ client.firstName }}</a></div>
+                                    
+                                        <a  [routerLink]="'/client/info/' + client.clientId" title="INFO">
+                                          {{client.firstName}}
+                                        </a> 
+
+
+                                  </div>
                                         <div class="col-sm-5 col-xs-5">{{ client.clientId }}</div>
                                         <div class="col-sm-2 col-xs-2">
                                         <a (click)="addMeeting(client.clientId)">
