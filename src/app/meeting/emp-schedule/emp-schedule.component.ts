@@ -32,11 +32,15 @@ export class EmpScheduleComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    debugger;
   
     this.route.params
     .subscribe(
       (params : Params) =>{
         this.model.empId = params["empId"];
+        this.model.meetingDate = params["fromDate"];
+
+        
       }
     );
   }

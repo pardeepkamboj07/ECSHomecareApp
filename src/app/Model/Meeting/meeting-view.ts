@@ -9,6 +9,7 @@ export class MeetingView {
     employee: UserView;
     client: UserView;
     notes: string[];
+    isStatus:number;
 }
 
 

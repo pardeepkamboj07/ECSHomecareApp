@@ -31,8 +31,10 @@
                                         </div>
                                         <div class="row mbs">
                                         <div class="col-sm-12" *ngFor="let mtm of c.meetingList" >
-                                        
+                                     
                                             <a href="javascript:void(0)" (click)="showMeeting(mtm.meetingId)">	
+
+                                               
                                             <div class="client-box-green-dot"></div>
                                              <div class="client-box-yellow-dot"></div>
                                             <div class="client-box box-active">
@@ -50,7 +52,7 @@
                                       
                                         <div class="row mbs">
                                             <div class="col-sm-12">
-                                                <a href="javascript:void(0)"(click)="addMeeting()">
+                                                <a href="javascript:void(0)"(click)="addMeetingx(c.date)">
                                                     <i class="fa fa-plus-square text-orange"></i></a>
                                             
                                             </div>	

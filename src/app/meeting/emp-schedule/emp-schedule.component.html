@@ -16,14 +16,17 @@
             <div class="row mtm">
                 <div class="col-sm-3 col-xs-12">
                     <div class="form-group"><label class="control-label mbxl">Date of Service</label>
-                        <input type="text"
+                        <!-- <input type="text"
                           #MeetingDate="ngModel"
                           id="txtMeetingDate"
                           name="MeetingDate"
                           placeholder="Meeting Date"
                           [(ngModel)]="_meetingDate"
                           class="form-control"
-                          bsDatepicker    [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" >
+                          bsDatepicker    [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" > -->
+
+
+                          {{model.meetingDate}}
                     </div>
 
                     <!-- {{_meetingDate}} -->

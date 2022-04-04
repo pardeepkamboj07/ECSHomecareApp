@@ -7,6 +7,9 @@ import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
 import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
 import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
 import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
+
+import { MeetingStatus } from 'src/app/models/meeting/meeting-status';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +41,22 @@ export class MeetingService {
     debugger;
     return this._http.get<APIResponse<MeetingView>>(environment.domain + "/api/Meeting/getMeetingDetail" + '/' + meetingId);
   } 
+
+
+  
+
+
+  changeStatus(momObj : MeetingStatus){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        };
+    return this._http.post(environment.domain + "/api/Meeting/updateStatus", momObj,httpOptions);            
+  }
+
+
 
 
 }

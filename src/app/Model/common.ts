@@ -27,3 +27,15 @@ export enum MasterType {
     Ethnicity,
     EmpStatusType,
   }
+
+
+  export enum StatusEnum {
+    Deleted = 0,
+    Active,
+    Cancelled,
+    CancelledByClient,
+    
+  }
+
+
+ 

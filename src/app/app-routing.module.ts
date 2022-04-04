@@ -41,8 +41,10 @@ children : [{path:'',component:NewEmployeeComponent}]},
 children : [{path:'',component:EmpListComponent}]},
 {path : 'employee/info/:empId',component : LayoutComponent,
   children : [{path:'',component:EmpInfoComponent}]},
-  {path : 'employee/schedule/:empId',component : LayoutComponent,
+
+  {path : 'employee/schedule/:empId/:fromDate',component : LayoutComponent,
   children : [{path:'',component:EmpScheduleComponent}]},
+
   {path : 'client/create',component : LayoutComponent,
 children : [{path:'',component:NewClientComponent}]},
 {path : 'client/list',component : LayoutComponent,

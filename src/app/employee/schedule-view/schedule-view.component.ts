@@ -129,10 +129,8 @@ console.log(_meeting);
     this.monthIndex = 0;
     this.generateCalendarDays(this.monthIndex,this.empId);
   }
-
-
+  
   showMeeting(_meetingId :number) {
-
     debugger;
     const initialState: ModalOptions = {
       initialState: {
@@ -154,7 +152,13 @@ console.log(_meeting);
 
   public addMeeting()
   {
-    this.router.navigate(['/employee/schedule/'+this.empId])
+    this.router.navigate(['/employee/schedule/'+this.empId]);
+  }
+
+  public addMeetingx(_fromDate:Date)
+  {debugger;
+    
+     this.router.navigate(['/employee/schedule/'+this.empId+'/'+_fromDate.toDateString()]);
   }
 
 }
