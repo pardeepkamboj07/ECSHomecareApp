@@ -3,3 +3,7 @@ export class MeetingStatus {
         isStatus: number;
         meetingNote: string;
 }
+export class NotesModel {
+        meetingId: number;
+        meetingPoint: string;
+}

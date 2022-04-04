@@ -76,7 +76,7 @@ OnScheduling()
     this.model.clientId=Number(this.model.clientId);
     this.model.empList.push(Number(this.model.empId));
     // this.model.meetingDate=this._meetingDate.toISOString().substring(0, 10);
-    this.model.meetingDate = this.datepipe.transform(this._meetingDate, 'dd-MM-yyyy')||"";   
+    this.model.meetingDate = this.datepipe.transform(this.model.meetingDate, 'dd-MM-yyyy')||"";   
     this.model.startTime=this.datepipe.transform(this._startTime, 'h:mm a')||"";
     this.model.endTime=this.datepipe.transform(this._endTime, 'h:mm a')||"";
     //this.model.meetingDate=.toString();  

@@ -4,7 +4,7 @@ import { MeetingService } from 'src/app/services/meeting.service';
 import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
 import { UserModel } from 'src/app/Model/account/login-model';
 import { AccountService } from 'src/app/services/account.service';
-import { MeetingStatus } from 'src/app/models/meeting/meeting-status';
+import { MeetingStatus,NotesModel } from 'src/app/models/meeting/meeting-status';
 import { StatusEnum } from 'src/app/Model/common';
 
 @Component({
@@ -23,11 +23,17 @@ export class MeetingDetailComponent implements OnInit {
   model = new MeetingStatus(); 
   IsCancel: boolean=false;  
   notes:string;
+
+
+  message?: string;
   constructor(
     private accountService: AccountService,
     public bsModalRef: BsModalRef,
     private modalService: BsModalService,    
     private momApi:MeetingService) { 
+
+
+ 
       this.user = this.accountService.userValue;  
 
   }
@@ -42,6 +48,8 @@ debugger;
    
       if(response.result)
       {    
+
+
         this.momObj = response.data;
 console.log(this.momObj);
 debugger;
@@ -60,7 +68,7 @@ debugger;
 
 
   modalRef?: BsModalRef;
-  message?: string;
+
   openModal(template: TemplateRef<any>,_status:number) {
     this.message = 'Confirmed!';
     this.title = "Cancel Appointment By client";
@@ -121,7 +129,17 @@ this.momApi.changeStatus(reqObj).subscribe((response) => {
 
 
 
-  addNote(_status:number): void {
+  addNote() {
+   debugger;
+
+   var obj=new NotesModel();
+   obj.meetingPoint=this.message!=null?this.message:"";
+   obj.meetingId= this.momObj?.meetingId!=null?this.momObj.meetingId:0;
+   
+    this.momApi.addNote(obj).subscribe((response) => {
+      this.momObj?.notes.push(obj.meetingPoint);
+      this.message="";
+    });
   }
 
 

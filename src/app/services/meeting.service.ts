@@ -8,7 +8,7 @@ import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
 import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
 import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
 
-import { MeetingStatus } from 'src/app/models/meeting/meeting-status';
+import { MeetingStatus ,NotesModel} from 'src/app/models/meeting/meeting-status';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +57,15 @@ export class MeetingService {
   }
 
 
+  addNote(pointObj : NotesModel){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        };
+    return this._http.post(environment.domain + "/api/Meeting/addNote", pointObj,httpOptions);            
+  }
 
 
 }

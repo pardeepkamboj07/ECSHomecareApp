@@ -75,45 +75,40 @@
                 id="txtNotes"
                 name="Notes" 
                 placeholder="Notes"                                     
-                [(ngModel)]="notes"                 
+                [(ngModel)]="message"                 
                 ></textarea>              
     </div>           
           </div>
           <div class="col-sm-2 col-xs-2">
             <div class="form-group">                            
-              <a href=""><i class="fa fa-plus-square-o"></i> Add</a>
+  
+
+              <button type="button"   class="btn btn-sm btn-primary" (click)="addNote()" ><i class="fa fa-plus-square-o"></i>Post</button>
+
+
+
+
     </div>         
           </div>
        </div>
-               <hr class="mtn mbn">
-               <div class="row">
-       <div class="col-sm-12 col-xs-12">
-           <p class="mbn text-14"><strong>Status</strong></p>
-         <div class="row mtm">
-           <div class="col-sm-3 col-xs-3 text-center">
-               <p class="mbs">AUTHORIZED<br><span class="small-txt">FOR SERVICE</span></p>
-               <input type="checkbox" />
-               </div>
-               <div class="col-sm-3 col-xs-3 text-center">
-               <p class="mbs">CONFIRMED<br><span class="small-txt">FOR BILLING</span></p>
-               <input type="checkbox" />
-               </div>
-               <div class="col-sm-3 col-xs-3 text-center">
-               <p class="mbs">VERIFIED<br><span class="small-txt">FOR PAYROLL</span></p>
-               <input type="checkbox" />
-               </div>
-               <div class="col-sm-3 col-xs-3 text-center">
-               <p class="mbl">BILLED<br></p>
-               <input type="checkbox" />
-               </div>
-           </div>           
-           </div>
+       <div class="row mbm mtl">
+        <div class="col-sm-12 col-xs-12 "> 
+
+
+          <p class="small-txt"
+          *ngFor="let obj of momObj?.notes"
+          
+        >
+          {{ obj }}
+    </p>
+        </div> </div>
+
+               
          
-       </div>
                <hr class="mtn mbn">
                <div class="row mbm mtl">
        <div class="col-sm-12 col-xs-12 text-center">   
-           <button type="button"  class="btn btn-sm btn-primary">MAKE CHANGES</button>&nbsp;&nbsp;          
+           <!-- <button type="button"  class="btn btn-sm btn-primary">MAKE CHANGES</button>&nbsp;&nbsp;           -->
            <button type="button" *ngIf="this.IsCancel"   class="btn btn-sm btn-primary" (click)="openModal(template,2)" >CANCELLED</button>&nbsp;&nbsp;
            <button type="button" *ngIf="this.IsCancel" class="btn btn-sm btn-primary" (click)="openModal(template,3)" >CANCELLED BY CLIENT</button>&nbsp;&nbsp;          
            <button type="button" *ngIf="!this.IsCancel"  class="btn btn-sm btn-primary" (click)="onChange(1,momObj?.meetingId)">Restore</button>  
