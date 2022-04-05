@@ -1,11 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import{CommonService} from 'src/app/services/common.service';
+import{DocumentService} from 'src/app/services/document.service';
 import { FolderData } from 'src/app/Model/Employee/Document';
 import{UploadFileFolder} from 'src/app/Model/Employee/UploadFileFolder';
 import { ActivatedRoute, Params } from '@angular/router';
 import { saveAs } from 'file-saver';
+import{Deleteitem} from 'src/app/Model/Employee/DeleteFolder';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class EmpDocumentComponent implements OnInit {
   public message: string;
 
   @Output() public onUploadFinished = new EventEmitter();
-  constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,private CommApi: CommonService) { }
+
+  Deletemodel =new Deleteitem(0,0,0,0,"","");
+  constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,private DocApi: DocumentService) { }
   EmpId:number;
   FolderList :any;
   ngOnInit(): void {
@@ -37,14 +40,13 @@ export class EmpDocumentComponent implements OnInit {
     if (files.length === 0) {
       return;
     }
-    debugger;
-    
+  
     
   
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     for(let o of this.FolderList){
-      debugger
+     
       if(o.folderId==Number(this.model.folderid))
       {
        this.model.Foldername=o.folderName;
@@ -66,8 +68,8 @@ export class EmpDocumentComponent implements OnInit {
     formData.append('CreatedBy',this.model.CreatedBy.toString());
     formData.append('Foldername', this.model.Foldername);
 
-    this.empApi.UploadFile(formData).subscribe(event => {
-      debugger
+    this.DocApi.UploadFile(formData).subscribe(event => {
+    
       if (event.type === HttpEventType.UploadProgress)
       {
         // this.progress = Math.round(100 * event.loaded / event.total);
@@ -83,9 +85,8 @@ export class EmpDocumentComponent implements OnInit {
   }
 
   CreateFolder(foldername:string){
-
      var data=new FolderData(this.EmpId,foldername,1);
-      this.CommApi.folderCreate(data).subscribe(Response=>{ 
+      this.DocApi.folderCreate(data).subscribe(Response=>{ 
            this.GetFolderList(this.EmpId);
          
       });
@@ -93,10 +94,8 @@ export class EmpDocumentComponent implements OnInit {
 
 
   GetFolderList(empid:number){
-    this.CommApi.GetFolderList(empid).subscribe(Response=>{
-
-     this.FolderList=Response.data;   
-     
+    this.DocApi.GetFolderList(empid).subscribe(Response=>{     
+     this.FolderList=Response.data;
   });
 }
 
@@ -112,10 +111,37 @@ cleanobj(){
 
 DownloadFile(documentName:string,foldername:string)
 {
-
-  this.CommApi.DownloadFile(documentName,foldername).subscribe(data=>{
+  this.DocApi.DownloadFile(documentName,foldername).subscribe(data=>{
    saveAs(new Blob([data],{type:'pdf'}),documentName);
   });
 }
 
+DeleteFolder(obj:any){
+  this.Deletemodel.DocumentId=0;
+  this.Deletemodel.FolderId=Number(obj.folderId);
+  this.Deletemodel.FolderName=obj.folderName;
+  this.Deletemodel.EmpId=this.EmpId;
+  this.Deletemodel.RequestType=1;
+  
+  this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
+    this.GetFolderList(this.EmpId);
+  });
 }
+
+DeleteFile(obj:any,foldername:string,folderid:number){
+  this.Deletemodel.DocumentId=Number(obj.documentId);
+  this.Deletemodel.FolderId=0;
+  this.Deletemodel.FolderName=obj.foldername;
+  this.Deletemodel.EmpId=this.EmpId;
+  this.Deletemodel.RequestType=2;
+  this.Deletemodel.FileName=obj.fileName;
+  this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
+    this.GetFolderList(this.EmpId);
+  });
+}
+
+
+
+}
+
+
