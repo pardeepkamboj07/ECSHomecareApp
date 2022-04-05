@@ -116,7 +116,7 @@
   
 
   
-    <div class="row">
+   <div class="row">
     <div class="col-lg-6">
    <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Documents & Files</strong> </h4>
       </div>
@@ -128,10 +128,12 @@
                           
                           <div class="row mbm">
 <div class="col-sm-12 text-14">
-  <ng-template #popContent>Enter Folder Name</ng-template>
-  <ng-template #popTitle>Fancy</ng-template>       
-  <a class="btn btn-md btn-default" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal">
-    <i class="fa fa-plus-square text-orange"></i> Add Folder</a>
+  <input type="text" #foldername placeholder="Enter Folder Name">
+  <a class="btn btn-md btn-default" (click)="CreateFolder(foldername.value)" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal">
+
+  
+    <i class="fa fa-plus-square text-orange" ></i> Add Folder
+  </a>
    
   </div>
   </div>
@@ -149,7 +151,7 @@
             <i class="indicator glyphicon mts text-muted glyphicon-plus-sign"></i> &nbsp;&nbsp;<strong>{{ obj.folderName}}</strong> ({{obj.documentList.length}} files)</a>                                
           </div>
           <div class="col-lg-3 col-xs-3 small-txt pts" >RENAME FOLDER</div>
-          <div class="col-lg-2 col-xs-2 small-txt pts" >DELETE FOLDER</div>
+          <div class="col-lg-2 col-xs-2 small-txt pts" (click)="DeleteFolder(obj)">DELETE FOLDER</div>
          
           </div>
           </div>
@@ -169,12 +171,12 @@
                         <i class="fa fa-file-pdf-o text-red text-14 ptm">
 
                         </i>&nbsp;&nbsp;{{fileobj.fileName}}</a></td>
-                      <td width="30%" class="pts pbs"><span class="small-txt">Posted by Marco Galeas<br>
-                      03/07/2022	
+                      <td width="30%" class="pts pbs"><span class="small-txt">Posted by {{fileobj.createdByName}}<br>
+                        {{fileobj.createdOn}}
                       </span>
 </td>
-                      <td width="15%" class="pts pbs"><i class="fa fa-download text-black medium-txt pts" (click)="DownloadFile(obj.fileName,obj.folderName)"></i></td>
-                     <td width="15%" class="pts pbs"><i class="fa fa-trash-o text-red medium-txt pts"></i></td>
+                      <td width="15%" class="pts pbs"><i class="fa fa-download text-black medium-txt pts" (click)="DownloadFile(obj.documentId,obj.folderId)"></i></td>
+                     <td width="15%" class="pts pbs"><i class="fa fa-trash-o text-red medium-txt pts" (click)="DeleteFile(fileobj,obj.folderName,obj.folderId)"></i></td>
                     
                   </tr>
                
