@@ -128,10 +128,12 @@
                           
                           <div class="row mbm">
 <div class="col-sm-12 text-14">
-  <ng-template #popContent>Enter Folder Name</ng-template>
-  <ng-template #popTitle>Fancy</ng-template>       
-  <a class="btn btn-md btn-default" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal">
-    <i class="fa fa-plus-square text-orange"></i> Add Folder</a>
+  <input type="text" #foldername placeholder="Enter Folder Name">
+  <a class="btn btn-md btn-default" (click)="CreateFolder(foldername.value)" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" title="click on add folder to add folder to document library Got it." data-target="#add-folder" data-toggle="modal">
+
+  
+    <i class="fa fa-plus-square text-orange" ></i> Add Folder
+  </a>
    
   </div>
   </div>

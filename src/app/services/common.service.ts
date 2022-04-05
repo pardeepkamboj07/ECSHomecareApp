@@ -87,38 +87,4 @@ export class CommonService {
   {
     return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getClientList");
   } 
-
-
-  folderCreate(data:FolderData){
-    var headers_object = new HttpHeaders();
-    headers_object.append('Content-Type', 'application/json');
-    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
-    const httpOptions = {
-      headers: headers_object
-    }; 
-  return this._http.post(environment.domain + "/api/Common/SaveFolder", data,httpOptions);      
-  }
-  
-  GetFolderList(empId:number){
-   
-    return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Document/getDocumentlist" + '/' + empId);
-  }
-  
-  DownloadFile(documentName:string,foldername:string){ 
-    const Req_param=new HttpParams().set('foldername',foldername);
-   return this._http.get(environment.domain+ "/api/Common/download"+ '/' + documentName,{
-      params:Req_param,
-      responseType:'arraybuffer'
-    });  
-  }
-
-
-
-
-
-
-
-
-
-
 }

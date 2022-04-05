@@ -24,7 +24,7 @@ export class DocumentService {
     const httpOptions = {
       headers: headers_object
     }; 
-  return this._http.post(environment.domain + "/api/download/SaveFolder", data,httpOptions);      
+  return this._http.post(environment.domain + "/api/Document/SaveFolder", data,httpOptions);      
   }
   
   GetFolderList(empId:number){
@@ -34,7 +34,7 @@ export class DocumentService {
   
   DownloadFile(documentName:string,foldername:string){ 
     const Req_param=new HttpParams().set('foldername',foldername);
-   return this._http.get(environment.domain+ "/api/download/download"+ '/' + documentName,{
+   return this._http.get(environment.domain+ "/api/Document/download"+ '/' + documentName,{
       params:Req_param,
       responseType:'arraybuffer'
     });  
@@ -49,7 +49,7 @@ export class DocumentService {
     const httpOptions = {
       headers: headers_object
     }; 
-    return this._http.post(environment.domain + "/api/download/UploadFile", formData,{reportProgress: true, observe: 'events'},);  
+    return this._http.post(environment.domain + "/api/Document/UploadFile", formData,{reportProgress: true, observe: 'events'},);  
   
   }
 
