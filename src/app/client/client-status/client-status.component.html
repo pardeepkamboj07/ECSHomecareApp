@@ -34,10 +34,10 @@
                     <label class="control-label">Activity</label>
                     <select
                     class="form-control"
-                    #TypeStatusId="ngModel"                                   
+                    #ActivityId="ngModel"                                   
                     id="ddlTypeStatusId"
-                    name="TypeStatusId"                                   
-                    [(ngModel)]="model.typeStatusId"                                       
+                    name="ActivityId"                                   
+                    [(ngModel)]="model.ActivityId"                                       
                   > 
                   <option value="" disabled>Select</option>
                                 <option
@@ -54,8 +54,8 @@
                     <div class="col-lg-4 col-xs-6">
                       <div class="form-group">
                     <label class="control-label">Effective Date</label>
-                    <input type="text" #EffectiveDate="ngModel" id="txtEffectiveDate"name="EffectiveDate"
-                           [(ngModel)]="model.effectiveDate" class="form-control"  bsDatepicker  >
+                    <input type="text" #Date="ngModel" id="txtEffectiveDate"name="Date"
+                           [(ngModel)]="model.Date" class="form-control"  bsDatepicker  >
                         </div>
                     </div>
                     </div>
@@ -67,10 +67,10 @@
                       <label class="control-label">Referral/D/C Code</label>
                       <select
                       class="form-control"
-                      #TypeStatusId="ngModel"                                   
+                      #ReferralCode="ngModel"                                   
                       id="ddlTypeStatusId"
-                      name="TypeStatusId"                                   
-                      [(ngModel)]="model.typeStatusId"                                       
+                      name="ReferralCode"                                   
+                      [(ngModel)]="model.ReferralCode"                                       
                     > 
                     <option value="" disabled>Select</option>
                                   <option
@@ -87,7 +87,7 @@
                       <div class="form-group">
                     <label class="control-label">Note</label>
                     <input type="textarea" #Note="ngModel" id="txtNote"name="Note"
-                             [(ngModel)]="model.note" class="form-control">
+                             [(ngModel)]="model.Note" class="form-control">
                     </div>
                       </div>
                     </div>
@@ -98,10 +98,10 @@
                     <label class="control-label">Notify about Eugene Atkins's status change</label>
                     <select
                                 class="form-control"
-                                #ClientId="ngModel"                                   
+                                #OfficeUserId="ngModel"                                   
                                 id="ddlScheduling"
-                                name="Scheduling"                                   
-                                [(ngModel)]="model.scheduling"                                       
+                                name="OfficeUserId"                                   
+                                [(ngModel)]="model.OfficeUserId"                                       
                               > 
                                 
                               <option value="" disabled>Select</option>
@@ -123,10 +123,10 @@
                           
                           <select
                           class="form-control"
-                          #ClientId="ngModel"                                   
+                          #OfficeUserReferralID="ngModel"                                   
                           id="ddlOfficeUserId"
-                          name="OfficeUserId"                                   
-                          [(ngModel)]="model.officeUserId"                                       
+                          name="OfficeUserReferralID"                                   
+                          [(ngModel)]="model.OfficeUserReferralID"                                       
                         > 
                         <option value="-1" disabled>Select</option>
                         <option
@@ -150,14 +150,14 @@
                       <div class="form-group">
                         <label class="control-label mrm"><strong>Notify via:</strong></label> 
                         <label class="control-label mrs">Text</label>
-                        <input type="checkbox" class="mrm" #Note="ngModel" id="txtText"name="Text"
+                        <input type="checkbox" class="mrm" #text="ngModel" id="txtText"name="text"
                         [(ngModel)]="model.text" >
 
                         <label class="control-label mrs">Screen</label>
-                        <input type="checkbox" class="mrm" #Note="ngModel" id="txtScreen"name="Screen"
+                        <input type="checkbox" class="mrm" #screen="ngModel" id="txtScreen"name="screen"
                         [(ngModel)]="model.screen" >
                         <label class="control-label mrs">Email</label>
-                        <input type="checkbox" class="mrm" #Note="ngModel" id="txtEmail"name="Email"
+                        <input type="checkbox" class="mrm" #email="ngModel" id="txtEmail"name="email"
                         [(ngModel)]="model.email" >
                       </div>
                         </div>
@@ -210,13 +210,11 @@
                             </thead>
                             <tbody>
                                
-                                    <tr *ngFor="let item of EmpStatusObjList">
-                                    <td> {{ item.statusType }}</td>
-                                    <td> {{ item.effectiveDate }}</td>
-                                    <td>{{ item.returnDate }}</td>
-                                  
-                                    <td><input type="checkbox" [checked]="item.resume" /></td>
-                                    <td><input type="checkbox" [checked]="item.rehire"/></td>
+                                    <tr *ngFor="let item of ClientStatusObjList">
+                                    <td> {{ item.activityText }}</td>
+                                    <td> {{ item.date }}</td>
+                                    <td>{{ item.referralCodeText }}</td>                                
+                                    
                                     <td>{{ item.note }}</td>
                                     </tr>
                                

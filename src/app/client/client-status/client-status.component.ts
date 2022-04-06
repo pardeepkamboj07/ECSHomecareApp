@@ -5,7 +5,7 @@ import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
 import { ClientApiService } from 'src/app/Service/client-api.service';
 
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{Empstatus} from 'src/app/Model/Employee/empstatus';
+import{ClientStatusModel} from 'src/app/Model/client/Status-model';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType} from 'src/app/Model/common';
 
@@ -20,10 +20,10 @@ export class ClientStatusComponent implements OnInit {
   ReferralCodeLst: ItemsList[] = [];
   OfficeUser:any;
   
-  ScheduleLst :any;
+  Emplst :any;
   modalRef?: BsModalRef;
-   model = new Empstatus('',false,false,'','','',0,0,0,0,false,false,false)
-   EmpStatusObjList: any;
+   model = new ClientStatusModel(0,'',0,'',0,0,0,0,false,false,false);
+   ClientStatusObjList:any;
    ClientId:number;
   constructor(private comApi: CommonService,
     private route:ActivatedRoute,
@@ -31,7 +31,7 @@ export class ClientStatusComponent implements OnInit {
       setTheme('bs3');
       // this.maxDate.setDate(this.maxDate.getDate() + 7);
       // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
-  
+      this.GetClientStatusLst();
      
       this.comApi.getMaster(MasterType.ClientStatusActivity).subscribe((response) => {
         
@@ -63,7 +63,23 @@ export class ClientStatusComponent implements OnInit {
  }
 
  onClickSubmit() {     
-
+  this.model.ActivityId=Number(this.model.ActivityId);
+  this.model.Date=this.model.Date;
+  this.model.Note=this.model.Note;
+  this.model.OfficeUserId=Number(this.model.OfficeUserId);
+  this.model.text=Boolean(this.model.text);
+  this.model.screen=Boolean(this.model.screen);
+  this.model.email=Boolean(this.model.email);
+  this.model.OfficeUserReferralID=this.model.OfficeUserReferralID;
+  this.model.ReferralCode=this.model.ReferralCode;  
+  this.model.clientId=this.ClientId;  
+  this.clientapi.SaveClientStatus(this.model).subscribe((response) => {
+    // this.modalRef?.hide();
+    this.decline();   
+this.GetClientStatusLst();
+    
+   
+  }); 
 }
 
 
@@ -76,8 +92,20 @@ GetOfficeUserLst() {
 }
 
 
+GetEmpLst() {
+  this.empApi.getEmployeeList().subscribe((response) => {
+    console.log(response.data);
+    this.Emplst = response.data;      
+  });
+ }
 
 
+ GetClientStatusLst(){
+this.clientapi.getClientStatusList(this.ClientId).subscribe((response)=>{
+  this.ClientStatusObjList=response.data
+})
+
+ }
 
 
 
