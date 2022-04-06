@@ -14,8 +14,6 @@ export class ClientApiService {
   constructor(private _http : HttpClient) { }
 
 
-
-
   addClient(clObj: ClientModel){ 
     debugger;
     var headers_object = new HttpHeaders();
@@ -26,8 +24,12 @@ export class ClientApiService {
         }; 
     return this._http.post(environment.domain + "/api/Client/addClient", clObj,httpOptions);            
   }
+  
 
-
+  getClientDetail( userId : number)
+  {
+    return this._http.get<APIResponse<ClientModel>>(environment.domain + + "/api/Client/getClientDetail/" +  userId);
+  } 
 
 
 

@@ -70,6 +70,7 @@ import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.co
 import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
 import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
 import { UserScheduleComponent } from './meeting/user-schedule/user-schedule.component';
+import { GeneralClientComponent } from './client/general-client/general-client.component';
 
 
 
@@ -127,7 +128,8 @@ FullCalendarModule.registerPlugins([
                           ScheduleViewComponent,
                           EmpDocumentComponent,
                           ClientDashboardComponent,
-                          UserScheduleComponent,  
+                          UserScheduleComponent,
+                          GeneralClientComponent,  
 
   
   ],

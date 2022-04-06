@@ -37,9 +37,6 @@ export class NewClientComponent implements OnInit {
       this. model.gender=1;
       this. model.maritalStatus=1;
 
-
-
-
      }
 
   ngOnInit(): void {

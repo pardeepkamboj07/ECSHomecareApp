@@ -1,0 +1,175 @@
+<app-loader [show]="IsLoad"></app-loader>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>General Info</strong> </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel">
+            <div class="panel-body ptn pbn">
+                <div class="row">
+                    <div class="col-sm-12"> </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped mbn">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Active
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        SSN
+                                    </td>
+                                    <td>
+                                       {{model.sSN}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        First, Middle
+                                    </td>
+                                    <td>
+                                        {{model.firstName}},    {{model.middleName }}
+                                    </td>
+                                </tr>                
+                                <tr>
+                                    <td>
+                                        Last Name
+                                    </td>
+                                    <td>
+                                        {{model.lastName}}
+                                    </td>
+                                </tr>                
+                                <tr>
+                                    <td>
+                                        Gender
+                                    </td>
+                                    <td>
+                                        {{model.gender}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        HR Supervisor
+                                    </td>
+                                    <td>
+                                        {{model.coordinator}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>                
+                                        DOB
+                                    </td>
+                                    <td>                
+                                        {{model.dOB}}           
+                                    </td>
+                                </tr>                
+                                <tr>
+                                    <td>                
+                                        Ethnicity                
+                                    </td>
+                                    <td>
+                                        {{model.ethnicity}}     
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Cell Phone
+                                    </td>
+                                    <td>
+                                        {{model.contact}}  
+                                    </td>
+                                </tr>                
+                                <tr>
+                                    <td>
+                                        Home Phone
+                                    </td>
+                                    <td>
+                                        {{model.emgContact}}  
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email
+                                    </td>
+                                    <td>
+                                        {{model.email}}  
+                                    </td>
+                                </tr>                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>                
+            </div>                
+        </div>                
+    </div>
+    <div class="col-lg-6">
+        <div class="panel">
+            <div class="panel-body ptn pbn">
+                <div class="row">
+                    <div class="col-sm-12"> </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped mbn">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Employee ID
+                                    </td>
+                                    <td>
+                                        {{model.clientId}}  
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+
+                                        Marital Status
+                                    </td>
+                                    <td>
+
+                                        {{model.maritalStatus}}  
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Dependents
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Municipality
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Notes
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div> 
