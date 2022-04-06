@@ -69,6 +69,7 @@ import { ClientScheduleComponent } from './meeting/client-schedule/client-schedu
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
 import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
 import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
+import { UserScheduleComponent } from './meeting/user-schedule/user-schedule.component';
 
 
 
@@ -125,7 +126,8 @@ FullCalendarModule.registerPlugins([
                           ClientScheduleComponent,
                           ScheduleViewComponent,
                           EmpDocumentComponent,
-                          ClientDashboardComponent,  
+                          ClientDashboardComponent,
+                          UserScheduleComponent,  
 
   
   ],

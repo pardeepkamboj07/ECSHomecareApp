@@ -41,9 +41,7 @@ export class MeetingService {
     debugger;
     return this._http.get<APIResponse<MeetingView>>(environment.domain + "/api/Meeting/getMeetingDetail" + '/' + meetingId);
   } 
-
-
-  
+ 
 
 
   changeStatus(momObj : MeetingStatus){ 
@@ -66,6 +64,23 @@ export class MeetingService {
         };
     return this._http.post(environment.domain + "/api/Meeting/addNote", pointObj,httpOptions);            
   }
+
+
+
+
+  getUserMeeting(userId : number,userTypeId : number)
+  {
+    return this._http.get<APIResponse<Empmeeting[]>>(environment.domain + "/api/Meeting/getUserMeeting" + '/' + userId+'/' + userTypeId);
+  } 
+
+
+
+
+
+
+
+
+
 
 
 }
