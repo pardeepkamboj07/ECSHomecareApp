@@ -28,6 +28,6 @@ export class ClientModel {
     priorityCode: number;
     timeSlip: boolean;
     isHourly: boolean;
-    clientStatus: number;
-    isDeleted: boolean;
+    isActive: number;
+  
 }

@@ -32,13 +32,10 @@ export class NewClientComponent implements OnInit {
     
       this.BindMaster();
 
-      this. model.clientStatus=1;
+      this. model.isActive=1;
       this. model.ethnicity=1;
       this. model.gender=1;
       this. model.maritalStatus=1;
-
-
-
 
      }
 
@@ -83,7 +80,7 @@ export class NewClientComponent implements OnInit {
 
     debugger;
     this.IsLoad = true;
-    this.model.clientStatus=Number(this.model.clientStatus);
+    this.model.isActive=Number(this.model.isActive);
     this.model.ethnicity=Number(this.model.ethnicity);
     this.model.gender=Number(this.model.gender);
     this.model.maritalStatus=Number(this.model.maritalStatus);

@@ -26,8 +26,6 @@ export enum MasterType {
     Gender,
     Ethnicity,
     EmpStatusType,
-    ClientStatusActivity,
-    ClientStatusReferralCode
   }
 
 
