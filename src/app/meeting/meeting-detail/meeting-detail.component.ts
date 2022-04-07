@@ -34,7 +34,7 @@ export class MeetingDetailComponent implements OnInit {
 
 
  
-      this.user = this.accountService.userValue;  
+      
 
   }
 

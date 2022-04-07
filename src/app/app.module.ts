@@ -72,7 +72,7 @@ import { ClientDashboardComponent } from './client/client-dashboard/client-dashb
 import { UserScheduleComponent } from './meeting/user-schedule/user-schedule.component';
 import { GeneralClientComponent } from './client/general-client/general-client.component';
 
-
+import { ClientStatusComponent } from './client/client-status/client-status.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -129,7 +129,8 @@ FullCalendarModule.registerPlugins([
                           EmpDocumentComponent,
                           ClientDashboardComponent,
                           UserScheduleComponent,
-                          GeneralClientComponent,  
+                          GeneralClientComponent, 
+                          ClientStatusComponent, 
 
   
   ],
