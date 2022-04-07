@@ -24,7 +24,7 @@
                         <div class="col-sm-3 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label">Status<span class="star">*</span></label>
-                                <select class="form-control" id="txtclientStatus" name="empStatus" #clientStatus="ngModel" [(ngModel)]="model.isActive">
+                                <select class="form-control" id="txtclientStatus" name="empStatus" #clientStatus="ngModel" [(ngModel)]="model.clientStatus">
                                     <option *ngFor="let obj of statusData"
                                             [value]="obj.itemId">
                                         {{ obj.itemName }}

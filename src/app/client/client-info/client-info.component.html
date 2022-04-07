@@ -31,6 +31,7 @@
    <li><a href="javascript:void(0)" (click)="selectTab(3)"  class="dropdown-toggle">Status</a></li>
    <li><a href="javascript:void(0)" (click)="selectTab(4)"  class="dropdown-toggle">Address</a></li>
    <li><a href="javascript:void(0)" (click)="selectTab(5)"  class="dropdown-toggle">Emergency Info</a></li>
+   <li><a href="javascript:void(0)" (click)="selectTab(6)"  class="dropdown-toggle">Status</a></li>
  </ul>
 </div>
                </li>
@@ -44,10 +45,10 @@
                    <app-client-dashboard></app-client-dashboard>
                 </tab>
                 <tab heading="Schedule">
-             <app-user-schedule></app-user-schedule>
+             
                 </tab>                
-                <tab heading="General">                
-             <app-general-client></app-general-client>
+                <tab heading="Personal-info">                
+             
                 </tab>
                 
                 <tab heading="Status">
@@ -67,8 +68,12 @@
                
                 
                 </tab>
+
+                
               
-        
+                <tab heading="Status">                
+               <app-client-status></app-client-status>                
+                </tab>
         </tabset>
          
         </div>
