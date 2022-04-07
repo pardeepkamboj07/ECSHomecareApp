@@ -106,10 +106,10 @@
                                 
                               <option value="" disabled>Select</option>
                                 <option
-                                  *ngFor="let obj of OfficeUser"
-                                  [value]="obj.id"
+                                  *ngFor="let obj of EmplList"
+                                  [value]="obj.itemId"
                                 >
-                                  {{ obj.text }}
+                                  {{ obj.itemName }}
                                 </option>                      
                                     </select>
                         </div>
@@ -167,27 +167,6 @@
                       <button type="button" (click)="onClickSubmit()" class="btn btn-md btn-dark">Add Status Report</button>
                     </div>
                       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   
-                        
-                      
                 </div>  
               
                  </form>                

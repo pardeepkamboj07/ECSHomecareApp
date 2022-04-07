@@ -18,9 +18,10 @@ export class ClientStatusComponent implements OnInit {
   EmplList = Array<ItemsList>(); 
   ActivityLst: ItemsList[] = [];
   ReferralCodeLst: ItemsList[] = [];
+  
   OfficeUser:any;
   
-  Emplst :any;
+ 
   modalRef?: BsModalRef;
    model = new ClientStatusModel(0,'',0,'',0,0,0,0,false,false,false);
    ClientStatusObjList:any;
@@ -31,8 +32,8 @@ export class ClientStatusComponent implements OnInit {
       setTheme('bs3');
       // this.maxDate.setDate(this.maxDate.getDate() + 7);
       // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
-      this.GetClientStatusLst();
      
+      this.GetEmpLst();
       this.comApi.getMaster(MasterType.ClientStatusActivity).subscribe((response) => {
         
         this.ActivityLst = response.data;
@@ -42,14 +43,15 @@ export class ClientStatusComponent implements OnInit {
        
         this.ReferralCodeLst = response.data;
       });
-      this.GetOfficeUserLst();
-  
+      //this.GetOfficeUserLst();
+      
      }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params : Params) =>{   
         this.ClientId = Number(params["clientId"]); 
+        this.GetClientStatusLst();
       });
   }
   openModal(template: TemplateRef<any>) {
@@ -70,9 +72,9 @@ export class ClientStatusComponent implements OnInit {
   this.model.text=Boolean(this.model.text);
   this.model.screen=Boolean(this.model.screen);
   this.model.email=Boolean(this.model.email);
-  this.model.OfficeUserReferralID=this.model.OfficeUserReferralID;
-  this.model.ReferralCode=this.model.ReferralCode;  
-  this.model.clientId=this.ClientId;  
+  this.model.OfficeUserReferralID=Number(this.model.OfficeUserReferralID);
+  this.model.ReferralCode=Number(this.model.ReferralCode);  
+  this.model.clientId=Number(this.ClientId);  
   this.clientapi.SaveClientStatus(this.model).subscribe((response) => {
     // this.modalRef?.hide();
     this.decline();   
@@ -86,16 +88,17 @@ this.GetClientStatusLst();
 
 GetOfficeUserLst() {
  this.empApi.GetOfficeUserLst().subscribe((response) => {
-   console.log(response.data);
+  
    this.OfficeUser = response.data;      
  });
 }
 
 
 GetEmpLst() {
-  this.empApi.getEmployeeList().subscribe((response) => {
-    console.log(response.data);
-    this.Emplst = response.data;      
+ 
+  this.comApi.getEmpList().subscribe((response) => {
+   
+    this.EmplList = response.data;      
   });
  }
 
