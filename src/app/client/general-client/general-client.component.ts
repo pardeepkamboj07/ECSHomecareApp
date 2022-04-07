@@ -44,10 +44,17 @@ export class GeneralClientComponent implements OnInit {
     console.log("Rakesh07");
     this.IsLoad=true;
     this.clientApi.getClientDetail(userId).subscribe((response) => {
-      this.model = response.data;
-      console.log(response.data);
-      this.IsLoad=false;
-      console.log("Rakesh07");
+
+if(response.result)
+{
+  this.model = response.data;
+  console.log(response.data);
+
+  console.log("Rakesh07");
+}
+this.IsLoad=false;
+      
+     
     });
   }
 

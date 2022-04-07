@@ -22,22 +22,27 @@
                                         <input type="checkbox" />
                                     </td>
                                 </tr>
+                            
                                 <tr>
                                     <td>
-                                        SSN
+                                        First
                                     </td>
                                     <td>
-                                       {{model.sSN}}
+                                        <!-- {{model.firstName}} -->
                                     </td>
-                                </tr>
+                                </tr>    
+                                
+                                
                                 <tr>
                                     <td>
-                                        First, Middle
+                                        Middle
                                     </td>
                                     <td>
-                                        {{model.firstName}},    {{model.middleName }}
+                                        {{model.middleName }}
                                     </td>
-                                </tr>                
+                                </tr>    
+
+
                                 <tr>
                                     <td>
                                         Last Name
@@ -51,17 +56,36 @@
                                         Gender
                                     </td>
                                     <td>
-                                        {{model.gender}}
+                                        {{model.genderName}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        HR Supervisor
+                                        Coordinator
                                     </td>
                                     <td>
-                                        {{model.coordinator}}
+                                        {{model.coordinatorName}}
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td>
+                                        Nurse
+                                    </td>
+                                    <td>
+                                        {{model.nurseName}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        SSN
+                                    </td>
+                                    <td>
+                                       {{model.sSN}}
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td>                
                                         DOB
@@ -75,34 +99,11 @@
                                         Ethnicity                
                                     </td>
                                     <td>
-                                        {{model.ethnicity}}     
+                                        {{model.ethnicityName}}     
                                         
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        Cell Phone
-                                    </td>
-                                    <td>
-                                        {{model.contact}}  
-                                    </td>
-                                </tr>                
-                                <tr>
-                                    <td>
-                                        Home Phone
-                                    </td>
-                                    <td>
-                                        {{model.emgContact}}  
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Email
-                                    </td>
-                                    <td>
-                                        {{model.email}}  
-                                    </td>
-                                </tr>                
+                                         
                             </tbody>
                         </table>
                     </div>
@@ -120,13 +121,100 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        Employee ID
+                                        Alt. ID
                                     </td>
                                     <td>
-                                        {{model.clientId}}  
+                                        {{model.altId}}  
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        ID 2
+                                    </td>
+                                    <td>
+                                        {{model.iD2}}  
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        ID 3
+                                    </td>
+                                    <td>
+                                        {{model.iD3}}  
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Insurance ID
+                                        (Medicaid ID)
+                                    </td>
+                                    <td>
+                                        {{model.insuranceID}}  
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Insurance
+                                        Case Worker
+                                    </td>
+                                    <td>
+                                        {{model.workerName}}  <br/>
+
+                                        {{model.workerContact}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        Referred By
+                                    </td>
+                                    <td>
+
+                                        {{model.referredBy}}  
+                                    </td>
+                                </tr>
+
+
                                 
+
+                                <tr>
+                                    <td>
+                                        Hourly or Live-in
+                                    </td>
+                                    <td>
+                                        {{model.isHourly}}  
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+
+
+                               
+
+                                <tr>
+                                    <td>
+
+                                        Time Slip
+                                    </td>
+                                    <td>
+
+                                        {{model.timeSlip}}  
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        Priority Code
+                                    </td>
+                                    <td>
+
+                                        {{model.priorityCode}}  
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
 
@@ -134,34 +222,32 @@
                                     </td>
                                     <td>
 
-                                        {{model.maritalStatus}}  
+                                        {{model.maritalStatusName}}  
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>
-                                        Dependents
+                                        # of Children
                                     </td>
                                     <td>
-                                        1
+                                        {{model.ofChild}}  
                                     </td>
                                 </tr>
 
+                               
+                           
                                 <tr>
                                     <td>
-                                        Municipality
+                                        Client Portal Access	
+                                       
                                     </td>
                                     <td>
+                                
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Notes
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-
+                                </tr>                
+                          
+                             
                             </tbody>
                         </table>
                     </div>

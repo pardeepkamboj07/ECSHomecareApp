@@ -42,10 +42,6 @@ export class EmployeeapiService {
   } 
 
 
-
-
-
-
   savenweemployeeinfo(cInfo : Employee){ 
     var headers_object = new HttpHeaders();
         headers_object.append('Content-Type', 'application/json');

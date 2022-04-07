@@ -1,22 +1,12 @@
+import { AccountUserModel} from 'src/app/Model/account/account-model';
 
-
-export class ClientModel {
+export class ClientModel extends AccountUserModel {
     clientId: number;
     billTo: string;
-    sSN: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    dOB: string;
-    email: string;
     contact: string;
     coordinator: number | null;
     nurse: number | null;
     ofChild: number;
-    gender: number;
-    
-    ethnicity: number;
-    maritalStatus: number;
     emgContact: string;
     altId: string;
     iD2: string;
@@ -28,6 +18,11 @@ export class ClientModel {
     priorityCode: number;
     timeSlip: boolean;
     isHourly: boolean;
-    isActive: number;
-  
+    coordinatorName: string;
+    nurseName: string;
+    genderName: string;
+    ethnicityName: string;
+    maritalStatusName: string;
 }
+
+

@@ -16,6 +16,7 @@ import { Router,ActivatedRoute, Params } from '@angular/router';
 })
 export class EmpAddressComponent implements OnInit {
   modalRef?: BsModalRef;
+
   model = new AddressObj(0, 0, 1,  '', '','', '','', '','');
   constructor(
     private route:ActivatedRoute,
@@ -28,7 +29,17 @@ export class EmpAddressComponent implements OnInit {
 
     this.route.params.subscribe(
       (params : Params) =>{
-         this.model.empId = Number(params["empId"]);
+
+
+        if(params["empId"]!=null)
+        {
+          this.model.empId = Number(params["empId"]);
+        }
+        else
+        {
+          this.model.empId = Number(params["clientId"]);
+        }
+        
          this.getAddress(this.model.empId);
       }
     );
