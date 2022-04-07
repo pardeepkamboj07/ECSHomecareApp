@@ -26,10 +26,18 @@ export class ClientApiService {
   }
   
 
+
+
   getClientDetail( userId : number)
   {
-    return this._http.get<APIResponse<ClientModel>>(environment.domain + + "/api/Client/getClientDetail/" +  userId);
+    return this._http.get<APIResponse<ClientModel>>(environment.domain + "/api/Client/getClientDetail" + '/' + userId);
   } 
+
+
+
+
+
+
 
 
 

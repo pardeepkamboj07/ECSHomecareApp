@@ -30,7 +30,7 @@ export class GeneralClientComponent implements OnInit {
     this.route.params
     .subscribe(
       (params : Params) =>{
-        this.model.clientId = params["clientId"];
+        this.model.clientId =Number(params["clientId"]);
         this.BindClientInfo(this.model.clientId);
       }
     );
@@ -41,10 +41,13 @@ export class GeneralClientComponent implements OnInit {
   BindClientInfo(userId:number)
   {
     debugger;
+    console.log("Rakesh07");
     this.IsLoad=true;
     this.clientApi.getClientDetail(userId).subscribe((response) => {
       this.model = response.data;
+      console.log(response.data);
       this.IsLoad=false;
+      console.log("Rakesh07");
     });
   }
 

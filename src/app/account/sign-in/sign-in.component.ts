@@ -17,20 +17,20 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(userName:string,password:string){
-  
+
     this.model.userName=userName;
     this.model.password=password;   
     this.accountApi.signIn(this.model).subscribe((response) => {
-
       if((response.data.loginInId>0))
       {
-        localStorage.setItem('userData', JSON.stringify(response.data));
+
+        this.accountApi.setCurrentUser(response.data);
+        // localStorage.setItem('userData', JSON.stringify(response.data));
         this.router.navigate(['/dashboard']);
       }
       else{
         alert('Login credentials are not correct.');
       }
-      
      
     });
         
