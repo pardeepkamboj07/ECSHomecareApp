@@ -4,145 +4,111 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
 import { AuthGuardService } from './auth-guard.service';
-import { AgGridModule } from 'ag-grid-angular';
-import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
-import { FullCalendarModule } from '@fullcalendar/angular'; 
-import interactionPlugin from '@fullcalendar/interaction';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeaderComponent } from './dashboard/header/header.component';
-import { FooterComponent } from './dashboard/footer/footer.component';
-import { ClientComponent } from './dashboard/client/client.component';
-import { ClientlistComponent } from './dashboard/client/clientlist/clientlist.component';
-import { SaveclientComponent } from './dashboard/client/saveclient/saveclient.component';
-import { ClienteventComponent } from './dashboard/client/clientevent/clientevent.component';
-import { EmployeeComponent } from './dashboard/employee/employee.component';
-import { EmployeelistComponent } from './dashboard/employee/employeelist/employeelist.component';
-import { SaveemployeeComponent } from './dashboard/employee/saveemployee/saveemployee.component';
-import { MaincontentComponent } from './dashboard/maincontent/maincontent.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { DatePipe } from '@angular/common';
-import { GenerateinvoiceComponent } from './dashboard/generateinvoice/generateinvoice.component';
-import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.component';
-import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
-import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
-import { LayoutComponent } from './layout/layout.component';
-
-import { FilterPipe } from './dashboard/employee/employeelist/filter.pipe';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 
-import { LoaderComponent } from './loader/loader.component'; // <-- import the module
 import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
+import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
+
+import { LayoutComponent } from './layout/layout.component';
+import { LoaderComponent } from './loader/loader.component'; 
+
+import { SignInComponent } from './account/sign-in/sign-in.component';
+
+import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
+import { MasterinfoComponent } from './admin/master/masterinfo/masterinfo.component';
+import { MasterTypeComponent } from './admin/master/master-type/master-type.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GenerateinvoiceComponent } from './dashboard/generateinvoice/generateinvoice.component';
+import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.component';
+import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
+
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
+import { EmpListComponent } from './employee/emp-list/emp-list.component';
+import { EmpIncidentsComponent } from './employee/emp-incidents/emp-incidents.component';
 import { EmpAttendanceComponent } from './employee/emp-attendance/emp-attendance.component';
 import { EmpAvailabilityComponent } from './employee/emp-availability/emp-availability.component';
 import { EmpStatusComponent } from './employee/emp-status/emp-status.component';
-import { ScheduleComponent } from './meeting/schedule/schedule.component';
 import { EmpAddressComponent } from './employee/emp-address/emp-address.component';
 import { EmpComplianceComponent } from './employee/emp-compliance/emp-compliance.component';
 import { EmpRateComponent } from './employee/emp-rate/emp-rate.component';
 import { EmpDeclinedCasesComponent } from './employee/emp-declined-cases/emp-declined-cases.component';
-import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
-import { MasterinfoComponent } from './admin/master/masterinfo/masterinfo.component';
-import { MasterTypeComponent } from './admin/master/master-type/master-type.component';
-import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
-import { NewClientComponent } from './client/new-client/new-client.component';
-import { EmpListComponent } from './employee/emp-list/emp-list.component';
-import { ClientListComponent } from './client/client-list/client-list.component';
-import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
-import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
-import { SignInComponent } from './account/sign-in/sign-in.component';
 import { EmpInfoComponent } from './employee/emp-info/emp-info.component';
 import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.component';
-import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
-import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
 import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
-import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
+
+import { ScheduleComponent } from './meeting/schedule/schedule.component';
+import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
+import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { UserScheduleComponent } from './meeting/user-schedule/user-schedule.component';
-import { GeneralClientComponent } from './client/general-client/general-client.component';
+import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
 
-import { ClientStatusComponent } from './client/client-status/client-status.component';
+import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
+import { ClientListComponent } from './client/client-list/client-list.component';
+import { ClientDashboardComponent } from 'src/app/client/client-dashboard/client-dashboard.component';
+import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
+import { GeneralClientComponent } from 'src/app/client/general-client/general-client.component';
+import { ClientStatusComponent } from 'src/app/client/client-status/client-status.component';
 
-FullCalendarModule.registerPlugins([ 
-  interactionPlugin,
-  dayGridPlugin
-]);
- 
+
 @NgModule({
   declarations: [
     AppComponent,  
     DashboardComponent,
-    HeaderComponent,
-    FooterComponent,
-    ClientComponent,
-    ClientlistComponent,
-    SaveclientComponent,
-    ClienteventComponent,
-    EmployeeComponent,
-    EmployeelistComponent,
-    SaveemployeeComponent,
-    MaincontentComponent,
     GenerateinvoiceComponent,
     GetinvoicesComponent,
     InvoicedetailsComponent,
     ClientInfoComponent,
-    EmployeeInfoComponent,
     LayoutComponent,
-    
-    
-    FilterPipe,    
     EmpIncidentsComponent,
     EmpAttendanceComponent,
     EmpStatusComponent,    
     ScheduleComponent,
-         EmpAvailabilityComponent,
-         EmpAddressComponent,    
-         EmpComplianceComponent, EmpRateComponent, EmpDeclinedCasesComponent,  SystemMasterComponent, 
-         MasterinfoComponent, MasterTypeComponent, NewEmployeeComponent,
-         LoaderComponent,
-         NewClientComponent,
-         EmpListComponent,
-         ClientListComponent,
-         EquateDatePipe,
-
-         ChunkPipe,
-         MeetingDetailComponent,
-     
-         SignInComponent,
-        
-                EmpInfoComponent,
-                          EmpDasboardComponent,
-                          EmpScheduleComponent,
-                          ClientScheduleComponent,
-                          ScheduleViewComponent,
-                          EmpDocumentComponent,
-                          ClientDashboardComponent,
-                          UserScheduleComponent,
-                          GeneralClientComponent, 
-                          ClientStatusComponent, 
-
-  
+    EmpAvailabilityComponent,
+    EmpAddressComponent,    
+    EmpComplianceComponent,
+    EmpRateComponent,
+    EmpDeclinedCasesComponent,  
+    SystemMasterComponent, 
+    MasterinfoComponent, 
+    MasterTypeComponent, 
+    NewEmployeeComponent,
+    LoaderComponent,
+    NewClientComponent,
+    EmpListComponent,
+    ClientListComponent,
+    EquateDatePipe,
+    ChunkPipe,
+    MeetingDetailComponent,     
+    SignInComponent,        
+    EmpInfoComponent,
+    EmpDasboardComponent,
+    EmpScheduleComponent,
+    ClientScheduleComponent,
+    ScheduleViewComponent,
+    EmpDocumentComponent,
+    ClientDashboardComponent,
+    UserScheduleComponent,
+    GeneralClientComponent, 
+    ClientStatusComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     HttpClientModule,
-    FullCalendarModule,
     AppRoutingModule,
-    MatTableModule,
-    AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
     FormsModule,
     AppBootstrapModule,

@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../Model/APIResponse';
-import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
-import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
-import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
-import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
+import { APIResponse } from '../models/APIResponse';
+import { MeetingInfo } from 'src/app/models/meeting/meeting-info';
+import { Empmeeting } from 'src/app/models/meeting/empmeeting';
+import { ClientMeeting } from 'src/app/models/meeting/client-meeting';
+import { MeetingView } from 'src/app/models/meeting/meeting-view';
 
 import { MeetingStatus ,NotesModel} from 'src/app/models/meeting/meeting-status';
 

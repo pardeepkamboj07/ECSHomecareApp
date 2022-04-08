@@ -1,8 +1,8 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { CalendarDay } from 'src/app/Model/calendar-day';
+import { CalendarDay } from 'src/app/models/calendar-day';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { MeetingService } from 'src/app/services/meeting.service';
-import { Empmeeting } from 'src/app/Model/Meeting/empmeeting';
+import { Empmeeting } from 'src/app/models/meeting/empmeeting';
 import { DatePipe } from '@angular/common';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { MeetingDetailComponent } from 'src/app/meeting/meeting-detail/meeting-detail.component';
@@ -42,6 +42,8 @@ export class ScheduleViewComponent implements OnInit {
     console.log("Rakesjjjj");
     this.momApi.getEmployeeMeeting(this.empId).subscribe((response) => {
       this.meetingList = response.data;
+
+      console.log(response.data);
       console.log("Rakesjjjj11");
       console.log(this.meetingList);
       console.log("Rakesjfggggjjj11");
@@ -90,7 +92,6 @@ console.log(_meeting);
   { 
     this.momApi.getEmployeeMeeting(1).subscribe((response) => {
       this.meetingList = response.data;
-
       console.log(this.meetingList);
     });
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { ItemsList } from 'src/app/Model/common';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { ItemsList } from 'src/app/models/common';
 @Component({
   selector: 'app-emp-availability',
   templateUrl: './emp-availability.component.html',

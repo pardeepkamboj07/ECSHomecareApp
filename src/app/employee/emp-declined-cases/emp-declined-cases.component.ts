@@ -1,10 +1,10 @@
 import { Component, OnInit,TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { ClientApiService } from 'src/app/Service/client-api.service';
-import { ItemsList } from 'src/app/Model/common';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { ClientApiService } from 'src/app/services/client-api.service';
+import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{SaveEmpDeclinedCase} from 'src/app/Model/Employee/SaveEmpDeclinedCase';
+import{SaveEmpDeclinedCase} from 'src/app/models/Employee/SaveEmpDeclinedCase';
 import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-declined-cases',

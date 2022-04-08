@@ -1,10 +1,9 @@
 import { Component, OnInit,TemplateRef  } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { setTheme } from 'ngx-bootstrap/utils';
-import { Incident } from '../../Model/Employee/incident';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-
-import { AddressObj } from 'src/app/Model/Employee/address';
+import { Incident } from 'src/app/models/Employee/incident';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { AddressObj } from 'src/app/models/Employee/address';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 
 @Component({

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders ,HttpParams } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { APIResponse } from '../Model/APIResponse';
-import { LoginModel,UserModel } from 'src/app/Model/account/login-model';
+import { APIResponse } from '../models/APIResponse';
+import { LoginModel,UserModel } from 'src/app/models/account/login-model';
 
 const httpOptionsObj = {
   headers: new HttpHeaders({

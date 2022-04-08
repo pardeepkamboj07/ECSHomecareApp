@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders ,HttpParams } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../Model/APIResponse';
-import { ItemsList,SelectList } from 'src/app/Model/common';
+import { APIResponse } from '../models/APIResponse';
+import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
-import { FolderData } from '../Model/Employee/Document';
+import { FolderData } from '../models/Employee/Document';
 
 
 @Injectable({

@@ -1,11 +1,11 @@
 import { Component, TemplateRef ,OnInit} from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { MeetingService } from 'src/app/services/meeting.service';
-import { MeetingView } from 'src/app/Model/Meeting/meeting-view';
-import { UserModel } from 'src/app/Model/account/login-model';
+import { MeetingView } from 'src/app/models/meeting/meeting-view';
+import { UserModel } from 'src/app/models/account/login-model';
 import { AccountService } from 'src/app/services/account.service';
 import { MeetingStatus,NotesModel } from 'src/app/models/meeting/meeting-status';
-import { StatusEnum } from 'src/app/Model/common';
+import { StatusEnum } from 'src/app/models/common';
 
 @Component({
   selector: 'app-meeting-detail',

@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import { Router,ActivatedRoute } from '@angular/router';
-import { ItemsList } from 'src/app/Model/common';
+import { ItemsList } from 'src/app/models/common';
 
 @Component({
   selector: 'app-master-type',

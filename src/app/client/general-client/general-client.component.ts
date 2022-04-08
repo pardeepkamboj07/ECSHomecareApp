@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientApiService } from 'src/app/Service/client-api.service';
-import { ClientModel } from 'src/app/Model/client/client-model';
+import { ClientApiService } from 'src/app/services/client-api.service';
+import { ClientModel } from 'src/app/models/client/client-model';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-import { ItemsList,MasterType ,SelectList} from 'src/app/Model/common';
+import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
 
 
 @Component({

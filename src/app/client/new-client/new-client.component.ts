@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ClientApiService } from 'src/app/Service/client-api.service';
-import { ClientModel } from 'src/app/Model/client/client-model';
+import { ClientApiService } from 'src/app/services/client-api.service';
+import { ClientModel } from 'src/app/models/client/client-model';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-import { ItemsList,MasterType ,SelectList} from 'src/app/Model/common';
+import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
 
 @Component({
   selector: 'app-new-client',
@@ -84,8 +84,8 @@ export class NewClientComponent implements OnInit {
     this.model.ethnicity=Number(this.model.ethnicity);
     this.model.gender=Number(this.model.gender);
     this.model.maritalStatus=Number(this.model.maritalStatus);
-    this.model.coordinator=Number(this.model.coordinator);
-    this.model.nurse=Number(this.model.nurse);
+    this.model.supervisorId=Number(this.model.supervisorId);
+    this.model.nurseId=Number(this.model.nurseId);
 
     const empObj: ClientModel = this.model;
     this.cltApi.addClient(empObj).subscribe((response) => {

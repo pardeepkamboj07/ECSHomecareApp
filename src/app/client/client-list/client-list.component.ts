@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Client } from 'src/app/Model/Client';
-import { ClientApiService } from 'src/app/Service/client-api.service';
-
-import { ClientMeeting } from 'src/app/Model/Meeting/client-meeting';
-import { MeetingInfo } from 'src/app/Model/MeetingInfo';
+import { ClientApiService } from 'src/app/services/client-api.service';
+import { ClientMeeting } from 'src/app/models/meeting/client-meeting';
 import { DatePipe } from '@angular/common';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { MeetingDetailComponent } from 'src/app/meeting/meeting-detail/meeting-detail.component';
@@ -42,19 +39,13 @@ weekList : Date[] = [];
 
 
 Isapiresponsereceived : boolean = true;
-  clientList : Client[] = [];
+
   p: number = 1;
   totalItemsCount : number = 0;
-  
-
-  // clientmeetingList : ClientMeetings[] = [];
-
-
 
   searchValue = "";
   startdate : string;
-  rowData: Client[];
-  cacheData: Client[];
+
 
 
   
@@ -77,9 +68,7 @@ Isapiresponsereceived : boolean = true;
   }
 
   ngOnInit(): void {
-        this.clientapi.getClientList().subscribe(response => {
-          this.clientList = response.data;
-        });
+     
     this.weekList = this.getWeekDays(this.currentDay, this.currentMonthIndex, this.currentYear);
     this.momApi.getClientMeetingList().subscribe((response) => {
       if(response.result)

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
+import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
+
 import { SignInComponent } from 'src/app/account/sign-in/sign-in.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -8,33 +12,19 @@ import { EmpListComponent  } from 'src/app/employee/emp-list/emp-list.component'
 import { EmpInfoComponent } from 'src/app/employee/emp-info/emp-info.component';
 import { EmpScheduleComponent } from 'src/app/meeting/emp-schedule/emp-schedule.component';
 
-
-
-
-
-
 import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
 import { ClientListComponent } from 'src/app/client/client-list/client-list.component';
 import { ClientScheduleComponent } from 'src/app/meeting/client-schedule/client-schedule.component';
 import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
 
-
-
-
-
-import { MaincontentComponent } from './dashboard/maincontent/maincontent.component';
-import { EmployeelistComponent } from './dashboard/employee/employeelist/employeelist.component';
 //import { ClientlistComponent } from './dashboard/client/clientlist/clientlist.component';
-import { SaveemployeeComponent } from './dashboard/employee/saveemployee/saveemployee.component';
-import { SaveclientComponent } from './dashboard/client/saveclient/saveclient.component';
-import { ClienteventComponent } from './dashboard/client/clientevent/clientevent.component';
+
 import { GenerateinvoiceComponent } from './dashboard/generateinvoice/generateinvoice.component';
 import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.component';
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 
-import { EmployeeInfoComponent } from './dashboard/employee/employee-info/employee-info.component';
 
-import { MasterinfoComponent  } from './admin/master/masterinfo/masterinfo.component';
+
 
 
 

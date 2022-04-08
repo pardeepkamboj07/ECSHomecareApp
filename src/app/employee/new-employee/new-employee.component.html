@@ -24,7 +24,7 @@
                     <div class="col-sm-3 col-xs-12">
                         <div class="form-group">
                             <label class="control-label">Status</label>
-                            <select class="form-control" id="txtempStatus" name="empStatus" #empStatus="ngModel" [(ngModel)]="model.empStatus">
+                            <select class="form-control" id="txtempStatus" name="empStatus" #empStatus="ngModel" [(ngModel)]="model.isActive">
                                 <option *ngFor="let obj of statusData"
                                         [value]="obj.itemId">
                                     {{ obj.itemName }}
@@ -215,7 +215,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <div class="form-group">
                             <label class="control-label">HR Supervisor</label>
-                            <select  class="form-control" id="ddlhRSupervisor" name="hRSupervisor" #hRSupervisor="ngModel" [(ngModel)]="model.hRSupervisor">
+                            <select  class="form-control" id="ddlhRSupervisor" name="supervisorId" #hRSupervisor="ngModel" [(ngModel)]="model.supervisorId">
                                 <option *ngFor="let obj of empList"
                                         [value]="obj.itemId">
                                     {{ obj.itemName }}

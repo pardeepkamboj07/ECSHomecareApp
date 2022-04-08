@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GenerateInvoice } from 'src/app/Model/GenerateInvoice';
-import { InvoiceService } from 'src/app/Service/invoice.service'; 
+import { GenerateInvoice } from 'src/app/models/GenerateInvoice';
+import { InvoiceService } from 'src/app/services/invoice.service'; 
 import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({

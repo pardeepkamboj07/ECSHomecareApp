@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 
 import { CommonService } from 'src/app/services/common.service';
-import { ItemsList,MasterType ,SelectList} from 'src/app/Model/common';
-import { EmployeeList } from 'src/app/Model/Employee/employee-model';
+import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
+import { EmployeeList } from 'src/app/models/Employee/employee-model';
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',
@@ -108,11 +108,11 @@ export class EmpListComponent implements OnInit {
 
 
   delEmployee(params: any) {
-    
-    this.empapi.deleteEmployee(params.empID).subscribe(response => {
+    debugger;
+    this.empapi.deleteEmployee(params.empId).subscribe(response => {
 
       let remaining = this.currentList.filter(
-        (res: any) => res.empID != params.empID
+        (res: any) => res.empId != params.empId
       );      
       this.currentList= remaining;
       this.empList = this.currentList;

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { EmployeeModel } from 'src/app/Model/Employee/employee-model';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { EmployeeModel } from 'src/app/models/Employee/employee-model';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-import { ItemsList,MasterType ,SelectList} from 'src/app/Model/common';
+import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
 @Component({
   selector: 'app-new-employee',
   templateUrl: './new-employee.component.html',
@@ -30,7 +30,7 @@ export class NewEmployeeComponent implements OnInit {
     
       this.BindMaster();
 
-      this. model.empStatus=1;
+      this. model.isActive=1;
       this. model.enthnicity=1;
       this. model.gender=1;
       this. model.maritalStatus=1;
@@ -80,12 +80,12 @@ export class NewEmployeeComponent implements OnInit {
 
     debugger;
     this.IsLoad = true;
-    this.model.empStatus=Number(this.model.empStatus);
+    this.model.isActive=Number(this.model.isActive);
     this.model.empType=Number(this.model.empType);
     this.model.enthnicity=Number(this.model.enthnicity);
     this.model.gender=Number(this.model.gender);
     this.model.maritalStatus=Number(this.model.maritalStatus);
-
+    this.model.supervisorId=Number(this.model.supervisorId);
     const empObj: EmployeeModel = this.model;
     this.empApi.addEmployee(empObj).subscribe((response) => {
       this.IsLoad = false;

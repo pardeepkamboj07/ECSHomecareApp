@@ -1,9 +1,9 @@
 import { Component, OnInit,TemplateRef  } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { setTheme } from 'ngx-bootstrap/utils';
-import { ItemsList } from 'src/app/Model/common';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { ComplianceObj } from 'src/app/Model/Employee/compliance-obj';
+import { ItemsList } from 'src/app/models/common';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { ComplianceObj } from 'src/app/models/Employee/compliance-obj';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 @Component({

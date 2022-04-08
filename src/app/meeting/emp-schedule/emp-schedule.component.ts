@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsList } from 'src/app/Model/common';
-import { MeetingInfo } from 'src/app/Model/Meeting/meeting-info';
-import { EmployeeapiService } from 'src/app/Service/employeeapi.service';
-import { ClientApiService } from 'src/app/Service/client-api.service';
+import { ItemsList } from 'src/app/models/common';
+import { MeetingInfo } from 'src/app/models/meeting/meeting-info';
+import { EmployeeapiService } from 'src/app/services/employeeapi.service';
+import { ClientApiService } from 'src/app/services/client-api.service';
 import { CommonService } from 'src/app/services/common.service';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { DatePipe } from '@angular/common';
