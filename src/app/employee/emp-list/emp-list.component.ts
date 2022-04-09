@@ -5,7 +5,7 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
-import { EmployeeList } from 'src/app/models/Employee/employee-model';
+import { EmployeeList } from 'src/app/models/employee/employee-model';
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',

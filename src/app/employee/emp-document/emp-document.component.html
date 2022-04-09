@@ -211,7 +211,7 @@
                         id="txtTitle"
                         name="Title"
                         placeholder="Title"
-                        [(ngModel)]="model.Title"  
+                        [(ngModel)]="model.title"  
                         class="form-control"
                        >
     </div>
@@ -220,7 +220,7 @@
     <div class="form-group">
     <label>Search tags	</label>
                      
-                          <input type="text" [(ngModel)]="model.Search"  class="form-control"  name="Search" #Search="ngModel">     
+                          <input type="text" [(ngModel)]="model.search"  class="form-control"  name="Search" #Search="ngModel">     
     </div>
     </div>
     <div class="col-lg-4">
@@ -232,7 +232,7 @@
                     #folderid="ngModel"                                   
                     id="ddlTypeStatusId"
                     name="folderid"                                   
-                    [(ngModel)]="model.folderid"                                       
+                    [(ngModel)]="model.folderId"                                       
                   > 
                   <option value="0" disabled>Select</option>
                                 <option
@@ -252,7 +252,7 @@
     <div class="form-group">
     <label>Description</label>
                       
-                        <textarea placeholder="Description" [(ngModel)]="model.Description"  #Description="ngModel" 
+                        <textarea placeholder="Description" [(ngModel)]="model.description"  #Description="ngModel" 
                         class="form-control" 
                         id="txtDescription"
                         rows="3"  spellcheck="false"

@@ -30,7 +30,7 @@ export class Employee
     emgContact : string;
     emgPhone : string;
     isActive : Number;
-  status: string;
+    status: string;
 
     constructor()
     {

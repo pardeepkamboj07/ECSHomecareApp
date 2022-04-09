@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
 import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
-import { FolderData } from '../models/Employee/Document';
-import{Deleteitem} from'../models/Employee/DeleteFolder'
+import { FolderData } from '../models/employee/document';
+import {DeleteItem} from '../models/employee/deleteFolder'
 
 @Injectable({
   providedIn: 'root'
@@ -54,19 +54,17 @@ export class DocumentService {
   }
 
 
-  DeleteFile(obj:Deleteitem){
-   
+  DeleteFile(obj:DeleteItem){   
     var headers_object = new HttpHeaders();
     const Req_param=new HttpParams({
       fromObject:{
-        'DocumentId':Number(obj.DocumentId),
-        'FileName':obj.FileName,
-        'FolderId':Number(obj.FolderId),
-        'FolderName':obj.FolderName,
-        'empid':Number(obj.EmpId)
+        'DocumentId':Number(obj.documentId),
+        'FileName':obj.fileName,
+        'FolderId':Number(obj.folderId),
+        'FolderName':obj.folderName,
+        'empid':Number(obj.empId)
       }
     });
-   
   return this._http.delete(environment.domain + "/api/Document/DeletetDocumentFromS3",{params:Req_param});
   }
 

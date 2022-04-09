@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Day } from '../models/Day';
+import { Day } from '../models/day';
 
 @Injectable({
   providedIn: 'root'

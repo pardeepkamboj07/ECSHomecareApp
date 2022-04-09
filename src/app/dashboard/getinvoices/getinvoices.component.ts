@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from 'src/app/services/invoice.service'; 
-import { Invoice } from 'src/app/models/Invoice';
+import { Invoice } from 'src/app/models/invoice';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,7 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
         <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Rate</strong> </h4>
-
     </div>
   </div>
   <div class="row">
@@ -13,9 +12,6 @@
             <ng-template #template>
               <div class="modal-header">
                 <h4 class="modal-title pull-left text-orange">Add Rate</h4>
-  
-             
-  
                 <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
                   <span aria-hidden="true" class="visually-hidden">&times;</span>
                 </button>
@@ -27,12 +23,9 @@
                             <div class="form-group">
                         <label class="control-label">Effective Date</label>
                             <div class="input-icon right"><i class="fa fa-calendar"></i>
-                                
                                 <input type="text" #EffectiveDate="ngModel" id="txtEffectiveDate"name="EffectiveDate"
-                                placeholder="Effective Date" [(ngModel)]="model.EffectiveDate" class="form-control"  bsDatepicker  >
+                                placeholder="Effective Date" [(ngModel)]="model.effectiveDate" class="form-control"  bsDatepicker  >
                                                             
-                            
-                            
                             </div>
                                 </div>
                         </div>
@@ -40,12 +33,8 @@
                             <div class="form-group">
                         <label class="control-label">End Date</label>
                             <div class="input-icon right"><i class="fa fa-calendar"></i>
-                                
-                                
-                                
-                                
                                 <input type="text" #EndDate="ngModel" id="txtReturnDate"name="ReturnDate"
-                                placeholder="Effective Date"  [(ngModel)]="model.EndDate" class="form-control"  bsDatepicker  >
+                                placeholder="Effective Date"  [(ngModel)]="model.endDate" class="form-control"  bsDatepicker  >
 
                                                             </div>
                                 </div>
@@ -53,7 +42,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                         <label class="control-label">Description</label>
-                        <input type="textarea" #Description="ngModel"  [(ngModel)]="model.Description" 
+                        <input type="textarea" #Description="ngModel"  [(ngModel)]="model.description" 
                         class="form-control">
                                 </div>
                         </div>
@@ -69,19 +58,19 @@
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Hourly</label>
-                                <input type="number" class="form-control" #Hourly="ngModel" name="Hourly" [(ngModel)]="model.Hourly" />
+                                <input type="number" class="form-control" #Hourly="ngModel" name="Hourly" [(ngModel)]="model.hourly" />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Live-In</label>
-                                <input type="number" #Livein="ngModel" class="form-control" name="Livein" [(ngModel)]="model.Livein" />
+                                <input type="number" #Livein="ngModel" class="form-control" name="Livein" [(ngModel)]="model.livein" />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Visit</label>
-                                <input type="number" #Visit="ngModel" class="form-control" name="Visit" [(ngModel)]="model.Visit" />
+                                <input type="number" #Visit="ngModel" class="form-control" name="Visit" [(ngModel)]="model.visit" />
                                 </div>
                             </div>
                             </div>
@@ -94,19 +83,19 @@
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Hourly</label>
-                                <input type="number" #OverHourly="ngModel" class="form-control" name="OverHourly" [(ngModel)]="model.OverHourly" />
+                                <input type="number" #OverHourly="ngModel" class="form-control" name="OverHourly" [(ngModel)]="model.overHourly" />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Live-In</label>
-                                <input type="number" #OverLivein="ngModel" class="form-control" name="OverLivein" [(ngModel)]="model.OverLivein" />
+                                <input type="number" #OverLivein="ngModel" class="form-control" name="OverLivein" [(ngModel)]="model.overLivein" />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Visit</label>
-                                <input type="number" #OverVisit="ngModel" class="form-control" name="OverVisit" [(ngModel)]="model.OverVisit" />
+                                <input type="number" #OverVisit="ngModel" class="form-control" name="OverVisit" [(ngModel)]="model.overVisit" />
                                 </div>
                             </div>
                             </div>
@@ -132,37 +121,37 @@
                             <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Hour Included</label>
-                                <input type="number" #OptionalHour="ngModel" class="form-control" name="OptionalHour" [(ngModel)]="model.OptionalHour" />
+                                <input type="number" #OptionalHour="ngModel" class="form-control" name="OptionalHour" [(ngModel)]="model.optionalHour" />
                                 </div>
                             </div>
                             <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Additional Hour</label>
-                                <input type="number" #OptionalAddHour="ngModel" class="form-control" name="OptionalAddHour" [(ngModel)]="model.OptionalAddHour" />
+                                <input type="number" #OptionalAddHour="ngModel" class="form-control" name="OptionalAddHour" [(ngModel)]="model.optionalAddHour" />
                                 </div>
                             </div>
                             <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Mileage</label>
-                                <input type="number" #Mileage="ngModel" class="form-control" name="Mileage" [(ngModel)]="model.Mileage" />
+                                <input type="number" #Mileage="ngModel" class="form-control" name="Mileage" [(ngModel)]="model.mileage" />
                                 </div>
                             </div>
                                 <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Travel Time</label>
-                                <input type="number" #TravelTime="ngModel" class="form-control" name="TravelTime" [(ngModel)]="model.TravelTime" />
+                                <input type="number" #TravelTime="ngModel" class="form-control" name="TravelTime" [(ngModel)]="model.travelTime" />
                                 </div>
                             </div>
                                 <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Gas</label>
-                                <input type="number" #Gas="ngModel" name="Gas" class="form-control" [(ngModel)]="model.Gas" />
+                                <input type="number" #Gas="ngModel" name="Gas" class="form-control" [(ngModel)]="model.gas" />
                                 </div>
                             </div>
                                 <div class="col-lg-2 col-xs-4">
                                 <div class="form-group">
                                 <label class="control-label">Extra</label>
-                                <input type="number" #Extra="ngModel" class="form-control" name="Extra" [(ngModel)]="model.Extra" />
+                                <input type="number" #Extra="ngModel" class="form-control" name="Extra" [(ngModel)]="model.extra" />
                                 </div>
                             </div>
                             </div>
@@ -185,7 +174,7 @@
                         #PayerId="ngModel"                                   
                         id="ddlTypeStatusId"
                         name="PayerId"                                   
-                        [(ngModel)]="model.PayerId"                                       
+                        [(ngModel)]="model.payerId"                                       
                       > 
                       <option value="-1" disabled>Select</option>
                       <option
@@ -208,7 +197,7 @@
                         #ClientId="ngModel"                                   
                         id="ddlTypeStatusId"
                         name="ClientId"                                   
-                        [(ngModel)]="model.ClientId"                                       
+                        [(ngModel)]="model.clientId"                                       
                       > 
 
                       <option value="-1" disabled>Select</option>
@@ -228,7 +217,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                         <label class="control-label">Notes</label>
-                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.Note" id="txtNote"name="Note"
+                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.note" id="txtNote"name="Note"
                         class="form-control">
                                 </div>
                         </div>				

@@ -1,10 +1,10 @@
 export class ClientStatusModel{
-    ActivityId:number;
-    Date:string;
-    ReferralCode:number;
-    Note:string;
-    OfficeUserId:number;
-    OfficeUserReferralID:number;
+    activityId:number;
+    date:string;
+    referralCode:number;
+    note:string;
+    officeUserId:number;
+    officeUserReferralID:number;
     clientId:Number;
     text:boolean;
     screen:boolean;
@@ -12,12 +12,12 @@ export class ClientStatusModel{
      constructor(_ActivityId:number, _Date:string,_ReferralCode:number,_Note:string,_OfficeUserId:number,_OfficeUserReferralID:number,
          _clientId:Number,_officeUserId:number,_text:boolean,_screen:boolean,_email:boolean,)
      {
-         this.ActivityId=_ActivityId;
-         this.Date=_Date;
-         this.ReferralCode=_ReferralCode;
-         this.Note=_Note;
-         this.OfficeUserId=_OfficeUserId;
-         this.OfficeUserReferralID=_OfficeUserReferralID;
+         this.activityId=_ActivityId;
+         this.date=_Date;
+         this.referralCode=_ReferralCode;
+         this.note=_Note;
+         this.officeUserId=_OfficeUserId;
+         this.officeUserReferralID=_OfficeUserReferralID;
          this.clientId=_clientId;        
          this.text=_text;
          this.screen=_screen;
@@ -26,16 +26,15 @@ export class ClientStatusModel{
 }
 
 export class ClientStatusLst{
-    ActivityText:string;
-    Date:string;
-    ReferralCodeText:string;
-    Note:string;
+    activityText:string;
+    date:string;
+    referralCodeText:string;
+    note:string;
     constructor(_ActivityText:string, _Date:string,_ReferralCode:string,_Note:string)
     {
-        this.ActivityText=_ActivityText;
-        this.Date=_Date;
-        this.ReferralCodeText=_ReferralCode;
-        this.Note=_Note;
-       
+        this.activityText=_ActivityText;
+        this.date=_Date;
+        this.referralCodeText=_ReferralCode;
+        this.note=_Note;       
     }
 }

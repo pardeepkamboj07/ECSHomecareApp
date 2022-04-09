@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service';
-import { EmployeeModel } from 'src/app/models/Employee/employee-model';
+import { EmployeeModel } from 'src/app/models/employee/employee-model';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';

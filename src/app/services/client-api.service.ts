@@ -3,8 +3,8 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { APIResponse } from '../models/APIResponse';
 import { ClientModel } from 'src/app/models/client/client-model';
-import{ClientStatusModel} from 'src/app/models/client/Status-model';
-import{ClientStatusLst} from 'src/app/models/client/Status-model';
+import{ClientStatusModel,ClientStatusLst} from 'src/app/models/client/Status-model';
+
 @Injectable({
   providedIn: 'root'
 })

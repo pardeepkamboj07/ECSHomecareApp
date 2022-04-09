@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
-import { GenerateInvoice } from 'src/app/models/GenerateInvoice';
+import { GenerateInvoice } from 'src/app/models/generateInvoice';
 import { Observable } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
-import { Invoice } from '../models/Invoice';
+import { Invoice } from '../models/invoice';
 
 @Injectable({
   providedIn: 'root'

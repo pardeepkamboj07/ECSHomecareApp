@@ -1,4 +1,4 @@
-import { Lines } from 'src/app/models/Lines';
+import { Lines } from 'src/app/models/lines';
 
 export class Invoice
 {

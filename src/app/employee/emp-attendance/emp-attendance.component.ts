@@ -5,7 +5,7 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import { ClientApiService } from 'src/app/services/client-api.service';
 import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import { Attendance } from '../../models/Employee/attendance';
+import { Attendance } from '../../models/employee/attendance';
 import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-attendance',

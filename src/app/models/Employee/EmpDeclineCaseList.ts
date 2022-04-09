@@ -1,12 +1,10 @@
 export class EmpDeclineCaseList{
-    RepotedDate:string;
-  
-    DeclineReason:string;
-    AssignmentStart:string;
-   
-    Day:number;
+    repotedDate:string;  
+    declineReason:string;
+    assignmentStart:string;   
+    day:number;
     week:number;
-    ClientName:string;   
-    CasetypeName:string;   
+    clientName:string;   
+    casetypeName:string;   
     
 }

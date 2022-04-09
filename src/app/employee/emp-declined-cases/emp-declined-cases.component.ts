@@ -4,7 +4,7 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import { ClientApiService } from 'src/app/services/client-api.service';
 import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{SaveEmpDeclinedCase} from 'src/app/models/Employee/SaveEmpDeclinedCase';
+import{SaveEmpDeclinedCase} from 'src/app/models/employee/saveEmpDeclinedCase';
 import { CommonService } from 'src/app/services/common.service';
 @Component({
   selector: 'app-emp-declined-cases',
@@ -68,14 +68,14 @@ export class EmpDeclinedCasesComponent implements OnInit {
 
 onClickSubmit() { 
  
-   this.model.AssignmentStart=this.model.AssignmentStart;
-   this.model.Casetypeid=Number(this.model.Casetypeid);
+   this.model.assignmentStart=this.model.assignmentStart;
+   this.model.casetypeId=Number(this.model.casetypeId);
    this.model.clientId=Number(this.model.clientId);
-   this.model.Day=Number(this.model.Day);
+   this.model.day=Number(this.model.day);
    this.model.week=Number(this.model.week);
-   this.model.RepotedDate=this.model.RepotedDate;
-   this.model.DeclineReason=this.model.DeclineReason;  
-   this.model.Note=this.model.Note; 
+   this.model.repotedDate=this.model.repotedDate;
+   this.model.declineReason=this.model.declineReason;  
+   this.model.note=this.model.note; 
    this.model.empId=this.EmpId; 
 
    this.empApi.SaveEmpDeclinedCase(this.model).subscribe((response) => {
@@ -90,17 +90,13 @@ onClickSubmit() {
 
 
 GetCaseList(empId : number) {
-
   
-  this.empApi.GetEmpDeclinedCase(empId).subscribe((response) => {
+this.empApi.GetEmpDeclinedCase(empId).subscribe((response) => {
     this.EmpCaseObj = response.data;
 
     console.log(response);
   });
 }
-
-
- 
 
 }
 

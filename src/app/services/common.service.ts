@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
 import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
-import { FolderData } from '../models/Employee/Document';
+import { FolderData  } from 'src/app/models/employee/document';
 
 
 @Injectable({

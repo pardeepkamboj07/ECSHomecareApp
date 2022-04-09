@@ -18,8 +18,7 @@ export class ClientStatusComponent implements OnInit {
   EmplList = Array<ItemsList>(); 
   ActivityLst: ItemsList[] = [];
   ReferralCodeLst: ItemsList[] = [];
-  
-  OfficeUser:any;
+  OfficeUser: ItemsList[] = [];
   
  
   modalRef?: BsModalRef;
@@ -65,15 +64,15 @@ export class ClientStatusComponent implements OnInit {
  }
 
  onClickSubmit() {     
-  this.model.ActivityId=Number(this.model.ActivityId);
-  this.model.Date=this.model.Date;
-  this.model.Note=this.model.Note;
-  this.model.OfficeUserId=Number(this.model.OfficeUserId);
+  this.model.activityId=Number(this.model.activityId);
+  this.model.date=this.model.date;
+  this.model.note=this.model.note;
+  this.model.officeUserId=Number(this.model.officeUserId);
   this.model.text=Boolean(this.model.text);
   this.model.screen=Boolean(this.model.screen);
   this.model.email=Boolean(this.model.email);
-  this.model.OfficeUserReferralID=Number(this.model.OfficeUserReferralID);
-  this.model.ReferralCode=Number(this.model.ReferralCode);  
+  this.model.officeUserReferralID=Number(this.model.officeUserReferralID);
+  this.model.referralCode=Number(this.model.referralCode);  
   this.model.clientId=Number(this.ClientId);  
   this.clientapi.SaveClientStatus(this.model).subscribe((response) => {
     // this.modalRef?.hide();
@@ -87,10 +86,10 @@ this.GetClientStatusLst();
 
 
 GetOfficeUserLst() {
- this.empApi.GetOfficeUserLst().subscribe((response) => {
-  
-   this.OfficeUser = response.data;      
- });
+ 
+ this.comApi.getEmployees('Applicant HHA').subscribe((response) => {
+  this.OfficeUser = response.data;
+});
 }
 
 

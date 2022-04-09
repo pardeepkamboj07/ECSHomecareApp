@@ -1,13 +1,13 @@
 export class FolderData
     {
-      public  EmpId :number;
-       public FolderName :string;        
-        public  CreatedBy :number;
+      public  empId :number;
+       public folderName :string;        
+        public  createdBy :number;
         constructor(_emp:number,_folder:string,_Createdby:number)
         {
-            this.EmpId=_emp;
-            this.FolderName=_folder;
-           this.CreatedBy=_Createdby;
+            this.empId=_emp;
+            this.folderName=_folder;
+           this.createdBy=_Createdby;
         }
     }
 

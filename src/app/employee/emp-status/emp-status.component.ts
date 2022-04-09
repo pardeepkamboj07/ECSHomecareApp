@@ -5,7 +5,7 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import { ClientApiService } from 'src/app/services/client-api.service';
 
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{Empstatus} from 'src/app/models/Employee/empstatus';
+import{Empstatus} from 'src/app/models/employee/empstatus';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType} from 'src/app/models/common';
 @Component({
@@ -15,10 +15,11 @@ import { ItemsList,MasterType} from 'src/app/models/common';
 })
 
 export class EmpStatusComponent implements OnInit {
-
+  empList = Array<ItemsList>();
+  OfficeUser:ItemsList[] = [];
   EmplList = Array<ItemsList>(); 
   TypeStatusList: ItemsList[] = [];
-  OfficeUser:any;
+  
   
   ScheduleLst :any;
   modalRef?: BsModalRef;
@@ -101,18 +102,18 @@ export class EmpStatusComponent implements OnInit {
 }
 
 GetOfficeUserLst() {
-  this.empApi.GetOfficeUserLst().subscribe((response) => {
-    this.OfficeUser = response.data;      
+
+  this.comApi.getEmployees('Applicant HHA').subscribe((response) => {
+    this.OfficeUser = response.data;
   });
+
+
 }
 
-
-
-
-
 GetSchedulingLst() {
-  this.empApi.GetSchedulingLst().subscribe((response) => {
-    this.ScheduleLst = response.data;      
+ 
+  this.comApi.getEmpList().subscribe((response) => {
+    this.empList = response.data;
   });
 }
 

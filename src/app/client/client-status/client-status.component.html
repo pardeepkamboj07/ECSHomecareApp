@@ -37,7 +37,7 @@
                     #ActivityId="ngModel"                                   
                     id="ddlTypeStatusId"
                     name="ActivityId"                                   
-                    [(ngModel)]="model.ActivityId"                                       
+                    [(ngModel)]="model.activityId"                                       
                   > 
                   <option value="" disabled>Select</option>
                                 <option
@@ -55,7 +55,7 @@
                       <div class="form-group">
                     <label class="control-label">Effective Date</label>
                     <input type="text" #Date="ngModel" id="txtEffectiveDate"name="Date"
-                           [(ngModel)]="model.Date" class="form-control"  bsDatepicker  >
+                           [(ngModel)]="model.date" class="form-control"  bsDatepicker  >
                         </div>
                     </div>
                     </div>
@@ -70,7 +70,7 @@
                       #ReferralCode="ngModel"                                   
                       id="ddlTypeStatusId"
                       name="ReferralCode"                                   
-                      [(ngModel)]="model.ReferralCode"                                       
+                      [(ngModel)]="model.referralCode"                                       
                     > 
                     <option value="" disabled>Select</option>
                                   <option
@@ -87,7 +87,7 @@
                       <div class="form-group">
                     <label class="control-label">Note</label>
                     <input type="textarea" #Note="ngModel" id="txtNote"name="Note"
-                             [(ngModel)]="model.Note" class="form-control">
+                             [(ngModel)]="model.note" class="form-control">
                     </div>
                       </div>
                     </div>
@@ -101,7 +101,7 @@
                                 #OfficeUserId="ngModel"                                   
                                 id="ddlScheduling"
                                 name="OfficeUserId"                                   
-                                [(ngModel)]="model.OfficeUserId"                                       
+                                [(ngModel)]="model.officeUserId"                                       
                               > 
                                 
                               <option value="" disabled>Select</option>
@@ -126,7 +126,7 @@
                           #OfficeUserReferralID="ngModel"                                   
                           id="ddlOfficeUserId"
                           name="OfficeUserReferralID"                                   
-                          [(ngModel)]="model.OfficeUserReferralID"                                       
+                          [(ngModel)]="model.officeUserReferralID"                                       
                         > 
                         <option value="-1" disabled>Select</option>
                         <option

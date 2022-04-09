@@ -4,16 +4,15 @@ import { environment } from 'src/environments/environment.prod';
 import { Employee } from 'src/app/models/Employee';
 import { Observable } from 'rxjs';
 import { APIResponse } from '../models/APIResponse';
-import { Incident } from 'src/app/models/Employee/incident';
-import { Attendance } from 'src/app/models/Employee/attendance';
-import { Empstatus } from '../models/Employee/empstatus';
-import { StatusSelectList } from 'src/app/models/status-select-list';
-import { AddressObj } from 'src/app/models/Employee/address';
-import { ComplianceObj } from 'src/app/models/Employee/compliance-obj';
-import{EmpRate} from 'src/app/models/Employee/emp-rate'
-import{SaveEmpDeclinedCase} from 'src/app/models/Employee/SaveEmpDeclinedCase';
-import{EmpDeclineCaseList} from 'src/app/models/Employee/EmpDeclineCaseList';
-import { EmployeeModel,EmployeeList } from 'src/app/models/Employee/employee-model';
+import { Incident } from 'src/app/models/employee/incident';
+import { Attendance } from 'src/app/models/employee/attendance';
+import { Empstatus } from '../models/employee/empstatus';
+import { AddressObj } from 'src/app/models/employee/address';
+import { ComplianceObj } from 'src/app/models/employee/compliance-obj';
+import{EmpRate,EmployeeRateModel} from 'src/app/models/employee/emp-rate'
+import{SaveEmpDeclinedCase} from 'src/app/models/employee/saveEmpDeclinedCase';
+import{EmpDeclineCaseList} from 'src/app/models/employee/empDeclineCaseList';
+import { EmployeeModel,EmployeeList } from 'src/app/models/employee/employee-model';
 
 @Injectable({
   providedIn: 'root'
@@ -116,27 +115,7 @@ export class EmployeeapiService {
   {
     return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList"+"/"+empId);
   } 
-
-  GetOfficeUserLst()
-  {
-    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getOfficeUserList");
-  } 
-
-  GetTypeStatusLst()
-  {
-    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getTypeStatusList");
-  } 
-
-  GetEmployeeLst()
-  {
-    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmployeeStatusList");
-  } 
-
-  GetSchedulingLst()
-  {
-    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getScheduleLst");
-  } 
-
+  
   getAvailabilityList()
   {
     return this._http.get<APIResponse<any[]>>(environment.domain + "/api/Employee/getAvailabilityList");
@@ -184,7 +163,7 @@ export class EmployeeapiService {
 
 
 
-  SaveEmployeeRate(_obj : EmpRate){ 
+  SaveEmployeeRate(_obj : EmployeeRateModel){ 
     var headers_object = new HttpHeaders();
         headers_object.append('Content-Type', 'application/json');
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
@@ -197,7 +176,7 @@ export class EmployeeapiService {
 
   GetEmployeeRateLst(empId:number)
   {
-    return this._http.get<APIResponse<StatusSelectList>>(environment.domain + "/api/Employee/getEmpRate"+ '/' + empId);
+    return this._http.get<APIResponse<EmpRate[]>>(environment.domain + "/api/Employee/getEmpRate"+ '/' + empId);
   } 
   
 

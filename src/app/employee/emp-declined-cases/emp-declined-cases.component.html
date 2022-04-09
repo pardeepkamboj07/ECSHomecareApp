@@ -28,7 +28,7 @@
                            <label class="control-label">Reprted Date/Time:</label>
                             <div class="input-icon right"><i class="fa fa-calendar"></i>                                
                                 <input type="text" #RepotedDate="ngModel" id="txtEffectiveDate"name="RepotedDate"
-                                placeholder="Date Time" [(ngModel)]="model.RepotedDate" class="form-control"  bsDatepicker> 
+                                placeholder="Date Time" [(ngModel)]="model.repotedDate" class="form-control"  bsDatepicker> 
                             </div>
                         </div>
                         </div>
@@ -65,7 +65,7 @@
                         #Casetypeid="ngModel"                                   
                         id="ddlTypeStatusId"
                         name="Casetypeid"                                   
-                        [(ngModel)]="model.Casetypeid"                                       
+                        [(ngModel)]="model.casetypeId"                                       
                       > 
                       <option value="" disabled>Select</option>
                                     <option value="1">Parmanent</option>
@@ -82,7 +82,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="control-label">Decline Reason</label>
-                                <input type="textarea" #DeclineReason="ngModel"name="DeclineReason"  [(ngModel)]="model.DeclineReason" class="form-control">
+                                <input type="textarea" #DeclineReason="ngModel"name="DeclineReason"  [(ngModel)]="model.declineReason" class="form-control">
                              </div>
                         </div>
                         <div class="col-lg-4">
@@ -91,7 +91,7 @@
                                  <div class="input-icon right"><i class="fa fa-calendar"></i>
                                      
                                      <input type="text" #AssignmentStart="ngModel" id="txtEffectiveDate"name="AssignmentStart"
-                                     placeholder="Assignment Date" [(ngModel)]="model.AssignmentStart" class="form-control"  bsDatepicker> 
+                                     placeholder="Assignment Date" [(ngModel)]="model.assignmentStart" class="form-control"  bsDatepicker> 
                                  </div>                                 
                         </div>
                         
@@ -103,7 +103,7 @@
                                  #Day="ngModel"                                   
                                  id="ddlTypeStatusId"
                                  name="Day"                                   
-                                 [(ngModel)]="model.Day"                                       
+                                 [(ngModel)]="model.day"                                       
                                > 
                                <option value="" disabled>Select</option>
                                  <option value="1">1</option>
@@ -141,7 +141,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                         <label class="control-label">Notes</label>
-                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.Note" id="txtNote"name="Note"
+                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.note" id="txtNote"name="Note"
                         class="form-control">
                                 </div>
                         </div>				

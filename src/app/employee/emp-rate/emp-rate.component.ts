@@ -5,7 +5,7 @@ import { ClientApiService } from 'src/app/services/client-api.service';
 import { ItemsList } from 'src/app/models/common';
 import { CommonService } from 'src/app/services/common.service';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{EmpRate} from 'src/app/models/Employee/emp-rate'
+import{EmpRate,EmployeeRateModel} from 'src/app/models/employee/emp-rate'
 
 @Component({
   selector: 'app-emp-rate',
@@ -17,16 +17,12 @@ import{EmpRate} from 'src/app/models/Employee/emp-rate'
 })
 export class EmpRateComponent implements OnInit {
   modalRef?: BsModalRef;
-
   ClientList :ItemsList[] = [];
   PayerList:ItemsList[] = [];
-
-
-
-  EmpRateObj:any;
+  EmpRateObj:EmpRate[]=[];
  EmpId:number;
  ClientId:number;
-  model=new EmpRate("","","","",0,0,0,0,0,0,false,0,0,0,0,0,0,0,0,0);
+  model:EmployeeRateModel;
   constructor(private comApi: CommonService,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
@@ -45,10 +41,6 @@ export class EmpRateComponent implements OnInit {
           this.PayerList = response.data;
         }
       });
-   
-
-
-
     }
 
   ngOnInit(): void {
@@ -74,21 +66,21 @@ export class EmpRateComponent implements OnInit {
 
 onClickSubmit() {     
  debugger;
-  this.model.Hourly=Number(this.model.Hourly);
-  this.model.Livein=Number(this.model.Livein);
-  this.model.Visit=Number(this.model.Visit);
-  this.model.OverHourly=Number(this.model.OverHourly);
-  this.model.OverLivein=Number(this.model.OverLivein);
-  this.model.OverVisit=Number(this.model.OverVisit);  
-  this.model.OptionalHour=Number(this.model.OptionalHour);
-  this.model.OptionalAddHour=Number(this.model.OptionalAddHour);
-  this.model.TravelTime=Number(this.model.TravelTime);    
-  this.model.Gas=Number(this.model.Gas);
-  this.model.Extra=Number(this.model.Extra);
-  this.model.Mileage=Number(this.model.Mileage); 
-  this.model.PayerId=Number(this.model.PayerId);
-  this.model.ClientId=Number(this.model.ClientId);
-  this.model.ApplyRateCheck=Boolean(this.model.ApplyRateCheck);    
+  this.model.hourly=Number(this.model.hourly);
+  this.model.livein=Number(this.model.livein);
+  this.model.visit=Number(this.model.visit);
+  this.model.overHourly=Number(this.model.overHourly);
+  this.model.overLivein=Number(this.model.overLivein);
+  this.model.overVisit=Number(this.model.overVisit);  
+  this.model.optionalHour=Number(this.model.optionalHour);
+  this.model.optionalAddHour=Number(this.model.optionalAddHour);
+  this.model.travelTime=Number(this.model.travelTime);    
+  this.model.gas=Number(this.model.gas);
+  this.model.extra=Number(this.model.extra);
+  this.model.mileage=Number(this.model.mileage); 
+  this.model.payerId=Number(this.model.payerId);
+  this.model.clientId=Number(this.model.clientId);
+  this.model.applyRateCheck=Boolean(this.model.applyRateCheck);    
   this.empApi.SaveEmployeeRate(this.model).subscribe((response) => {
       
       this.GetEmployeeRateLst();  
