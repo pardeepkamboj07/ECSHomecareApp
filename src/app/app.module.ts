@@ -60,6 +60,8 @@ import { ClientDashboardComponent } from 'src/app/client/client-dashboard/client
 import { ClientInfoComponent } from 'src/app/client/client-info/client-info.component';
 import { GeneralClientComponent } from 'src/app/client/general-client/general-client.component';
 import { ClientStatusComponent } from 'src/app/client/client-status/client-status.component';
+import { TaskMasterComponent } from './company/task-master/task-master.component';
+
 
 
 @NgModule({
@@ -101,7 +103,8 @@ import { ClientStatusComponent } from 'src/app/client/client-status/client-statu
     ClientDashboardComponent,
     UserScheduleComponent,
     GeneralClientComponent, 
-    ClientStatusComponent,
+    ClientStatusComponent, 
+    TaskMasterComponent, 
   ],
   imports: [
     BrowserModule,

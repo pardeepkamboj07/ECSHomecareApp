@@ -1,0 +1,44 @@
+<p>task-master works!</p>
+<!--BEGIN PAGE WRAPPER-->
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Service Task Codes for EVV Telephony</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <form class="form" name="taskForm" #taskForm="ngForm" novalidate>
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row mtm">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label">Task Code</label>
+                                <input required type="text" placeholder="Task Code" class="form-control" id="txttaskCode" name="taskCode" #taskCode="ngModel" [(ngModel)]="model.taskCode">
+                                <em *ngIf="taskCode.invalid && (taskCode.dirty || taskCode.touched)" for="txttaskCode" class="invalid">This field is required</em>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label">Task Name</label>
+                                <input required type="text" placeholder="Task Name" class="form-control" id="txttaskName" name="taskName" #taskName="ngModel" [(ngModel)]="model.taskName">
+                                <em *ngIf="taskName.invalid && (taskName.dirty || taskName.touched)" for="txttaskName" class="invalid">This field is required</em>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-6 text-center">
+                            <div class="form-group ">
+                                <button type="button" onclick="addNewTask()" [disabled]="!taskForm.valid"  class="btn btn-md btn-primary mtxxl mt-0-mobile">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--END CONTENT-->
+</div>
+<!--END PAGE WRAPPER-->

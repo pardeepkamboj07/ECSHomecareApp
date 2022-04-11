@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { MeetingInfo } from 'src/app/models/meeting/meeting-info';
 import { Empmeeting } from 'src/app/models/meeting/empmeeting';
 import { ClientMeeting } from 'src/app/models/meeting/client-meeting';

@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild,TemplateRef  } from '@angular/core';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service'; 
-import { Employee } from 'src/app/models/Employee';
+import { Employee } from 'src/app/models/employee';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { DatePipe } from '@angular/common';
 

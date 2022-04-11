@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { ClientModel } from 'src/app/models/client/client-model';
-import{ClientStatusModel,ClientStatusLst} from 'src/app/models/client/Status-model';
+import{ClientStatusModel,ClientStatusLst} from 'src/app/models/client/status-model';
 
 @Injectable({
   providedIn: 'root'

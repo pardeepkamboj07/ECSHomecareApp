@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
-import { Employee } from 'src/app/models/Employee';
+import { Employee } from 'src/app/models/employee';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { Incident } from 'src/app/models/employee/incident';
 import { Attendance } from 'src/app/models/employee/attendance';
 import { Empstatus } from '../models/employee/empstatus';
 import { AddressObj } from 'src/app/models/employee/address';
 import { ComplianceObj } from 'src/app/models/employee/compliance-obj';
 import{EmpRate,EmployeeRateModel} from 'src/app/models/employee/emp-rate'
-import{SaveEmpDeclinedCase} from 'src/app/models/employee/saveEmpDeclinedCase';
-import{EmpDeclineCaseList} from 'src/app/models/employee/empDeclineCaseList';
+import{SaveEmpDeclinedCase} from 'src/app/models/employee/save-emp-declined-case';
+import{EmpDeclineCaseList} from 'src/app/models/employee/emp-decline-case-list';
 import { EmployeeModel,EmployeeList } from 'src/app/models/employee/employee-model';
 
 @Injectable({

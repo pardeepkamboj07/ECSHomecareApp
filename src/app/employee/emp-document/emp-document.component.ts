@@ -2,11 +2,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import{DocumentService} from 'src/app/services/document.service';
-import { FolderData } from 'src/app/models/employee/document';
-import{UploadFileFolder} from 'src/app/models/employee/uploadFileFolder';
+
 import { ActivatedRoute, Params } from '@angular/router';
 import { saveAs } from 'file-saver';
 import{DeleteItem} from 'src/app/models/employee/deleteFolder';
+
+import { FolderData } from 'src/app/models/employee/document';
+import{UploadFileFolder} from 'src/app/models/employee/upload-file-folder';
 
 
 @Component({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders ,HttpParams } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { LoginModel,UserModel } from 'src/app/models/account/login-model';
 
 const httpOptionsObj = {

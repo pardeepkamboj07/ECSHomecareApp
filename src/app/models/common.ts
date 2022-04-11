@@ -1,3 +1,15 @@
+
+export class BaseModel {
+  userId: number;
+  createdOn: string;
+  createdBy: number;
+  isActive: number;
+}
+
+
+
+
+
 export class ItemsList {
     public itemId: number;
     public itemName: string;

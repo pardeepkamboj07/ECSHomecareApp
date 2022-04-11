@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders ,HttpParams } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
 import { FolderData } from '../models/employee/document';

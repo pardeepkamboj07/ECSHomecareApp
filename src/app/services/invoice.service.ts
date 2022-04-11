@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
-import { GenerateInvoice } from 'src/app/models/generateInvoice';
+import { GenerateInvoice } from 'src/app/models/generate-invoice';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../models/APIResponse';
+import { APIResponse } from '../models/api-response';
 import { Invoice } from '../models/invoice';
 
 @Injectable({
