@@ -6,7 +6,7 @@ import { APIResponse } from '../models/api-response';
 import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
 import { FolderData  } from 'src/app/models/employee/document';
-
+import { TaskModel  } from 'src/app/models/client/service-task-model';
 
 @Injectable({
   providedIn: 'root'
@@ -87,4 +87,29 @@ export class CommonService {
   {
     return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getClientList");
   } 
+
+
+  createTask(reqObj : TaskModel){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        };
+    return this._http.post(environment.domain + "/api/Common/createTask", reqObj,httpOptions);            
+  }
+
+
+
+  getTaskList()
+  {
+    return this._http.get<APIResponse<TaskModel[]>>(environment.domain + "/api/Common/getTaskList");
+  } 
+
+
+
+
+
+
+
 }

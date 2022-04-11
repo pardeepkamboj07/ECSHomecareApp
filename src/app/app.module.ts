@@ -61,6 +61,7 @@ import { ClientInfoComponent } from 'src/app/client/client-info/client-info.comp
 import { GeneralClientComponent } from 'src/app/client/general-client/general-client.component';
 import { ClientStatusComponent } from 'src/app/client/client-status/client-status.component';
 import { TaskMasterComponent } from './company/task-master/task-master.component';
+import { ServiceTaskComponent } from './client/service-task/service-task.component';
 
 
 
@@ -104,7 +105,7 @@ import { TaskMasterComponent } from './company/task-master/task-master.component
     UserScheduleComponent,
     GeneralClientComponent, 
     ClientStatusComponent, 
-    TaskMasterComponent, 
+    TaskMasterComponent, ServiceTaskComponent, 
   ],
   imports: [
     BrowserModule,

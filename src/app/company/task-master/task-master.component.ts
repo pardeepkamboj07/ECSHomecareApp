@@ -13,6 +13,7 @@ import { setTheme } from 'ngx-bootstrap/utils';
 export class TaskMasterComponent implements OnInit {
   IsLoad: boolean = false;
   model = new TaskModel();
+  taskLst:TaskModel[]=[];
   constructor(
     private route:ActivatedRoute,
     private comApi: CommonService
@@ -30,10 +31,24 @@ export class TaskMasterComponent implements OnInit {
     debugger; 
     const reqObj: TaskModel = this.model;
     
-    // this.comApi.createMaster(reqObj).subscribe((response) => { 
-    //   this.getMasterList();
-    // });
+    this.comApi.createTask(reqObj).subscribe((response) => { 
+      this.bindTaskList();
+    });
   }
+
+
+  bindTaskList() {
+    this.comApi.getTaskList().subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.taskLst = response.data;
+      }
+    });
+  }
+
+
+
 
 }
 
