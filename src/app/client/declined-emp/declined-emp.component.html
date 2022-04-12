@@ -1,0 +1,156 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Declined Employee</strong> </h4>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(template)" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Declined Cases</a>
+            </div>
+            <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left text-orange">Declined Employee</h4>
+  
+             
+  
+                <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                  <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form name="frmRate" #f="ngForm">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                           <label class="control-label">Date/Time:</label>
+                            <div class="input-icon right"><i class="fa fa-calendar"></i>                                
+                                <input type="text" #RepotedDate="ngModel" id="txtEffectiveDate"name="RepotedDate"
+                                placeholder="Date Time" [(ngModel)]="model.repotedDate" class="form-control"  bsDatepicker> 
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-4">                           
+                                <div class="form-group">
+                            <label class="control-label">Employee</label>
+                            <select
+                            class="form-control"
+                            #ClientId="ngModel"                                   
+                            id="ddlClientId"
+                            name="ClientId"                                   
+                            [(ngModel)]="model.clientId"                                       
+                          > 
+                          <option value="-1" disabled>Select</option>
+                          <option
+                           *ngFor="let obj of ClientList"
+                           [value]="obj.itemId"
+                         >
+                           {{ obj.itemName }}
+                         </option> 
+                       </select>
+ 
+           
+                        </div>
+                        
+                        
+                        </div>
+                        <div class="col-lg-4">
+                           
+                            <div class="form-group">
+                        <label class="control-label">Case Type</label>
+                        <select
+                        class="form-control"
+                        #Casetypeid="ngModel"                                   
+                        id="ddlTypeStatusId"
+                        name="Casetypeid"                                   
+                        [(ngModel)]="model.casetypeId"                                       
+                      > 
+                      <option value="" disabled>Select</option>
+                                    <option value="1">Parmanent</option>
+                                 <option value="2">Full-In</option>
+                                                      
+                        </select>
+                               
+                        </div>
+                  
+                    
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label">Decline Reason</label>
+                                <input type="textarea" #DeclineReason="ngModel"name="DeclineReason"  [(ngModel)]="model.declineReason" class="form-control">
+                             </div>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="form-group">
+                                <label class="control-label">Assignment Started</label>
+                                 <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                     
+                                     <input type="text" #AssignmentStart="ngModel" id="txtEffectiveDate"name="AssignmentStart"
+                                     placeholder="Assignment Date" [(ngModel)]="model.assignmentStart" class="form-control"  bsDatepicker> 
+                                 </div>                                 
+                        </div>
+                        
+                    </div>
+                
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                        <label class="control-label">Notes</label>
+                        <input type="textarea" #Note="ngModel"  [(ngModel)]="model.note" id="txtNote"name="Note"
+                        class="form-control">
+                                </div>
+                        </div>				
+                    
+                        </div>
+                  
+                       
+                   
+                        <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <button type="button" (click)="onClickSubmit()" class="btn btn-md btn-dark">Add Declined Cases</button>
+                        </div>
+                        </div>
+                  
+              
+                </form>
+              </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+
+                        <!-- Date/Time	Employee	Reason	Case Start Date	Notes -->
+                        <thead>
+                            <tr>
+                                <th>Start Date</th>
+                                <th>Reported Date	</th>
+                                <th>Reason</th>
+                       
+                    
+                           
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of EmpCaseObj">
+                                <td>{{ item.assignmentStart }}</td>
+                                <td>{{ item.repotedDate }}</td>
+                                <td>{{ item.declineReason }}</td>
+                   
+                           
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
