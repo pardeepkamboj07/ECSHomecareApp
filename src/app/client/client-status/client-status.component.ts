@@ -12,7 +12,9 @@ import { ItemsList,MasterType} from 'src/app/models/common';
 @Component({
   selector: 'app-client-status',
   templateUrl: './client-status.component.html',
-  styleUrls: ['./client-status.component.scss']
+  styleUrls: [
+    '../../../assets/css/orange-blue.css',
+    './client-status.component.scss']
 })
 export class ClientStatusComponent implements OnInit {
   EmplList = Array<ItemsList>(); 

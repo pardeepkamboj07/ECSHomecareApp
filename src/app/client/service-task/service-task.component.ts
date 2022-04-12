@@ -27,6 +27,7 @@ export class ServiceTaskComponent implements OnInit {
   srvTaskLst:ServiceTaskView[]=[];
   modalRef?: BsModalRef;
   constructor(private comApi: CommonService,
+    private routers:Router,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientApi : ClientApiService) {
       setTheme('bs3');
@@ -78,10 +79,9 @@ export class ServiceTaskComponent implements OnInit {
      debugger;
 
     this.taskLst.forEach((x: ServicetaskObj) => {
-let obj=new ServiceTaskModel(x.taskId,x.frequency,x.serviceNote);
-obj.userId=this.clientId;
+    let obj=new ServiceTaskModel(x.taskId,x.frequency,x.serviceNote);
+    obj.userId=this.clientId;
       this.srvLst.push(obj);
-   
     });
 debugger;
     this.clientApi.createServiceTask( this.srvLst).subscribe((response) => { 
@@ -89,6 +89,46 @@ debugger;
     });
   
   }
+
+
+  editService(params: any) {
+    debugger;
+
+  }
+
+
+
+
+  delService(params: any) {
+    debugger;
+    // this.empapi.deleteEmployee(params.empId).subscribe(response => {
+
+    //   let remaining = this.currentList.filter(
+    //     (res: any) => res.empId != params.empId
+    //   );      
+    //   this.currentList= remaining;
+    //   this.empList = this.currentList;
+    // });
+  }
+
+  manageTask() {
+    this.modalRef?.hide();
+    this.routers.navigate(['/company/task'])
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  }
