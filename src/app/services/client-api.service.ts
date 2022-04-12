@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
+import { HttpClient,HttpHeaders,HttpParams  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
 import { APIResponse } from '../models/api-response';
 import { ClientModel } from 'src/app/models/client/client-model';
-import{ClientStatusModel,ClientStatusLst} from 'src/app/models/client/status-model';
-import {  ServiceTaskView,ServiceTaskModel}  from 'src/app/models/client/service-task-model';
+import { ClientStatusModel,ClientStatusLst } from 'src/app/models/client/status-model';
+import { Medicationcs } from '../models/client/medicationcs-model';
+import { ServiceTaskView,ServiceTaskModel }  from 'src/app/models/client/service-task-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,7 @@ import {  ServiceTaskView,ServiceTaskModel}  from 'src/app/models/client/service
 export class ClientApiService {
 
   constructor(private _http : HttpClient) { }
-
-
+  
   addClient(clObj: ClientModel){ 
     debugger;
     var headers_object = new HttpHeaders();
@@ -45,6 +45,43 @@ export class ClientApiService {
   {
     return this._http.get<APIResponse<ClientStatusLst>>(environment.domain + "/api/Client/getClientStatusList"+"/"+clientId);
   } 
+
+
+
+  SaveMedicationcs(_obj:Medicationcs)
+  {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    }; 
+return this._http.post(environment.domain + "/api/Client/ClientMedicationcs", _obj,httpOptions);      
+  }
+
+  getClientMedicationcsList(clientId:number)
+  {
+    return this._http.get<APIResponse<Medicationcs>>(environment.domain + "/api/Client/GetClientMedicationcs"+"/"+clientId);
+  } 
+
+  deleteMedicationcsRecord(MedicationId:number,ClientId:number)
+  {
+    const Req_param=new HttpParams({
+      fromObject:{
+        'MedicationId':Number(MedicationId),
+        'UserId':Number(ClientId)      
+      }
+    });
+    return this._http.delete<APIResponse<Medicationcs>>(environment.domain + "/api/Client/deleteMedicationData",{params:Req_param});
+  } 
+
+
+
+
+
+
+
+
 
 
   getServiceTaskList(userId : number)

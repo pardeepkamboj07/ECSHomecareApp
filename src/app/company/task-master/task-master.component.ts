@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-
+import { AccountService } from 'src/app/services/account.service';
 import {  TaskModel}  from 'src/app/models/client/service-task-model';
+import { UserModel } from 'src/app/models/account/login-model';
 
-import { setTheme } from 'ngx-bootstrap/utils';
 @Component({
   selector: 'app-task-master',
   templateUrl: './task-master.component.html',
@@ -16,13 +16,17 @@ export class TaskMasterComponent implements OnInit {
   IsLoad: boolean = false;
   model = new TaskModel();
   taskLst:TaskModel[]=[];
+  currentUser:UserModel;
   constructor(
     private route:ActivatedRoute,
-    private comApi: CommonService
+    private comApi: CommonService,
+    private accountApi: AccountService
 
 
   ) {
-    setTheme('bs3');
+    this.currentUser=  this.accountApi.getCurrentUser();
+    this.bindTaskList();
+ 
    }
 
   ngOnInit(): void {
@@ -31,10 +35,15 @@ export class TaskMasterComponent implements OnInit {
 
   addNewTask() {
     debugger; 
+
+    
+    this.model.createdBy=this.currentUser.userId;
     const reqObj: TaskModel = this.model;
     
     this.comApi.createTask(reqObj).subscribe((response) => { 
       this.bindTaskList();
+      this.model.taskCode="";
+      this.model.taskName="";
     });
   }
 

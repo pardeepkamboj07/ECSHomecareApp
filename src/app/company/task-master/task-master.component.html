@@ -11,9 +11,12 @@
     <!--END TITLE & BREADCRUMB PAGE-->
     <!--BEGIN CONTENT-->
     <div class="page-content">
-        <form class="form" name="taskForm" #taskForm="ngForm" novalidate>
+
             <div class="panel">
                 <div class="panel-body">
+               
+
+                        <form name="taskForm" #taskForm="ngForm">
                     <div class="row mtm">
                         <div class="col-sm-4 col-xs-12">
                             <div class="form-group">
@@ -31,13 +34,13 @@
                         </div>
                         <div class="col-sm-4 col-xs-6 text-center">
                             <div class="form-group ">
-                                <button type="button" onclick="addNewTask()" [disabled]="!taskForm.valid"  class="btn btn-md btn-primary mtxxl mt-0-mobile">Add</button>
+                                <button type="button" (click)="addNewTask()"   class="btn btn-md btn-primary mtxxl mt-0-mobile">Add Save</button>
                             </div>
                         </div>
                     </div>
+                </form>
 
-
-
+                    <!-- [disabled]="!taskForm.valid" -->
 
                     <div class="row mtm">
 						<div class="col-sm-12">
@@ -72,7 +75,7 @@
 
                 </div>
             </div>
-        </form>
+    
     </div>
     <!--END CONTENT-->
 </div>

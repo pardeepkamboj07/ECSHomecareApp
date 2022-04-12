@@ -23,6 +23,8 @@ import { GenerateinvoiceComponent } from './dashboard/generateinvoice/generatein
 import { GetinvoicesComponent } from './dashboard/getinvoices/getinvoices.component';
 import { InvoicedetailsComponent } from './dashboard/invoicedetails/invoicedetails.component';
 
+import { TaskMasterComponent } from 'src/app/company/task-master/task-master.component';
+
 
 
 
@@ -63,6 +65,12 @@ children : [{path:'',component:ClientListComponent}]},
   children : [{path:'',component:GetinvoicesComponent}]},
   {path : 'invoice/info/:InvId',component : LayoutComponent,
   children : [{path:'',component:InvoicedetailsComponent}]},
+
+  {path : 'company/task',component : LayoutComponent,
+children : [{path:'',component:TaskMasterComponent}]},
+
+
+
   
   { path: '', component: SignInComponent },
   { path: '**', component: SignInComponent },
