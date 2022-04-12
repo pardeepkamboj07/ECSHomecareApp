@@ -9,7 +9,7 @@ import{ClientStatusModel} from 'src/app/models/client/status-model';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType} from 'src/app/models/common';
 
-import {  TaskModel,ServiceTaskView}  from 'src/app/models/client/service-task-model';
+import {  TaskModel,ServiceTaskView,ServicetaskObj,ServiceTaskModel}  from 'src/app/models/client/service-task-model';
 @Component({
   selector: 'app-service-task',
   templateUrl: './service-task.component.html',
@@ -20,10 +20,12 @@ import {  TaskModel,ServiceTaskView}  from 'src/app/models/client/service-task-m
 export class ServiceTaskComponent implements OnInit {
 
   
-  ClientId:number;
-  taskLst:TaskModel[]=[];
-  srvTaskLst:ServiceTaskView[]=[];
+  clientId:number;
+  taskLst:ServicetaskObj[]=[];
+  srvLst:ServiceTaskModel[]=[];
 
+  srvTaskLst:ServiceTaskView[]=[];
+  modalRef?: BsModalRef;
   constructor(private comApi: CommonService,
     private route:ActivatedRoute,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientApi : ClientApiService) {
@@ -31,9 +33,9 @@ export class ServiceTaskComponent implements OnInit {
 
       this.comApi.getTaskList().subscribe((response) => {
         if(response.result)
-        {
-          debugger;
-          this.taskLst = response.data;
+        {response.data.forEach((x: TaskModel) => {
+            this.taskLst.push(new ServicetaskObj(x.taskId,x.taskCode,x.taskName));
+          });
         }
       });
   
@@ -43,15 +45,11 @@ export class ServiceTaskComponent implements OnInit {
      ngOnInit(): void {
       this.route.params.subscribe(
         (params : Params) =>{   
-          this.ClientId = Number(params["clientId"]);    
+          this.clientId = Number(params["clientId"]);  
+          
+          this.bindServiceLst(this.clientId);
 
-          this.clientApi.getServiceTaskList(this.ClientId).subscribe((response) => {
-            if(response.result)
-            {
-              debugger;
-              this.srvTaskLst = response.data;
-            }
-          });
+      
         });
     }
     openModal(template: TemplateRef<any>) {
@@ -63,26 +61,34 @@ export class ServiceTaskComponent implements OnInit {
     
      this.modalRef?.hide();
    }
+   bindServiceLst(clientId:number) { 
+
+    debugger;
+    this.clientApi.getServiceTaskList(clientId).subscribe((response) => {
+      if(response.result)
+      {
+        debugger;
+        this.srvTaskLst = response.data;
+      }
+    });
+   }
 
 
-  
- 
-  modalRef?: BsModalRef;
+   addService() { 
+     debugger;
 
+    this.taskLst.forEach((x: ServicetaskObj) => {
+let obj=new ServiceTaskModel(x.taskId,x.frequency,x.serviceNote);
+obj.userId=this.clientId;
+      this.srvLst.push(obj);
    
-
+    });
+debugger;
+    this.clientApi.createServiceTask( this.srvLst).subscribe((response) => { 
+      this.bindServiceLst(this.clientId);
+    });
   
-
- onClickSubmit() {     
-
-
-    
-   
-  
-}
-
-
-
+  }
 
 
  }

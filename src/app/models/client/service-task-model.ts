@@ -7,11 +7,23 @@ export class TaskModel extends BaseModel {
     taskDetail: number;
 }
 
+
 export class ServiceTaskModel extends BaseModel {
+
     taskSrvId: number;
     taskId: number;
     frequency: number;
     serviceNote: string;
+    constructor( taskId:number, frequency:number,serviceNote:string){
+   super();
+    
+           this.taskId = taskId;
+           this.frequency = frequency;
+           this.serviceNote = serviceNote;
+           
+         }
+
+
 }
 
 export class ServiceTaskView {
@@ -21,4 +33,23 @@ export class ServiceTaskView {
     taskName: string;
     frequency: number;
     serviceNote: string;
+}
+
+
+
+export class ServicetaskObj  {
+    isChecked: boolean;
+    taskId: number;
+    taskCode: string;
+    taskName: string; 
+    frequency: number;
+    serviceNote: string;
+    constructor( taskId:number, taskCode:string,taskName:string){
+   
+             this.isChecked=false;
+                this.taskId = taskId;
+                this.taskName = taskName;
+                this.taskCode = taskCode;
+                
+              }
 }

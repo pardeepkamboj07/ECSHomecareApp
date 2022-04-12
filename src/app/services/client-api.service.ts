@@ -86,6 +86,7 @@ return this._http.post(environment.domain + "/api/Client/ClientMedicationcs", _o
 
   getServiceTaskList(userId : number)
   {
+    debugger;
     return this._http.get<APIResponse<ServiceTaskView[]>>(environment.domain + "/api/Client/getServiceTaskList" + '/' + userId);
   }
 
