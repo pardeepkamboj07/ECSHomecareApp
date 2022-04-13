@@ -3024,11 +3024,13 @@ ul.nav.nav-tabs.ul-edit li.active a {
 }
 .state-error input,
 .state-error select {
-  background: #f2dede;
+  background: #fff;
+  border:solid 1px #d9534f
 }
 .state-success input,
 .state-success select {
-  background: #dff0d8;
+  background: #fff;
+  border:solid 1px #5cb85c
 }
 .note-success {
   color: #5cb85c;
@@ -7576,7 +7578,7 @@ fieldset[disabled] .btn-white.active {
 .state-success input,
 .state-success select,
 .state-success textarea {
-  background: #dff0d8 !important;
+  background: #fff !important;
 }
 .state-warning input,
 .state-warning select,
@@ -7586,7 +7588,7 @@ fieldset[disabled] .btn-white.active {
 .state-error input,
 .state-error select,
 .state-error textarea {
-  background: #f2dede !important;
+  background: #fff !important;
 }
 .form-bordered .control-label {
   padding-top: 16px;

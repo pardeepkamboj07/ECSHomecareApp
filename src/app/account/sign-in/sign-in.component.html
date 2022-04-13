@@ -1,5 +1,7 @@
+<app-loader [show]="IsLoad"></app-loader>
+
 <div class="top-content login-body">    
-    <form class="form" name="loginForm" #loginForm="ngForm" novalidate>
+    <form class="form" name="loginForm" #loginForm="ngForm"  (ngSubmit)="loginForm.form.valid && signIn(userName.value,password.value)" novalidate>
     <div class="inner-bg">
     
         <div class="container">
@@ -26,26 +28,26 @@
                 
                     <div class="form-bottom">
                     
-                            <div class="form-group" [class.state-error]="userName.invalid && userName.touched"  [class.state-success]="userName.valid">
+                            <div class="form-group" [class.state-error]="userName.invalid && (userName.touched || loginForm.submitted)"  [class.state-success]="userName.valid" >
                                 <label class="sr-only">Username</label>
                                 <div class="input-icon right"><i class="fa fa-user text-orange"></i>
                                     <input type="text" id="txtUserName" name="userName"  placeholder="Username"  class="form-control-login"  [(ngModel)]="model.userName" #userName="ngModel" required/>
                                 </div>
-                                <em *ngIf="userName.invalid && userName.touched" for="txtUserName" class="invalid" >This field is required</em>
+                                <em *ngIf="userName.invalid && (userName.touched || loginForm.submitted)" for="txtUserName" class="invalid" >This field is required</em>
                             </div>
-                            <div class="form-group" [class.state-error]="password.invalid && password.touched"  [class.state-success]="password.valid">
+                            <div class="form-group" [class.state-error]="password.invalid && (password.touched || loginForm.submitted)"  [class.state-success]="password.valid">
                                 <label class="sr-only">Password</label>
                             <div class="input-icon right"><i class="fa fa-key text-orange"></i>
                                 <input type="password" id="txtPassword" name="password" placeholder="Password" class="form-control-login" [(ngModel)]="model.password"  #password="ngModel" required />
         </div>
-        <em *ngIf="password.invalid && password.touched"  for="txtPassword" class="invalid" >This field is required</em>
+        <em *ngIf="password.invalid && (password.touched || loginForm.submitted)"  for="txtPassword" class="invalid" >This field is required</em>
                             </div>
                          <div class="form-group">
                                 <input type="checkbox" /> Keep me Signed Inmodel
                             </div>
                            <div class="row">
                 <div class="col-sm-3 col-xs-12">
-                      <button [disabled]="!loginForm.form.valid" type="button" class="btn btn-lg btn-primary btn-block"   (click)="signIn(userName.value,password.value)">Login&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+                      <button  type="submit" class="btn btn-lg btn-primary btn-block"  >Login&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
             </div>                              
             </div>
             <div class="row mtm">
@@ -56,9 +58,9 @@
             </div>
             </div>  
             </div>
-            
+          
                 
-              <!-- <p class="mt-5">     {{ model | json }}</p>
+              <!-- <p class="mt-5">     {{ model | json }}</p>[disabled]="!loginForm.form.valid"   {{loginForm.submitted}}
                 <p class="mt-5">{{ loginForm.value | json }}{{loginForm.form.valid}}</p> -->
                 </div>
             </div>

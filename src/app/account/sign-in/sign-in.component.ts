@@ -10,6 +10,7 @@ import { LoginModel } from 'src/app/models/account/login-model';
     './sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+  IsLoad: boolean = false;
   model = new LoginModel();
   constructor(private router:Router, private accountApi : AccountService) { }
 
@@ -18,10 +19,15 @@ export class SignInComponent implements OnInit {
 
   signIn(userName:string,password:string){
 
+    this.IsLoad=true;
+
     this.model.userName=userName;
     this.model.password=password;   
     this.accountApi.signIn(this.model).subscribe((response) => {
-      if((response.data.loginInId>0))
+
+
+      
+      if(response.result)
       {
 
         this.accountApi.setCurrentUser(response.data);
@@ -29,6 +35,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       }
       else{
+        this.IsLoad=false;
         alert('Login credentials are not correct.');
       }
      
