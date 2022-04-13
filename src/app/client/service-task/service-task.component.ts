@@ -58,7 +58,7 @@ export class ServiceTaskComponent implements OnInit {
      this.modalRef = this.modalService.show(template);
    }
    
-   decline(): void {
+   closeModal(): void {
     
      this.modalRef?.hide();
    }
@@ -77,18 +77,20 @@ export class ServiceTaskComponent implements OnInit {
 
    addService() { 
      debugger;
-
-    this.taskLst.forEach((x: ServicetaskObj) => {
-    let obj=new ServiceTaskModel(x.taskId,x.frequency,x.serviceNote);
-    obj.userId=this.clientId;
-      this.srvLst.push(obj);
-    });
-debugger;
-    this.clientApi.createServiceTask( this.srvLst).subscribe((response) => { 
-      this.bindServiceLst(this.clientId);
-    });
-  
-  }
+      let remaining = this.taskLst.filter(
+        (res: ServicetaskObj) => res.isChecked == true
+      );
+      remaining.forEach((x: ServicetaskObj) => {
+        let obj=new ServiceTaskModel(x.taskId,x.frequency,x.serviceNote);
+        obj.userId=this.clientId;
+        this.srvLst.push(obj);
+      });
+      this.clientApi.createServiceTask( this.srvLst).subscribe((response) => { 
+        
+        this.bindServiceLst(this.clientId);
+        this.closeModal();
+      }); 
+    }
 
 
   editService(params: any) {
@@ -96,19 +98,12 @@ debugger;
 
   }
 
-
-
-
-  delService(params: any) {
+  delService(taskSrvId: number) {
     debugger;
-    // this.empapi.deleteEmployee(params.empId).subscribe(response => {
-
-    //   let remaining = this.currentList.filter(
-    //     (res: any) => res.empId != params.empId
-    //   );      
-    //   this.currentList= remaining;
-    //   this.empList = this.currentList;
-    // });
+    this.clientApi.deleteService(taskSrvId).subscribe(response => {
+      this.bindServiceLst(this.clientId);
+      this.closeModal();
+    });
   }
 
   manageTask() {

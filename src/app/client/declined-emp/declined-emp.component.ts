@@ -1,12 +1,13 @@
 import { Component, OnInit,TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { EmployeeapiService } from 'src/app/services/employeeapi.service';
-import { ClientApiService } from 'src/app/services/client-api.service';
 import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import{SaveEmpDeclinedCase} from 'src/app/models/employee/save-emp-declined-case';
+import { EmployeeDecline,EmployeeDeclineView }  from 'src/app/models/client/employee-decline';
+import { LoginModel,UserModel } from 'src/app/models/account/login-model';
+import { AccountService } from 'src/app/services/account.service';
+import { ClientApiService } from 'src/app/services/client-api.service';
 import { CommonService } from 'src/app/services/common.service';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-declined-emp',
   templateUrl: './declined-emp.component.html',
@@ -17,27 +18,32 @@ import { CommonService } from 'src/app/services/common.service';
 export class DeclinedEmpComponent implements OnInit {
 
   modalRef?: BsModalRef;
-  ClientList = Array<ItemsList>(); 
   empList = Array<ItemsList>(); 
-  EmpCaseObj:any;  
-  CaseTypeobj:any;
- empId:number;
- clientId:number;
- model=new SaveEmpDeclinedCase("",0,0,"","","",0,0,"","",0);
+  declinedList:EmployeeDeclineView[]=[];  
+  currentUser:UserModel;
+ model=new EmployeeDecline();
   constructor(
-    private comApi: CommonService,
     private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
+    private datepipe: DatePipe,
+    private modalService: BsModalService,
+    private accountApi: AccountService,
+    private comApi: CommonService,
+    private clientApi : ClientApiService
+    ) { 
+
+      this.currentUser=this.accountApi.getCurrentUser();
 
 
-
-      this.comApi.getClientList().subscribe((response) => {
+      this.comApi.getEmpList().subscribe((response) => {
         if(response.result)
         {
           debugger;
-          this.ClientList = response.data;
+          this.empList = response.data;
         }
       });
+
+
+
   
   
 
@@ -47,9 +53,9 @@ export class DeclinedEmpComponent implements OnInit {
     debugger
     this.route.params.subscribe(
       (params : Params) =>{
-         this.clientId = Number(params["clientId"]);
+         this.model.userId = Number(params["clientId"]);
 
-         this.GetCaseList(this.clientId);
+         this.GetDeclinedList(this.model.userId);
 
       }
     );
@@ -57,48 +63,72 @@ export class DeclinedEmpComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    
-   
    this.modalRef = this.modalService.show(template);
  }
 
- decline(): void {
-   
+
+
+
+
+ closeModel(): void {
   this.modalRef?.hide();
+
+  this.model.reportedDate="";
+  this.model.startDate="";
 }
 
  
 
-onClickSubmit() { 
- 
-   this.model.assignmentStart=this.model.assignmentStart;
-   this.model.casetypeId=Number(this.model.casetypeId);
-   this.model.clientId=Number(this.model.clientId);
-   this.model.day=Number(this.model.day);
-   this.model.week=Number(this.model.week);
-   this.model.repotedDate=this.model.repotedDate;
-   this.model.declineReason=this.model.declineReason;  
-   this.model.note=this.model.note; 
-   this.model.empId=this.clientId; 
+saveDeclined() { 
 
-   this.empApi.SaveEmpDeclinedCase(this.model).subscribe((response) => {
+  debugger;
+   this.model.caseType=Number(this.model.caseType);
+   this.model.userId=Number(this.model.userId);
+   this.model.createdBy=this.currentUser.userId;
 
-    this.GetCaseList(this.clientId);  
-  this.decline();
 
+   this.model.reportedDate=this.datepipe.transform(this.model.reportedDate, 'dd-MM-yyyy, hh:mm:ss a')||"";   
+   this.model.startDate=this.datepipe.transform(this.model.startDate, 'dd-MM-yyyy')||"";   
+
+   this.model.empId=Number(this.model.empId);
+
+
+   this.clientApi.createEmpDeclined(this.model).subscribe((response) => {
+    this.GetDeclinedList(this.model.userId);  
+    this.closeModel();
  }); 
  }
 
 
 
 
-GetCaseList(empId : number) {
-  
-this.empApi.GetEmpDeclinedCase(empId).subscribe((response) => {
-    this.EmpCaseObj = response.data;
-
+GetDeclinedList(userId : number) {
+this.clientApi.getEmpDeclined(userId).subscribe((response) => {
+    this.declinedList = response.data;
     console.log(response);
   });
 }
+
+
+
+delDeclined(declinedId:number) { 
+
+debugger;
+
+  this.clientApi.deleteEmpDeclined(declinedId).subscribe((response) => {
+   this.GetDeclinedList(this.model.userId);  
+   this.closeModel();
+}); 
+
+}
+
+
+
+
+
+
+
+
+
 
 }
