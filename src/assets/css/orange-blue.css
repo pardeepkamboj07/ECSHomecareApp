@@ -7573,6 +7573,7 @@ fieldset[disabled] .btn-white.active {
   color: #7edc7f !important;
   margin-top: 5px;
   display: block;
+  font-size :11px;
 }
 .state-warning em {
   color: #dcb359 !important;
@@ -7583,11 +7584,13 @@ fieldset[disabled] .btn-white.active {
   color: #db4c4a !important;
   margin-top: 5px;
   display: block;
+  font-size :11px;
 }
 .state-success input,
 .state-success select,
 .state-success textarea {
   background: #fff !important;
+  border-color: #7edc7f !important;
 }
 .state-warning input,
 .state-warning select,
@@ -7598,6 +7601,7 @@ fieldset[disabled] .btn-white.active {
 .state-error select,
 .state-error textarea {
   background: #fff !important;
+  border-color: #db4c4a !important;
 }
 .form-bordered .control-label {
   padding-top: 16px;
