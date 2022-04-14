@@ -67,6 +67,7 @@ a:hover,
 a:focus {
   color: #e74c3c;
   text-decoration: none;
+  cursor: pointer;
 }
 a:focus {
   outline: thin dotted #333;
@@ -3447,6 +3448,10 @@ ul.nav.nav-tabs.ul-edit li.active a {
 .bg-grey {
   background-color: #4b5d67;
   color: #fff;
+}
+.light-bg-grey {
+  background-color: #eee;
+  color: #000;
 }
 .bg-dark {
   background-color: #594857;
@@ -7582,17 +7587,17 @@ fieldset[disabled] .btn-white.active {
 .state-success input,
 .state-success select,
 .state-success textarea {
-  background: #dff0d8 !important;
+  background: #fff !important;
 }
 .state-warning input,
 .state-warning select,
 .state-warning textarea {
-  background: #fcf8e3 !important;
+  background: #fff !important;
 }
 .state-error input,
 .state-error select,
 .state-error textarea {
-  background: #f2dede !important;
+  background: #fff !important;
 }
 .form-bordered .control-label {
   padding-top: 16px;
