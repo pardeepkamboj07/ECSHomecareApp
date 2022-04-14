@@ -3024,13 +3024,11 @@ ul.nav.nav-tabs.ul-edit li.active a {
 }
 .state-error input,
 .state-error select {
-  background: #fff;
-  border:solid 1px #d9534f
+  background: #f2dede;
 }
 .state-success input,
 .state-success select {
-  background: #fff;
-  border:solid 1px #5cb85c
+  background: #dff0d8;
 }
 .note-success {
   color: #5cb85c;
@@ -5751,7 +5749,7 @@ body.header-fixed .top .jquery-notific8-notification:first-child {
   color: #d9534f;
 }
 #rootwizard-custom-circle {
-  margin-top: 50px;
+  margin-top: 10px;
   position: relative;
 }
 #rootwizard-custom-circle .navbar {
@@ -5784,7 +5782,12 @@ body.header-fixed .top .jquery-notific8-notification:first-child {
   position: relative;
 }
 #rootwizard-custom-circle li:first-child {
-  margin-left: 11%;
+  margin-left: 4%;
+}
+@media(max-width:767px){
+	#rootwizard-custom-circle li:first-child {
+  margin-left: -14%;
+}
 }
 #rootwizard-custom-circle li a {
   font-size: 17px;
@@ -7021,8 +7024,8 @@ fieldset[disabled] .btn-grey.active {
 }
 .btn-dark {
   color: #ffffff;
-  background-color: #e67273;
-  border-color: #e67273;
+  background-color: #000000;
+  border-color: #000000;
 }
 .btn-dark:hover,
 .btn-dark:focus,
@@ -7030,8 +7033,8 @@ fieldset[disabled] .btn-grey.active {
 .btn-dark.active,
 .open .dropdown-toggle.btn-dark {
   color: #ffffff;
-  background-color: #e67273;
-  border-color: #e67273;
+  background-color: #333;
+  border-color: #333;
 }
 .btn-dark:active,
 .btn-dark.active,
@@ -7053,8 +7056,8 @@ fieldset[disabled] .btn-dark:active,
 .btn-dark.disabled.active,
 .btn-dark[disabled].active,
 fieldset[disabled] .btn-dark.active {
-  background-color: #594857;
-  border-color: #534351;
+  background-color: #333;
+  border-color: #333;
 }
 .btn-dark-1 {
   color: #ffffff;
@@ -7334,6 +7337,7 @@ fieldset[disabled] .btn-white.active {
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
+	background-color: #eee;
 }
 .tab-content {
   background: #fff;
@@ -7578,7 +7582,7 @@ fieldset[disabled] .btn-white.active {
 .state-success input,
 .state-success select,
 .state-success textarea {
-  background: #fff !important;
+  background: #dff0d8 !important;
 }
 .state-warning input,
 .state-warning select,
@@ -7588,7 +7592,7 @@ fieldset[disabled] .btn-white.active {
 .state-error input,
 .state-error select,
 .state-error textarea {
-  background: #fff !important;
+  background: #f2dede !important;
 }
 .form-bordered .control-label {
   padding-top: 16px;
@@ -9654,10 +9658,6 @@ position: absolute;
 opacity: inherit !important;
   transition: opacity .15s linear;
 }
-
-
-
-
 .fillter-button{
 	width: 100%
 }
@@ -9667,7 +9667,8 @@ opacity: inherit !important;
         -moz-columns: 2;
 	list-style: none;
 	padding: 0px;
-	margin: 0px
+	margin: 0px;
+	column-gap: 3px;
  
 }
 @media(max-width:767px){
@@ -9775,5 +9776,61 @@ opacity: inherit !important;
 	font-weight: normal;
 	color:#000
 }
+
+.cat{
+  margin-bottom: 3px;
+  background-color: #e5e5e5;
+    border-radius: 4px;
+    border: 1px solid #e67273;
+  overflow: hidden;
+  float: left;
+	width: 100%;
+}
+
+.cat label {
+ float: left;
+    line-height: 2.5em;
+    width: 100%;
+    height: 2.5em;
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+
+.cat label span {
+  text-align: left;
+  padding: 0px 0;
+  display: block;
+	padding-left: 5px;
+	    font-size: 14px;
+	    cursor: pointer;
+	
+}
+
+.cat label input {
+  position: absolute;
+  display: none;
+  color: #fff !important;
+}
+/* selects all of the text within the input element and changes the color of the text */
+.cat label input + span{color: #000;}
+
+
+/* This will declare how a selected input will look giving generic properties */
+.cat input:checked + span {
+    color: #ffffff;
+}
+
+.action input:checked + span{background-color: #e67273;}
+.comedy input:checked + span{background-color: #1BB8F7;}
+
+@media(max-width:767px){
+	.text-12-mobile{
+	font-size:12px !important
+}
+}
+
+
+
+
 
 
