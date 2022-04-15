@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment.prod';
-import { Employee } from 'src/app/models/employee';
 import { Observable } from 'rxjs';
 import { APIResponse } from '../models/api-response';
 import { Incident } from 'src/app/models/employee/incident';
@@ -42,7 +41,7 @@ export class EmployeeapiService {
   
   getEmployeeInfo(empID : string)
   {
-    return this._http.get<APIResponse<Employee>>(environment.domain + "/api/Employee/getemployeebyId/" + empID);
+    return this._http.get<APIResponse<EmployeeModel>>(environment.domain + "/api/Employee/getemployeebyId/" + empID);
   } 
 
   deleteEmployee(empId : Number)
