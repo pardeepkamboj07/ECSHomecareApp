@@ -11,13 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
-import { TabsModule} from 'ngx-bootstrap/tabs';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
-import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
+
+import { EquateDatePipe, ChunkPipe } from './pipe/equate-date-pipe.pipe';
+
 import { LayoutComponent } from './layout/layout.component';
-import { LoaderComponent } from './loader/loader.component'; 
+import { LoaderComponent } from './loader/loader.component';
+
 import { SignInComponent } from './account/sign-in/sign-in.component';
 
 import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
@@ -62,9 +65,11 @@ import { ClientMedicationcsComponent } from './client/client-medicationcs/client
 import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
 import {ClientEmergencyInfoComponent} from './client/client-emergency-info/client-emergency-info.component';
  
+import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component'
+
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
     DashboardComponent,
     GenerateinvoiceComponent,
     GetinvoicesComponent,
@@ -73,16 +78,16 @@ import {ClientEmergencyInfoComponent} from './client/client-emergency-info/clien
     LayoutComponent,
     EmpIncidentsComponent,
     EmpAttendanceComponent,
-    EmpStatusComponent,    
+    EmpStatusComponent,
     ScheduleComponent,
     EmpAvailabilityComponent,
-    EmpAddressComponent,    
+    EmpAddressComponent,
     EmpComplianceComponent,
     EmpRateComponent,
-    EmpDeclinedCasesComponent,  
-    SystemMasterComponent, 
-    MasterinfoComponent, 
-    MasterTypeComponent, 
+    EmpDeclinedCasesComponent,
+    SystemMasterComponent,
+    MasterinfoComponent,
+    MasterTypeComponent,
     NewEmployeeComponent,
     LoaderComponent,
     NewClientComponent,
@@ -90,8 +95,8 @@ import {ClientEmergencyInfoComponent} from './client/client-emergency-info/clien
     ClientListComponent,
     EquateDatePipe,
     ChunkPipe,
-    MeetingDetailComponent,     
-    SignInComponent,        
+    MeetingDetailComponent,
+    SignInComponent,
     EmpInfoComponent,
     EmpDasboardComponent,
     EmpScheduleComponent,
@@ -100,12 +105,14 @@ import {ClientEmergencyInfoComponent} from './client/client-emergency-info/clien
     EmpDocumentComponent,
     ClientDashboardComponent,
     UserScheduleComponent,
-    GeneralClientComponent, 
-    ClientStatusComponent, 
+    GeneralClientComponent,
+    ClientStatusComponent,
     ClientMedicationcsComponent,
     TaskMasterComponent, 
-    ServiceTaskComponent, DeclinedEmpComponent, 
+    ServiceTaskComponent, 
+    DeclinedEmpComponent, 
     ClientEmergencyInfoComponent,
+    ClientContactlogListComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,7 +125,7 @@ import {ClientEmergencyInfoComponent} from './client/client-emergency-info/clien
     AppBootstrapModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),
-    BsDatepickerModule.forRoot(), 
+    BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot()
   ],
  
