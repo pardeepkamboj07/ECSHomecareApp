@@ -6,6 +6,8 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import { ComplianceObj } from 'src/app/models/employee/compliance-obj';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
 @Component({
   selector: 'app-emp-compliance',
   templateUrl: './emp-compliance.component.html',
@@ -19,13 +21,16 @@ export class EmpComplianceComponent implements OnInit {
   modalRef?: BsModalRef;
   model = new ComplianceObj(0, 0, -1,  '', '','', '','', '');
   EmplList = Array<ItemsList>(); 
-
+  currentUser:UserModel;
   complianceObjList: any;
   constructor(
     private comApi: CommonService,
     private route:ActivatedRoute,
+    private accountApi: AccountService,
     private modalService: BsModalService, private empApi: EmployeeapiService) {
     setTheme('bs3');
+    this.currentUser=this.accountApi.getCurrentUser();
+   
     this.comApi.getEmpList().subscribe((response) => {
       if(response.result)
       {
@@ -65,6 +70,8 @@ export class EmpComplianceComponent implements OnInit {
 
   saveCompliance() {
     debugger;
+    this.model.userId=Number(this.model.empId);
+    this.model.createdBy=this.currentUser.userId;
     this.model.empId=Number(this.model.empId);
     this.model.nurse=Number(this.model.nurse);
     const reqObj: ComplianceObj = this.model;

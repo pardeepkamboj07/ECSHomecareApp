@@ -6,7 +6,9 @@ import { ItemsList } from 'src/app/models/common';
 import { CommonService } from 'src/app/services/common.service';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{EmpRate,EmployeeRateModel} from 'src/app/models/employee/emp-rate'
-
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
+import { setTheme } from 'ngx-bootstrap/utils';
 @Component({
   selector: 'app-emp-rate',
   templateUrl: './emp-rate.component.html',
@@ -23,9 +25,21 @@ export class EmpRateComponent implements OnInit {
  EmpId:number;
  ClientId:number;
   model:EmployeeRateModel;
+
+  currentUser:UserModel;
+   
+
+
+
   constructor(private comApi: CommonService,
     private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
+    private accountApi: AccountService,
+    private modalService: BsModalService, 
+    private empApi: EmployeeapiService, 
+    private clientapi : ClientApiService) { 
+
+      setTheme('bs3');
+      this.currentUser=this.accountApi.getCurrentUser();
 
       this.comApi.getClientList().subscribe((response) => {
         if(response.result)
@@ -66,6 +80,11 @@ export class EmpRateComponent implements OnInit {
 
 onClickSubmit() {     
  debugger;
+
+ this.model.userId=Number(this.model.empId);
+
+ this.model.createdBy=this.currentUser.userId;
+
   this.model.hourly=Number(this.model.hourly);
   this.model.livein=Number(this.model.livein);
   this.model.visit=Number(this.model.visit);
@@ -89,8 +108,7 @@ onClickSubmit() {
    }); 
 }
 
-GetEmployeeRateLst() {
- 
+GetEmployeeRateLst() { 
   this.empApi.GetEmployeeRateLst(this.EmpId).subscribe((response) => {
     this.EmpRateObj = response.data;      
   });

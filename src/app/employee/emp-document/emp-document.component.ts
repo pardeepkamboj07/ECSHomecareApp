@@ -7,7 +7,10 @@ import { saveAs } from 'file-saver';
 import{DeleteItem} from 'src/app/models/employee/deleteFolder';
 
 import { FolderData } from 'src/app/models/employee/document';
-import{UploadFileFolder} from 'src/app/models/Employee/upload-file-folder';
+import{UploadFileFolder} from 'src/app/models/employee/upload-file-folder';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
+
 
 
 @Component({
@@ -18,15 +21,22 @@ import{UploadFileFolder} from 'src/app/models/Employee/upload-file-folder';
     './emp-document.component.scss']
 })
 export class EmpDocumentComponent implements OnInit {
+  
   public progress: number;
   public message: string;
-
+  empId:number;
+  FolderList :any;
+  currentUser:UserModel;
+  Deletemodel =new DeleteItem(0,0,0,0,"","");
+  model=new UploadFileFolder("","",0,"","","");
+  UserId:number;
 @Input() data:any;
 
-  Deletemodel =new DeleteItem(0,0,0,0,"","");
-  constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,private DocApi: DocumentService) { }
-  UserId:number;
-  FolderList :any;
+
+  constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,
+    private DocApi: DocumentService) { }
+
+ 
   ngOnInit(): void {
     this.UserId = Number(this.data.id);       
     this.GetFolderList(this.UserId);
@@ -39,14 +49,12 @@ export class EmpDocumentComponent implements OnInit {
     //   }
     // );
   }
-  model=new UploadFileFolder("","",0,"","","");
+  
+
   public uploadFile = (files:any) => {
     if (files.length === 0) {
       return;
     }
-  
-    
-  
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     for(let o of this.FolderList){
@@ -62,7 +70,9 @@ export class EmpDocumentComponent implements OnInit {
     this.model.title=this.model.title;
     this.model.search=this.model.search;
     this.model.description=this.model.description;
-    this.model.createdBy=1;
+    this.model.userId=Number(this.empId);
+
+    this.model.createdBy=this.currentUser.userId;
     formData.append('file', fileToUpload, fileToUpload.name);  
     formData.append('folderid',this.model.folderId.toString());
     formData.append('filename',fileToUpload.name);
@@ -78,8 +88,8 @@ export class EmpDocumentComponent implements OnInit {
       {
         // this.progress = Math.round(100 * event.loaded / event.total);
       }
-      
-    else if (event.type === HttpEventType.ResponseHeader) {
+      else if (event.type === HttpEventType.ResponseHeader) {
+
       this.message = 'Upload success.';
      this.cleanobj();
     } 
@@ -89,7 +99,7 @@ export class EmpDocumentComponent implements OnInit {
   }
 
   CreateFolder(foldername:string){
-     var data=new FolderData(this.UserId,foldername,1);
+     var data=new FolderData(this.UserId,foldername);
       this.DocApi.folderCreate(data).subscribe(Response=>{ 
            this.GetFolderList(this.UserId);
          

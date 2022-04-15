@@ -1,4 +1,13 @@
-export class SaveEmpDeclinedCase{
+
+	
+	import { BaseModel } from 'src/app/models/common';
+	
+	
+
+	
+	
+
+export class SaveEmpDeclinedCase extends BaseModel{
     repotedDate:string;
     clientId:number;
     casetypeId:number;
@@ -12,6 +21,9 @@ export class SaveEmpDeclinedCase{
     casetypeName:string;   
     constructor(_RepotedDate:string,_clientId:number,_Casetype:number,_DeclineReason:string,_AssignmentStart:string,_Note:string,
         _Day:number,_Hour:number,_ClientName:string,_casetype:string,empId:number){
+
+            super();
+
 this.repotedDate=_RepotedDate;
 this.clientId=_clientId;
 this.casetypeId=_Casetype;

@@ -5,6 +5,9 @@ import { EmployeeModel } from 'src/app/models/employee/employee-model';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
+
 @Component({
   selector: 'app-new-employee',
   templateUrl: './new-employee.component.html',
@@ -13,7 +16,7 @@ import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
     './new-employee.component.scss']
 })
 export class NewEmployeeComponent implements OnInit {
-
+  currentUser:UserModel;
   IsLoad: boolean = false;
   model = new EmployeeModel();
   statusData: ItemsList[] = [];
@@ -25,9 +28,11 @@ export class NewEmployeeComponent implements OnInit {
   countryData: SelectList[] = [];
   stateData: SelectList[] = [];
 
-  constructor(private router:Router, private empApi : EmployeeapiService,
+  constructor(private router:Router,  
+    private accountApi: AccountService,
+    private empApi : EmployeeapiService,
     private comApi: CommonService) {
-    
+      this.currentUser=this.accountApi.getCurrentUser();
       this.BindMaster();
 
       this. model.isActive=1;
@@ -79,7 +84,14 @@ export class NewEmployeeComponent implements OnInit {
   saveChanges() {
 
     debugger;
+
+
+
     this.IsLoad = true;
+
+    
+    this.model.userId=Number(this.model.empId);
+    this.model.createdBy=this.currentUser.userId;
     this.model.isActive=Number(this.model.isActive);
     this.model.empType=Number(this.model.empType);
     this.model.enthnicity=Number(this.model.enthnicity);

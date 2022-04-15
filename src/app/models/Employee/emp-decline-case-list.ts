@@ -1,4 +1,6 @@
-export class EmpDeclineCaseList{
+import { BaseModel } from 'src/app/models/common';
+
+export class EmpDeclineCaseList extends BaseModel{
     repotedDate:string;  
     declineReason:string;
     assignmentStart:string;   

@@ -8,6 +8,10 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { setTheme } from 'ngx-bootstrap/utils';
 
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
+
+
 @Component({
   selector: 'app-emp-info',
   templateUrl: './emp-info.component.html',
@@ -17,6 +21,9 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class EmpInfoComponent implements OnInit {
   modalRef?: BsModalRef;
+  currentUser:UserModel;
+   
+
   UserData:any;
   config = {
     animated: true,
@@ -33,10 +40,14 @@ export class EmpInfoComponent implements OnInit {
   constructor(private router:Router, 
     private route:ActivatedRoute,
     public datepipe: DatePipe,
-    private empapi : EmployeeapiService,    
+    private empapi : EmployeeapiService,       
+    private accountApi: AccountService,    
     private modalService: BsModalService   
     ) 
     {
+      this.currentUser=this.accountApi.getCurrentUser();
+   
+   
       setTheme('bs3');
     }
 

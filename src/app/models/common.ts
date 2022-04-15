@@ -52,4 +52,11 @@ export enum MasterType {
   }
 
 
+  export enum AddressType {
+    Permanent = 1,
+    Communication,
+
+  }
+
+
  
