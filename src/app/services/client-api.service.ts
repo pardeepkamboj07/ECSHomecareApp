@@ -7,6 +7,8 @@ import { ClientStatusModel,ClientStatusLst } from 'src/app/models/client/status-
 import { Medicationcs } from '../models/client/medicationcs-model';
 import { ServiceTaskView,ServiceTaskModel }  from 'src/app/models/client/service-task-model';
 import { EmployeeDecline,EmployeeDeclineView }  from 'src/app/models/client/employee-decline';
+import {ClientEmrgencyInfo} from 'src/app/models/client/EmergencyInfo';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -165,6 +167,22 @@ return this._http.post(environment.domain + "/api/Client/ClientMedicationcs", _o
   } 
 
 
+
+  SaveEmergencyInfo(_obj : ClientStatusModel){ 
+    var headers_object = new HttpHeaders();
+        headers_object.append('Content-Type', 'application/json');
+        var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+        const httpOptions = {
+          headers: headers_object
+        }; 
+    return this._http.post(environment.domain + "/api/Client/addStatus", _obj,httpOptions);   
+              
+  }
+
+  getEmergencyInfoList(UserId:number)
+  {
+    return this._http.get<APIResponse<ClientEmrgencyInfo>>(environment.domain + "/api/Client/getClientEmergencyInfo"+"/"+UserId);
+  } 
 
 
 

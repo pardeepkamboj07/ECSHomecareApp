@@ -63,7 +63,8 @@ import { ClientStatusComponent } from 'src/app/client/client-status/client-statu
 import { TaskMasterComponent } from './company/task-master/task-master.component';
 import { ServiceTaskComponent } from './client/service-task/service-task.component';
 import { ClientMedicationcsComponent } from './client/client-medicationcs/client-medicationcs.component';
-import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component'
+import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
+import {ClientEmergencyInfoComponent} from './client/client-emergency-info/client-emergency-info.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     ClientMedicationcsComponent,
     TaskMasterComponent, 
     ServiceTaskComponent, DeclinedEmpComponent, 
+    ClientEmergencyInfoComponent,
   ],
   imports: [
     BrowserModule,
