@@ -11,17 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
-
 import { TabsModule} from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
-
 import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
-
 import { LayoutComponent } from './layout/layout.component';
 import { LoaderComponent } from './loader/loader.component'; 
-
 import { SignInComponent } from './account/sign-in/sign-in.component';
 
 import { SystemMasterComponent } from './admin/master/system-master/system-master.component';
@@ -63,9 +59,9 @@ import { ClientStatusComponent } from 'src/app/client/client-status/client-statu
 import { TaskMasterComponent } from './company/task-master/task-master.component';
 import { ServiceTaskComponent } from './client/service-task/service-task.component';
 import { ClientMedicationcsComponent } from './client/client-medicationcs/client-medicationcs.component';
-import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component'
-
-
+import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
+import {ClientEmergencyInfoComponent} from './client/client-emergency-info/client-emergency-info.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,  
@@ -109,6 +105,7 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     ClientMedicationcsComponent,
     TaskMasterComponent, 
     ServiceTaskComponent, DeclinedEmpComponent, 
+    ClientEmergencyInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,6 +121,7 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     BsDatepickerModule.forRoot(), 
     TimepickerModule.forRoot()
   ],
+ 
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuardService, DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
