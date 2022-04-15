@@ -1,4 +1,6 @@
-export class Empstatus {
+import { BaseModel } from 'src/app/models/common';
+
+export class Empstatus extends BaseModel {
 
     reason:string;
     resume:boolean;
@@ -8,15 +10,16 @@ export class Empstatus {
     note:string;
     scheduling:number;
     officeUserId:number;
-    employeeId:Number;
+    employeeId:number;
     typeStatusId:number;
     text:boolean;
     screen:boolean;
     email:boolean;
      constructor(_reason:string, _resume:boolean,_rehire:boolean,_effectiveDate:string,_returnDate:string,_note:string,
-         _scheduling:number,_officeUserId:number,_employeeId:Number,_typeStatusId:number,_text:boolean,_screen:boolean,
+         _scheduling:number,_officeUserId:number,_employeeId:number,_typeStatusId:number,_text:boolean,_screen:boolean,
          _email:boolean,)
      {
+         super();
          this.reason=_reason;
          this.resume=_resume;
          this.rehire=_rehire;

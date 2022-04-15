@@ -8,6 +8,9 @@ import { Router,ActivatedRoute, Params } from '@angular/router';
 import{Empstatus} from 'src/app/models/employee/empstatus';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType} from 'src/app/models/common';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
+
 @Component({
   selector: 'app-emp-status',
   templateUrl: './emp-status.component.html',
@@ -19,21 +22,23 @@ export class EmpStatusComponent implements OnInit {
   OfficeUser:ItemsList[] = [];
   EmplList = Array<ItemsList>(); 
   TypeStatusList: ItemsList[] = [];
-  
+  currentUser:UserModel;
   
   ScheduleLst :any;
   modalRef?: BsModalRef;
-   model = new Empstatus('',false,false,'','','',0,0,0,0,false,false,false)
+   model = new Empstatus('',false,false,'','','',0,0,0,0,false,false,false);
    EmpStatusObjList: any;
-   EmpId:number;
+
   constructor(
     private comApi: CommonService,
     private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) {
+    private modalService: BsModalService,
+    private accountApi: AccountService,
+    private empApi: EmployeeapiService, private clientapi : ClientApiService) {
     setTheme('bs3');
-    // this.maxDate.setDate(this.maxDate.getDate() + 7);
-    // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
 
+    this.currentUser=this.accountApi.getCurrentUser();
+   
     this.comApi.getEmpList().subscribe((response) => {
       if(response.result)
       {
@@ -55,9 +60,9 @@ export class EmpStatusComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params : Params) =>{   
-        this.EmpId = Number(params["empId"]);   
+     this.model.employeeId = Number(params["empId"]);   
      debugger;
-         this.getEmployeeStatusLst(this.EmpId);
+         this.getEmployeeStatusLst(this.model.employeeId);
          
       });
    
@@ -77,6 +82,10 @@ export class EmpStatusComponent implements OnInit {
   }
 
   onClickSubmit() {     
+
+    
+    this.model.userId=Number(this.model.employeeId);    
+    this.model.createdBy=this.currentUser.userId;
     this.model.officeUserId=Number(this.model.officeUserId);
     this.model.scheduling=Number(this.model.scheduling);
     this.model.employeeId=Number(this.model.employeeId);
@@ -89,13 +98,14 @@ export class EmpStatusComponent implements OnInit {
     this.empApi.SaveEmployeeStatus(this.model).subscribe((response) => {
       // this.modalRef?.hide();
       this.decline();   
-      this.getEmployeeStatusLst(this.EmpId);
+      this.getEmployeeStatusLst(this.model.employeeId);
       
      
     }); 
  }
 
  getEmployeeStatusLst(empid:number) {
+   debugger;
   this.empApi.getEmpStatusList(empid).subscribe((response) => {
     this.EmpStatusObjList = response.data;      
   });

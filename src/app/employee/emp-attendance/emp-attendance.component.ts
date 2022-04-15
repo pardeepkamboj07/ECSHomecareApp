@@ -7,6 +7,8 @@ import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { Attendance } from '../../models/employee/attendance';
 import { CommonService } from 'src/app/services/common.service';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
 @Component({
   selector: 'app-emp-attendance',
   templateUrl: './emp-attendance.component.html',
@@ -24,7 +26,7 @@ export class EmpAttendanceComponent implements OnInit {
     class: "my-modal"
   };
   model = new Attendance(0, 0, '','',  '', '');
-
+  currentUser:UserModel;
   ClientList = Array<ItemsList>();
   attendanceObjList: any;
   // bsInlineValue = new Date();
@@ -33,10 +35,11 @@ export class EmpAttendanceComponent implements OnInit {
   constructor(
     private comApi: CommonService,
     private route:ActivatedRoute,
-    private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) {
+    private modalService: BsModalService, private empApi: EmployeeapiService,
+    private accountApi: AccountService,
+    private clientapi : ClientApiService) {
     setTheme('bs3');
-    // this.maxDate.setDate(this.maxDate.getDate() + 7);
-    // this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
+    this.currentUser=this.accountApi.getCurrentUser();
 
     this.comApi.getClientList().subscribe((response) => {
       if(response.result)
@@ -74,7 +77,13 @@ debugger;
   saveAttendance() {
     // debugger;
     //this.model.clientId=Number(this.model.clientId);
+
+      
+    this.model.userId=Number(this.model.empId);
+    this.model.createdBy=this.currentUser.userId;
     const reqObj: Attendance = this.model;
+
+
     console.log('Search', reqObj);
     this.empApi.saveAttendance(reqObj).subscribe((response) => {
       this.decline();

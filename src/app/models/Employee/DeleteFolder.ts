@@ -1,4 +1,5 @@
-export class DeleteItem
+
+export class DeleteItem 
 {
   public  empId :number;
    public folderId :number;        

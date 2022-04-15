@@ -1,9 +1,10 @@
 export class AccountModel {
 }
+import { BaseModel } from 'src/app/models/common';	
 
 
-export class AccountUserModel {
-    userId: number;
+export class AccountUserModel extends BaseModel {
+   
     userKey: string;
     userType: number;
     userName: string;
@@ -22,7 +23,7 @@ export class AccountUserModel {
     maritalStatus: number;
     ethnicity: number;
     supervisorId: number;
-    isActive: number;
+   
     
 
 }

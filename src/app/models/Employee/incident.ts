@@ -1,4 +1,6 @@
-export class Incident {
+import { BaseModel } from 'src/app/models/common';
+
+export class Incident  extends BaseModel {
     public incidentId: number;
     public empId: number;
     public clientId: number;
@@ -6,6 +8,7 @@ export class Incident {
     public incidentDetail: string;
     constructor(_incidentId : number, _empId : number, _clientId : number, _incidentDate : string, _incidentDetail : string)
     {
+        super();
         this.incidentId = _incidentId;
         this.empId = _empId;
         this.clientId = _clientId;

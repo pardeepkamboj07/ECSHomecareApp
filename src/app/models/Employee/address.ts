@@ -1,4 +1,8 @@
-export class AddressObj {
+import { BaseModel } from 'src/app/models/common';
+
+
+export class AddressObj extends BaseModel
+{
     public addressId: number;
     public empId: number;
     public addressType: number;
@@ -12,6 +16,7 @@ export class AddressObj {
 
     constructor(_addressId : number, _empId : number, _addressType : number, _owner : string, _flatNo : string, _address : string, _country : string, _state : string, _city : string,_zipCode: string)
     {
+        super()
         this.addressId = _addressId;
         this.empId = _empId;
         this.addressType = _addressType;

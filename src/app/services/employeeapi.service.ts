@@ -111,7 +111,7 @@ export class EmployeeapiService {
   }
 
   getEmpStatusList(empId:number)
-  {
+  {   debugger;
     return this._http.get<APIResponse<Empstatus>>(environment.domain + "/api/Employee/getEmpStatusList"+"/"+empId);
   } 
   

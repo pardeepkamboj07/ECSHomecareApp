@@ -1,4 +1,6 @@
-export class ComplianceObj {
+import { BaseModel } from 'src/app/models/common';
+
+export class ComplianceObj extends BaseModel {
 
 
     public complianceId: number;
@@ -16,6 +18,7 @@ export class ComplianceObj {
     constructor(_complianceId : number, _empId : number,nurse : number, _dueDate : string, _completedOn : string, category : string, 
         code : string, result : string,  notes : string)
     {
+        super();
         this.complianceId = _complianceId;
         this.empId = _empId;
         this.dueDate = _dueDate;

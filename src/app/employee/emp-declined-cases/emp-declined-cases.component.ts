@@ -6,6 +6,8 @@ import { ItemsList } from 'src/app/models/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{SaveEmpDeclinedCase} from 'src/app/models/employee/save-emp-declined-case';
 import { CommonService } from 'src/app/services/common.service';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
 @Component({
   selector: 'app-emp-declined-cases',
   templateUrl: './emp-declined-cases.component.html',
@@ -18,15 +20,19 @@ export class EmpDeclinedCasesComponent implements OnInit {
   ClientList = Array<ItemsList>(); 
   EmpCaseObj:any;  
   CaseTypeobj:any;
- EmpId:number;
  ClientId:number;
+    
+ currentUser:UserModel;
  model=new SaveEmpDeclinedCase("",0,0,"","","",0,0,"","",0);
   constructor(
     private comApi: CommonService,
     private route:ActivatedRoute,
+    private accountApi: AccountService,
     private modalService: BsModalService, private empApi: EmployeeapiService, private clientapi : ClientApiService) { 
 
-
+ 
+      this.currentUser=this.accountApi.getCurrentUser();
+   
 
       this.comApi.getClientList().subscribe((response) => {
         if(response.result)
@@ -44,9 +50,9 @@ export class EmpDeclinedCasesComponent implements OnInit {
     debugger
     this.route.params.subscribe(
       (params : Params) =>{
-         this.EmpId = Number(params["empId"]);
+        this.model.empId= Number(params["empId"]);
 
-         this.GetCaseList(this.EmpId);
+         this.GetCaseList(this.model.empId);
 
       }
     );
@@ -67,6 +73,10 @@ export class EmpDeclinedCasesComponent implements OnInit {
  
 
 onClickSubmit() { 
+
+  this.model.userId=Number(this.model.empId);
+
+  this.model.createdBy=this.currentUser.userId;
  
    this.model.assignmentStart=this.model.assignmentStart;
    this.model.casetypeId=Number(this.model.casetypeId);
@@ -76,11 +86,11 @@ onClickSubmit() {
    this.model.repotedDate=this.model.repotedDate;
    this.model.declineReason=this.model.declineReason;  
    this.model.note=this.model.note; 
-   this.model.empId=this.EmpId; 
+   this.model.empId=Number(this.model.empId); 
 
    this.empApi.SaveEmpDeclinedCase(this.model).subscribe((response) => {
 
-    this.GetCaseList(this.EmpId);  
+    this.GetCaseList( this.model.empId);  
   this.decline();
 
  }); 
