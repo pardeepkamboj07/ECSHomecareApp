@@ -9,7 +9,8 @@ export class LoginModel {
 export class UserModel {
     userId: number;
     loginInId: number;
-    userName: string;
+    userTypeId:number;
+    userName: string;  
     firstName: string;
     lastName: string;
     middleName: string;
