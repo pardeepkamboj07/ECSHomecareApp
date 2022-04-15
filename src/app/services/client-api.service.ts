@@ -5,7 +5,7 @@ import { APIResponse } from '../models/api-response';
 import { ClientModel } from 'src/app/models/client/client-model';
 import { ClientStatusModel, ClientStatusLst } from 'src/app/models/client/status-model';
 import { Medicationcs } from '../models/client/medicationcs-model';
-import {ClientEmrgencyInfo} from 'src/app/models/client/EmergencyInfo';
+import { ClientEmrgencyInfo } from 'src/app/models/client/EmergencyInfo';
 import { ServiceTaskView, ServiceTaskModel } from 'src/app/models/client/service-task-model';
 import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/employee-decline';
 import { ClientContactLog } from '../models/client/client-contactlog-model';
