@@ -12,15 +12,15 @@ import { AppBootstrapModule } from "../app/app-bootstrap/app-bootstrap.module";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
 
-import { TabsModule} from 'ngx-bootstrap/tabs';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
-import { EquateDatePipe,ChunkPipe } from './pipe/equate-date-pipe.pipe';
+import { EquateDatePipe, ChunkPipe } from './pipe/equate-date-pipe.pipe';
 
 import { LayoutComponent } from './layout/layout.component';
-import { LoaderComponent } from './loader/loader.component'; 
+import { LoaderComponent } from './loader/loader.component';
 
 import { SignInComponent } from './account/sign-in/sign-in.component';
 
@@ -63,12 +63,12 @@ import { ClientStatusComponent } from 'src/app/client/client-status/client-statu
 import { TaskMasterComponent } from './company/task-master/task-master.component';
 import { ServiceTaskComponent } from './client/service-task/service-task.component';
 import { ClientMedicationcsComponent } from './client/client-medicationcs/client-medicationcs.component';
-import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component'
-
+import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
+import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component'
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
     DashboardComponent,
     GenerateinvoiceComponent,
     GetinvoicesComponent,
@@ -77,16 +77,16 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     LayoutComponent,
     EmpIncidentsComponent,
     EmpAttendanceComponent,
-    EmpStatusComponent,    
+    EmpStatusComponent,
     ScheduleComponent,
     EmpAvailabilityComponent,
-    EmpAddressComponent,    
+    EmpAddressComponent,
     EmpComplianceComponent,
     EmpRateComponent,
-    EmpDeclinedCasesComponent,  
-    SystemMasterComponent, 
-    MasterinfoComponent, 
-    MasterTypeComponent, 
+    EmpDeclinedCasesComponent,
+    SystemMasterComponent,
+    MasterinfoComponent,
+    MasterTypeComponent,
     NewEmployeeComponent,
     LoaderComponent,
     NewClientComponent,
@@ -94,8 +94,8 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     ClientListComponent,
     EquateDatePipe,
     ChunkPipe,
-    MeetingDetailComponent,     
-    SignInComponent,        
+    MeetingDetailComponent,
+    SignInComponent,
     EmpInfoComponent,
     EmpDasboardComponent,
     EmpScheduleComponent,
@@ -104,11 +104,11 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     EmpDocumentComponent,
     ClientDashboardComponent,
     UserScheduleComponent,
-    GeneralClientComponent, 
-    ClientStatusComponent, 
+    GeneralClientComponent,
+    ClientStatusComponent,
     ClientMedicationcsComponent,
-    TaskMasterComponent, 
-    ServiceTaskComponent, DeclinedEmpComponent, 
+    TaskMasterComponent,
+    ServiceTaskComponent, DeclinedEmpComponent,  ClientContactlogListComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,10 +121,10 @@ import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.compone
     AppBootstrapModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),
-    BsDatepickerModule.forRoot(), 
+    BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot()
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuardService, DatePipe,BsDatepickerConfig],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, AuthGuardService, DatePipe, BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

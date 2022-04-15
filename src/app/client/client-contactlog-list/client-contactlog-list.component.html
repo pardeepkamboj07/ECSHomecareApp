@@ -1,0 +1,185 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Contact Log</strong> </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(templatelog)" class="btn btn-md btn-default"><i
+                        class="fa fa-plus-square text-orange"></i> Add Contact Log</a>
+            </div>
+            <ng-template #templatelog>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left text-orange">Add Contact Log</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close"
+                        (click)="modalRef?.hide()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="frmclientcontactlog" #f="ngForm">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label class="control-label">Reason</label>
+                                    <input type="text" #reasonText="ngModel" id="txtreason" name="reason"
+                                        [(ngModel)]="model.reason" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Call Date/Time</label>
+                                    <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                        <input type="text" #callDateTime="ngModel" id="txtcallDateTime"
+                                            name="callDateTime" [(ngModel)]="model.callDateTime" class="form-control"
+                                            bsDatepicker [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY, hh:mm a' }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Schedule Date</label>
+                                    <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                        <input type="text" #scheduleDate="ngModel" id="txtscheduleDate"
+                                            name="scheduleDate" [(ngModel)]="model.scheduleDate" class="form-control"
+                                            bsDatepicker>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Issue</label>
+                                    <input type="text" #issueText="ngModel" id="txtissue" name="issue"
+                                        [(ngModel)]="model.issue" class="form-control">
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Employee</label>
+                                    <select class="form-control" #ClientId="ngModel" id="ddlClientId" name="ClientId"
+                                        [(ngModel)]="model.empId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let obj of empList" [value]="obj.itemId">
+                                            {{ obj.itemName }}
+                                        </option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Follow Up Required </label>
+                                    <div>
+                                        <input type="checkbox" #isFollowUp="ngModel" id="txtisFollowUp"
+                                            name="isFollowUp" [(ngModel)]="model.isFollowUp">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Schedule Updated </label>
+                                    <div>
+                                        <input type="checkbox" #isSchedule="ngModel" id="txtisSchedule"
+                                            name="isSchedule" [(ngModel)]="model.isSchedule">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Follow-up Date</label>
+                                    <div class="input-icon right"><i class="fa fa-calendar"></i>
+                                        <input type="text" #followUpDate="ngModel" id="txtfollowUpDate"
+                                            name="followUpDate" [(ngModel)]="model.followUpDate" class="form-control"
+                                            bsDatepicker>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Office User</label>
+                                    <select class="form-control" #officeUserId="ngModel" id="ddlClientId"
+                                        name="officeUserId" [(ngModel)]="model.officeUserId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let usr of empList" [value]="usr.itemId">
+                                            {{ usr.itemName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Notes</label>
+                                    <textarea rows="2" #notes="ngModel" id="txtnotes" name="notes"
+                                        [(ngModel)]="model.notes" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Action Taken</label>
+
+                                    <textarea rows="2" #actionTaken="ngModel" id="txtactionTaken" name="actionTaken"
+                                        [(ngModel)]="model.actionTaken" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <button type="button" (click)="saveContactLog();" class="btn btn-md btn-dark">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Reason </th>
+                                <th>Call Date/Time</th>
+                                <th>Schedue Date</th>
+                                <th>Issue</th>
+                                <th>Employee</th>
+                                <th>Folloe-up Date</th>
+                                <th>Action Taken </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ClientContactLogObjList;">                               
+                                <td>{{ item.reason }}</td>
+                                <td>{{ item.callDateTime }}</td>
+                                <td>{{ item.scheduleDate }}</td>
+                                <td>{{ item.issue }}</td>
+                                <td>{{ item.empId }}</td>
+                                <td>{{ item.followUpDate }}</td>
+                                <td>{{ item.actionTaken }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
