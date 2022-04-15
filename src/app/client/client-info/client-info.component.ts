@@ -31,12 +31,16 @@ export class ClientInfoComponent implements OnInit {
         this.staticTabs.tabs[tabId].active = true;
       }
     }
-
+  UserData:any;
   ngOnInit(): void {
     this.route.params
     .subscribe(
       (params : Params) =>{
         this.clientId = params["clientId"];
+        this.UserData={
+          id:this.clientId,
+          type:'Client type'
+        };
       }
     );
    

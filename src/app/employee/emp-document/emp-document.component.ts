@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import{DocumentService} from 'src/app/services/document.service';
-
 import { ActivatedRoute, Params } from '@angular/router';
 import { saveAs } from 'file-saver';
 import{DeleteItem} from 'src/app/models/employee/deleteFolder';
@@ -11,6 +10,8 @@ import { FolderData } from 'src/app/models/employee/document';
 import{UploadFileFolder} from 'src/app/models/employee/upload-file-folder';
 import { AccountService } from 'src/app/services/account.service';
 import { UserModel } from 'src/app/models/account/login-model';
+
+
 
 @Component({
   selector: 'app-emp-document',
@@ -28,30 +29,25 @@ export class EmpDocumentComponent implements OnInit {
   currentUser:UserModel;
   Deletemodel =new DeleteItem(0,0,0,0,"","");
   model=new UploadFileFolder("","",0,"","","");
-
-  @Output() public onUploadFinished = new EventEmitter();
-
-  constructor(
-    private route:ActivatedRoute,
-    private accountApi: AccountService,
-    private http: HttpClient,
-    private empApi: EmployeeapiService,
-    private DocApi: DocumentService) {
-      this.currentUser=this.accountApi.getCurrentUser();
-
-     }
+  UserId:number;
+@Input() data:any;
 
 
+  constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,
+    private DocApi: DocumentService) { }
 
  
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params : Params) =>{
-         this.empId = Number(params["empId"]);       
-         this.GetFolderList(this.empId);
+    this.UserId = Number(this.data.id);       
+    this.GetFolderList(this.UserId);
+   
+    // this.route.params.subscribe(
+    //   (params : Params) =>{
+       
+        
 
-      }
-    );
+    //   }
+    // );
   }
   
 
@@ -103,16 +99,16 @@ export class EmpDocumentComponent implements OnInit {
   }
 
   CreateFolder(foldername:string){
-     var data=new FolderData(this.empId,foldername);
+     var data=new FolderData(this.UserId,foldername);
       this.DocApi.folderCreate(data).subscribe(Response=>{ 
-           this.GetFolderList(this.empId);
+           this.GetFolderList(this.UserId);
          
       });
   }
 
 
-  GetFolderList(empid:number){
-    this.DocApi.GetFolderList(empid).subscribe(Response=>{     
+  GetFolderList(UserId:number){
+    this.DocApi.GetFolderList(UserId).subscribe(Response=>{     
      this.FolderList=Response.data;
   });
 }
@@ -138,11 +134,11 @@ DeleteFolder(obj:any){
   this.Deletemodel.documentId=0;
   this.Deletemodel.folderId=Number(obj.folderId);
   this.Deletemodel.folderName=obj.folderName;
-  this.Deletemodel.empId=this.empId;
+  this.Deletemodel.empId=this.UserId;
   this.Deletemodel.requestType=1;
   
   this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
-    this.GetFolderList(this.empId);
+    this.GetFolderList(this.UserId);
   });
 }
 
@@ -150,14 +146,17 @@ DeleteFile(obj:any,foldername:string,folderid:number){
   this.Deletemodel.documentId=Number(obj.documentId);
   this.Deletemodel.folderId=0;
   this.Deletemodel.folderName=obj.foldername;
-  this.Deletemodel.empId=this.empId;
+  this.Deletemodel.empId=this.UserId;
   this.Deletemodel.requestType=2;
   this.Deletemodel.fileName=obj.fileName;
   this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
-    this.GetFolderList(this.empId);
+    this.GetFolderList(this.UserId);
   });
 }
 
+openfile(url:string){
+  window.open()
+}
 
 
 }
