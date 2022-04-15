@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Emergency Info</strong> </h4>      
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <!-- <a href="javascript:void(0)" (click)="openModal(template)" class="btn btn-md btn-default"><i class="fa fa-plus-square text-orange"></i> Add Status</a> -->
+            </div>
+        </div>
+        <div class="row mbm">
+        <div class="col-sm-6" *ngFor="let item of EmergencyInfoLst">
+         
+             <div class="table-responsive">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                              
+                                <tr>
+                                    <th>{{item.type}} </th>  
+                                   
+                                    <th>
+                                    <button type="button" (click)="edit(item)">Edit</button></th>                                   
+                                </tr>
+                                <!-- <tr>
+                                  <th>Emergency Contact</th>  
+                                  <th><i class="fa fa-trash-o text-red medium-txt pts"></i></th>                                   
+                              </tr> -->
+                                
+                            </thead>
+                           <tbody>
+                               
+                                    <tr>
+                                    <td>Name</td>
+                                    <td>                                   
+                                      <strong id="item.name"  *ngif="item.edit" >
+                                        {{ item.name }}</strong>                                 
+                                   
+                                     <span *ngif="!item.edit">
+                                      <input type="text" class="mrm" #name="ngModel" id="txtText"name="name"
+                                      [(ngModel)]="item.name"/>   
+                                     </span>
+                                                                            
+                                     
+                                   
+                                     
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td>Relationship</td>
+                                      <td><strong id="item.relationship" *ngif="item.edit">{{ item.relationship }}</strong>
+                                        <span *ngif="!item.edit">
+                                          <input type="text" class="mrm" #relationship="ngModel" id="txtText"name="relationship"
+                                          [(ngModel)]="item.relationship"/>                                         
+                                        </span></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Contact Phone</td>
+                                        <td><strong id="item.phone" *ngif="item.edit">{{ item.phone }}</strong>
+                                          <span *ngif="!item.edit">
+                                            <input type="text" class="mrm" #phone="ngModel" id="txtText"name="phone"
+                                            [(ngModel)]="item.phone"/>                                         
+                                          </span></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Contact Email</td>
+                                          <td><strong id="item.email" *ngif="item.edit">{{ item.email }}</strong>
+                                            <span *ngif="!item.edit">
+                                              <input type="text" class="mrm" #email="ngModel" id="txtText"name="email"
+                                              [(ngModel)]="item.email"/>                                         
+                                            </span></td>
+                                          </tr> 
+                               
+
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+          
+               
+        </div>
+        
+    </div>
+  </div>
+    </div>
+  
+
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Physician</th> 
+                            <th></th> 
+                        </tr>
+                        <tr>
+                            <th>Emergency Name</th> 
+                            <th></th> 
+                        </tr>
+                        <tr>
+                            <th>Relationship</th> 
+                            <th></th> 
+                        </tr>
+                        <tr>
+                            <th>Emergency Phone</th> 
+                            <th></th> 
+                        </tr>
+                        <tr>
+                            <th>Emergency Email</th>
+                            <th></th>  
+                        </tr>
+                        
+                    </thead>
+                  
+                </table>
+        </div>
+    </div>
+       
+    </div>
+  </div>
+  

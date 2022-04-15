@@ -33,6 +33,8 @@
    <li><a href="javascript:void(0)" (click)="selectTab(5)"  class="dropdown-toggle">Service Task</a></li>
    <li><a href="javascript:void(0)" (click)="selectTab(6)"  class="dropdown-toggle">Medicationcs</a></li>   
    <li><a href="javascript:void(0)" (click)="selectTab(7)"  class="dropdown-toggle">Declined Employees</a></li>
+   <li><a href="javascript:void(0)" (click)="selectTab(8)"  class="dropdown-toggle">Emergency Info</a></li>
+   <li><a href="javascript:void(0)" (click)="selectTab(8)"  class="dropdown-toggle">EMR DOCUMENTS/FILES</a></li>
  </ul>
 </div>
                </li>
@@ -79,8 +81,12 @@
                         <app-declined-emp></app-declined-emp>
                           
                           </tab>
-
-                      
+                          <tab heading="Emergency Info">                
+                            <app-client-emergency-info></app-client-emergency-info>                              
+                              </tab>
+                              <tab heading="EMR DOCUMENTS/FILES">                
+                                <app-emp-document [data]="this.UserData"></app-emp-document>                              
+                                  </tab>
         </tabset>
          
         </div>

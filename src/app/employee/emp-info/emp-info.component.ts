@@ -17,6 +17,7 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class EmpInfoComponent implements OnInit {
   modalRef?: BsModalRef;
+  UserData:any;
   config = {
     animated: true,
     keyboard: true,
@@ -57,6 +58,10 @@ export class EmpInfoComponent implements OnInit {
     .subscribe(
       (params : Params) =>{
         this.empId = params["empId"];
+        this.UserData={
+          id:this.empId,
+          type:'Emp Type'
+        };
       }
     );
     this.empInfo = new Employee();
