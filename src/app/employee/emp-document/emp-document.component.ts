@@ -76,7 +76,6 @@ export class EmpDocumentComponent implements OnInit {
       {
         // this.progress = Math.round(100 * event.loaded / event.total);
       }
-      
     else if (event.type === HttpEventType.ResponseHeader) {
       this.message = 'Upload success.';
      this.cleanobj();
