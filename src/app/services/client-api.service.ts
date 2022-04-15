@@ -167,12 +167,12 @@ export class ClientApiService {
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/addClientContactLog", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/addClientContactLog", _obj, httpOptions);
  
   }
 
   getClientContactLogRecord(clientId: number) {
-    return this._http.get<APIResponse<Medicationcs>>("https://localhost:44359/api/Client/GetClientContactLogs" + "/" + clientId);
+    return this._http.get<APIResponse<Medicationcs>>(environment.domain +"/api/Client/GetClientContactLogs" + "/" + clientId);
   }
 
 
