@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild,TemplateRef  } from '@angular/core';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service'; 
-import { Employee } from 'src/app/models/employee';
+import { EmployeeModel } from 'src/app/models/employee/employee-model';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
@@ -26,13 +26,8 @@ export class EmpInfoComponent implements OnInit {
   };
   empObj :any;
   empId : string = "-1";
-  empInfo : Employee;
-  Etype : string = "";
-  EmpName : string = "";
-  EAddress : string = "";
-  ECellPhone : string = "";
-  EEmail : string = "";
-  empStatus: string;
+  empInfo : EmployeeModel;
+
   currentDate  = new Date();
   constructor(private router:Router, 
     private route:ActivatedRoute,
@@ -59,7 +54,7 @@ export class EmpInfoComponent implements OnInit {
         this.empId = params["empId"];
       }
     );
-    this.empInfo = new Employee();
+    this.empInfo = new EmployeeModel();
     this.GetEmployeeInfo(this.empId);
   }
 
@@ -68,14 +63,11 @@ export class EmpInfoComponent implements OnInit {
   {
     this.empapi.getEmployeeInfo(empId).subscribe(response => {
           this.empInfo = response.data;
-          console.log(this.empInfo);
-          this.Etype = this.empInfo.types;
-          this.EmpName = this.getName(this.empInfo);
-          this.empStatus = this.empInfo.status;
+        
         }); 
   }
 
-  getName(empInfo : Employee) : string
+  getName(empInfo : EmployeeModel) : string
   {
     if(empInfo.lastName.length > 1)
     {
