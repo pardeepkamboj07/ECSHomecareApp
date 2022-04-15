@@ -21,8 +21,7 @@ import { UserModel } from 'src/app/models/account/login-model';
 })
 export class EmpInfoComponent implements OnInit {
   modalRef?: BsModalRef;
-  currentUser:UserModel;
-   
+  currentUser:UserModel;  
 
   UserData:any;
   config = {

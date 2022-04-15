@@ -6,6 +6,8 @@ import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import { CommonService } from 'src/app/services/common.service';
 import { ItemsList,MasterType ,SelectList} from 'src/app/models/common';
 import { EmployeeList } from 'src/app/models/employee/employee-model';
+import { AccountService } from 'src/app/services/account.service';
+import { UserModel } from 'src/app/models/account/login-model';
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',
@@ -16,6 +18,7 @@ import { EmployeeList } from 'src/app/models/employee/employee-model';
 })
 export class EmpListComponent implements OnInit {
   IsLoad: boolean = false;
+  currentUser:UserModel;
   statusData: ItemsList[] = [];
   empTypeList: ItemsList[] = [];
   searchValue = "";
@@ -24,18 +27,26 @@ export class EmpListComponent implements OnInit {
   currentList: EmployeeList[];
   public currentAlpha:string="All";
 
-  constructor(private router: Router, private empapi: EmployeeapiService, private comApi: CommonService) {
-    this.BindEmployee();
+  constructor(private router: Router, private empapi: EmployeeapiService,
+    private accountApi: AccountService,
+    private comApi: CommonService) {
+
+    this.currentUser=this.accountApi.getCurrentUser();
+    if(this.currentUser.userId>0)
+    {
+      this.BindEmployee(this.currentUser.userId);
+    }
+    
   }
 
   ngOnInit(): void {
   
   }
 
-  BindEmployee()
+  BindEmployee(userId:number)
   {
      this.IsLoad = true;
-    this.empapi.getEmployeeListObj().subscribe(response => {
+    this.empapi.getEmployeeListObj(userId).subscribe(response => {
       this.empList=this.currentList=  response.data;
       this.IsLoad = false;
     });

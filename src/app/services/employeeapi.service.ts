@@ -34,9 +34,9 @@ export class EmployeeapiService {
   }
   
 
-  getEmployeeListObj()
+  getEmployeeListObj(userId:number)
   {
-    return this._http.get<APIResponse<EmployeeList[]>>(environment.domain +"/api/Employee/getEmployeeListObj");
+    return this._http.get<APIResponse<EmployeeList[]>>(environment.domain +"/api/Employee/getEmployeeListObj/"+userId);
   } 
   
   getEmployeeInfo(empID : string)
