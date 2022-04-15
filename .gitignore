@@ -2,7 +2,6 @@ node_modules
 .zip
 .DS_Store
 .angular
-.rar
 dist/esHomeCare/3rdpartylicenses.txt
 dist/esHomeCare/dropdown1.822c910f05046b10.png
 dist/esHomeCare/favicon.ico
@@ -18,7 +17,6 @@ dist/esHomeCare/glyphicons-halflings-regular.85f0466cb4ab3a4d.svg
 dist/esHomeCare/glyphicons-halflings-regular.b70781972ce7320b.woff2
 dist/esHomeCare/index.html
 dist/esHomeCare/loading.0b18f7fdb91837d4.gif
-dist/esHomeCare/main.013e5c9b715c726b.js
 dist/esHomeCare/polyfills.3e1433b152cc2c68.js
 dist/esHomeCare/print.36eb3d53a906ab95.png
 dist/esHomeCare/runtime.53478f1c74fda4bb.js
