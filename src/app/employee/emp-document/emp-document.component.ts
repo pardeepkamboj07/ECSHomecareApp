@@ -1,14 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { EmployeeapiService } from 'src/app/services/employeeapi.service';
 import{DocumentService} from 'src/app/services/document.service';
-
 import { ActivatedRoute, Params } from '@angular/router';
 import { saveAs } from 'file-saver';
 import{DeleteItem} from 'src/app/models/employee/deleteFolder';
 
 import { FolderData } from 'src/app/models/employee/document';
-import{UploadFileFolder} from 'src/app/models/employee/upload-file-folder';
+import{UploadFileFolder} from 'src/app/models/Employee/upload-file-folder';
 
 
 @Component({
@@ -22,20 +21,23 @@ export class EmpDocumentComponent implements OnInit {
   public progress: number;
   public message: string;
 
-  @Output() public onUploadFinished = new EventEmitter();
+@Input() data:any;
 
   Deletemodel =new DeleteItem(0,0,0,0,"","");
   constructor(private route:ActivatedRoute,private http: HttpClient,private empApi: EmployeeapiService,private DocApi: DocumentService) { }
-  EmpId:number;
+  UserId:number;
   FolderList :any;
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params : Params) =>{
-         this.EmpId = Number(params["empId"]);       
-         this.GetFolderList(this.EmpId);
+    this.UserId = Number(this.data.id);       
+    this.GetFolderList(this.UserId);
+   
+    // this.route.params.subscribe(
+    //   (params : Params) =>{
+       
+        
 
-      }
-    );
+    //   }
+    // );
   }
   model=new UploadFileFolder("","",0,"","","");
   public uploadFile = (files:any) => {
@@ -87,16 +89,16 @@ export class EmpDocumentComponent implements OnInit {
   }
 
   CreateFolder(foldername:string){
-     var data=new FolderData(this.EmpId,foldername,1);
+     var data=new FolderData(this.UserId,foldername,1);
       this.DocApi.folderCreate(data).subscribe(Response=>{ 
-           this.GetFolderList(this.EmpId);
+           this.GetFolderList(this.UserId);
          
       });
   }
 
 
-  GetFolderList(empid:number){
-    this.DocApi.GetFolderList(empid).subscribe(Response=>{     
+  GetFolderList(UserId:number){
+    this.DocApi.GetFolderList(UserId).subscribe(Response=>{     
      this.FolderList=Response.data;
   });
 }
@@ -122,11 +124,11 @@ DeleteFolder(obj:any){
   this.Deletemodel.documentId=0;
   this.Deletemodel.folderId=Number(obj.folderId);
   this.Deletemodel.folderName=obj.folderName;
-  this.Deletemodel.empId=this.EmpId;
+  this.Deletemodel.empId=this.UserId;
   this.Deletemodel.requestType=1;
   
   this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
-    this.GetFolderList(this.EmpId);
+    this.GetFolderList(this.UserId);
   });
 }
 
@@ -134,14 +136,17 @@ DeleteFile(obj:any,foldername:string,folderid:number){
   this.Deletemodel.documentId=Number(obj.documentId);
   this.Deletemodel.folderId=0;
   this.Deletemodel.folderName=obj.foldername;
-  this.Deletemodel.empId=this.EmpId;
+  this.Deletemodel.empId=this.UserId;
   this.Deletemodel.requestType=2;
   this.Deletemodel.fileName=obj.fileName;
   this.DocApi.DeleteFile(this.Deletemodel).subscribe(Response=>{
-    this.GetFolderList(this.EmpId);
+    this.GetFolderList(this.UserId);
   });
 }
 
+openfile(url:string){
+  window.open()
+}
 
 
 }

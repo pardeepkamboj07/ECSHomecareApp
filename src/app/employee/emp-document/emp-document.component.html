@@ -1,124 +1,12 @@
-<!-- <div class="panel">
-    <div class="panel-body">
-      <div  class="row">
-        
-        <input type="text" #foldername placeholder="Enter Folder Name">
-        <button type="button" class="btn btn-success"  (click)="CreateFolder(foldername.value)">Create Folder</button>
-      </div>
-  <div class="row">
-    <div class="col-lg-12">
-        <div class="row mbm">
-         
-          <form name="frmUpload" #f="ngForm">
-                  
-            <div class="row mtm">
-                <div class="col-sm-4 col-xs-12">
-                    <div class="form-group" ><label class="control-label">Title</label>
-                
-                        <input type="text"
-                       #Title="ngModel"
-                        id="txtTitle"
-                        name="Title"
-                        placeholder="Title"
-                        [(ngModel)]="model.Title"  
-                        class="form-control"
-                       >
-                 
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12">  
-                  <div class="form-group"><label class="control-label">Folder</label>                                     
-                    <select
-                    class="form-control"
-                    #folderid="ngModel"                                   
-                    id="ddlTypeStatusId"
-                    name="folderid"                                   
-                    [(ngModel)]="model.folderid"                                       
-                  > 
-                  <option value="0" disabled>Select</option>
-                                <option
-                                  *ngFor="let obj of FolderList"
-                                  [value]="obj.folderId"
-                                >
-                                  {{ obj.folderName }}
-                                </option>
-                                                  
-                        </select>
-                           
-                </div>
-                            
-                </div>
-        </div>
-  
-  
-                <div class="col-sm-4 col-xs-12">  
-                                  <div class="form-group"><label class="control-label">Search Tag</label>
-                                    <input type="text" [(ngModel)]="model.Search"   name="Search" #Search="ngModel">     
-                                </div>
-                        </div>
-                        <div class="col-sm-12 col-xs-12">  
-                            <div class="form-group"><label class="control-label">Description </label>                               
-                                <textarea placeholder="Description" [(ngModel)]="model.Description"  #Title="ngModel" 
-                                class="form-control" 
-                                id="txtDescription"
-                                name="Description"         
-                                ></textarea>
-                          </div>  
-                  </div>
-               
-                 
-  
-          <div class="col-sm-12 col-xs-12">  
-            <div class="form-group">
-  
-              <input type="file" #file placeholder="Choose file">
-          
-  
-  
-                      
-          </div>
-          </div>
-  
-  
-                 
-                 <div class="row mtm">
-                    <div class="col-sm-12 col-xs-12 text-center">
-                      <button type="button" class="btn btn-success"  (click)="uploadFile(file.files)" >Upload File</button>
-                      <span class="upload" *ngIf="message">
-                        {{message}} 
-                     </span>
-                     <span class="upload" *ngIf="progress > 0">
-                      {{progress}}%
-                    </span>
-                        </div>
-  </div>
-
-  <div class="row mtm">
-    <div class="col-sm-12 col-xs-12 text-center">
-      <button type="button" class="btn btn-success"  (click)="DownloadFile()" >Download File</button>
-      <span class="upload" *ngIf="message">
-        {{message}} 
-     </span>
-     <span class="upload" *ngIf="progress > 0">
-      {{progress}}%
-    </span>
-        </div>
-</div>
-          </form>
-        </div>
-    
-    </div>
-  </div>
-  
-  
-  </div>
-   -->
-  
+ 
 
   
    <div class="row">
     <div class="col-lg-6">
-   <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Documents & Files</strong> </h4>
+   <h4  class="mtm mbm text-uppercase  text-orange">
+      <strong *ngIf="this.data.type==='Emp Type'">Documents & Files</strong> 
+      <strong *ngIf="this.data.type==='Client type'">EMR Documents & Files</strong> 
+    </h4>
       </div>
       </div>
     
@@ -261,6 +149,39 @@
     </div>
     </div>
                           </div>
+
+
+<div class="row" *ngIf="this.data.type==='Client type'">
+  <div class="col-lg-12">
+    <div class="form-group">
+      <label>Create New Document	</label><br/>
+      <h5>1. Open document from drop-down menu below.</h5>
+      <h5>2. Download to your PC, fill out and save.	</h5>
+      <h5>3. Upload document into Atkins's library folder using Upload form on the left.</h5>
+     
+      <select
+      class="form-control"
+      #folderid="ngModel"                                   
+      id="ddlTypeStatusId"
+      name="folderid"                                   
+      [(ngModel)]="model.folderId"                                       
+    > 
+    <option value="0" disabled>Select</option>
+                  <option value="1">Aide Orientation to Case </option>
+                  <option value="2">Client Assessment</option>
+                  <option value="3">Clinical Notes</option>
+                  <option value="4">Clinical Supervision (Personnel Record)</option>
+                  <option value="5">Discharge Summary</option>
+                  <option value="6">Initial Assessment</option>
+                  <option value="7">Plan of Care</option>
+          </select>
+          <h5>Documents in the drop-down menu populated from the 'Nursing Forms' folder of Document Management under Settings.</h5>
+    </div>
+
+
+                        </div>
+</div>
+
                           
                           
                           <div class="row">
@@ -270,7 +191,8 @@
                         <input id="inputIncludeFile"  type="file" #file placeholder="Inlcude some file">
     </div>
     </div>
-                          </div>
+
+    
                           
                           
                           <div class="row">
