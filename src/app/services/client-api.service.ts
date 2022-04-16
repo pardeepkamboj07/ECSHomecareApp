@@ -168,14 +168,14 @@ return this._http.post(environment.domain + "/api/Client/ClientMedicationcs", _o
 
 
 
-  SaveEmergencyInfo(_obj : ClientStatusModel){ 
+  SaveEmergencyInfo(_obj : ClientEmrgencyInfo){ 
     var headers_object = new HttpHeaders();
         headers_object.append('Content-Type', 'application/json');
         var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
         const httpOptions = {
           headers: headers_object
         }; 
-    return this._http.post(environment.domain + "/api/Client/addStatus", _obj,httpOptions);   
+    return this._http.post(environment.domain + "/api/Client/ClientEmergencyInfo", _obj,httpOptions);   
               
   }
 
