@@ -89,8 +89,8 @@
                   <div class="row">
                     <div class="col-sm-6 text-14">
                       <div class="form-group">
-                    <input type="text" hidden #id="ngModel" id="ddlTypeStatusId" name="id" class="form-control"  [(ngModel)]="model.id" />
-                    <input type="text" hidden #type="ngModel" id="ddlTypeStatusId" name="type" class="form-control"  [(ngModel)]="model.type" />
+                    <!-- <input type="text" hidden #id="ngModel" id="ddlTypeStatusId" name="id" class="form-control"  [(ngModel)]="model.id" />
+                    <input type="text" hidden #type="ngModel" id="ddlTypeStatusId" name="type" class="form-control"  [(ngModel)]="model.type" /> -->
                     <label class="control-label">First Name</label>
                     <input type="text" required  #firstName="ngModel" id="ddlTypeStatusId" name="firstName" class="form-control"  [(ngModel)]="model.firstName"   >
                         </div>
@@ -165,7 +165,9 @@
   <div class="col-sm-6 text-14">
     <div class="form-group">
   <label class="control-label">License Expires</label>
-  <input type="text"   #licenseExpires="ngModel" id="ddlTypeStatusId"  name="licenseExpires" class="form-control"  [(ngModel)]="model.licenseExpires">
+  <input type="text" #licenseExpires="ngModel" id="txtEffectiveDate"name="licenseExpires"
+                           [(ngModel)]="model.licenseExpires" class="form-control"  bsDatepicker  >
+  <!-- <input type="text"   #licenseExpires="ngModel" id="ddlTypeStatusId"  name="licenseExpires" class="form-control"  [(ngModel)]="model.licenseExpires"> -->
   </div>
     </div>
 </div>
@@ -213,16 +215,16 @@
       <div class="row mbm">
       <div class="col-sm-6" *ngFor="let item of EmergencyInfoLst">
        
-           <div class="table-responsive">
+           <div class="table-responsive"  *ngIf="item.typeId<3">
                   <div class="table-responsive">
                       <table class="table table-bordered table-striped">
                           <thead>
                             
                               <tr>
-                                  <th>{{item.type}}</th>  
+                                  <th>{{item.typeName}}</th>  
                                  
                                   <th>
-                                  <button type="button"  (click)="openModal(template,item.type,item.id)">Edit</button></th>                                   
+                                  <button type="button"  (click)="openModal(template,item)">Edit</button></th>                                   
                               </tr>
                               <!-- <tr>
                                 <th>Emergency Contact</th>  
@@ -268,7 +270,7 @@
 
 <div class="row">
   <div class="col-lg-12" *ngFor="let item of EmergencyInfoLst">
-      <div class="table-responsive" *ngIf="item.type==='Physician'">
+      <div class="table-responsive" *ngIf="item.typeId>2">
           <div class="table-responsive">
               <table class="table table-bordered table-striped">
                   <thead>
@@ -278,7 +280,7 @@
                             </th> 
                             <th></th> 
                           <th>
-                            <button type="button"  (click)="openModal(template1,item.type,item.id)">Edit</button></th> 
+                            <button type="button"  (click)="openModal(template1,item)">Edit</button></th> 
                       </tr>
                       <tr>
                         <td>Name</td>

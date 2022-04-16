@@ -1,6 +1,7 @@
 export class ClientEmrgencyInfo {
     id: number;
-    type: string;
+    typeName: string;
+    TypeId:number
     firstName: string;
     lastName: string;
     title: string;

@@ -37,15 +37,33 @@ model=new ClientEmrgencyInfo();
  
   getEmergencyInfoList()
   {
-       this.clientapi.getEmergencyInfoList(this.ClientId).subscribe(Responce=>{         
+       this.clientapi.getEmergencyInfoList(this.ClientId).subscribe(Responce=>{     
+         console.log(Responce.data);    
           this.EmergencyInfoLst=Responce.data;        
        });
   }
 
 
-  openModal(template: TemplateRef<any>,Id:number,Type:string) {
-    this.model.id=Id;
-  this.model.type=Type;
+  openModal(template: TemplateRef<any>,item:any) {
+   
+    this.model.id=Number(item.id);
+   this.model.TypeId=Number(item.typeId);
+   this.model.title=item.title;
+   this.model.relationship=item.relationship;
+   this.model.email=item.email;
+   this.model.typeName=item.typeName;
+  this.model.firstName=item.firstName;
+  this.model.lastName=item.lastName;
+  this.model.nPINumber=item.nPINumber==undefined?"":item.nPINumber;
+  this.model.license=item.license;
+  this.model.licenseExpires=item.licenseExpires;
+  this.model.phone=item.phone;
+  this.model.fax=item.fax;
+  this.model.state=item.state;
+  this.model.address=item.address;
+  this.model.zip=item.zip;
+  this.model.isActive=item.isActive
+  this.model.userId=Number(item.userId);
    this.modalRef = this.modalService.show(template);
  }
  
@@ -55,7 +73,7 @@ model=new ClientEmrgencyInfo();
  }
 
  onClickSubmit() { 
-   debugger;  
+ debugger
   
   this.model.title=this.model.title;
   this.model.firstName=this.model.firstName;
@@ -68,7 +86,12 @@ model=new ClientEmrgencyInfo();
   this.model.state=this.model.state;
   this.model.address=this.model.address;
   this.model.zip=this.model.zip;
+  this.model.TypeId=Number(this.model.TypeId);
+  this.model.id=Number(this.model.id);
+  this.model.userId=Number(this.model.userId);
+
 this.clientapi.SaveEmergencyInfo(this.model).subscribe(Response=>{
+  this.decline();
   this.getEmergencyInfoList()   
 })
 
