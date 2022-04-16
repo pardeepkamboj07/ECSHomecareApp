@@ -96,5 +96,9 @@ this.clientapi.SaveEmergencyInfo(this.model).subscribe(Response=>{
 })
 
    }
+
+   CreateNewContact(template: TemplateRef<any>){
+    this.modalRef = this.modalService.show(template);
+   }
  
 }
