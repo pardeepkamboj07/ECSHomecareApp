@@ -45,6 +45,8 @@
                                         Employees</a></li>
                                 <li><a href="javascript:void(0)" (click)="selectTab(8)" class="dropdown-toggle">Contact
                                         Log</a></li>
+                                <li><a href="javascript:void(0)" (click)="selectTab(9)" class="dropdown-toggle">Note
+                                        </a></li>
                             </ul>
                         </div>
                     </li>
@@ -78,6 +80,9 @@
                     </tab>
                     <tab heading="Contact Log">
                         <app-client-contactlog-list></app-client-contactlog-list>
+                    </tab>
+                    <tab heading="Note">
+                        <app-client-note></app-client-note>
                     </tab>
                 </tabset>
             </div>

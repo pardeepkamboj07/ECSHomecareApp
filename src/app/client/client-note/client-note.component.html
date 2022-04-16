@@ -1,0 +1,148 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Note</strong> </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(templatenote)" class="btn btn-md btn-default"><i
+                        class="fa fa-plus-square text-orange"></i> Add Note</a>
+            </div>
+            <ng-template #templatenote>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left text-orange">Add Client Note</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="decline();">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="frmclientnote" #f="ngForm">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="control-label">Types of Notes</label>                                    
+                                    <select class="form-control" #NoteType="ngModel" id="ddlNoteType"
+                                        name="NoteType" [(ngModel)]="model.notesTypeId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let note of noteTypeList" [value]="note.itemId">
+                                            {{ note.itemName }}
+                                        </option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="control-label">Notes</label>
+                                    <textarea rows="2" #notes="ngModel" id="txtnotes" name="notes"
+                                        [(ngModel)]="model.notes" class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                        </div>                       
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Office User</label>
+                                    <select class="form-control" #officeUserId="ngModel" id="ddlofficeUserId"
+                                        name="officeUserId" [(ngModel)]="model.officeUserId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let usr of empList" [value]="usr.itemId">
+                                            {{ usr.itemName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Employee</label>
+                                    <select class="form-control" #ClientId="ngModel" id="ddlempId" name="ClientId"
+                                        [(ngModel)]="model.empId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let obj of empList" [value]="obj.itemId">
+                                            {{ obj.itemName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Notify Via: </label>
+                                    <div>
+                                        <input type="checkbox" #isText="ngModel" id="txtisText"
+                                            name="isText" [(ngModel)]="model.notifyTypeId1"> &nbsp;
+                                        <label class="control-label">Text </label>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group"> 
+                                    <label class="control-label">   </label>                                  
+                                    <div>
+                                        <input type="checkbox" #isScreen="ngModel" id="txtisScreen"
+                                            name="isScreen" [(ngModel)]="model.notifyTypeId2">&nbsp;
+                                        <label class="control-label">Screen </label>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">     
+                                    <label class="control-label"> </label>                              
+                                    <div>
+                                        <input type="checkbox" #isEmail="ngModel" id="txtisEmail"
+                                            name="isEmail" [(ngModel)]="model.notifyTypeId3">&nbsp;
+                                        <label class="control-label">Email </label>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isAddVisible">
+                            <div class="col-lg-12 text-center">
+                                <button type="button" (click)="saveNote();"
+                                    class="btn btn-md btn-dark">Add</button>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isUpdateVisible">
+                            <div class="col-lg-12 text-center">
+                                <button type="button" (click)="updateNote();"
+                                    class="btn btn-md btn-dark">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Type of Notes </th>
+                                <th>Notes/Time</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ClientNoteObjList;">
+                                <td>{{ item.notesTypeId }}</td>
+                                <td>{{ item.notes }}</td>                               
+                                <td><i class="fa fa-edit text-red medium-txt pts"
+                                        (click)="updateNoteData(item.notesId)"></i></td>
+                                <td><i class="fa fa-trash-o text-red medium-txt pts"
+                                        (click)="deleteNoteData(item.notesId)"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

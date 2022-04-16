@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { APIResponse } from '../models/api-response';
 import { ItemsList,SelectList } from 'src/app/models/common';
 import { ItemModel } from 'src/app/admin/model/item-model';
-import { FolderData  } from 'src/app/models/employee/document';
+//import { FolderData  } from 'src/app/models/employee/Document';
 import { TaskModel  } from 'src/app/models/client/service-task-model';
 
 @Injectable({
@@ -98,18 +98,13 @@ export class CommonService {
         };
     return this._http.post(environment.domain + "/api/Common/createTask", reqObj,httpOptions);            
   }
-
-
-
   getTaskList()
   {
     return this._http.get<APIResponse<TaskModel[]>>(environment.domain + "/api/Common/getTaskList");
-  } 
-
-
-
-
-
-
+  }
+  getNoteTypeList()
+  {
+    return this._http.get<APIResponse<ItemsList[]>>("https://localhost:44359/api/Common/getNoteTypeSelectList");
+  }
 
 }

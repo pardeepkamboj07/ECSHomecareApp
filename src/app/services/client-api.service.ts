@@ -8,6 +8,7 @@ import { Medicationcs } from '../models/client/medicationcs-model';
 import { ServiceTaskView, ServiceTaskModel } from 'src/app/models/client/service-task-model';
 import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/employee-decline';
 import { ClientContactLog } from '../models/client/client-contactlog-model';
+import { ClientNote } from '../models/client/client-note-model';
 
 
 @Injectable({
@@ -195,5 +196,57 @@ export class ClientApiService {
       }
     });
     return this._http.delete("https://localhost:44359/api/Client/deleteClientContactLog", { params: reqPara });
+  }
+
+  SaveNotes(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post("https://localhost:44359/api/Client/AddClientNote", _obj, httpOptions);
+  }
+
+  getClientNoteRecord(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post("https://localhost:44359/api/Client/GetClientNoteList", _obj, httpOptions);
+  }
+
+  getClientNoteDetails(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post("https://localhost:44359/api/Client/GetClientNote", _obj, httpOptions);
+  }
+
+  updateClientNotes(_obj: ClientNote) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post("https://localhost:44359/api/Client/UpdateClientNote", _obj, httpOptions);
+  }
+
+  deleteClientNote(_obj: ClientNote) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post("https://localhost:44359/api/Client/DeleteClientNote", _obj, httpOptions);
   }
 }

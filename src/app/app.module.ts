@@ -64,7 +64,8 @@ import { TaskMasterComponent } from './company/task-master/task-master.component
 import { ServiceTaskComponent } from './client/service-task/service-task.component';
 import { ClientMedicationcsComponent } from './client/client-medicationcs/client-medicationcs.component';
 import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
-import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component'
+import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component';
+import { ClientNoteComponent } from './client/client-note/client-note.component'
 
 @NgModule({
   declarations: [
@@ -108,7 +109,7 @@ import { ClientContactlogListComponent } from './client/client-contactlog-list/c
     ClientStatusComponent,
     ClientMedicationcsComponent,
     TaskMasterComponent,
-    ServiceTaskComponent, DeclinedEmpComponent,  ClientContactlogListComponent,
+    ServiceTaskComponent, DeclinedEmpComponent,  ClientContactlogListComponent, ClientNoteComponent,
   ],
   imports: [
     BrowserModule,

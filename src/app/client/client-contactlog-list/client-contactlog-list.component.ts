@@ -134,6 +134,7 @@ export class ClientContactlogListComponent implements OnInit {
     });
   }
   openModal(template: TemplateRef<any>) {
+    
     this.modalRef = this.modalService.show(template);
   }
   decline(): void {
