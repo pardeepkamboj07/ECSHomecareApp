@@ -150,7 +150,6 @@ export class ClientApiService {
 
 
   deleteEmpDeclined(declinedId: number) {
-    debugger;
     const reqPara = new HttpParams({
       fromObject: {
         'declinedId': declinedId
@@ -172,7 +171,6 @@ export class ClientApiService {
   }
 
   updateClientContactLog(_obj: ClientContactLog) {
-    debugger;
     var headers_object = new HttpHeaders();
     headers_object.append('Content-Type', 'application/json');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
@@ -195,7 +193,7 @@ export class ClientApiService {
         'contactLogId': contactLogId
       }
     });
-    return this._http.delete("https://localhost:44359/api/Client/deleteClientContactLog", { params: reqPara });
+    return this._http.delete(environment.domain + "/api/Client/deleteClientContactLog", { params: reqPara });
   }
 
   SaveNotes(_obj: ClientNote) {
@@ -205,7 +203,7 @@ export class ClientApiService {
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/AddClientNote", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/AddClientNote", _obj, httpOptions);
   }
 
   getClientNoteRecord(_obj: ClientNote) {
@@ -215,7 +213,7 @@ export class ClientApiService {
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/GetClientNoteList", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/GetClientNoteList", _obj, httpOptions);
   }
 
   getClientNoteDetails(_obj: ClientNote) {
@@ -225,28 +223,26 @@ export class ClientApiService {
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/GetClientNote", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/GetClientNote", _obj, httpOptions);
   }
 
   updateClientNotes(_obj: ClientNote) {
-    debugger;
     var headers_object = new HttpHeaders();
     headers_object.append('Content-Type', 'application/json');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/UpdateClientNote", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/UpdateClientNote", _obj, httpOptions);
   }
 
   deleteClientNote(_obj: ClientNote) {
-    debugger;
     var headers_object = new HttpHeaders();
     headers_object.append('Content-Type', 'application/json');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
     const httpOptions = {
       headers: headers_object
     };
-    return this._http.post("https://localhost:44359/api/Client/DeleteClientNote", _obj, httpOptions);
+    return this._http.post(environment.domain + "/api/Client/DeleteClientNote", _obj, httpOptions);
   }
 }
