@@ -4,9 +4,9 @@ export class ClientContactLog extends BaseModel {
     officeUserId: number;
     empId: number;
     reason: string;
-    callDateTime: string;
-    scheduleDate: string;
-    followUpDate: string;
+    callDateTime: Date;
+    scheduleDate: Date;
+    followUpDate: Date;
     issue: string;
     actionTaken: string;
     notes: string;
