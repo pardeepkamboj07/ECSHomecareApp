@@ -185,19 +185,32 @@ export class ClientApiService {
       headers: headers_object
     };
     return this._http.post(environment.domain + "/api/Client/addClientContactLog", _obj, httpOptions);
- 
   }
 
+  updateClientContactLog(_obj: ClientContactLog) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/updateClientContactLog", _obj, httpOptions);
+  }
   getClientContactLogRecord(clientId: number) {
-    return this._http.get<APIResponse<Medicationcs>>(environment.domain +"/api/Client/GetClientContactLogs" + "/" + clientId);
+    return this._http.get<APIResponse<ClientContactLog>>(environment.domain + "/api/Client/GetClientContactLogs" + "/" + clientId);
   }
 
+  getClientContactLogDetails(contactlogId: number) {
+    return this._http.get<APIResponse<any>>(environment.domain + "/api/Client/getClientContactLogDetails" + "/" + contactlogId);
+  }
 
-
-
-
-
-
-
-
+  deleteClientContactLog(contactLogId: number) {
+    const reqPara = new HttpParams({
+      fromObject: {
+        'contactLogId': contactLogId
+      }
+    });
+    return this._http.delete("https://localhost:44359/api/Client/deleteClientContactLog", { params: reqPara });
+  }
 }
