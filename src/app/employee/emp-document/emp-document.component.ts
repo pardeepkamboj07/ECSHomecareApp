@@ -91,8 +91,7 @@ export class EmpDocumentComponent implements OnInit {
   CreateFolder(foldername:string){
      var data=new FolderData(this.UserId,foldername,1);
       this.DocApi.folderCreate(data).subscribe(Response=>{ 
-           this.GetFolderList(this.UserId);
-         
+           this.GetFolderList(this.UserId);         
       });
   }
 

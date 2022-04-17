@@ -98,6 +98,8 @@ this.clientapi.SaveEmergencyInfo(this.model).subscribe(Response=>{
    }
 
    CreateNewContact(template: TemplateRef<any>){
+    this.model.id=Number(0);
+    this.model.TypeId=Number(4);
     this.modalRef = this.modalService.show(template);
    }
  
