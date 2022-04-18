@@ -8,9 +8,6 @@ export class BaseModel {
 }
 
 
-
-
-
 export class ItemsList {
     public itemId: number;
     public itemName: string;

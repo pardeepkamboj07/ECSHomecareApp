@@ -10,6 +10,8 @@ import { ServiceTaskView, ServiceTaskModel } from 'src/app/models/client/service
 import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/employee-decline';
 import { ClientContactLog } from '../models/client/client-contactlog-model';
 import { DiagnosisModel } from 'src/app/models/client/diagnosis-model';
+import { DiagnosisView } from 'src/app/models/client/diagnosis-view';
+
 
 @Injectable({
   providedIn: 'root'
@@ -238,7 +240,7 @@ export class ClientApiService {
   }
 
   getDiagnosisModel(clientId: number) {
-    return this._http.get<APIResponse<DiagnosisModel[]>>(environment.domain + "/api/Client/getDiagnosisModel" + "/" + clientId);
+    return this._http.get<APIResponse<DiagnosisView[]>>(environment.domain + "/api/Client/getDiagnosisModel" + "/" + clientId);
   }
 
   deleteDiagnosis(diagnosisId: number) {

@@ -106,9 +106,13 @@ export class CommonService {
     return this._http.get<APIResponse<TaskModel[]>>(environment.domain + "/api/Common/getTaskList");
   } 
 
+  getDiagnosisList()
+  {
+    return this._http.get<APIResponse<ItemsList[]>>(environment.domain + "/api/Common/getDiagnosisList");
+  } 
 
 
-
+  
 
 
 
