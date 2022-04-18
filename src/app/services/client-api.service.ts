@@ -11,6 +11,7 @@ import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/empl
 import { ClientContactLog } from '../models/client/client-contactlog-model';
 import { DiagnosisModel } from 'src/app/models/client/diagnosis-model';
 import { DiagnosisView } from 'src/app/models/client/diagnosis-view';
+import { OtherInfoModel } from 'src/app/models/client/other-info-model';
 
 
 @Injectable({
@@ -253,11 +254,32 @@ export class ClientApiService {
   }
 
 
+  addOtherInfo(reqObj: OtherInfoModel) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/addOtherInfo", reqObj, httpOptions);
+  }
 
+  
+  updateOtherInfo(reqObj: OtherInfoModel) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/updateOtherInfo", reqObj, httpOptions);
+  }
 
-
-
-
+  getOtherInfo(clientId: number) {
+    return this._http.get<APIResponse<OtherInfoModel>>(environment.domain + "/api/Client/getOtherInfo" + "/" + clientId);
+  }
 
 
 

@@ -3,44 +3,30 @@
         <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Other</strong> </h4>
     </div>
   </div>
-
   <div class="row">
     <div class="col-sm-12 col-md-12 col-xs-6">
-        <button type="button" class="btn btn-md btn-dark mbm mts">
+        <button type="button" class="btn btn-md btn-dark mbm mts" (click)="saveChangesModel()">
             <i class='fa fa-save'></i> Save changes
-        
         </button></div>
-        
     </div>
   <div class="row">
-   
         <div class="col-lg-6">
-        
             <ul class="list-group">
                 <li class="list-group-item">
-
-             
                     <p><strong class="mrs">CASA3:</strong>
                     </p>
                     <div class="form-group">                            
                         <input required type="text" placeholder="CASA3" class="form-control" id="txtCASA3" name="CASA3" #FirstName="ngModel" [(ngModel)]="model.cASA3">
                     </div>
-
-
                 </li>
                 <li class="list-group-item">
-                
                     <p><strong class="mrs">Contact Id:</strong>
                         </p>
                         <div class="form-group">                            
                             <input required type="text" placeholder="contact Id" class="form-control" id="txtCASA3" name="contactId" #contactId="ngModel" [(ngModel)]="model.contactId">
                         </div>
-
-
-
                 </li>
                 <li class="list-group-item">                
-                  
                     <p><strong class="mrs">Insurance Grp #:</strong>
                     </p>
                     <div class="form-group">                            
@@ -48,13 +34,11 @@
                     </div>
                 </li>
                 <li class="list-group-item">                
-                  
                     <p><strong class="mrs">Allergies:</strong>
                     </p>
                     <div class="form-group">                            
                         <input required type="text" placeholder="Allergies" class="form-control" id="txtallergies" name="allergies" #allergies="ngModel" [(ngModel)]="model.allergies">
                        <h6> Separate multiple by commas</h6>
-                   
                     </div>
                 </li>
                 <li class="list-group-item">                

@@ -26,14 +26,70 @@ export class OtherInformationComponent implements OnInit {
     private route: ActivatedRoute,
     private modalService: BsModalService,
     private accountApi: AccountService,
-    private clientapi: ClientApiService
+    private clientApi: ClientApiService
   ) {
 
     this.currentUser = this.accountApi.getCurrentUser();
+    this.model.entityId=0;
  
   }
 
   ngOnInit(): void {
+    this.route.params
+    .subscribe(
+      (params : Params) =>{
+        this.model.userId =Number(params["clientId"]);
+        this.BindOtherInfo(this.model.userId);
+      }
+    );
   }
+
+
+
+
+  BindOtherInfo(userId:number)
+  {
+    this.clientApi.getOtherInfo(userId).subscribe((response) => {
+      if(response.result)
+      {
+        this.model = response.data;
+      }
+    });
+  }
+
+  saveChangesModel() {
+    debugger;
+    this.model.isActive = Number(this.model.isActive);
+    this.model.createdBy = this.currentUser.userId;
+    this.model.userId = Number(this.model.userId);
+    
+    if(this.model.entityId==0)
+    {
+      this.clientApi.addOtherInfo(this.model).subscribe(Responce => {
+      });
+    }
+    else
+    {
+      this.clientApi.updateOtherInfo(this.model).subscribe(Responce => {
+      });
+    }
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
