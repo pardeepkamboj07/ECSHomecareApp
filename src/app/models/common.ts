@@ -1,5 +1,6 @@
 
 export class BaseModel {
+  entityId:number;
   userId: number;
   createdOn: string;
   createdBy: number;

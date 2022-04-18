@@ -1,0 +1,116 @@
+
+        <div class="panel">
+            <div class="panel-body">
+                <form name="frmMaster" #f="ngForm">
+        <div class="row mtm">
+
+     
+            <div class="col-lg-4">
+                <div class="form-group" ><label class="control-label">Dx Codes</label>
+             
+                    <input type="text"
+                    #dxCodes="ngModel"
+                    id="txtdxCodes"
+                    name="dxCodes"
+        
+                    [(ngModel)]="model.dxCodes"
+                    class="form-control"
+                      >
+            
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group" ><label class="control-label">Description</label>
+             
+                    <input type="text"
+                    #description="ngModel"
+                    id="txtdescription"
+                    name="description"
+        
+                    [(ngModel)]="model.description"
+                    class="form-control"
+                      >
+            
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="row mtm">
+            <div class="col-sm-12 col-xs-12 text-center">
+                    <button type="button" (click)="saveChanges()"
+             
+
+     
+                    
+                    class="btn btn-lg btn-dark">Save Changes</button>
+                </div>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+   
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="panel-body ptn pbn">
+                        <div class="row">
+                            <div class="col-lg-12"> 
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped mbn">
+                                    <thead>
+                                    <tr>
+                                        <th>Dx Codes</th>
+                                        <th>Description</th>
+                                      
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+        
+                                        <tr *ngFor="let item of resultlist;">
+                                            <td> {{ item.dxCodes}}</td>
+                                            <td> {{ item.description}}</td>
+                                 
+                                        </tr>
+        
+        
+                                        
+        
+                                    </tbody>
+                                </table>
+                            </div></div>
+                        </div>
+        
+                    </div>
+        
+                </div>
+        
+            </div>
+            
+        </div>
+        
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

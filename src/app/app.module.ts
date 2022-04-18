@@ -65,7 +65,10 @@ import { ClientMedicationcsComponent } from './client/client-medicationcs/client
 import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
 import {ClientEmergencyInfoComponent} from './client/client-emergency-info/client-emergency-info.component';
  
-import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component'
+import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component';
+import { OtherInformationComponent } from './client/other-information/other-information.component';
+import { DiagnosisComponent } from './client/diagnosis/diagnosis.component';
+import { DiagnosisMasterComponent } from './master/diagnosis-master/diagnosis-master.component'
 
 @NgModule({
   declarations: [
@@ -113,6 +116,9 @@ import { ClientContactlogListComponent } from './client/client-contactlog-list/c
     DeclinedEmpComponent, 
     ClientEmergencyInfoComponent,
     ClientContactlogListComponent,
+    OtherInformationComponent,
+    DiagnosisComponent,
+    DiagnosisMasterComponent,
   ],
   imports: [
     BrowserModule,

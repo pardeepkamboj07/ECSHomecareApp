@@ -9,7 +9,7 @@ import { ClientEmrgencyInfo } from 'src/app/models/client/EmergencyInfo';
 import { ServiceTaskView, ServiceTaskModel } from 'src/app/models/client/service-task-model';
 import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/employee-decline';
 import { ClientContactLog } from '../models/client/client-contactlog-model';
-
+import { DiagnosisModel } from 'src/app/models/client/diagnosis-model';
 
 @Injectable({
   providedIn: 'root'
@@ -213,4 +213,65 @@ export class ClientApiService {
     });
     return this._http.delete("https://localhost:44359/api/Client/deleteClientContactLog", { params: reqPara });
   }
+
+
+  addDiagnosis(_obj: DiagnosisModel) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/addDiagnosis", _obj, httpOptions);
+  }
+
+  updateDiagnosis(_obj: DiagnosisModel) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/updateDiagnosis", _obj, httpOptions);
+  }
+
+  getDiagnosisModel(clientId: number) {
+    return this._http.get<APIResponse<DiagnosisModel[]>>(environment.domain + "/api/Client/getDiagnosisModel" + "/" + clientId);
+  }
+
+  deleteDiagnosis(diagnosisId: number) {
+    const reqPara = new HttpParams({
+      fromObject: {
+        'diagnosisId': diagnosisId
+      }
+    });
+    return this._http.delete(environment.domain + "/api/Client/deleteDiagnosis", { params: reqPara });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

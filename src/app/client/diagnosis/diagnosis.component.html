@@ -1,0 +1,107 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Diagnosis</strong> </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(templatelog)" class="btn btn-md btn-default"><i
+                        class="fa fa-plus-square text-orange"></i> Add </a>
+            </div>
+            <ng-template #templatelog>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left text-orange">Add Diagnosis</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close"
+                        (click)="decline();">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="frmDiagnosis" #frmDiagnosis="ngForm">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label class="control-label">Order</label>
+                                    <input type="number" #orderNo="ngModel" id="txtorderNo" name="orderNo"
+                                        [(ngModel)]="model.orderNo" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label"> ICD-10 Diagnosis Codes and Description</label>
+                                 
+                                        <input type="text" #dxId="ngModel" id="txtdxId"
+                                            name="dxId" [(ngModel)]="model.dxId" class="form-control">
+                                    </div>
+                                </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Primary</label>
+                                    <input type="checkbox" [(ngModel)]="model.isPrimary" >
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isAddVisible" >
+                            <div class="col-lg-12 text-center">
+                                <button type="button" (click)="saveModel();" class="btn btn-md btn-dark">Add</button>                               
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isUpdateVisible" >
+                            <div class="col-lg-12 text-center">                               
+                                <!-- <button type="button" (click)="updateContactLog();" class="btn btn-md btn-dark">Update</button> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Prime </th>
+                                <th>Order</th>
+                                <th>Diagnosis Code</th>
+                                <th>Description</th>
+                                <th>Added By</th>
+                                <th>Date</th>
+                              
+
+
+
+
+					
+
+
+
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of modelList;">                               
+                                <td>{{ item.orderNo }}</td>
+                                <td>{{ item.dxId }}</td>
+                                <td>{{ item.isPrimary }}</td>
+                             
+                                <!-- <td><i class="fa fa-edit text-red medium-txt pts" (click)="updateContactLogData(item.contactlogId)"></i></td>
+                                <td><i class="fa fa-trash-o text-red medium-txt pts" (click)="deleteDeleteContactLogData(item.contactlogId)"></i></td>
+                             -->
+                            
+                            
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
