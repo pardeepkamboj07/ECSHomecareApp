@@ -1,7 +1,9 @@
 export class ClientEmrgencyInfo {
     id: number;
-    type: number;
-    name: string;
+    typeName: string;
+    TypeId:number
+    firstName: string;
+    lastName: string;
     title: string;
     nPINumber: string;
     address: string;
@@ -12,10 +14,12 @@ export class ClientEmrgencyInfo {
     email: string;
     phone: string;
     fax: string;
-    State :string;
-    Zip:string;
-    IsActive:boolean;
-    Edit:boolean;
-    CreatedBy:number;
+    state: string;
+    zip: string;
+    userId: number;
+    edit: boolean;
+    isActive: boolean;
+    createdOn: string;
+    createdBy: number;
 }
   
