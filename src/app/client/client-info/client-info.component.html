@@ -23,37 +23,46 @@
                     <li class="dropdown ">
                         <div class="dropdown" dropdown>
                             <button dropdownToggle class="btn btn-dark dropdown-toggle" type="button"
-                                data-toggle="dropdown">
+                                    data-toggle="dropdown">
                                 <span>Employee</span>&nbsp;<span class="caret"></span>
                             </button>
                             <ul *dropdownMenu class="dropdown-menu">
-                                <li><a href="javascript:void(0)" (click)="selectTab(0)"
-                                        class="dropdown-toggle">Dashboard</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(1)"
-                                        class="dropdown-toggle">Schedule</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(2)"
-                                        class="dropdown-toggle">General</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(3)"
-                                        class="dropdown-toggle">Status</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(4)"
-                                        class="dropdown-toggle">Address</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(5)" class="dropdown-toggle">Service
-                                        Task</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(6)"
-                                        class="dropdown-toggle">Medicationcs</a></li>
-                                <li><a href="javascript:void(0)" (click)="selectTab(7)" class="dropdown-toggle">Declined
-                                        Employees</a></li>
                                 <li>
-                                    <a href="javascript:void(0)" (click)="selectTab(8)" class="dropdown-toggle">Contact Log</a></li>
-
-                                        <li><a href="javascript:void(0)" (click)="selectTab(9)" class="dropdown-toggle">
-                                            Other</a></li>
-
-                                            <li><a href="javascript:void(0)" (click)="selectTab(10)" class="dropdown-toggle">
-                                              Diagnosis</a></li>
-                                            
-
-                                        
+                                    <a href="javascript:void(0)" (click)="selectTab(0)" class="dropdown-toggle">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(1)" class="dropdown-toggle">Schedule</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(2)" class="dropdown-toggle">General</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(3)" class="dropdown-toggle">Status</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(4)" class="dropdown-toggle">Address</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(5)" class="dropdown-toggle">Service Task</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(6)" class="dropdown-toggle">Medicationcs</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(7)" class="dropdown-toggle">Declined Employees</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(8)" class="dropdown-toggle">Contact Log</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(9)" class="dropdown-toggle">Other</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(10)" class="dropdown-toggle">Diagnosis</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" (click)="selectTab(11)" class="dropdown-toggle">Note</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -84,32 +93,26 @@
                     </tab>
                     <tab heading="Declined Employees">
                         <app-declined-emp></app-declined-emp>
-                          
-                          </tab>
-                          <tab heading="Emergency Info">                
-                            <app-client-emergency-info></app-client-emergency-info>                              
-                              </tab>
-                              <tab heading="EMR DOCUMENTS/FILES">                
-                                <app-emp-document [data]="this.UserData"></app-emp-document>                              
-                                  </tab>
-                                  <tab heading="Contact Log">
-                                    <app-client-contactlog-list></app-client-contactlog-list>
-                                </tab>
-
-
-                                <tab heading="Other">
-                                    <app-other-information></app-other-information>
-                                </tab>
-
-
-
-                                <tab heading="Diagnosis">
-                                    <app-diagnosis></app-diagnosis>
-                                </tab>
-                                
-        </tabset>
-         
-                
+                    </tab>
+                    <tab heading="Emergency Info">
+                        <app-client-emergency-info></app-client-emergency-info>
+                    </tab>
+                    <tab heading="EMR DOCUMENTS/FILES">
+                        <app-emp-document [data]="this.UserData"></app-emp-document>
+                    </tab>
+                    <tab heading="Contact Log">
+                        <app-client-contactlog-list></app-client-contactlog-list>
+                    </tab>
+                    <tab heading="Other">
+                        <app-other-information></app-other-information>
+                    </tab>
+                    <tab heading="Diagnosis">
+                        <app-diagnosis></app-diagnosis>
+                    </tab>
+                    <tab heading="Note">
+                        <app-client-note></app-client-note>
+                    </tab>
+                </tabset>
             </div>
         </div>
         <!--END CONTENT-->

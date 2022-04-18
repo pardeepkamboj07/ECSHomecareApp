@@ -12,6 +12,7 @@ import { ClientContactLog } from '../models/client/client-contactlog-model';
 import { DiagnosisModel } from 'src/app/models/client/diagnosis-model';
 import { DiagnosisView } from 'src/app/models/client/diagnosis-view';
 import { OtherInfoModel } from 'src/app/models/client/other-info-model';
+import { ClientNote } from '../models/client/client-note-model';
 
 
 @Injectable({
@@ -153,7 +154,6 @@ export class ClientApiService {
 
 
   deleteEmpDeclined(declinedId: number) {
-    debugger;
     const reqPara = new HttpParams({
       fromObject: {
         'declinedId': declinedId
@@ -191,7 +191,6 @@ export class ClientApiService {
   }
 
   updateClientContactLog(_obj: ClientContactLog) {
-    debugger;
     var headers_object = new HttpHeaders();
     headers_object.append('Content-Type', 'application/json');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
@@ -214,7 +213,57 @@ export class ClientApiService {
         'contactLogId': contactLogId
       }
     });
-    return this._http.delete("https://localhost:44359/api/Client/deleteClientContactLog", { params: reqPara });
+    return this._http.delete(environment.domain + "/api/Client/deleteClientContactLog", { params: reqPara });
+  }
+
+  SaveNotes(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/AddClientNote", _obj, httpOptions);
+  }
+
+  getClientNoteRecord(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/GetClientNoteList", _obj, httpOptions);
+  }
+
+  getClientNoteDetails(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/GetClientNote", _obj, httpOptions);
+  }
+
+  updateClientNotes(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/UpdateClientNote", _obj, httpOptions);
+  }
+
+  deleteClientNote(_obj: ClientNote) {
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/DeleteClientNote", _obj, httpOptions);
   }
 
 

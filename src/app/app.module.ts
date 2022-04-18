@@ -46,13 +46,11 @@ import { EmpInfoComponent } from './employee/emp-info/emp-info.component';
 import { EmpDasboardComponent } from './employee/emp-dasboard/emp-dasboard.component';
 import { ScheduleViewComponent } from './employee/schedule-view/schedule-view.component';
 import { EmpDocumentComponent } from './employee/emp-document/emp-document.component';
-
 import { ScheduleComponent } from './meeting/schedule/schedule.component';
 import { EmpScheduleComponent } from './meeting/emp-schedule/emp-schedule.component';
 import { ClientScheduleComponent } from './meeting/client-schedule/client-schedule.component';
 import { UserScheduleComponent } from './meeting/user-schedule/user-schedule.component';
 import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
-
 import { NewClientComponent } from 'src/app/client/new-client/new-client.component';
 import { ClientListComponent } from './client/client-list/client-list.component';
 import { ClientDashboardComponent } from 'src/app/client/client-dashboard/client-dashboard.component';
@@ -64,11 +62,11 @@ import { ServiceTaskComponent } from './client/service-task/service-task.compone
 import { ClientMedicationcsComponent } from './client/client-medicationcs/client-medicationcs.component';
 import { DeclinedEmpComponent } from './client/declined-emp/declined-emp.component';
 import {ClientEmergencyInfoComponent} from './client/client-emergency-info/client-emergency-info.component';
- 
-import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component';
 import { OtherInformationComponent } from './client/other-information/other-information.component';
 import { DiagnosisComponent } from './client/diagnosis/diagnosis.component';
 import { DiagnosisMasterComponent } from './master/diagnosis-master/diagnosis-master.component'
+import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component';
+import { ClientNoteComponent } from './client/client-note/client-note.component'
 
 @NgModule({
   declarations: [
@@ -119,6 +117,11 @@ import { DiagnosisMasterComponent } from './master/diagnosis-master/diagnosis-ma
     OtherInformationComponent,
     DiagnosisComponent,
     DiagnosisMasterComponent,
+    TaskMasterComponent,
+    ServiceTaskComponent, 
+    DeclinedEmpComponent,  
+    ClientContactlogListComponent, 
+    ClientNoteComponent,
   ],
   imports: [
     BrowserModule,
