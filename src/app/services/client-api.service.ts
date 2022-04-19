@@ -9,6 +9,7 @@ import { ServiceTaskView, ServiceTaskModel } from 'src/app/models/client/service
 import { EmployeeDecline, EmployeeDeclineView } from 'src/app/models/client/employee-decline';
 import { ClientContactLog } from '../models/client/client-contactlog-model';
 import { ClientNote } from '../models/client/client-note-model';
+import { ClientCommunityMaster } from '../models/client/client-community-model';
 
 
 @Injectable({
@@ -244,5 +245,26 @@ export class ClientApiService {
       headers: headers_object
     };
     return this._http.post(environment.domain + "/api/Client/DeleteClientNote", _obj, httpOptions);
+  }
+
+  SaveClientCommunity(_obj: ClientCommunityMaster) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/AddClientCommunity", _obj, httpOptions);
+  }
+  getClientCommunityRecord(_obj: ClientCommunityMaster) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/GetClientCommunityList", _obj, httpOptions);
   }
 }

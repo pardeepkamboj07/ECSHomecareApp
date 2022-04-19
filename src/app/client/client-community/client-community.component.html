@@ -1,0 +1,160 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Group Info</strong> </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row mbm">
+            <div class="col-sm-12 text-14">
+                <a href="javascript:void(0)" (click)="openModal(templategroupinfo)" class="btn btn-md btn-default"><i
+                        class="fa fa-plus-square text-orange"></i> Add Group Info</a>
+            </div>
+            <ng-template #templategroupinfo>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left text-orange">Add Group Info</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="decline();">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="frmclientgroupinfo" #f="ngForm">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Community Name</label>
+                                    <input type="text" #communitNameText="ngModel" id="txtcommunitName"
+                                        name="communitName" [(ngModel)]="model.communityName" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Type</label>
+                                    <select class="form-control" id="ddlcommunityType"
+                                        name="communityTypeId">
+                                        <option value="-1" disabled>Select</option>
+                                        <option value="1">Community</option>
+                                        <option value="2">Community Home</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Address</label>
+                                    <input type="text" #communitaddrText="ngModel" id="txtcommunitaddr"
+                                        name="communitaddr" [(ngModel)]="model.communityAddress" class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Apt/Unit/Floor</label>
+                                    <input type="text" #aufText="ngModel" id="txtauf" name="auf"
+                                        [(ngModel)]="model.communityFloor" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">City</label>
+                                    <input type="text" #cityText="ngModel" id="txtcity" name="city"
+                                        [(ngModel)]="model.city" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Country</label>
+                                    <select class="form-control" #countryId="ngModel" id="ddlstateId" name="countryId"
+                                        [(ngModel)]="model.county" (change)="OnChangeCountry($event)">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let obj of countryData" [value]="obj.itemCode">
+                                            {{ obj.itemName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">State</label>
+                                    <select class="form-control" #stateId="ngModel" id="ddlstateId" name="stateId"
+                                        [(ngModel)]="model.state">
+                                        <option value="-1" disabled>Select</option>
+                                        <option *ngFor="let obj of stateData" [value]="obj.itemCode">
+                                            {{ obj.itemName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Zip</label>
+                                    <input type="text" id="txtzip" name="zip"
+                                        class="form-control">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Home Phone</label>
+                                    <input type="text" #contactText="ngModel" id="txtcontact" name="contact"
+                                        [(ngModel)]="model.contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" #emailText="ngModel" id="txtemail" name="email"
+                                        [(ngModel)]="model.email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Notes</label>
+
+                                    <textarea rows="2" #notesTxt="ngModel" id="txtnotes" name="notes"
+                                        [(ngModel)]="model.notes" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <button type="button" (click)="saveCommunity();" class="btn btn-md btn-dark">Add</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+        <div class="row mbm">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Community Name </th>
+                                <th>Country/Time</th>
+                                <th>Email Date</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ClientCommunityObjList;">
+                                <td>{{item.communityName}}</td>
+                                <td>{{item.county}}</td>
+                                <td>{{item.email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
