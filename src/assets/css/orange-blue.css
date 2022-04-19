@@ -6217,12 +6217,12 @@ a.list-group-item.active > .badge,
   border-color: #bf4346 !important;
 }
 .panel.panel-orange {
-  border-color: #e9662c;
+  border-color: #e67273;
 }
 .panel.panel-orange > .panel-heading {
   color: #FFFFFF;
-  background: #e9662c;
-  border-color: #e9662c !important;
+  background: #e67273;
+  border-color: #e67273 !important;
 }
 .panel.panel-orange > .panel-heading .subtitle {
   color: #FFFFFF;
@@ -6236,8 +6236,8 @@ a.list-group-item.active > .badge,
 }
 .panel.panel-orange > .panel-footer {
   color: #FFFFFF;
-  background: #e9662c;
-  border-color: #e9662c !important;
+  background: #e67273;
+  border-color: #e67273 !important;
 }
 .panel.panel-green {
   border-color: #488c6c;
