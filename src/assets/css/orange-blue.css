@@ -9839,6 +9839,21 @@ opacity: inherit !important;
 }
 
 
+.ellipsis-text{
+  width:80px;
+  height: auto; 
+  text-overflow: ellipsis;
+  cursor: pointer;
+  word-break: break-all;
+  overflow: hidden ;
+  white-space: nowrap;
+}
+
+.ellipsis-text:hover{
+width:100%;
+  overflow: visible; 
+  white-space: normal; 
+}
 
 
 
