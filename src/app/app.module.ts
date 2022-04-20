@@ -66,7 +66,8 @@ import { OtherInformationComponent } from './client/other-information/other-info
 import { DiagnosisComponent } from './client/diagnosis/diagnosis.component';
 import { DiagnosisMasterComponent } from './master/diagnosis-master/diagnosis-master.component'
 import { ClientContactlogListComponent } from './client/client-contactlog-list/client-contactlog-list.component';
-import { ClientNoteComponent } from './client/client-note/client-note.component'
+import { ClientNoteComponent } from './client/client-note/client-note.component';
+import { ClientCommunityComponent } from './client/client-community/client-community.component'
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { ClientNoteComponent } from './client/client-note/client-note.component'
     ServiceTaskComponent, 
     DeclinedEmpComponent,  
     ClientContactlogListComponent, 
-    ClientNoteComponent,
+    ClientNoteComponent, 
+    ClientCommunityComponent,
   ],
   imports: [
     BrowserModule,

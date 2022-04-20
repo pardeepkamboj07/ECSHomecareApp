@@ -13,6 +13,7 @@ import { DiagnosisModel } from 'src/app/models/client/diagnosis-model';
 import { DiagnosisView } from 'src/app/models/client/diagnosis-view';
 import { OtherInfoModel } from 'src/app/models/client/other-info-model';
 import { ClientNote } from '../models/client/client-note-model';
+import { ClientCommunityMaster } from '../models/client/client-community-model';
 
 
 @Injectable({
@@ -329,6 +330,31 @@ export class ClientApiService {
   getOtherInfo(clientId: number) {
     return this._http.get<APIResponse<OtherInfoModel>>(environment.domain + "/api/Client/getOtherInfo" + "/" + clientId);
   }
+    
+  SaveClientCommunity(_obj: ClientCommunityMaster) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/AddClientCommunity", _obj, httpOptions);
+  }
+  
+  getClientCommunityRecord(_obj: ClientCommunityMaster) {
+    debugger;
+    var headers_object = new HttpHeaders();
+    headers_object.append('Content-Type', 'application/json');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + "qatest");
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this._http.post(environment.domain + "/api/Client/GetClientCommunityList", _obj, httpOptions);
+  }
+  
+  
+  
 
 
 
