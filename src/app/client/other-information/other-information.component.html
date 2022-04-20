@@ -1,214 +1,196 @@
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6 col-xs-6">
         <h4 class="mtm mbm text-uppercase  text-orange"> <strong>Other</strong> </h4>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-xs-6 text-right">
+    <div class="col-lg-6 col-xs-6 text-right">
         <button type="button" class="btn btn-md btn-dark mbm mts " (click)="saveChangesModel()">
             <i class='fa fa-save'></i> Save changes
-        </button></div>
+        </button>
     </div>
-  <div class="row">
-        <div class="col-lg-6">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <p><strong class="mrs">CASA3:</strong>
-                    </p>
-                    <div class="form-group">                            
+</div>
+
+<form #empf="ngForm">
+    <div class="panel mbn">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">CASA3</label>
                         <input required type="text" placeholder="CASA3" class="form-control" id="txtCASA3" name="CASA3" #FirstName="ngModel" [(ngModel)]="model.cASA3">
                     </div>
-                </li>
-                <li class="list-group-item">
-                    <p><strong class="mrs">Contact Id:</strong>
-                        </p>
-                        <div class="form-group">                            
-                            <input required type="text" placeholder="contact Id" class="form-control" id="txtCASA3" name="contactId" #contactId="ngModel" [(ngModel)]="model.contactId">
-                        </div>
-                </li>
-                <li class="list-group-item">                
-                    <p><strong class="mrs">Insurance Grp #:</strong>
-                    </p>
-                    <div class="form-group">                            
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Contact Id</label>
+                        <input required type="text" placeholder="contact Id" class="form-control" id="txtCASA3" name="contactId" #contactId="ngModel" [(ngModel)]="model.contactId">
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Insurance Grp #</label>
                         <input required type="text" placeholder="Insurance Grp #" class="form-control" id="txtinsuranceGrp" name="insuranceGrp" #insuranceGrp="ngModel" [(ngModel)]="model.insuranceGrp">
                     </div>
-                </li>
-                <li class="list-group-item">                
-                    <p><strong class="mrs">Allergies:</strong>
-                    </p>
-                    <div class="form-group">                            
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <label class="control-label">Allergies<span class="small-txt text-orange"> (Separate multiple by commas)</span></label>
+                    <div class="form-group">
                         <input required type="text" placeholder="Allergies" class="form-control" id="txtallergies" name="allergies" #allergies="ngModel" [(ngModel)]="model.allergies">
-                       <h6> Separate multiple by commas</h6>
+
                     </div>
-                </li>
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Medications:</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isMedications" #isMedications="ngModel" [(ngModel)]="model.isMedications">
+                </div>
+            </div>
+            <div class="row">
+
+
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Linked Clients</label>
+                        <input required type="text" placeholder="CASA3" class="form-control" id="txtCASA3" name="CASA3" #FirstName="ngModel" [(ngModel)]="model.cASA3">
                     </div>
-                </li>
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Dialysis:</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isDialysis" #isDialysis="ngModel" [(ngModel)]="model.isDialysis">
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Area Shelter Name</label>
+                        <input required type="text" placeholder="Shelter Name" class="form-control" id="txtshelterName" name="shelterName" #FirstName="ngModel" [(ngModel)]="model.shelterName">
                     </div>
-                </li>
-
-
-
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Oxygen:</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isOxygen" #isOxygen="ngModel" [(ngModel)]="model.isOxygen">
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">
+                            TAL Code
+                            Transportation Assistance Level
+                        </label>
+                        <input required type="text" placeholder="Tal Code" class="form-control" id="txttalCode" name="talCode" #talCode="ngModel" [(ngModel)]="model.talCode">
                     </div>
-                </li>
-
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Aids:</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isAids" #isAids="ngModel" [(ngModel)]="model.isAids">
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Shelter
+                            Address/Phone/Contact:
+                        </label>
+                        <input required type="text" placeholder="Shelter" class="form-control" id="txtshelter" name="shelter" #shelter="ngModel" [(ngModel)]="model.shelter">
                     </div>
-                </li>
+                </div>
+            </div>
+            <div class="row">
 
-
-
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Court Ordered:</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isAids" #isCourtOrdered="ngModel" [(ngModel)]="model.isCourtOrdered">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Facility</label>
+                        <input required type="text" placeholder="Facility" class="form-control" id="txtfacility" name="facility" #facility="ngModel" [(ngModel)]="model.facility">
                     </div>
-                </li>
-
-                <li class="list-group-item">                
-                  
-                    <p><strong class="mrs">Don't Resuscitate :</strong>
-                    </p>
-                    <div class="form-group">                            
-                        <input required type="checkbox"   name="isResuscitate" #isResuscitate="ngModel" [(ngModel)]="model.isResuscitate">
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Room</label>
+                        <input required type="text" placeholder="Room" class="form-control" id="txtroom" name="room" #room="ngModel" [(ngModel)]="model.room">
                     </div>
-                </li>             
-
-            </ul>
-  </div>
-   
-  <div class="col-lg-6">
-        
-    <ul class="list-group">
-        <li class="list-group-item">
-
-     
-            <p><strong class="mrs">
-                Linked Clients:</strong>
-            </p>
-            <div class="form-group">                            
-                <input required type="text" placeholder="CASA3" class="form-control" id="txtCASA3" name="CASA3" #FirstName="ngModel" [(ngModel)]="model.cASA3">
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Service Request Date</label>
+                        <div class="input-icon right">
+                            <i class="fa fa-calendar"></i>
+                            <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtserviceRequestDate" name="serviceRequestDate" #serviceRequestDate="ngModel" [(ngModel)]="model.serviceRequestDate" bsDatepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Plan Of Care Date</label>
+                        <div class="input-icon right">
+                            <i class="fa fa-calendar"></i>
+                            <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtcareDate" name="careDate" #careDate="ngModel" [(ngModel)]="model.careDate" bsDatepicker>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
-        </li>
-        <li class="list-group-item">
-        
-            <p><strong class="mrs">Area Shelter Name:</strong>
-                </p>
-                <div class="form-group">                            
-                    <input required type="text" placeholder="Shelter Name" class="form-control" id="txtshelterName" name="shelterName" #FirstName="ngModel" [(ngModel)]="model.shelterName">
+            <div class="row">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="form-group">
+                        <label class="control-label">Projected Discharge</label>
+                        <div class="input-icon right">
+                            <i class="fa fa-calendar"></i>
+                            <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtdischargeDate" name="dischargeDate" #dischargeDate="ngModel" [(ngModel)]="model.dischargeDate" bsDatepicker>
+                        </div>
+                    </div>
                 </div>
 
 
+            </div>
 
-        </li>
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">TAL Code
-                
-                Transportation Assistance Level:</strong>
-            </p>
-            <div class="form-group">                            
-                <input required type="text" placeholder="Tal Code" class="form-control" id="txttalCode" name="talCode" #talCode="ngModel" [(ngModel)]="model.talCode">
+
+
+        </div>
+
+    </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-body light-bg-grey">
+
+
+            <div class="row">
+             
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Medications</label>
+                        <input required type="checkbox" name="isMedications" #isMedications="ngModel" [(ngModel)]="model.isMedications">
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Dialysis</label>
+                        <input required type="checkbox" name="isDialysis" #isDialysis="ngModel" [(ngModel)]="model.isDialysis">
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Oxygen</label>
+                        <input required type="checkbox" name="isOxygen" #isOxygen="ngModel" [(ngModel)]="model.isOxygen">
+                    </div>
+                </div>
+           
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Aids</label> 
+                        <input required type="checkbox" name="isAids" #isAids="ngModel" [(ngModel)]="model.isAids">
+                    </div>
+                </div>
+
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Court Ordered</label>
+                        <input required type="checkbox" name="isAids" #isCourtOrdered="ngModel" [(ngModel)]="model.isCourtOrdered">
+                    </div>
+                </div>
+
+                <div class="col-sm-2 col-xs-6">
+                    <div class="form-group">
+                        <label class="mrs">Don't Resuscitate</label>
+                        <input required type="checkbox" name="isResuscitate" #isResuscitate="ngModel" [(ngModel)]="model.isResuscitate">
+                    </div>
+                </div>
             </div>
-        </li>
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Shelter
-                Address/Phone/Contact:</strong>
-            </p>
-            <div class="form-group">                            
-                <input required type="text" placeholder="Shelter" class="form-control" id="txtshelter" name="shelter" #shelter="ngModel" [(ngModel)]="model.shelter">
-            </div>
-        </li>
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Facility:</strong>
-            </p>
-            <div class="form-group">                            
-                <input required type="text" placeholder="Facility" class="form-control" id="txtfacility" name="facility" #facility="ngModel" [(ngModel)]="model.facility">
-            </div>
-        </li>
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Room:</strong>
-            </p>
-            <div class="form-group">                            
-                <input required type="text" placeholder="Room" class="form-control" id="txtroom" name="room" #room="ngModel" [(ngModel)]="model.room">
-            </div>
-        </li>
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Service Request Date:</strong>
-            </p>
-            <div class="form-group">  
-                <div class="input-icon right"><i class="fa fa-calendar"></i>                               
-                <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtserviceRequestDate" name="serviceRequestDate" #serviceRequestDate="ngModel" [(ngModel)]="model.serviceRequestDate" bsDatepicker >
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Notes</label>
+                        <textarea type="text" class="form-control" id="txtnotes" name="notes" #notes="ngModel" [(ngModel)]="model.notes"></textarea>
+                    </div>
+                </div>
             </div>
         </div>
-        </li>
-
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Plan Of Care Date :</strong>
-            </p>
-            <div class="form-group">      
-                <div class="input-icon right"><i class="fa fa-calendar"></i>                           
-                <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtcareDate" name="careDate" #careDate="ngModel" [(ngModel)]="model.careDate" bsDatepicker>
-            </div>
-        </div>
-        </li>
-
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Projected Discharge:</strong>
-            </p>
-            <div class="form-group">      
-                <div class="input-icon right"><i class="fa fa-calendar"></i>                         
-                <input required type="text" placeholder="dd-MM-YYYY" class="form-control" id="txtdischargeDate" name="dischargeDate" #dischargeDate="ngModel" [(ngModel)]="model.dischargeDate" bsDatepicker>
-            </div>            </div>
-        </li>
+    </div>
+</form>
 
 
-        <li class="list-group-item">                
-          
-            <p><strong class="mrs">Notes:</strong>
-            </p>
-            <div class="form-group">      
-                                    
-                <textarea  type="text"  class="form-control" id="txtnotes" name="notes" #notes="ngModel" [(ngModel)]="model.notes">
-                </textarea>  
-            </div>
-        </li>
 
-  
 
-    </ul>
-</div>
-</div>
-  
+
+
